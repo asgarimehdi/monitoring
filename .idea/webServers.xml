@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8d3d8815-b03b-4e5f-b29b-6e42bf0f2a57" name="monitoring.ir" url="http:/monitoring.ir">
+        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\monitoring" accessType="MOUNT" />
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>monitor</name>
+        <servers>
+          <name value="monitoring.ir" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>
