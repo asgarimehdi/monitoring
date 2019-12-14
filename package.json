@@ -20,17 +20,17 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.23.7",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue": "^2.6.11",
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "laravel-vue-pagination": "^2.3.1",
         "leaflet": "^1.6.0",
-        "leaflet-wms-header": "^1.0.7",
+        "leaflet-wms-header": "^1.0.8",
         "moment-jalaali": "^0.9.1",
         "sweetalert2": "^8.19.0",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
-        "vue2-leaflet": "^2.2.1"
+        "vue2-leaflet": "^2.3.0"
     }
 }
