@@ -38,6 +38,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isOstan',function($user){
             return $user->region_point->region_center->county_id === 9;
         });
+        Gate::define('isBimaGVagir',function($user){
+            return $user->group->id === 4;
+        });
 
 
     }

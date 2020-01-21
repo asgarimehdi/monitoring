@@ -46,13 +46,13 @@ window.Form=Form;
 Vue.component(HasError.name, HasError);
 Vue.component(AlertError.name, AlertError);
 //////////////////////
-Vue.component('map-component', require('./components/mapComponent.vue').default);
+//Vue.component('map-component', require('./components/mapComponent.vue').default);
 Vue.component('cold-chain', require('./components/ColdChain.vue').default);
 Vue.component('users-component', require('./components/Users.vue').default);
-Vue.component('test-component', require('./components/test.vue').default);
+//Vue.component('test-component', require('./components/test.vue').default);
 Vue.component('regions-component', require('./components/Regions.vue').default);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 const app = new Vue({
     el: '#app',
@@ -83,11 +83,11 @@ Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
-var moment = require('moment-jalaali')
+let moment = require('moment-jalaali');
 moment.loadPersian({dialect: 'persian-modern',usePersianDigits: true});
 
 Vue.filter('myDate',function(created){
     //return moment(created).format(' jMMMM  jD  HH:mm:ss');
-     return moment(created).fromNow();
+     return moment(created).add(3.5, 'hours').fromNow();
 
 });

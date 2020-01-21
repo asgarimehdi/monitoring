@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container">
-        <div id="isAdmin" v-if="$gate.isAdminOrGroup_admin()">
+        <div id="isAdmin" v-if="$gate.isAdmin()">
             <div class="row">
 
                 <div class="col-md-3">
@@ -30,11 +30,13 @@
                             <div class="row" v-if="$gate.isOstan()">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm"  @click="modalCounty" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-primary btn-sm" @click="modalCounty" data-toggle="modal"
+                                                data-target="#exampleModalCenter">
                                             <i class="fa fa-plus"></i>
                                         </button>
 
-                                        <button class="btn btn-warning btn-sm" @click="editmodalCounty" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-warning btn-sm" @click="editmodalCounty"
+                                                data-toggle="modal" data-target="#exampleModalCenter">
                                             <i class="fa fa-tag"></i>
                                         </button>
 
@@ -68,7 +70,7 @@
                         <div class="card-body">
 
                             <button class="btn btn-success btn-block btn-sm type" type="button" v-for="r in types"
-                                    :ref="'t'+r.id" @click="loadCenters(r.id)">{{r.name}}
+                                    :ref="'t'+r.id" v-if="$gate.isOstan() || r.id!=11" @click="loadCenters(r.id)">{{r.name}}
                             </button>
 
 
@@ -78,11 +80,13 @@
                             <div class="row" v-if="$gate.isOstan()">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm"  @click="modalType" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-primary btn-sm" @click="modalType" data-toggle="modal"
+                                                data-target="#exampleModalCenter">
                                             <i class="fa fa-plus"></i>
                                         </button>
 
-                                        <button class="btn btn-warning btn-sm" @click="editmodalType" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-warning btn-sm" @click="editmodalType"
+                                                data-toggle="modal" data-target="#exampleModalCenter">
                                             <i class="fa fa-tag"></i>
                                         </button>
 
@@ -126,11 +130,13 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm"  @click="modalCenter" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-primary btn-sm" @click="modalCenter" data-toggle="modal"
+                                                data-target="#exampleModalCenter">
                                             <i class="fa fa-plus"></i>
                                         </button>
 
-                                        <button class="btn btn-warning btn-sm" @click="editmodalCenter" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-warning btn-sm" @click="editmodalCenter"
+                                                data-toggle="modal" data-target="#exampleModalCenter">
                                             <i class="fa fa-tag"></i>
                                         </button>
 
@@ -163,7 +169,8 @@
                         </div>
                         <div class="card-body">
                             <div v-if="points[0]">
-                                <button class="btn btn-success btn-block btn-sm po" type="button" @click="pointed(r.id)" v-for="r in points" :ref="'po'+r.id"
+                                <button class="btn btn-success btn-block btn-sm po" type="button" @click="pointed(r.id)"
+                                        v-for="r in points" :ref="'po'+r.id"
                                         :value="r.id">{{r.name}}
                                 </button>
                             </div>
@@ -175,11 +182,13 @@
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
-                                        <button class="btn btn-primary btn-sm"  @click="modalPoint" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-primary btn-sm" @click="modalPoint" data-toggle="modal"
+                                                data-target="#exampleModalCenter">
                                             <i class="fa fa-plus"></i>
                                         </button>
 
-                                        <button class="btn btn-warning btn-sm" @click="editmodalPoint" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <button class="btn btn-warning btn-sm" @click="editmodalPoint"
+                                                data-toggle="modal" data-target="#exampleModalCenter">
                                             <i class="fa fa-tag"></i>
                                         </button>
 
@@ -196,7 +205,7 @@
                 </div>
 
             </div> <!-- end row -->
- <!-- Modal county -->
+            <!-- Modal county -->
             <div class="modal rtl fade" id="modalCounty" tabindex="-1" role="dialog" aria-labelledby="addNewLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -239,7 +248,7 @@
                     </div>
                 </div>
             </div><!-- /Modal county -->
- <!-- Modal type -->
+            <!-- Modal type -->
             <div class="modal rtl fade" id="modalType" tabindex="-1" role="dialog" aria-labelledby="addNewLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -270,7 +279,7 @@
                     </div>
                 </div>
             </div><!-- /Modal county -->
- <!-- Modal center -->
+            <!-- Modal center -->
             <div class="modal rtl fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="addNewLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -301,7 +310,7 @@
                     </div>
                 </div>
             </div><!-- /Modal county -->
- <!-- Modal point -->
+            <!-- Modal point -->
             <div class="modal rtl fade" id="modalPoint" tabindex="-1" role="dialog" aria-labelledby="addNewLabel"
                  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -350,7 +359,7 @@
             </div><!-- /Modal county -->
 
         </div> <!-- end is admin -->
-        <div v-if="!$gate.isAdminOrGroup_admin()">
+        <div v-if="!$gate.isAdmin()">
             <not-found></not-found>
         </div>
 
@@ -382,26 +391,25 @@
                 sel2: '',
                 sel3: '',
                 sel4: '',
-                editmode:false,
+                editmode: false,
                 form: new Form({
-                    id:'',
+                    id: '',
                     name: '',
-                    county_id:'',
-                    type_id:'',
-                    center_id:'',
-                    lat:'',
-                    lng:'',
-                    device_id:'',
+                    county_id: '',
+                    type_id: '',
+                    center_id: '',
+                    lat: '',
+                    lng: '',
+                    device_id: '',
 
                 }),
-                countyById:[],
-                centerByCountyId:{},
-                typeById:[],
-                centerByTypeId:{},
-                centerById:[],
-                pointByCenterId:{},
-                pointById:[],
-
+                countyById: [],
+                centerByCountyId: {},
+                typeById: [],
+                centerByTypeId: {},
+                centerById: [],
+                pointByCenterId: {},
+                pointById: [],
 
 
             }
@@ -426,7 +434,7 @@
                         title: 'خطایی در لود اطلاعات رخ داد'
                     });
                 });
-                axios.get("api/county/"+county_id).then(({data}) => (this.countyById = data)).then(() => {
+                axios.get("api/county/" + county_id).then(({data}) => (this.countyById = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
@@ -470,7 +478,7 @@
                         title: 'خطایی در لود اطلاعات رخ داد'
                     });
                 });
-                axios.get("api/type/"+type_id).then(({data}) => (this.typeById = data)).then(() => {
+                axios.get("api/type/" + type_id).then(({data}) => (this.typeById = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
@@ -479,13 +487,13 @@
                 });
                 this.centerIsNotActive = false;
                 this.pointIsNotActive = true;
-                this.type_id=type_id;
+                this.type_id = type_id;
 
                 //start reest for next type selection
-                this.center_id= '';
-                this.centerByCountyId={};
-                this.centerByTypeId={};
-                this.centerById=[];
+                this.center_id = '';
+                this.centerByCountyId = {};
+                this.centerByTypeId = {};
+                this.centerById = [];
                 this.sel3 = this.$el.querySelector('.center.btn-warning');
                 if (this.sel3) {
                     this.sel3.classList.remove('btn-warning');
@@ -513,7 +521,7 @@
                     });
                 });
 
-                axios.get("api/center/"+center_id).then(({data}) => (this.centerById = data)).then(() => {
+                axios.get("api/center/" + center_id).then(({data}) => (this.centerById = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
@@ -527,12 +535,12 @@
                     this.sel4.classList.remove('btn-warning');
                     this.sel4.classList.add('btn-success');
                 }
-                this.pointByCenterId={};
-                this.pointById=[];
-                this.point_id='';
+                this.pointByCenterId = {};
+                this.pointById = [];
+                this.point_id = '';
                 //end reset for next center selection
 
-                this.center_id=center_id;
+                this.center_id = center_id;
                 this.pointIsNotActive = false;
                 this.sel3 = this.$el.querySelector('.center.btn-warning');
                 if (this.sel3) {
@@ -545,14 +553,14 @@
 
             },
             pointed(point_id) {
-                axios.get("api/point/"+point_id).then(({data}) => (this.pointById = data)).then(() => {
+                axios.get("api/point/" + point_id).then(({data}) => (this.pointById = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
                         title: 'خطایی در لود اطلاعات رخ داد'
                     });
                 });
-                this.point_id=point_id;
+                this.point_id = point_id;
                 this.sel4 = this.$el.querySelector('.po.btn-warning');
                 if (this.sel4) {
                     this.sel4.classList.remove('btn-warning');
@@ -563,94 +571,90 @@
                 this.$refs['po' + point_id][0].classList.remove('btn-success');
 
             },
-            modalCounty(){
-                this.editmode=false;
+            modalCounty() {
+                this.editmode = false;
                 this.form.reset();
                 $('#modalCounty').modal('show');
             },
-            modalType(){
-                this.editmode=false;
+            modalType() {
+                this.editmode = false;
                 this.form.reset();
                 $('#modalType').modal('show');
             },
-            modalCenter(){
-                this.editmode=false;
+            modalCenter() {
+                this.editmode = false;
                 this.form.reset();
                 $('#modalCenter').modal('show');
             },
-            modalPoint(){
-                this.editmode=false;
+            modalPoint() {
+                this.editmode = false;
                 this.form.reset();
                 $('#modalPoint').modal('show');
             },
-            editmodalCounty(){
-            if(this.countyById.id){
-                //console.log();
-                this.editmode=true;
-                this.form.reset();
-                $('#modalCounty').modal('show');
-                this.form.fill(this.countyById);
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
-                });
-            }
+            editmodalCounty() {
+                if (this.countyById.id) {
+                    //console.log();
+                    this.editmode = true;
+                    this.form.reset();
+                    $('#modalCounty').modal('show');
+                    this.form.fill(this.countyById);
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
+                    });
+                }
 
             },
-            editmodalType(){
-            if(this.typeById.id){
-                //console.log();
-                this.editmode=true;
-                this.form.reset();
-                $('#modalType').modal('show');
-                this.form.fill(this.typeById);
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
-                });
-            }
+            editmodalType() {
+                if (this.typeById.id) {
+                    //console.log();
+                    this.editmode = true;
+                    this.form.reset();
+                    $('#modalType').modal('show');
+                    this.form.fill(this.typeById);
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
+                    });
+                }
 
             },
-            editmodalCenter(){
-            if(this.centerById.id){
-                //console.log();
-                this.editmode=true;
-                this.form.reset();
-                $('#modalCenter').modal('show');
-                this.form.fill(this.centerById);
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
-                });
-            }
+            editmodalCenter() {
+                if (this.centerById.id) {
+                    //console.log();
+                    this.editmode = true;
+                    this.form.reset();
+                    $('#modalCenter').modal('show');
+                    this.form.fill(this.centerById);
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
+                    });
+                }
 
             },
-            editmodalPoint(){
-            if(this.pointById.id){
-                //console.log();
-                this.editmode=true;
-                this.form.reset();
-                $('#modalPoint').modal('show');
-                this.form.fill(this.pointById);
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
-                });
-            }
+            editmodalPoint() {
+                if (this.pointById.id) {
+                    //console.log();
+                    this.editmode = true;
+                    this.form.reset();
+                    $('#modalPoint').modal('show');
+                    this.form.fill(this.pointById);
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای ویرایش انتخاب نمائید'
+                    });
+                }
 
             },
-            createCounty(){
+            createCounty() {
                 this.$Progress.start();
                 this.form.post('api/county')
-                    .then(()=>{
+                    .then(() => {
                         this.$emit('CountyTableChanged');
                         $('#modalCounty').modal('hide');
                         toast.fire({
@@ -660,13 +664,14 @@
                         this.$Progress.finish();
 
                     })
-                    .catch(()=>{});
+                    .catch(() => {
+                    });
 
             },
-            createType(){
+            createType() {
                 this.$Progress.start();
                 this.form.post('api/type')
-                    .then(()=>{
+                    .then(() => {
                         this.$emit('TypeTableChanged');
                         $('#modalType').modal('hide');
                         toast.fire({
@@ -676,15 +681,16 @@
                         this.$Progress.finish();
 
                     })
-                    .catch(()=>{});
+                    .catch(() => {
+                    });
 
             },
-            createCenter(){
+            createCenter() {
                 this.$Progress.start();
-                this.form.county_id=this.county_id;
-                this.form.type_id=this.type_id;
+                this.form.county_id = this.county_id;
+                this.form.type_id = this.type_id;
                 this.form.post('api/center')
-                    .then(()=>{
+                    .then(() => {
                         this.$emit('CenterTableChanged');
                         $('#modalCenter').modal('hide');
                         toast.fire({
@@ -694,14 +700,15 @@
                         this.$Progress.finish();
 
                     })
-                    .catch(()=>{});
+                    .catch(() => {
+                    });
 
             },
-            createPoint(){
+            createPoint() {
                 this.$Progress.start();
-                this.form.center_id=this.center_id;
+                this.form.center_id = this.center_id;
                 this.form.post('api/point')
-                    .then(()=>{
+                    .then(() => {
                         this.$emit('PointTableChanged');
                         $('#modalPoint').modal('hide');
                         toast.fire({
@@ -711,16 +718,16 @@
                         this.$Progress.finish();
 
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.$Progress.fail();
                     });
 
             },
-            updateCounty(){
+            updateCounty() {
                 this.$Progress.start();
                 //console.log('editmode');
-                this.form.put('api/county/'+this.form.id)
-                    .then(()=>{
+                this.form.put('api/county/' + this.form.id)
+                    .then(() => {
                         this.$emit('CountyTableChanged');
                         $('#modalCounty').modal('hide');
                         toast.fire({
@@ -729,16 +736,16 @@
                         });
                         this.$Progress.finish();
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.$Progress.fail();
                     });
 
             },
-            updateType(){
+            updateType() {
                 this.$Progress.start();
                 //console.log('editmode');
-                this.form.put('api/type/'+this.form.id)
-                    .then(()=>{
+                this.form.put('api/type/' + this.form.id)
+                    .then(() => {
                         this.$emit('TypeTableChanged');
                         $('#modalType').modal('hide');
                         toast.fire({
@@ -747,16 +754,16 @@
                         });
                         this.$Progress.finish();
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.$Progress.fail();
                     });
 
             },
-            updateCenter(){
+            updateCenter() {
                 this.$Progress.start();
                 //console.log('editmode');
-                this.form.put('api/center/'+this.form.id)
-                    .then(()=>{
+                this.form.put('api/center/' + this.form.id)
+                    .then(() => {
                         this.$emit('CenterTableChanged');
                         $('#modalCenter').modal('hide');
                         toast.fire({
@@ -765,16 +772,16 @@
                         });
                         this.$Progress.finish();
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.$Progress.fail();
                     });
 
             },
-            updatePoint(){
+            updatePoint() {
                 this.$Progress.start();
                 //console.log('editmode');
-                this.form.put('api/point/'+this.form.id)
-                    .then(()=>{
+                this.form.put('api/point/' + this.form.id)
+                    .then(() => {
                         this.$emit('PointTableChanged');
                         $('#modalPoint').modal('hide');
                         toast.fire({
@@ -783,215 +790,211 @@
                         });
                         this.$Progress.finish();
                     })
-                    .catch(()=>{
+                    .catch(() => {
                         this.$Progress.fail();
                     });
 
             },
             deleteCounty(id) {
-            if(id){
-                axios.get("api/center/county/"+id).then(({data}) => (this.centerByCountyId = data)).then(() => {
-                    if(this.centerByCountyId[0].id){
+                if (id) {
+                    axios.get("api/center/county/" + id).then(({data}) => (this.centerByCountyId = data)).then(() => {
+                        if (this.centerByCountyId[0].id) {
 
-                        swal.fire(
-                            'اخطار',
-                            'ابتدا مراکز زیر مجموعه را حذف نمائید',
-                            'warning'
-                        );
-                    }
-
-                }).catch(() => {
-
-                });
-
-
-                swal.fire({
-                    title: 'آیا اطمینان دارید؟',
-                    text: "این عملیات غیر قابل بازگشت است",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'بله حذف کن!',
-                    cancelButtonText: 'بیخیال'
-                }).then((result) => {
-                    if (result.value) {
-                        this.form.delete('/api/county/' + id).then(() => {
                             swal.fire(
-                                'پاک شد',
-                                'با موفقیت حذف شد',
-                                'success'
+                                'اخطار',
+                                'ابتدا مراکز زیر مجموعه را حذف نمائید',
+                                'warning'
                             );
-                            this.$emit('CountyTableChanged');
-                            this.county_id='';
-                        }).catch(() => {
-                            swal("Failed!", "خطایی رخ داده", "warning");
-                        });
+                        }
 
-                    }
-                })
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای حذف انتخاب نمائید'
-                });
-            }
+                    }).catch(() => {
+
+                    });
+
+
+                    swal.fire({
+                        title: 'آیا اطمینان دارید؟',
+                        text: "این عملیات غیر قابل بازگشت است",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'بله حذف کن!',
+                        cancelButtonText: 'بیخیال'
+                    }).then((result) => {
+                        if (result.value) {
+                            this.form.delete('/api/county/' + id).then(() => {
+                                swal.fire(
+                                    'پاک شد',
+                                    'با موفقیت حذف شد',
+                                    'success'
+                                );
+                                this.$emit('CountyTableChanged');
+                                this.county_id = '';
+                            }).catch(() => {
+                                swal("Failed!", "خطایی رخ داده", "warning");
+                            });
+
+                        }
+                    })
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای حذف انتخاب نمائید'
+                    });
+                }
             },
             deleteType(id) {
-            if(id){
-                axios.get("api/center/type/"+id).then(({data}) => (this.centerByTypeId = data)).then(() => {
-                    if(this.centerByTypeId[0].id){
+                if (id) {
+                    axios.get("api/center/type/" + id).then(({data}) => (this.centerByTypeId = data)).then(() => {
+                        if (this.centerByTypeId[0].id) {
 
-                        swal.fire(
-                            'اخطار',
-                            'ابتدا مراکز زیر مجموعه را حذف نمائید',
-                            'warning'
-                        );
-                    }
-
-                }).catch(() => {
-
-                });
-
-
-                swal.fire({
-                    title: 'آیا اطمینان دارید؟',
-                    text: "این عملیات غیر قابل بازگشت است",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'بله حذف کن!',
-                    cancelButtonText: 'بیخیال'
-                }).then((result) => {
-                    if (result.value) {
-                        this.form.delete('/api/type/' + id).then(() => {
                             swal.fire(
-                                'پاک شد',
-                                'با موفقیت حذف شد',
-                                'success'
+                                'اخطار',
+                                'ابتدا مراکز زیر مجموعه را حذف نمائید',
+                                'warning'
                             );
-                            this.$emit('TypeTableChanged');
-                            this.type_id='';
-                        }).catch(() => {
-                            swal("Failed!", "خطایی رخ داده", "warning");
-                        });
+                        }
 
-                    }
-                })
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای حذف انتخاب نمائید'
-                });
-            }
+                    }).catch(() => {
+
+                    });
+
+
+                    swal.fire({
+                        title: 'آیا اطمینان دارید؟',
+                        text: "این عملیات غیر قابل بازگشت است",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'بله حذف کن!',
+                        cancelButtonText: 'بیخیال'
+                    }).then((result) => {
+                        if (result.value) {
+                            this.form.delete('/api/type/' + id).then(() => {
+                                swal.fire(
+                                    'پاک شد',
+                                    'با موفقیت حذف شد',
+                                    'success'
+                                );
+                                this.$emit('TypeTableChanged');
+                                this.type_id = '';
+                            }).catch(() => {
+                                swal("Failed!", "خطایی رخ داده", "warning");
+                            });
+
+                        }
+                    })
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای حذف انتخاب نمائید'
+                    });
+                }
             },
             deleteCenter(id) {
-            if(id){
-                axios.get("api/point/center/"+id).then(({data}) => (this.pointByCenterId = data)).then(() => {
-                    if(this.pointByCenterId[0].id){
+                if (id) {
+                    axios.get("api/point/center/" + id).then(({data}) => (this.pointByCenterId = data)).then(() => {
+                        if (this.pointByCenterId[0].id) {
 
-                        swal.fire(
-                            'اخطار',
-                            'ابتدا مراکز زیر مجموعه را حذف نمائید',
-                            'warning'
-                        );
-                    }
-
-                }).catch(() => {
-
-                });
-
-
-                swal.fire({
-                    title: 'آیا اطمینان دارید؟',
-                    text: "این عملیات غیر قابل بازگشت است",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'بله حذف کن!',
-                    cancelButtonText: 'بیخیال'
-                }).then((result) => {
-                    if (result.value) {
-                        this.form.delete('/api/center/' + id).then(() => {
                             swal.fire(
-                                'پاک شد',
-                                'با موفقیت حذف شد',
-                                'success'
+                                'اخطار',
+                                'ابتدا مراکز زیر مجموعه را حذف نمائید',
+                                'warning'
                             );
-                            this.$emit('CenterTableChanged');
-                            this.type_id='';
-                        }).catch(() => {
-                            swal("Failed!", "خطایی رخ داده", "warning");
-                        });
+                        }
 
-                    }
-                })
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای حذف انتخاب نمائید'
-                });
-            }
+                    }).catch(() => {
+
+                    });
+
+
+                    swal.fire({
+                        title: 'آیا اطمینان دارید؟',
+                        text: "این عملیات غیر قابل بازگشت است",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'بله حذف کن!',
+                        cancelButtonText: 'بیخیال'
+                    }).then((result) => {
+                        if (result.value) {
+                            this.form.delete('/api/center/' + id).then(() => {
+                                swal.fire(
+                                    'پاک شد',
+                                    'با موفقیت حذف شد',
+                                    'success'
+                                );
+                                this.$emit('CenterTableChanged');
+                                this.type_id = '';
+                            }).catch(() => {
+                                swal("Failed!", "خطایی رخ داده", "warning");
+                            });
+
+                        }
+                    })
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای حذف انتخاب نمائید'
+                    });
+                }
             },
             deletePoint(id) {
-            if(id){
-                swal.fire({
-                    title: 'آیا اطمینان دارید؟',
-                    text: "این عملیات غیر قابل بازگشت است",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'بله حذف کن!',
-                    cancelButtonText: 'بیخیال'
-                }).then((result) => {
-                    if (result.value) {
-                        this.form.delete('/api/point/' + id).then(() => {
-                            swal.fire(
-                                'پاک شد',
-                                'با موفقیت حذف شد',
-                                'success'
-                            );
-                            this.$emit('PointTableChanged');
-                            this.point_id='';
-                        }).catch(() => {
-                            swal("Failed!", "خطایی رخ داده", "warning");
-                        });
+                if (id) {
+                    swal.fire({
+                        title: 'آیا اطمینان دارید؟',
+                        text: "این عملیات غیر قابل بازگشت است",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'بله حذف کن!',
+                        cancelButtonText: 'بیخیال'
+                    }).then((result) => {
+                        if (result.value) {
+                            this.form.delete('/api/point/' + id).then(() => {
+                                swal.fire(
+                                    'پاک شد',
+                                    'با موفقیت حذف شد',
+                                    'success'
+                                );
+                                this.$emit('PointTableChanged');
+                                this.point_id = '';
+                            }).catch(() => {
+                                swal("Failed!", "خطایی رخ داده", "warning");
+                            });
 
-                    }
-                })
-            }
-            else{
-                toast.fire({
-                    type: 'error',
-                    title: 'لطفا یک مورد برای حذف انتخاب نمائید'
-                });
-            }
+                        }
+                    })
+                } else {
+                    toast.fire({
+                        type: 'error',
+                        title: 'لطفا یک مورد برای حذف انتخاب نمائید'
+                    });
+                }
             },
         },
 
 
         created() {
             this.loadCounties();
-            this.$on('CountyTableChanged',()=>{
+            this.$on('CountyTableChanged', () => {
                 this.loadCounties();
                 this.typeIsNotActive = true;
                 //this.loadTypes(this.county_id);
             });
-            this.$on('TypeTableChanged',()=>{
+            this.$on('TypeTableChanged', () => {
                 //this.loadCounties();
                 this.loadTypes(this.county_id);
             });
-            this.$on('CenterTableChanged',()=>{
+            this.$on('CenterTableChanged', () => {
                 //this.loadCounties();
                 this.loadCenters(this.type_id);
             });
-            this.$on('PointTableChanged',()=>{
+            this.$on('PointTableChanged', () => {
                 //this.loadCounties();
                 this.loadPoints(this.center_id);
             });

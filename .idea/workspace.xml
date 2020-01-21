@@ -1,7 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="" />
+    <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/change-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/monitoring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/monitoring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Gate.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Gate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ColdChain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ColdChain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/MapComponent.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Regions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Regions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Users.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/test.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/node_modules/" />
+    <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
+    <ignored path="$PROJECT_DIR$/vendor/composer/" />
+    <ignored path="$PROJECT_DIR$/vendor/defuse/php-encryption/" />
+    <ignored path="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/inflector/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/instantiator/" />
+    <ignored path="$PROJECT_DIR$/vendor/doctrine/lexer/" />
+    <ignored path="$PROJECT_DIR$/vendor/dragonmantank/cron-expression/" />
+    <ignored path="$PROJECT_DIR$/vendor/egulias/email-validator/" />
+    <ignored path="$PROJECT_DIR$/vendor/fideloper/proxy/" />
+    <ignored path="$PROJECT_DIR$/vendor/filp/whoops/" />
+    <ignored path="$PROJECT_DIR$/vendor/firebase/php-jwt/" />
+    <ignored path="$PROJECT_DIR$/vendor/fzaninotto/faker/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/guzzle/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/promises/" />
+    <ignored path="$PROJECT_DIR$/vendor/guzzlehttp/psr7/" />
+    <ignored path="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php/" />
+    <ignored path="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color/" />
+    <ignored path="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter/" />
+    <ignored path="$PROJECT_DIR$/vendor/laravel/framework/" />
+    <ignored path="$PROJECT_DIR$/vendor/laravel/passport/" />
+    <ignored path="$PROJECT_DIR$/vendor/laravel/tinker/" />
+    <ignored path="$PROJECT_DIR$/vendor/lcobucci/jwt/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/commonmark/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/commonmark-ext-table/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/event/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/flysystem/" />
+    <ignored path="$PROJECT_DIR$/vendor/league/oauth2-server/" />
+    <ignored path="$PROJECT_DIR$/vendor/mockery/mockery/" />
+    <ignored path="$PROJECT_DIR$/vendor/monolog/monolog/" />
+    <ignored path="$PROJECT_DIR$/vendor/myclabs/deep-copy/" />
+    <ignored path="$PROJECT_DIR$/vendor/nesbot/carbon/" />
+    <ignored path="$PROJECT_DIR$/vendor/nikic/php-parser/" />
+    <ignored path="$PROJECT_DIR$/vendor/nunomaduro/collision/" />
+    <ignored path="$PROJECT_DIR$/vendor/opis/closure/" />
+    <ignored path="$PROJECT_DIR$/vendor/orangehill/iseed/" />
+    <ignored path="$PROJECT_DIR$/vendor/paragonie/random_compat/" />
+    <ignored path="$PROJECT_DIR$/vendor/phar-io/manifest/" />
+    <ignored path="$PROJECT_DIR$/vendor/phar-io/version/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpoption/phpoption/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpseclib/phpseclib/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpspec/prophecy/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-file-iterator/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-text-template/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-timer/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-token-stream/" />
+    <ignored path="$PROJECT_DIR$/vendor/phpunit/phpunit/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/container/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/http-factory/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/http-message/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/log/" />
+    <ignored path="$PROJECT_DIR$/vendor/psr/simple-cache/" />
+    <ignored path="$PROJECT_DIR$/vendor/psy/psysh/" />
+    <ignored path="$PROJECT_DIR$/vendor/ralouphie/getallheaders/" />
+    <ignored path="$PROJECT_DIR$/vendor/ramsey/uuid/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/comparator/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/diff/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/environment/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/exporter/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/global-state/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/object-enumerator/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/object-reflector/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/recursion-context/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/resource-operations/" />
+    <ignored path="$PROJECT_DIR$/vendor/sebastian/version/" />
+    <ignored path="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/console/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/css-selector/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/debug/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/error-handler/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/finder/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-foundation/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/http-kernel/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/mime/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php72/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php73/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/process/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/routing/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/service-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/translation/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/translation-contracts/" />
+    <ignored path="$PROJECT_DIR$/vendor/symfony/var-dumper/" />
+    <ignored path="$PROJECT_DIR$/vendor/theseer/tokenizer/" />
+    <ignored path="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles/" />
+    <ignored path="$PROJECT_DIR$/vendor/vlucas/phpdotenv/" />
+    <ignored path="$PROJECT_DIR$/vendor/webmozart/assert/" />
+    <ignored path="$PROJECT_DIR$/vendor/zendframework/zend-diactoros/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,9 +132,6 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -38,7 +158,8 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/public/PersianAdminLTE" />
+    <option name="ROOT_SYNC" value="SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -51,7 +172,6 @@
       <path value="$PROJECT_DIR$/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
-      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
@@ -146,7 +266,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/vendor/league/commonmark-ext-table" />
     </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="13" />
+    <option name="y" value="11" />
+    <option name="width" value="1260" />
+    <option name="height" value="954" />
   </component>
   <component name="ProjectId" id="1SH9xDGqtB4YN6IUm4pZWRiRwij" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -171,6 +299,18 @@
       <recent name="C:\xampp\htdocs\monitoring\resources\views" />
       <recent name="C:\xampp\htdocs\monitoring\database\seeds" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -311,8 +451,49 @@
       <workItem from="1575748443608" duration="130000" />
       <workItem from="1575748654620" duration="2455000" />
       <workItem from="1575779262150" duration="1086000" />
+      <workItem from="1578770705803" duration="342000" />
+      <workItem from="1578771127290" duration="2962000" />
+      <workItem from="1579031328626" duration="1916000" />
+      <workItem from="1579101337988" duration="1081000" />
+      <workItem from="1579115314428" duration="76000" />
+      <workItem from="1579115416219" duration="832000" />
+      <workItem from="1579275843834" duration="5165000" />
+      <workItem from="1579291470013" duration="1290000" />
+      <workItem from="1579342265224" duration="395000" />
+      <workItem from="1579357721486" duration="1619000" />
+      <workItem from="1579375438480" duration="2033000" />
+      <workItem from="1579461739598" duration="4950000" />
+      <workItem from="1579623366262" duration="555000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="555000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1010" extended-state="7" />
+    <layout>
+      <window_info id="npm" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -323,6 +504,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -349,6 +536,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1575748686557" />
+    <state x="0" y="0" key="#Updates" timestamp="1579031946504">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="#Updates/0.0.1366.728@0.0.1366.728" timestamp="1579031946504" />
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578770856746">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1578770856746" />
     <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575779456920">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

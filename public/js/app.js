@@ -1822,9 +1822,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1867,7 +1864,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {})["catch"](function () {
         toast.fire({
           type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
+          title: 'خطایی در لود لیست شهرستان رخ داد'
         });
       });
     },
@@ -1923,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function () {
         toast.fire({
           type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
+          title: 'خطایی در لود دمای نقاط رخ داد'
         });
       });
     },
@@ -1965,127 +1962,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      users_count: ''
-    };
-  },
-  methods: {
-    loadUsers: function loadUsers() {
-      var _this = this;
-
-      axios.get("api/usercount").then(function (_ref) {
-        var data = _ref.data;
-        return _this.users_count = data;
-      });
-    }
-  },
-  mounted: function mounted() {
-    this.loadUsers();
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NotFound.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NotFound.vue?vue&type=script&lang=js& ***!
@@ -2121,6 +1997,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3349,6 +3234,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3459,7 +3349,7 @@ __webpack_require__.r(__webpack_exports__);
     loadUsers: function loadUsers() {
       var _this4 = this;
 
-      if (this.$gate.isAdminOrGroup_admin()) {
+      if (this.$gate.isAdmin()) {
         this.$Progress.start();
         axios.get("api/user").then(function (_ref) {
           var data = _ref.data;
@@ -3627,217 +3517,6 @@ __webpack_require__.r(__webpack_exports__);
       _this12.point_selected = true;
     }); // setInterval(()=>this.loadUsers(),5000);
   }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mapComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/mapComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'app',
-  components: {
-    LMap: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LMap"],
-    LTileLayer: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LTileLayer"],
-    LMarker: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LMarker"]
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/test.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      roles: {},
-      groups: {},
-      regions: {},
-      role: '',
-      group: '',
-      region: ''
-    };
-  },
-  methods: {
-    loadRoles: function loadRoles() {
-      var _this = this;
-
-      axios.get("api/roleList").then(function (_ref) {
-        var data = _ref.data;
-        return _this.roles = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadNames: function loadNames() {
-      var _this2 = this;
-
-      axios.get("api/groupList").then(function (_ref2) {
-        var data = _ref2.data;
-        return _this2.groups = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadRegions: function loadRegions() {
-      var _this3 = this;
-
-      axios.get("api/regionList").then(function (_ref3) {
-        var data = _ref3.data;
-        return _this3.regions = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    }
-  },
-  computed: {
-    now: function now() {
-      return Date.now();
-    }
-  },
-  created: function created() {
-    this.loadRegions();
-  } // setInterval(()=>this.loadUsers(),5000);
-
 });
 
 /***/ }),
@@ -77575,17 +77254,19 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.counties, function(r) {
-                                return _c(
-                                  "option",
-                                  { domProps: { value: r.id } },
-                                  [
-                                    _vm._v(
-                                      "\n                                " +
-                                        _vm._s(r.name) +
-                                        "\n                            "
+                                return r.id != 9
+                                  ? _c(
+                                      "option",
+                                      { domProps: { value: r.id } },
+                                      [
+                                        _vm._v(
+                                          "\n                                " +
+                                            _vm._s(r.name) +
+                                            "\n                            "
+                                        )
+                                      ]
                                     )
-                                  ]
-                                )
+                                  : _vm._e()
                               })
                             ],
                             2
@@ -77670,16 +77351,6 @@ var render = function() {
                                     ) +
                                     "\n                        "
                                 ),
-                                _c("br"),
-                                _vm._v(
-                                  "\n\n                        " +
-                                    _vm._s(
-                                      _vm.connectionChack(
-                                        marker.device.updated_at
-                                      )
-                                    ) +
-                                    "\n\n                        "
-                                ),
                                 _c("br")
                               ]
                             ),
@@ -77736,162 +77407,6 @@ var staticRenderFns = [
           },
           [_c("i", { staticClass: "fa fa-times" })]
         )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card card-default" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "row" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-3 col-6" }, [
-                  _c("div", { staticClass: "small-box bg-warning" }, [
-                    _c("div", { staticClass: "inner" }, [
-                      _c("h3", [_vm._v(_vm._s(_vm.users_count))]),
-                      _vm._v(" "),
-                      _c("p", [_vm._v("کل کاربران سامانه")])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3),
-                    _vm._v(" "),
-                    _vm._m(4)
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(5)
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header rtl" }, [
-      _c("b", [_vm._v("داشبورد آماری")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-6" }, [
-      _c("div", { staticClass: "small-box bg-info" }, [
-        _c("div", { staticClass: "inner" }, [
-          _c("h3", [_vm._v("150")]),
-          _vm._v(" "),
-          _c("p", [_vm._v("New Orders")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icon" }, [
-          _c("i", { staticClass: "fas fa-users" })
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-          _vm._v("\n                                        More info "),
-          _c("i", { staticClass: "fa fa-arrow-circle-right" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-6" }, [
-      _c("div", { staticClass: "small-box bg-success" }, [
-        _c("div", { staticClass: "inner" }, [
-          _c("h3", [
-            _vm._v("53"),
-            _c("sup", { staticStyle: { "font-size": "20px" } }, [_vm._v("%")])
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Bounce Rate")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icon" }, [
-          _c("i", { staticClass: "fas fa-cog" })
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-          _vm._v("\n                                        More info "),
-          _c("i", { staticClass: "fa fa-arrow-circle-right" })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fab fa-servicestack" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-      _vm._v("\n                                        More info "),
-      _c("i", { staticClass: "fa fa-arrow-circle-right" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3 col-6" }, [
-      _c("div", { staticClass: "small-box bg-danger" }, [
-        _c("div", { staticClass: "inner" }, [
-          _c("h3", [_vm._v("65")]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Unique Visitors")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icon" }, [
-          _c("i", { staticClass: "fas fa-tachometer-alt" })
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
-          _vm._v("\n                                        More info "),
-          _c("i", { staticClass: "fa fa-arrow-circle-right" })
-        ])
       ])
     ])
   }
@@ -79666,7 +79181,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm.$gate.isAdminOrGroup_admin()
+    _vm.$gate.isAdmin()
       ? _c("div", { attrs: { id: "isAdmin" } }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-3" }, [
@@ -79690,7 +79205,7 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v(_vm._s(r.name) + "\n                           ")]
+                      [_vm._v(_vm._s(r.name) + "\n                        ")]
                     )
                   }),
                   0
@@ -79761,25 +79276,28 @@ var render = function() {
                     "div",
                     { staticClass: "card-body" },
                     _vm._l(_vm.types, function(r) {
-                      return _c(
-                        "button",
-                        {
-                          ref: "t" + r.id,
-                          refInFor: true,
-                          staticClass: "btn btn-success btn-block btn-sm type",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.loadCenters(r.id)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(r.name) + "\n                           "
+                      return _vm.$gate.isOstan() || r.id != 11
+                        ? _c(
+                            "button",
+                            {
+                              ref: "t" + r.id,
+                              refInFor: true,
+                              staticClass:
+                                "btn btn-success btn-block btn-sm type",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.loadCenters(r.id)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(r.name) + "\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
+                        : _vm._e()
                     }),
                     0
                   ),
@@ -79869,7 +79387,7 @@ var render = function() {
                                   [
                                     _vm._v(
                                       _vm._s(r.name) +
-                                        "\n                               "
+                                        "\n                            "
                                     )
                                   ]
                                 )
@@ -79962,7 +79480,7 @@ var render = function() {
                               [
                                 _vm._v(
                                   _vm._s(r.name) +
-                                    "\n                               "
+                                    "\n                            "
                                 )
                               ]
                             )
@@ -80913,9 +80431,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    !_vm.$gate.isAdminOrGroup_admin()
-      ? _c("div", [_c("not-found")], 1)
-      : _vm._e()
+    !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -80927,7 +80443,7 @@ var staticRenderFns = [
       _c("h3", { staticClass: "card-title" }, [
         _c("i", { staticClass: "fa fa-university yellow" }),
         _vm._v(
-          "\n                               شهرستانها\n                           "
+          "\n                            شهرستانها\n                        "
         )
       ]),
       _vm._v(" "),
@@ -80952,7 +80468,7 @@ var staticRenderFns = [
         _c("i", { staticClass: "fa fa-building " }),
         _vm._v(" "),
         _vm._v(
-          "\n                               نوع مکانها\n                           "
+          "\n                            نوع مکانها\n                        "
         )
       ]),
       _vm._v(" "),
@@ -80976,9 +80492,7 @@ var staticRenderFns = [
       _c("h3", { staticClass: "card-title" }, [
         _c("i", { staticClass: "fa fa-hospital-o yellow" }),
         _vm._v(" "),
-        _vm._v(
-          "\n                               مراکز\n                           "
-        )
+        _vm._v("\n                            مراکز\n                        ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
@@ -81001,9 +80515,7 @@ var staticRenderFns = [
       _c("h3", { staticClass: "card-title" }, [
         _c("i", { staticClass: "fa fa-home " }),
         _vm._v(" "),
-        _vm._v(
-          "\n                               نقاط\n                           "
-        )
+        _vm._v("\n                            نقاط\n                        ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-tools" }, [
@@ -81041,7 +80553,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm.$gate.isAdminOrGroup_admin()
+    _vm.$gate.isAdmin()
       ? _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("div", { staticClass: "card" }, [
@@ -81060,7 +80572,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n              ایجاد کاربر جدید\n              "
+                        "\n                            ایجاد کاربر جدید\n                            "
                       ),
                       _c("i", { staticClass: "fa fa-user-plus fa-fw" })
                     ]
@@ -81100,7 +80612,9 @@ var render = function() {
                               },
                               [_c("i", { staticClass: "fa fa-edit blue" })]
                             ),
-                            _vm._v("\n                /\n                "),
+                            _vm._v(
+                              "\n                                /\n                                "
+                            ),
                             _c(
                               "a",
                               {
@@ -81138,9 +80652,7 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    !_vm.$gate.isAdminOrGroup_admin()
-      ? _c("div", [_c("not-found")], 1)
-      : _vm._e(),
+    !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -81395,9 +80907,9 @@ var render = function() {
                                 { domProps: { value: r.id } },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(r.name) +
-                                      "\n                "
+                                      "\n                                "
                                   )
                                 ]
                               )
@@ -81466,9 +80978,9 @@ var render = function() {
                                 { domProps: { value: g.id } },
                                 [
                                   _vm._v(
-                                    "\n                  " +
+                                    "\n                                    " +
                                       _vm._s(g.name) +
-                                      "\n                "
+                                      "\n                                "
                                   )
                                 ]
                               )
@@ -81538,9 +81050,9 @@ var render = function() {
                                   { domProps: { value: g.id } },
                                   [
                                     _vm._v(
-                                      "\n                  " +
+                                      "\n                                    " +
                                         _vm._s(g.name) +
-                                        "\n                "
+                                        "\n                                "
                                     )
                                   ]
                                 )
@@ -81613,9 +81125,9 @@ var render = function() {
                                   { domProps: { value: g.id } },
                                   [
                                     _vm._v(
-                                      "\n                  " +
+                                      "\n                                    " +
                                         _vm._s(g.name) +
-                                        "\n                "
+                                        "\n                                "
                                     )
                                   ]
                                 )
@@ -81688,9 +81200,9 @@ var render = function() {
                                   { domProps: { value: g.id } },
                                   [
                                     _vm._v(
-                                      "\n                  " +
+                                      "\n                                    " +
                                         _vm._s(g.name) +
-                                        "\n                "
+                                        "\n                                "
                                     )
                                   ]
                                 )
@@ -81767,9 +81279,9 @@ var render = function() {
                           _vm._l(_vm.points, function(g) {
                             return _c("option", { domProps: { value: g.id } }, [
                               _vm._v(
-                                "\n                  " +
+                                "\n                                    " +
                                   _vm._s(g.name) +
-                                  "\n                "
+                                  "\n                                "
                               )
                             ])
                           }),
@@ -81808,7 +81320,7 @@ var render = function() {
                             _vm._v(
                               " " +
                                 _vm._s(_vm.form.region_point.name) +
-                                "\n            "
+                                "\n                        "
                             )
                           ]
                         )
@@ -81829,7 +81341,9 @@ var render = function() {
                           },
                           [
                             _c("i", { staticClass: "fa fa-eraser blue" }),
-                            _vm._v("محل نهایی انتخاب نشده\n            ")
+                            _vm._v(
+                              "محل نهایی انتخاب نشده\n                        "
+                            )
                           ]
                         )
                       : _vm._e()
@@ -81986,759 +81500,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c& ***!
-  \***************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "l-map",
-    { attrs: { zoom: 14, center: [36.15335, 49.2344141] } },
-    [
-      _c("l-tile-layer", {
-        attrs: {
-          url:
-            "https://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=627973149c2041b184e31259821d1306"
-        }
-      }),
-      _vm._v(" "),
-      _c("l-marker", { attrs: { "lat-lng": [36.15335, 49.2344141] } }),
-      _vm._v(" "),
-      _c("l-marker", { attrs: { "lat-lng": [36.18335, 49.2844141] } })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d& ***!
-  \*******************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _vm.$gate.isAdminOrGroup_admin()
-      ? _c("div", { staticClass: "row mt-5" }, [
-          _c("div", { staticClass: "col-md-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h3", { staticClass: "card-title" }, [
-                  _vm._v("\nتست قشنگ\n            ")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card bg-info-gradient" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "chart",
-                        staticStyle: { height: "250px" },
-                        attrs: { id: "line-chart" }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticStyle: {
-                              overflow: "hidden",
-                              position: "relative",
-                              left: "-0.25px",
-                              top: "-0.666687px"
-                            },
-                            attrs: {
-                              height: "250",
-                              version: "1.1",
-                              width: "493.75",
-                              xmlns: "http://www.w3.org/2000/svg"
-                            }
-                          },
-                          [
-                            _c("desc", [_vm._v("Created with Raphaël 2.1.0")]),
-                            _c("defs"),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "end",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "40",
-                                  y: "214",
-                                  "text-anchor": "end",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("0")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d: "M52.5,214H468.75",
-                                "stroke-width": "0.4"
-                              }
-                            }),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "end",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "40",
-                                  y: "166.75",
-                                  "text-anchor": "end",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("5,000")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d: "M52.5,166.75H468.75",
-                                "stroke-width": "0.4"
-                              }
-                            }),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "end",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "40",
-                                  y: "119.5",
-                                  "text-anchor": "end",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("10,000")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d: "M52.5,119.5H468.75",
-                                "stroke-width": "0.4"
-                              }
-                            }),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "end",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "40",
-                                  y: "72.25",
-                                  "text-anchor": "end",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("15,000")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d: "M52.5,72.25H468.75",
-                                "stroke-width": "0.4"
-                              }
-                            }),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "end",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "40",
-                                  y: "25",
-                                  "text-anchor": "end",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("20,000")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d: "M52.5,25H468.75",
-                                "stroke-width": "0.4"
-                              }
-                            }),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "middle",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "392.39570148346917",
-                                  y: "226.5",
-                                  "text-anchor": "middle",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal",
-                                  transform: "matrix(1,0,0,1,0,5.5)"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("2013")
-                                ])
-                              ]
-                            ),
-                            _c(
-                              "text",
-                              {
-                                staticStyle: {
-                                  "text-anchor": "middle",
-                                  font: "10px Open Sans"
-                                },
-                                attrs: {
-                                  x: "207.27393549693684",
-                                  y: "226.5",
-                                  "text-anchor": "middle",
-                                  font: '10px "Arial"',
-                                  stroke: "none",
-                                  fill: "#ffffff",
-                                  "font-size": "10px",
-                                  "font-family": "Open Sans",
-                                  "font-weight": "normal",
-                                  transform: "matrix(1,0,0,1,0,5.5)"
-                                }
-                              },
-                              [
-                                _c("tspan", { attrs: { dy: "3.5" } }, [
-                                  _vm._v("2012")
-                                ])
-                              ]
-                            ),
-                            _c("path", {
-                              attrs: {
-                                fill: "none",
-                                stroke: "#efefef",
-                                d:
-                                  "M52.5,188.8063C64.12806630044048,188.5417,87.38419890132145,190.40038657417895,99.01226520176193,187.74790000000002C110.64560022277352,185.09421157417896,133.91227026479672,168.75597277486912,145.5456052858083,167.5816C157.05775973368435,166.41946027486912,180.0820686294365,180.64437566376745,191.59422307731253,178.40185C203.10110880461747,176.16035066376745,226.1148802592274,151.88164418127988,237.62176598653232,149.6455C249.2498322869728,147.3858066812799,272.50596488785374,158.06834493204983,284.1340311882942,160.4185C295.7673662093058,162.76971993204984,319.03403625132904,179.61644712041885,330.66737127234063,168.451C342.1795257202167,157.40185962041883,365.2038346159688,78.53041943325661,376.71598906384486,71.56015C388.09642549744314,64.66963193325661,410.85729836463975,105.24759742386078,422.237734798238,113.00785C433.8658010986785,120.93695992386078,457.1219336995595,128.9901625,468.75,134.3176",
-                                "stroke-width": "2"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "52.5",
-                                cy: "188.8063",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "99.01226520176193",
-                                cy: "187.74790000000002",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "145.5456052858083",
-                                cy: "167.5816",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "191.59422307731253",
-                                cy: "178.40185",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "237.62176598653232",
-                                cy: "149.6455",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "284.1340311882942",
-                                cy: "160.4185",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "330.66737127234063",
-                                cy: "168.451",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "376.71598906384486",
-                                cy: "71.56015",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "422.237734798238",
-                                cy: "113.00785",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            }),
-                            _c("circle", {
-                              attrs: {
-                                cx: "468.75",
-                                cy: "134.3176",
-                                r: "4",
-                                fill: "#efefef",
-                                stroke: "#efefef",
-                                "stroke-width": "1"
-                              }
-                            })
-                          ]
-                        ),
-                        _vm._m(1)
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2)
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body table-responsive p-0" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.region,
-                          expression: "region"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { name: "region", id: "region" },
-                      on: {
-                        change: [
-                          function($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function(o) {
-                                return o.selected
-                              })
-                              .map(function(o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.region = $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          },
-                          _vm.loadRoles
-                        ]
-                      }
-                    },
-                    [
-                      _c("option", { attrs: { value: "" } }, [
-                        _vm._v("انتخاب نقش")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.regions, function(r) {
-                        return _c("option", { domProps: { value: r.id } }, [
-                          _vm._v(
-                            "\n                  " +
-                              _vm._s(r.name) +
-                              "\n                "
-                          )
-                        ])
-                      })
-                    ],
-                    2
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-role" }, [
-                  _vm.region
-                    ? _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.role,
-                              expression: "role"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "role", id: "name" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.role = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("انتخاب نوع مرکز")
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.roles, function(n) {
-                            return _c("option", { domProps: { value: n.id } }, [
-                              _vm._v(
-                                "\n                  " +
-                                  _vm._s(n.name) +
-                                  "\n                "
-                              )
-                            ])
-                          })
-                        ],
-                        2
-                      )
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-footer" }, [
-                _vm._v("\n\n\n" + _vm._s(_vm.now) + "\n          ")
-              ])
-            ])
-          ])
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.$gate.isAdminOrGroup_admin()
-      ? _c("div", [_c("not-found")], 1)
-      : _vm._e()
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "card-header no-border ui-sortable-handle",
-        staticStyle: { cursor: "move" }
-      },
-      [
-        _c("h3", { staticClass: "card-title" }, [
-          _c("i", { staticClass: "fa fa-th mr-1" }),
-          _vm._v("\n                  نمودار فروش\n                ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-tools" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn bg-info btn-sm",
-              attrs: { type: "button", "data-widget": "collapse" }
-            },
-            [_c("i", { staticClass: "fa fa-minus" })]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn bg-info btn-sm",
-              attrs: { type: "button", "data-widget": "remove" }
-            },
-            [_c("i", { staticClass: "fa fa-times" })]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "morris-hover morris-default-style",
-        staticStyle: { left: "322.632px", top: "81px", display: "none" }
-      },
-      [
-        _c("div", { staticClass: "morris-hover-row-label" }, [
-          _vm._v("2012 Q4")
-        ]),
-        _c(
-          "div",
-          {
-            staticClass: "morris-hover-point",
-            staticStyle: { color: "#efefef" }
-          },
-          [_vm._v("\n  Item 1:\n  15,073\n")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer bg-transparent" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-4 text-center" }, [
-          _c(
-            "div",
-            {
-              staticStyle: { display: "inline", width: "60px", height: "60px" }
-            },
-            [
-              _c("canvas", { attrs: { width: "60", height: "60" } }),
-              _c("input", {
-                staticClass: "knob",
-                staticStyle: {
-                  width: "34px",
-                  height: "20px",
-                  position: "absolute",
-                  "vertical-align": "middle",
-                  "margin-top": "20px",
-                  "margin-left": "-47px",
-                  border: "0px none",
-                  background: "rgba(0, 0, 0, 0) none repeat scroll 0% 0%",
-                  font: "bold 12px Arial",
-                  "text-align": "center",
-                  color: "rgb(57, 204, 204)",
-                  padding: "0px",
-                  "-moz-appearance": "none"
-                },
-                attrs: {
-                  type: "text",
-                  "data-readonly": "true",
-                  value: "20",
-                  "data-width": "60",
-                  "data-height": "60",
-                  "data-fgcolor": "#39CCCC",
-                  readonly: "readonly"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-white" }, [_vm._v("سفارش ایمیلی")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4 text-center" }, [
-          _c(
-            "div",
-            {
-              staticStyle: { display: "inline", width: "60px", height: "60px" }
-            },
-            [
-              _c("canvas", { attrs: { width: "60", height: "60" } }),
-              _c("input", {
-                staticClass: "knob",
-                staticStyle: {
-                  width: "34px",
-                  height: "20px",
-                  position: "absolute",
-                  "vertical-align": "middle",
-                  "margin-top": "20px",
-                  "margin-left": "-47px",
-                  border: "0px none",
-                  background: "rgba(0, 0, 0, 0) none repeat scroll 0% 0%",
-                  font: "bold 12px Arial",
-                  "text-align": "center",
-                  color: "rgb(57, 204, 204)",
-                  padding: "0px",
-                  "-moz-appearance": "none"
-                },
-                attrs: {
-                  type: "text",
-                  "data-readonly": "true",
-                  value: "50",
-                  "data-width": "60",
-                  "data-height": "60",
-                  "data-fgcolor": "#39CCCC",
-                  readonly: "readonly"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-white" }, [_vm._v("سفارش آنلاین")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-4 text-center" }, [
-          _c(
-            "div",
-            {
-              staticStyle: { display: "inline", width: "60px", height: "60px" }
-            },
-            [
-              _c("canvas", { attrs: { width: "60", height: "60" } }),
-              _c("input", {
-                staticClass: "knob",
-                staticStyle: {
-                  width: "34px",
-                  height: "20px",
-                  position: "absolute",
-                  "vertical-align": "middle",
-                  "margin-top": "20px",
-                  "margin-left": "-47px",
-                  border: "0px none",
-                  background: "rgba(0, 0, 0, 0) none repeat scroll 0% 0%",
-                  font: "bold 12px Arial",
-                  "text-align": "center",
-                  color: "rgb(57, 204, 204)",
-                  padding: "0px",
-                  "-moz-appearance": "none"
-                },
-                attrs: {
-                  type: "text",
-                  "data-readonly": "true",
-                  value: "30",
-                  "data-width": "60",
-                  "data-height": "60",
-                  "data-fgcolor": "#39CCCC",
-                  readonly: "readonly"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-white" }, [_vm._v("سفارش فیزیکی")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -82867,7 +81628,7 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.6.10
+ * Vue.js v2.6.11
  * (c) 2014-2019 Evan You
  * Released under the MIT License.
  */
@@ -84833,7 +83594,7 @@ if (typeof Promise !== 'undefined' && isNative(Promise)) {
   isUsingMicroTask = true;
 } else if (typeof setImmediate !== 'undefined' && isNative(setImmediate)) {
   // Fallback to setImmediate.
-  // Techinically it leverages the (macro) task queue,
+  // Technically it leverages the (macro) task queue,
   // but it is still a better choice than setTimeout.
   timerFunc = function () {
     setImmediate(flushCallbacks);
@@ -84922,7 +83683,7 @@ var initProxy;
     warn(
       "Property \"" + key + "\" must be accessed with \"$data." + key + "\" because " +
       'properties starting with "$" or "_" are not proxied in the Vue instance to ' +
-      'prevent conflicts with Vue internals' +
+      'prevent conflicts with Vue internals. ' +
       'See: https://vuejs.org/v2/api/#data',
       target
     );
@@ -85782,7 +84543,7 @@ function bindDynamicKeys (baseObj, values) {
     if (typeof key === 'string' && key) {
       baseObj[values[i]] = values[i + 1];
     } else if (key !== '' && key !== null) {
-      // null is a speical value for explicitly removing a binding
+      // null is a special value for explicitly removing a binding
       warn(
         ("Invalid value for dynamic directive argument (expected string or null): " + key),
         this
@@ -86277,6 +85038,12 @@ function _createElement (
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag);
     if (config.isReservedTag(tag)) {
       // platform built-in elements
+      if (isDef(data) && isDef(data.nativeOn)) {
+        warn(
+          ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
+          context
+        );
+      }
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
@@ -86402,7 +85169,7 @@ function renderMixin (Vue) {
     // render self
     var vnode;
     try {
-      // There's no need to maintain a stack becaues all render fns are called
+      // There's no need to maintain a stack because all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
       currentRenderingInstance = vm;
@@ -88301,7 +87068,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.6.10';
+Vue.version = '2.6.11';
 
 /*  */
 
@@ -88974,7 +87741,7 @@ function createPatchFunction (backend) {
     }
   }
 
-  function removeVnodes (parentElm, vnodes, startIdx, endIdx) {
+  function removeVnodes (vnodes, startIdx, endIdx) {
     for (; startIdx <= endIdx; ++startIdx) {
       var ch = vnodes[startIdx];
       if (isDef(ch)) {
@@ -89085,7 +87852,7 @@ function createPatchFunction (backend) {
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;
       addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx, insertedVnodeQueue);
     } else if (newStartIdx > newEndIdx) {
-      removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+      removeVnodes(oldCh, oldStartIdx, oldEndIdx);
     }
   }
 
@@ -89177,7 +87944,7 @@ function createPatchFunction (backend) {
         if (isDef(oldVnode.text)) { nodeOps.setTextContent(elm, ''); }
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
-        removeVnodes(elm, oldCh, 0, oldCh.length - 1);
+        removeVnodes(oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
         nodeOps.setTextContent(elm, '');
       }
@@ -89406,7 +88173,7 @@ function createPatchFunction (backend) {
 
         // destroy old node
         if (isDef(parentElm)) {
-          removeVnodes(parentElm, [oldVnode], 0, 0);
+          removeVnodes([oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {
           invokeDestroyHook(oldVnode);
         }
@@ -92112,7 +90879,7 @@ var startTagOpen = new RegExp(("^<" + qnameCapture));
 var startTagClose = /^\s*(\/?)>/;
 var endTag = new RegExp(("^<\\/" + qnameCapture + "[^>]*>"));
 var doctype = /^<!DOCTYPE [^>]+>/i;
-// #7298: escape - to avoid being pased as HTML comment when inlined in page
+// #7298: escape - to avoid being passed as HTML comment when inlined in page
 var comment = /^<!\--/;
 var conditionalComment = /^<!\[/;
 
@@ -92397,7 +91164,7 @@ function parseHTML (html, options) {
 /*  */
 
 var onRE = /^@|^v-on:/;
-var dirRE = /^v-|^@|^:/;
+var dirRE = /^v-|^@|^:|^#/;
 var forAliasRE = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/;
 var forIteratorRE = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/;
 var stripParensRE = /^\(|\)$/g;
@@ -93021,7 +91788,7 @@ function processSlotContent (el) {
           if (el.parent && !maybeComponent(el.parent)) {
             warn$2(
               "<template v-slot> can only appear at the root level inside " +
-              "the receiving the component",
+              "the receiving component",
               el
             );
           }
@@ -93584,7 +92351,7 @@ function isDirectChildOfTemplateFor (node) {
 
 /*  */
 
-var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/;
+var fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function(?:\s+[\w$]+)?\s*\(/;
 var fnInvokeRE = /\([^)]*?\);*$/;
 var simplePathRE = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/;
 
@@ -94353,6 +93120,8 @@ function checkNode (node, warn) {
           var range = node.rawAttrsMap[name];
           if (name === 'v-for') {
             checkFor(node, ("v-for=\"" + value + "\""), warn, range);
+          } else if (name === 'v-slot' || name[0] === '#') {
+            checkFunctionParameterExpression(value, (name + "=\"" + value + "\""), warn, range);
           } else if (onRE.test(name)) {
             checkEvent(value, (name + "=\"" + value + "\""), warn, range);
           } else {
@@ -94372,9 +93141,9 @@ function checkNode (node, warn) {
 }
 
 function checkEvent (exp, text, warn, range) {
-  var stipped = exp.replace(stripStringRE, '');
-  var keywordMatch = stipped.match(unaryOperatorsRE);
-  if (keywordMatch && stipped.charAt(keywordMatch.index - 1) !== '$') {
+  var stripped = exp.replace(stripStringRE, '');
+  var keywordMatch = stripped.match(unaryOperatorsRE);
+  if (keywordMatch && stripped.charAt(keywordMatch.index - 1) !== '$') {
     warn(
       "avoid using JavaScript unary operator as property name: " +
       "\"" + (keywordMatch[0]) + "\" in expression " + (text.trim()),
@@ -94426,6 +93195,19 @@ function checkExpression (exp, text, warn, range) {
         range
       );
     }
+  }
+}
+
+function checkFunctionParameterExpression (exp, text, warn, range) {
+  try {
+    new Function(exp, '');
+  } catch (e) {
+    warn(
+      "invalid function parameter expression: " + (e.message) + " in\n\n" +
+      "    " + exp + "\n\n" +
+      "  Raw expression: " + (text.trim()) + "\n",
+      range
+    );
   }
 }
 
@@ -94915,78 +93697,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -95178,23 +93967,32 @@ var CircleMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LCircle',
-  mixins: [CircleMixin],
+  mixins: [CircleMixin, Options],
   props: {
     latLng: {
       type: [Object, Array],
-      default: function () { return [0, 0]; }
-    }
+      default: function () { return [0, 0]; },
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.circleOptions, this);
@@ -95208,93 +94006,86 @@ var script = {
       this$1.$emit('ready', this$1.mapObject);
     });
   },
-  methods: {}
+  methods: {},
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -95315,20 +94106,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LCircle = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LCircle);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -95425,78 +94220,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -95688,27 +94490,36 @@ var CircleMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LCircleMarker',
-  mixins: [CircleMixin],
+  mixins: [CircleMixin, Options],
   props: {
     latLng: {
       type: [Object, Array],
-      default: function () { return [0, 0]; }
+      default: function () { return [0, 0]; },
     },
     pane: {
       type: String,
-      default: 'markerPane'
-    }
+      default: 'markerPane',
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.circleOptions, this);
@@ -95721,93 +94532,86 @@ var script = {
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -95828,20 +94632,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LCircleMarker = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LCircleMarker);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -96001,90 +94809,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -96105,20 +94906,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LControl = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LControl);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -96253,90 +95058,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -96355,20 +95153,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LControlAttribution = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LControlAttribution);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -96483,34 +95285,37 @@ var script = {
   props: {
     collapsed: {
       type: Boolean,
-      default: true
+      default: true,
     },
     autoZIndex: {
       type: Boolean,
-      default: true
+      default: true,
     },
     hideSingleBase: {
       type: Boolean,
-      default: false
+      default: false,
     },
     sortLayers: {
       type: Boolean,
-      default: false
+      default: false,
     },
     sortFunction: {
       type: Function,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
-    var options = optionsMerger(Object.assign({}, this.controlOptions,
-      {collapsed: this.collapsed,
-      autoZIndex: this.autoZIndex,
-      hideSingleBase: this.hideSingleBase,
-      sortLayers: this.sortLayers,
-      sortFunction: this.sortFunction}), this);
+    var options = optionsMerger(
+      Object.assign({}, this.controlOptions,
+        {collapsed: this.collapsed,
+        autoZIndex: this.autoZIndex,
+        hideSingleBase: this.hideSingleBase,
+        sortLayers: this.sortLayers,
+        sortFunction: this.sortFunction}),
+      this
+    );
     this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__["control"].layers(null, null, options);
     propsBinder(this, this.mapObject, this.$options.props);
     this.$parent.registerLayerControl(this);
@@ -96519,106 +95324,99 @@ var script = {
     });
   },
   methods: {
-    addLayer: function addLayer (layer) {
+    addLayer: function addLayer(layer) {
       if (layer.layerType === 'base') {
         this.mapObject.addBaseLayer(layer.mapObject, layer.name);
       } else if (layer.layerType === 'overlay') {
         this.mapObject.addOverlay(layer.mapObject, layer.name);
       }
     },
-    removeLayer: function removeLayer (layer) {
+    removeLayer: function removeLayer(layer) {
       this.mapObject.removeLayer(layer.mapObject);
-    }
+    },
   },
-  render: function render () {
+  render: function render() {
     return null;
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -96637,20 +95435,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LControlLayers = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LControlLayers);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -96800,90 +95602,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -96902,20 +95697,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LControlScale = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LControlScale);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -97065,90 +95864,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -97167,20 +95959,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LControlZoom = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LControlZoom);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -97249,78 +96045,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var LayerGroupMixin = {
@@ -97344,117 +96147,119 @@ var LayerGroupMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LFeatureGroup',
-  mixins: [LayerGroupMixin],
-  data: function data () {
+  mixins: [LayerGroupMixin, Options],
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     this.mapObject = Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["featureGroup"])();
     propsBinder(this, this.mapObject, this.$options.props);
     leaflet__WEBPACK_IMPORTED_MODULE_0__["DomEvent"].on(this.mapObject, this.$listeners);
     this.ready = true;
-    this.parentContainer = findRealParent(this.$parent, true);
+    this.parentContainer = findRealParent(this.$parent);
     if (this.visible) {
       this.parentContainer.addLayer(this);
     }
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -97475,20 +96280,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LFeatureGroup = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LFeatureGroup);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -97585,78 +96394,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var LayerGroup = {
@@ -97680,156 +96496,161 @@ var LayerGroup = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 var script = {
   name: 'LGeoJson',
-  mixins: [LayerGroup],
+  mixins: [LayerGroup, Options],
   props: {
     geojson: {
       type: [Object, Array],
       custom: true,
-      default: function () { return ({}); }
+      default: function () { return ({}); },
     },
     options: {
       type: Object,
       custom: true,
-      default: function () { return ({}); }
+      default: function () { return ({}); },
     },
     optionsStyle: {
       type: [Object, Function],
       custom: true,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
-    mergedOptions: function mergedOptions () {
-      return optionsMerger(Object.assign({}, this.layerGroupOptions,
-        {style: this.optionsStyle}), this);
-    }
+    mergedOptions: function mergedOptions() {
+      return optionsMerger(
+        Object.assign({}, this.layerGroupOptions,
+          {style: this.optionsStyle}),
+        this
+      );
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     this.mapObject = Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["geoJSON"])(this.geojson, this.mergedOptions);
     leaflet__WEBPACK_IMPORTED_MODULE_0__["DomEvent"].on(this.mapObject, this.$listeners);
     propsBinder(this, this.mapObject, this.$options.props);
-    this.parentContainer = findRealParent(this.$parent, true);
+    this.parentContainer = findRealParent(this.$parent);
     this.parentContainer.addLayer(this, !this.visible);
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.parentContainer.mapObject.removeLayer(this.mapObject);
   },
   methods: {
-    setGeojson: function setGeojson (newVal) {
+    setGeojson: function setGeojson(newVal) {
       this.mapObject.clearLayers();
       this.mapObject.addData(newVal);
     },
-    getGeoJSONData: function getGeoJSONData () {
+    getGeoJSONData: function getGeoJSONData() {
       return this.mapObject.toGeoJSON();
     },
-    getBounds: function getBounds () {
+    getBounds: function getBounds() {
       return this.mapObject.getBounds();
     },
-    setOptions: function setOptions$1 (newVal, oldVal) {
+    setOptions: function setOptions$1(newVal, oldVal) {
       this.mapObject.clearLayers();
       Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["setOptions"])(this.mapObject, this.mergedOptions);
       this.mapObject.addData(this.geojson);
     },
-    setOptionsStyle: function setOptionsStyle (newVal, oldVal) {
+    setOptionsStyle: function setOptionsStyle(newVal, oldVal) {
       this.mapObject.setStyle(newVal);
-    }
+    },
   },
-  render: function render () {
+  render: function render() {
     return null;
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -97848,20 +96669,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LGeoJson = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LGeoJson);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -97961,78 +96786,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayerMixin = {
@@ -98162,90 +96994,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -98266,20 +97091,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LGridLayer = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LGridLayer);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -98581,90 +97410,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -98685,20 +97507,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LIcon = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LIcon);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -98774,90 +97600,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -98876,20 +97695,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LIconDefault = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LIconDefault);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -98986,78 +97809,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -99160,10 +97990,19 @@ var ImageOverlayMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 var script = {
   name: 'LImageOverlay',
-  mixins: [ImageOverlayMixin],
-  mounted: function mounted () {
+  mixins: [ImageOverlayMixin, Options],
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.imageOverlayOptions, this);
@@ -99176,95 +98015,88 @@ var script = {
       this$1.$emit('ready', this$1.mapObject);
     });
   },
-  render: function render () {
+  render: function render() {
     return null;
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -99283,20 +98115,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LImageOverlay = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LImageOverlay);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -99365,78 +98201,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var LayerGroupMixin = {
@@ -99460,17 +98303,26 @@ var LayerGroupMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LLayerGroup',
-  mixins: [LayerGroupMixin],
-  data: function data () {
+  mixins: [LayerGroupMixin, Options],
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     this.mapObject = Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["layerGroup"])();
@@ -99484,93 +98336,86 @@ var script = {
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -99591,20 +98436,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LLayerGroup = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LLayerGroup);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -99721,108 +98570,111 @@ var script = {
     center: {
       type: [Object, Array],
       custom: true,
-      default: function () { return [0, 0]; }
+      default: function () { return [0, 0]; },
     },
     bounds: {
       type: [Array, Object],
       custom: true,
-      default: null
+      default: null,
     },
     maxBounds: {
       type: [Array, Object],
-      default: null
+      default: null,
     },
     zoom: {
       type: Number,
       custom: true,
-      default: 0
+      default: 0,
     },
     minZoom: {
       type: Number,
-      default: null
+      default: null,
     },
     maxZoom: {
       type: Number,
-      default: null
+      default: null,
     },
     paddingBottomRight: {
       type: Array,
       custom: true,
-      default: null
+      default: null,
     },
     paddingTopLeft: {
       type: Array,
       custom: true,
-      default: null
+      default: null,
     },
     padding: {
       type: Array,
       custom: true,
-      default: null
+      default: null,
     },
     worldCopyJump: {
       type: Boolean,
-      default: false
+      default: false,
     },
     crs: {
       type: Object,
       custom: true,
-      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__["CRS"].EPSG3857; }
+      default: function () { return leaflet__WEBPACK_IMPORTED_MODULE_0__["CRS"].EPSG3857; },
     },
     maxBoundsViscosity: {
       type: Number,
-      default: null
+      default: null,
     },
     inertia: {
       type: Boolean,
-      default: null
+      default: null,
     },
     inertiaDeceleration: {
       type: Number,
-      default: null
+      default: null,
     },
     inertiaMaxSpeed: {
       type: Number,
-      default: null
+      default: null,
     },
     easeLinearity: {
       type: Number,
-      default: null
+      default: null,
     },
     zoomAnimation: {
       type: Boolean,
-      default: null
+      default: null,
     },
     zoomAnimationThreshold: {
       type: Number,
-      default: null
+      default: null,
     },
     fadeAnimation: {
       type: Boolean,
-      default: null
+      default: null,
     },
     markerZoomAnimation: {
       type: Boolean,
-      default: null
+      default: null,
     },
     noBlockingAnimations: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
       ready: false,
       lastSetCenter: null,
       lastSetBounds: null,
       lastSetZoom: null,
       layerControl: undefined,
-      layersToAdd: []
+      layersToAdd: [],
+      layersInControl: [],
     };
   },
   computed: {
-    fitBoundsOptions: function fitBoundsOptions () {
-      var options = {};
+    fitBoundsOptions: function fitBoundsOptions() {
+      var options = {
+        animate: this.noBlockingAnimations ? false : null,
+      };
       if (this.padding) {
         options.padding = this.padding;
       } else {
@@ -99834,37 +98686,42 @@ var script = {
         }
       }
       return options;
-    }
+    },
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     if (this.mapObject) {
       this.mapObject.remove();
     }
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
-    var options = optionsMerger({
-      minZoom: this.minZoom,
-      maxZoom: this.maxZoom,
-      maxBounds: this.maxBounds,
-      maxBoundsViscosity: this.maxBoundsViscosity,
-      worldCopyJump: this.worldCopyJump,
-      crs: this.crs,
-      center: this.center,
-      zoom: this.zoom,
-      inertia: this.inertia,
-      inertiaDeceleration: this.inertiaDeceleration,
-      inertiaMaxSpeed: this.inertiaMaxSpeed,
-      easeLinearity: this.easeLinearity,
-      zoomAnimation: this.zoomAnimation,
-      zoomAnimationThreshold: this.zoomAnimationThreshold,
-      fadeAnimation: this.fadeAnimation,
-      markerZoomAnimation: this.markerZoomAnimation
-    }, this);
+    var options = optionsMerger(
+      {
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom,
+        maxBounds: this.maxBounds,
+        maxBoundsViscosity: this.maxBoundsViscosity,
+        worldCopyJump: this.worldCopyJump,
+        crs: this.crs,
+        center: this.center,
+        zoom: this.zoom,
+        inertia: this.inertia,
+        inertiaDeceleration: this.inertiaDeceleration,
+        inertiaMaxSpeed: this.inertiaMaxSpeed,
+        easeLinearity: this.easeLinearity,
+        zoomAnimation: this.zoomAnimation,
+        zoomAnimationThreshold: this.zoomAnimationThreshold,
+        fadeAnimation: this.fadeAnimation,
+        markerZoomAnimation: this.markerZoomAnimation,
+      },
+      this
+    );
     this.mapObject = Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["map"])(this.$el, options);
     this.setBounds(this.bounds);
     this.mapObject.on('moveend', debounce(this.moveEndHandler, 100));
+    this.mapObject.on('overlayadd', this.overlayAddHandler);
+    this.mapObject.on('overlayremove', this.overlayRemoveHandler);
     leaflet__WEBPACK_IMPORTED_MODULE_0__["DomEvent"].on(this.mapObject, this.$listeners);
     propsBinder(this, this.mapObject, this.$options.props);
     this.ready = true;
@@ -99875,7 +98732,7 @@ var script = {
     });
   },
   methods: {
-    registerLayerControl: function registerLayerControl (lControlLayers) {
+    registerLayerControl: function registerLayerControl(lControlLayers) {
       var this$1 = this;
 
       this.layerControl = lControlLayers;
@@ -99885,50 +98742,65 @@ var script = {
       });
       this.layersToAdd = [];
     },
-    addLayer: function addLayer (layer, alreadyAdded) {
+    addLayer: function addLayer(layer, alreadyAdded) {
       if (layer.layerType !== undefined) {
         if (this.layerControl === undefined) {
           this.layersToAdd.push(layer);
         } else {
-          this.layerControl.addLayer(layer);
+          var exist = this.layersInControl.find(
+            function (l) { return l.mapObject._leaflet_id === layer.mapObject._leaflet_id; }
+          );
+          if (!exist) {
+            this.layerControl.addLayer(layer);
+            this.layersInControl.push(layer);
+          }
         }
       }
-      if (!alreadyAdded) {
+      if (!alreadyAdded && layer.visible !== false) {
         this.mapObject.addLayer(layer.mapObject);
       }
     },
-    removeLayer: function removeLayer (layer, alreadyRemoved) {
+    hideLayer: function hideLayer(layer) {
+      if (layer.layerType !== undefined) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+    },
+    removeLayer: function removeLayer(layer, alreadyRemoved) {
       if (layer.layerType !== undefined) {
         if (this.layerControl === undefined) {
-          this.layersToAdd = this.layersToAdd.filter(function (l) { return l.name !== layer.name; });
+          this.layersToAdd = this.layersToAdd.filter(
+            function (l) { return l.name !== layer.name; }
+          );
         } else {
           this.layerControl.removeLayer(layer);
+          this.layersInControl = this.layersInControl.filter(
+            function (l) { return l.mapObject._leaflet_id !== layer.mapObject._leaflet_id; }
+          );
         }
       }
       if (!alreadyRemoved) {
         this.mapObject.removeLayer(layer.mapObject);
       }
     },
-    setZoom: function setZoom (newVal, oldVal) {
+    setZoom: function setZoom(newVal, oldVal) {
       this.mapObject.setZoom(newVal, {
-        animate: !this.noBlockingAnimations ? false : null
+        animate: this.noBlockingAnimations ? false : null,
       });
     },
-    setCenter: function setCenter (newVal, oldVal) {
+    setCenter: function setCenter(newVal, oldVal) {
       if (newVal == null) {
         return;
       }
       var newCenter = Object(leaflet__WEBPACK_IMPORTED_MODULE_0__["latLng"])(newVal);
       var oldCenter = this.lastSetCenter || this.mapObject.getCenter();
-      if (oldCenter.lat !== newCenter.lat ||
-        oldCenter.lng !== newCenter.lng) {
+      if (oldCenter.lat !== newCenter.lat || oldCenter.lng !== newCenter.lng) {
         this.lastSetCenter = newCenter;
         this.mapObject.panTo(newCenter, {
-          animate: !this.noBlockingAnimations ? false : null
+          animate: this.noBlockingAnimations ? false : null,
         });
       }
     },
-    setBounds: function setBounds (newVal, oldVal) {
+    setBounds: function setBounds(newVal, oldVal) {
       if (!newVal) {
         return;
       }
@@ -99943,165 +98815,172 @@ var script = {
         this.mapObject.fitBounds(newBounds, this.fitBoundsOptions);
       }
     },
-    setPaddingBottomRight: function setPaddingBottomRight (newVal, oldVal) {
+    setPaddingBottomRight: function setPaddingBottomRight(newVal, oldVal) {
       this.paddingBottomRight = newVal;
     },
-    setPaddingTopLeft: function setPaddingTopLeft (newVal, oldVal) {
+    setPaddingTopLeft: function setPaddingTopLeft(newVal, oldVal) {
       this.paddingTopLeft = newVal;
     },
-    setPadding: function setPadding (newVal, oldVal) {
+    setPadding: function setPadding(newVal, oldVal) {
       this.padding = newVal;
     },
-    setCrs: function setCrs (newVal, oldVal) {
+    setCrs: function setCrs(newVal, oldVal) {
       console.log('Changing CRS is not yet supported by Leaflet');
     },
-    fitBounds: function fitBounds (bounds) {
-      this.mapObject.fitBounds(bounds);
+    fitBounds: function fitBounds(bounds) {
+      this.mapObject.fitBounds(bounds, {
+        animate: this.noBlockingAnimations ? false : null,
+      });
     },
-    moveEndHandler: function moveEndHandler () {
+    moveEndHandler: function moveEndHandler() {
       this.$emit('update:zoom', this.mapObject.getZoom());
       var center = this.mapObject.getCenter();
       this.$emit('update:center', center);
       var bounds = this.mapObject.getBounds();
       this.$emit('update:bounds', bounds);
-    }
-  }
+    },
+    overlayAddHandler: function overlayAddHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(true);
+      }
+    },
+    overlayRemoveHandler: function overlayRemoveHandler(e) {
+      var layer = this.layersInControl.find(function (l) { return l.name === e.name; });
+      if (layer) {
+        layer.updateVisibleProp(false);
+      }
+    },
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
-
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 function createInjector(context) {
-  return function (id, style) {
-    return addStyle(id, style);
-  };
+    return function (id, style) { return addStyle(id, style); };
 }
-var HEAD = document.head || document.getElementsByTagName('head')[0];
+var HEAD;
 var styles = {};
-
 function addStyle(id, css) {
-  var group = isOldIE ? css.media || 'default' : id;
-  var style = styles[group] || (styles[group] = {
-    ids: new Set(),
-    styles: []
-  });
-
-  if (!style.ids.has(id)) {
-    style.ids.add(id);
-    var code = css.source;
-
-    if (css.map) {
-      // https://developer.chrome.com/devtools/docs/javascript-debugging
-      // this makes source maps inside style tags work properly in Chrome
-      code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'; // http://stackoverflow.com/a/26603875
-
-      code += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) + ' */';
+    var group = isOldIE ? css.media || 'default' : id;
+    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
+    if (!style.ids.has(id)) {
+        style.ids.add(id);
+        var code = css.source;
+        if (css.map) {
+            // https://developer.chrome.com/devtools/docs/javascript-debugging
+            // this makes source maps inside style tags work properly in Chrome
+            code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
+            // http://stackoverflow.com/a/26603875
+            code +=
+                '\n/*# sourceMappingURL=data:application/json;base64,' +
+                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+                    ' */';
+        }
+        if (!style.element) {
+            style.element = document.createElement('style');
+            style.element.type = 'text/css';
+            if (css.media)
+                { style.element.setAttribute('media', css.media); }
+            if (HEAD === undefined) {
+                HEAD = document.head || document.getElementsByTagName('head')[0];
+            }
+            HEAD.appendChild(style.element);
+        }
+        if ('styleSheet' in style.element) {
+            style.styles.push(code);
+            style.element.styleSheet.cssText = style.styles
+                .filter(Boolean)
+                .join('\n');
+        }
+        else {
+            var index = style.ids.size - 1;
+            var textNode = document.createTextNode(code);
+            var nodes = style.element.childNodes;
+            if (nodes[index])
+                { style.element.removeChild(nodes[index]); }
+            if (nodes.length)
+                { style.element.insertBefore(textNode, nodes[index]); }
+            else
+                { style.element.appendChild(textNode); }
+        }
     }
-
-    if (!style.element) {
-      style.element = document.createElement('style');
-      style.element.type = 'text/css';
-      if (css.media) { style.element.setAttribute('media', css.media); }
-      HEAD.appendChild(style.element);
-    }
-
-    if ('styleSheet' in style.element) {
-      style.styles.push(code);
-      style.element.styleSheet.cssText = style.styles.filter(Boolean).join('\n');
-    } else {
-      var index = style.ids.size - 1;
-      var textNode = document.createTextNode(code);
-      var nodes = style.element.childNodes;
-      if (nodes[index]) { style.element.removeChild(nodes[index]); }
-      if (nodes.length) { style.element.insertBefore(textNode, nodes[index]); }else { style.element.appendChild(textNode); }
-    }
-  }
 }
-
-var browser = createInjector;
 
 /* script */
 var __vue_script__ = script;
@@ -100113,7 +98992,7 @@ var __vue_staticRenderFns__ = [];
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-2935624e_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
+    inject("data-v-4d388c28_0", { source: ".vue2leaflet-map{height:100%;width:100%}", map: undefined, media: undefined });
 
   };
   /* scoped */
@@ -100124,20 +99003,24 @@ var __vue_staticRenderFns__ = [];
   var __vue_is_functional_template__ = false;
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LMap = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
-    browser,
+    false,
+    createInjector,
+    undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LMap);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -100252,78 +99135,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var Options = {
@@ -100419,90 +99309,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -100521,20 +99404,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LMarker = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LMarker);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -100631,78 +99518,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -100931,23 +99825,32 @@ var PolygonMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LPolygon',
-  mixins: [PolygonMixin],
+  mixins: [PolygonMixin, Options],
   props: {
     latLngs: {
       type: Array,
-      default: function () { return []; }
-    }
+      default: function () { return []; },
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.polygonOptions, this);
@@ -100960,93 +99863,86 @@ var script = {
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -101067,20 +99963,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LPolygon = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LPolygon);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -101177,78 +100077,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -101458,23 +100365,32 @@ var PolylineMixin = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LPolyline',
-  mixins: [PolylineMixin],
+  mixins: [PolylineMixin, Options],
   props: {
     latLngs: {
       type: Array,
-      default: function () { return []; }
-    }
+      default: function () { return []; },
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.polyLineOptions, this);
@@ -101487,93 +100403,86 @@ var script = {
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -101594,20 +100503,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LPolyline = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LPolyline);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -101772,90 +100685,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -101874,20 +100780,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LPopup = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LPopup);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -101984,78 +100894,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -102284,23 +101201,32 @@ var Polygon = {
   }
 };
 
+var Options = {
+  props: {
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
 //
 
 var script = {
   name: 'LRectangle',
-  mixins: [Polygon],
+  mixins: [Polygon, Options],
   props: {
     bounds: {
       type: Array,
-      default: function () { return []; }
-    }
+      default: function () { return []; },
+    },
   },
-  data: function data () {
+  data: function data() {
     return {
-      ready: false
+      ready: false,
     };
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     var this$1 = this;
 
     var options = optionsMerger(this.polygonOptions, this);
@@ -102313,93 +101239,86 @@ var script = {
     this.$nextTick(function () {
       this$1.$emit('ready', this$1.mapObject);
     });
-  }
+  },
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -102420,20 +101339,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LRectangle = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LRectangle);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -102530,78 +101453,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayer = {
@@ -102700,90 +101630,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -102804,20 +101727,24 @@ var __vue_staticRenderFns__ = [];
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LTileLayer = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LTileLayer);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -102973,90 +101900,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -103075,20 +101995,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LTooltip = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LTooltip);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -103185,78 +102109,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayer = {
@@ -103392,90 +102323,83 @@ var script = {
   }
 };
 
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
     }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
     }
-  }
-
-  return script;
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
 }
 
-var normalizeComponent_1 = normalizeComponent;
+var isOldIE = typeof navigator !== 'undefined' &&
+    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
 
 /* script */
 var __vue_script__ = script;
@@ -103494,20 +102418,24 @@ var __vue_script__ = script;
   
   /* style inject SSR */
   
+  /* style inject shadow dom */
+  
 
   
-  var LWMSTileLayer = normalizeComponent_1(
+  var __vue_component__ = normalizeComponent(
     {},
     __vue_inject_styles__,
     __vue_script__,
     __vue_scope_id__,
     __vue_is_functional_template__,
     __vue_module_identifier__,
+    false,
+    undefined,
     undefined,
     undefined
   );
 
-/* harmony default export */ __webpack_exports__["default"] = (LWMSTileLayer);
+/* harmony default export */ __webpack_exports__["default"] = (__vue_component__);
 
 
 /***/ }),
@@ -103525,78 +102453,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -103839,78 +102774,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayer = {
@@ -103966,78 +102908,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -104191,78 +103140,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layer);
@@ -104283,78 +103239,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var LayerGroup = {
@@ -104419,78 +103382,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -104681,78 +103651,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -104999,78 +103976,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var InteractiveLayer = {
@@ -105338,78 +104322,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayer = {
@@ -105487,78 +104478,85 @@ var Layer = {
   props: {
     pane: {
       type: String,
-      default: 'overlayPane'
+      default: 'overlayPane',
     },
     attribution: {
       type: String,
-      default: null
+      default: null,
     },
     name: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     layerType: {
       type: String,
       custom: true,
-      default: undefined
+      default: undefined,
     },
     visible: {
       type: Boolean,
       custom: true,
-      default: true
-    }
+      default: true,
+    },
   },
-  mounted: function mounted () {
+  mounted: function mounted() {
     this.layerOptions = {
       attribution: this.attribution,
-      pane: this.pane
+      pane: this.pane,
     };
   },
-  beforeDestroy: function beforeDestroy () {
+  beforeDestroy: function beforeDestroy() {
     this.unbindPopup();
     this.unbindTooltip();
     this.parentContainer.removeLayer(this);
   },
   methods: {
-    setAttribution: function setAttribution (val, old) {
+    setAttribution: function setAttribution(val, old) {
       var attributionControl = this.$parent.mapObject.attributionControl;
       attributionControl.removeAttribution(old).addAttribution(val);
     },
-    setName: function setName () {
+    setName: function setName() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setLayerType: function setLayerType () {
+    setLayerType: function setLayerType() {
       this.parentContainer.removeLayer(this);
       if (this.visible) {
         this.parentContainer.addLayer(this);
       }
     },
-    setVisible: function setVisible (newVal) {
+    setVisible: function setVisible(isVisible) {
       if (this.mapObject) {
-        if (newVal) {
+        if (isVisible) {
           this.parentContainer.addLayer(this);
         } else {
-          this.parentContainer.removeLayer(this);
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
         }
       }
     },
-    unbindTooltip: function unbindTooltip () {
+    unbindTooltip: function unbindTooltip() {
       var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
       if (tooltip) {
         tooltip.unbindTooltip();
       }
     },
-    unbindPopup: function unbindPopup () {
+    unbindPopup: function unbindPopup() {
       var popup = this.mapObject ? this.mapObject.getPopup() : null;
       if (popup) {
         popup.unbindPopup();
       }
-    }
-  }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      this.$emit('update:visible', value);
+    },
+  },
 };
 
 var GridLayer = {
@@ -105670,17 +104668,17 @@ var TileLayerWMS = {
 /*!*******************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/utils/utils.js ***!
   \*******************************************************/
-/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent */
+/*! exports provided: capitalizeFirstLetter, collectionCleaner, debounce, findRealParent, optionsMerger, propsBinder */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "capitalizeFirstLetter", function() { return capitalizeFirstLetter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "propsBinder", function() { return propsBinder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "collectionCleaner", function() { return collectionCleaner; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "optionsMerger", function() { return optionsMerger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return debounce; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findRealParent", function() { return findRealParent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "optionsMerger", function() { return optionsMerger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "propsBinder", function() { return propsBinder; });
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
 /* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -105787,23 +104785,23 @@ var findRealParent = function (firstVueParent) {
 /*!***********************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
   \***********************************************************/
-/*! exports provided: debounce, capitalizeFirstLetter, propsBinder, collectionCleaner, optionsMerger, findRealParent, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
+/*! exports provided: capitalizeFirstLetter, collectionCleaner, debounce, findRealParent, optionsMerger, propsBinder, CircleMixin, ControlMixin, GridLayerMixin, ImageOverlayMixin, InteractiveLayerMixin, LayerMixin, LayerGroupMixin, OptionsMixin, PathMixin, PolygonMixin, PolylineMixin, PopperMixin, TileLayerMixin, TileLayerWMSMixin, LCircle, LCircleMarker, LControl, LControlAttribution, LControlLayers, LControlScale, LControlZoom, LFeatureGroup, LGeoJson, LGridLayer, LIcon, LIconDefault, LImageOverlay, LLayerGroup, LMap, LMarker, LPolygon, LPolyline, LPopup, LRectangle, LTileLayer, LTooltip, LWMSTileLayer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/utils */ "./node_modules/vue2-leaflet/dist/utils/utils.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["debounce"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "capitalizeFirstLetter", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["capitalizeFirstLetter"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "propsBinder", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["propsBinder"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "collectionCleaner", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["collectionCleaner"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "optionsMerger", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["optionsMerger"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["debounce"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "findRealParent", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["findRealParent"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "optionsMerger", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["optionsMerger"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "propsBinder", function() { return _utils_utils__WEBPACK_IMPORTED_MODULE_0__["propsBinder"]; });
 
 /* harmony import */ var _mixins_Circle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mixins/Circle */ "./node_modules/vue2-leaflet/dist/mixins/Circle.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CircleMixin", function() { return _mixins_Circle__WEBPACK_IMPORTED_MODULE_1__["default"]; });
@@ -106078,6 +105076,11 @@ function () {
     value: function isOstan() {
       return this.user.region_point.region_center.county_id === 9;
     }
+  }, {
+    key: "isBimaGVagir",
+    value: function isBimaGVagir() {
+      return this.user.group.id === 4;
+    }
   }]);
 
   return Gate;
@@ -106153,13 +105156,13 @@ window.Fire = new Vue(); //////////////
 window.Form = vform__WEBPACK_IMPORTED_MODULE_3__["Form"];
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_3__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_3__["HasError"]);
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_3__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_3__["AlertError"]); //////////////////////
+//Vue.component('map-component', require('./components/mapComponent.vue').default);
 
-Vue.component('map-component', __webpack_require__(/*! ./components/mapComponent.vue */ "./resources/js/components/mapComponent.vue")["default"]);
 Vue.component('cold-chain', __webpack_require__(/*! ./components/ColdChain.vue */ "./resources/js/components/ColdChain.vue")["default"]);
-Vue.component('users-component', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]);
-Vue.component('test-component', __webpack_require__(/*! ./components/test.vue */ "./resources/js/components/test.vue")["default"]);
-Vue.component('regions-component', __webpack_require__(/*! ./components/Regions.vue */ "./resources/js/components/Regions.vue")["default"]);
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); /////////////
+Vue.component('users-component', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]); //Vue.component('test-component', require('./components/test.vue').default);
+
+Vue.component('regions-component', __webpack_require__(/*! ./components/Regions.vue */ "./resources/js/components/Regions.vue")["default"]); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+/////////////
 
 var app = new Vue({
   el: '#app',
@@ -106192,7 +105195,7 @@ moment.loadPersian({
 });
 Vue.filter('myDate', function (created) {
   //return moment(created).format(' jMMMM  jD  HH:mm:ss');
-  return moment(created).fromNow();
+  return moment(created).add(3.5, 'hours').fromNow();
 });
 
 /***/ }),
@@ -106319,75 +105322,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ColdChain_vue_vue_type_template_id_78c9ac3c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ColdChain_vue_vue_type_template_id_78c9ac3c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/ExampleComponent.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ExampleComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -106595,144 +105529,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/mapComponent.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/components/mapComponent.vue ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mapComponent.vue?vue&type=template&id=1aa3a64c& */ "./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c&");
-/* harmony import */ var _mapComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mapComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/mapComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _mapComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/mapComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/mapComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/mapComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mapComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./mapComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mapComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_mapComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c& ***!
-  \*********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./mapComponent.vue?vue&type=template&id=1aa3a64c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/mapComponent.vue?vue&type=template&id=1aa3a64c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_mapComponent_vue_vue_type_template_id_1aa3a64c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/test.vue":
-/*!******************************************!*\
-  !*** ./resources/js/components/test.vue ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.vue?vue&type=template&id=5b6abe5d& */ "./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&");
-/* harmony import */ var _test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.vue?vue&type=script&lang=js& */ "./resources/js/components/test.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/test.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/test.vue?vue&type=script&lang=js&":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/test.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./test.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/test.vue?vue&type=template&id=5b6abe5d& ***!
-  \*************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./test.vue?vue&type=template&id=5b6abe5d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

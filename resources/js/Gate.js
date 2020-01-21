@@ -26,6 +26,9 @@ export default class Gate{
     isOstan(){
         return this.user.region_point.region_center.county_id === 9;
     }
+    isBimaGVagir(){
+        return this.user.group.id === 4;
+    }
 
 
 }

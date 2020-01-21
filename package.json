@@ -18,19 +18,20 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.16.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.23.7",
+        "sass": "^1.25.0",
         "sass-loader": "^7.1.0",
         "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "laravel-vue-pagination": "^2.3.1",
+        "@types/leaflet": "^1.5.7",
         "leaflet": "^1.6.0",
         "leaflet-wms-header": "^1.0.8",
+        "laravel-vue-pagination": "^2.3.1",
         "moment-jalaali": "^0.9.1",
         "sweetalert2": "^8.19.0",
         "vform": "^1.0.1",
         "vue-progressbar": "^0.7.5",
-        "vue2-leaflet": "^2.3.0"
+        "vue2-leaflet": "^2.4.2"
     }
 }

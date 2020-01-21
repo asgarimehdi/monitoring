@@ -48,7 +48,7 @@
                             <select @change="loadTemps()" name="county_id"
                                     v-model="county_id" id="county_id" class="form-control">
                                 <option  value=""  >همه شهرستان</option>
-                                <option
+                                <option v-if="r.id!=9"
                                     v-for="r in counties"
                                     :value="r.id"
 
@@ -104,9 +104,6 @@
                             {{marker.device.updated_at|myDate}}
                             <br/>
 
-                            {{connectionChack(marker.device.updated_at)}}
-
-                            <br/>
 
                         </l-popup>
                         <l-icon
@@ -168,7 +165,7 @@
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
-                        title: 'خطایی در لود اطلاعات رخ داد'
+                        title: 'خطایی در لود لیست شهرستان رخ داد'
                     });
                 });
 
@@ -238,7 +235,7 @@
                     toast.fire({
 
                         type: 'error',
-                        title: 'خطایی در لود اطلاعات رخ داد'
+                        title: 'خطایی در لود دمای نقاط رخ داد'
                     });
                 });
 

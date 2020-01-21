@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'شامانه جامع مانیتورینگ') }}</title>
+    <title>{{ config('app.name', 'سامانه جامع مانیتورینگ') }}</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href={{ asset("PersianAdminLTE/plugins/font-awesome/css/font-awesome.min.css") }}>
