@@ -41,4 +41,8 @@ class HomeController extends Controller
     {
         return view('coldchain');
     }
+    public function changepassword()
+    {
+        return view('change-password');
+    }
 }

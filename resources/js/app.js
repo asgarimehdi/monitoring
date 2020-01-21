@@ -51,6 +51,7 @@ Vue.component('cold-chain', require('./components/ColdChain.vue').default);
 Vue.component('users-component', require('./components/Users.vue').default);
 //Vue.component('test-component', require('./components/test.vue').default);
 Vue.component('regions-component', require('./components/Regions.vue').default);
+Vue.component('change-password-component', require('./components/Change-password.vue').default);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////

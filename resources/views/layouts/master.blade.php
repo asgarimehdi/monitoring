@@ -52,13 +52,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Right navbar links -->
         <ul class="navbar-nav mr-auto">
-
+        <a href="/changepassword">
             <li class="nav-item mt-2">
 
                 {{Auth::user()->name}}
 
 
             </li>
+        </a>
             <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link"
                    onclick="event.preventDefault();

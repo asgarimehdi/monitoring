@@ -1688,6 +1688,370 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Change-password.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Change-password.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      // Create a new form instance
+      editmode: false,
+      users: {},
+      groups: {},
+      roles: {},
+      counties: [],
+      types: {},
+      centers: {},
+      points: {},
+      county_selected: false,
+      type_selected: false,
+      center_selected: false,
+      point_selected: false,
+      user_county: '',
+      form: new Form({
+        id: '',
+        name: '',
+        username: '',
+        password: '',
+        role_id: '',
+        group_id: '',
+        county_id: '',
+        type_id: '',
+        center_id: '',
+        point_id: '',
+        g: '',
+        group: '',
+        r: '',
+        role: '',
+        region_point: ''
+      })
+    };
+  },
+  methods: {
+    getResults: function getResults() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('api/user?page=' + page).then(function (response) {
+        _this.users = response.data;
+      });
+    },
+    updateUser: function updateUser() {
+      var _this2 = this;
+
+      this.$Progress.start(); //console.log('editmode');
+
+      this.form.put('api/user/' + this.form.id).then(function () {
+        _this2.$emit('UserTableChanged');
+
+        $('#addNew').modal('hide');
+        toast.fire({
+          type: 'success',
+          title: 'کاربر با موفقیت ویرایش شد'
+        });
+
+        _this2.$Progress.finish();
+      })["catch"](function () {
+        _this2.$Progress.fail();
+      });
+    },
+    editModal: function editModal(user) {
+      this.editmode = true;
+      this.form.reset();
+      $('#addNew').modal('show');
+      this.form.fill(user);
+      this.county_selected = false;
+      this.type_selected = false;
+      this.center_selected = false;
+      this.point_selected = false;
+    },
+    newModal: function newModal() {
+      this.editmode = false;
+      this.form.reset();
+      $('#addNew').modal('show');
+      this.county_selected = false;
+      this.type_selected = false;
+      this.center_selected = false;
+      this.point_selected = false;
+    },
+    deleteUser: function deleteUser(id) {
+      var _this3 = this;
+
+      swal.fire({
+        title: 'آیا اطمینان دارید؟',
+        text: "این عملیات غیر قابل بازگشت است",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'بله حذف کن!',
+        cancelButtonText: 'بیخیال'
+      }).then(function (result) {
+        if (result.value) {
+          _this3.form["delete"]('/api/user/' + id).then(function () {
+            swal.fire('پاک شد', 'با موفقیت حذف شد', 'success');
+
+            _this3.$emit('UserTableChanged');
+          })["catch"](function () {
+            swal("Failed!", "خطایی رخ داده", "warning");
+          });
+        }
+      });
+    },
+    loadUsers: function loadUsers() {
+      var _this4 = this;
+
+      if (this.$gate.isAdmin()) {
+        this.$Progress.start();
+        axios.get("api/user").then(function (_ref) {
+          var data = _ref.data;
+          return _this4.users = data;
+        }).then(function () {
+          _this4.$Progress.finish();
+        })["catch"](function () {
+          _this4.$Progress.fail();
+
+          toast.fire({
+            type: 'error',
+            title: 'خطایی در لود اطلاعات رخ داد'
+          });
+        });
+      }
+    },
+    loadGroups: function loadGroups() {
+      var _this5 = this;
+
+      axios.get("api/groupList").then(function (_ref2) {
+        var data = _ref2.data;
+        return _this5.groups = data;
+      }).then(function () {})["catch"](function () {
+        toast.fire({
+          type: 'error',
+          title: 'خطایی در لود اطلاعات رخ داد'
+        });
+      });
+    },
+    loadRoles: function loadRoles() {
+      var _this6 = this;
+
+      axios.get("api/roleList").then(function (_ref3) {
+        var data = _ref3.data;
+        return _this6.roles = data;
+      }).then(function () {})["catch"](function () {
+        toast.fire({
+          type: 'error',
+          title: 'خطایی در لود اطلاعات رخ داد'
+        });
+      });
+    },
+    loadCounties: function loadCounties() {
+      var _this7 = this;
+
+      this.user_county = this.$gate.user.region_point.region_center.county_id;
+
+      if (this.$gate.isOstan()) {
+        axios.get("api/countyList").then(function (_ref4) {
+          var data = _ref4.data;
+          return _this7.counties = data;
+        }).then(function () {})["catch"](function () {
+          toast.fire({
+            type: 'error',
+            title: 'خطایی در لود اطلاعات رخ داد'
+          });
+        });
+      } else {
+        axios.get("api/county/" + this.user_county).then(function (_ref5) {
+          var data = _ref5.data;
+          return _this7.counties[0] = data;
+        }).then(function () {})["catch"](function () {
+          toast.fire({
+            type: 'error',
+            title: 'خطایی در لود اطلاعات رخ داد'
+          });
+        });
+      }
+    },
+    loadTypes: function loadTypes() {
+      var _this8 = this;
+
+      axios.get("api/typeList").then(function (_ref6) {
+        var data = _ref6.data;
+        return _this8.types = data;
+      }).then(function () {})["catch"](function () {
+        toast.fire({
+          type: 'error',
+          title: 'خطایی در لود اطلاعات رخ داد'
+        });
+      });
+    },
+    loadCenters: function loadCenters() {
+      var _this9 = this;
+
+      axios.get("api/centerList/" + this.form.county_id + "/" + this.form.type_id).then(function (_ref7) {
+        var data = _ref7.data;
+        return _this9.centers = data;
+      }).then(function () {})["catch"](function () {
+        toast.fire({
+          type: 'error',
+          title: 'خطایی در لود اطلاعات رخ داد'
+        });
+      });
+    },
+    loadPoints: function loadPoints() {
+      var _this10 = this;
+
+      axios.get("api/pointList/" + this.form.center_id).then(function (_ref8) {
+        var data = _ref8.data;
+        return _this10.points = data;
+      }).then(function () {})["catch"](function () {
+        toast.fire({
+          type: 'error',
+          title: 'خطایی در لود اطلاعات رخ داد'
+        });
+      });
+    },
+    createUser: function createUser() {
+      var _this11 = this;
+
+      this.$Progress.start();
+      this.form.post('api/user').then(function () {
+        _this11.$emit('UserTableChanged');
+
+        $('#addNew').modal('hide');
+        toast.fire({
+          type: 'success',
+          title: 'کاربر با موفقیت ایجاد گردید'
+        });
+
+        _this11.$Progress.finish();
+      })["catch"](function () {
+        _this11.$Progress.fail();
+      });
+    }
+  },
+  created: function created() {
+    var _this12 = this;
+
+    Fire.$on('searching', function () {
+      var query = _this12.$parent.search;
+      axios.get('api/findUser?q=' + query).then(function (data) {
+        _this12.users = data.data;
+      })["catch"](function () {});
+    });
+    this.loadUsers();
+    this.loadGroups();
+    this.loadRoles();
+    this.loadCounties();
+    this.$on('UserTableChanged', function () {
+      _this12.loadUsers();
+    });
+    this.$on('countySelected', function () {
+      //if(this.$refs.c.value){}
+      _this12.loadTypes();
+
+      _this12.county_selected = true;
+      _this12.type_selected = false;
+      _this12.center_selected = false; //  this.point_selected=false;
+    });
+    this.$on('typeSelected', function () {
+      // console.log(this.$refs.c.value);
+      _this12.loadCenters();
+
+      _this12.type_selected = true;
+      _this12.center_selected = false; // this.point_selected=false;
+    });
+    this.$on('centerSelected', function () {
+      _this12.loadPoints();
+
+      _this12.center_selected = true; // this.point_selected=false;
+    });
+    this.$on('pointSelected', function () {
+      _this12.point_selected = true;
+    }); // setInterval(()=>this.loadUsers(),5000);
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ColdChain.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ColdChain.vue?vue&type=script&lang=js& ***!
@@ -77062,6 +77426,255 @@ AlertSuccess_component.options.__file = "AlertSuccess.vue"
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Change-password.vue?vue&type=template&id=3978df06&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Change-password.vue?vue&type=template&id=3978df06& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _vm.$gate.isAdmin()
+      ? _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-8 container-fluid" }, [
+            _c("div", { staticClass: "card bg-info-gradient" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body  p-0" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.updateUser()
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "input-group p-2" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("password")
+                          },
+                          attrs: {
+                            type: "password",
+                            placeholder: "رمز عبور فعلی",
+                            name: "password",
+                            id: "password"
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "password" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "input-group p-2" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("password")
+                          },
+                          attrs: {
+                            type: "password",
+                            placeholder: "رمز عبور جدید",
+                            name: "password",
+                            id: "password"
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "password" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "input-group p-2" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.password,
+                              expression: "form.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("password")
+                          },
+                          attrs: {
+                            type: "password",
+                            placeholder: "تکرار رمز عبور",
+                            name: "password",
+                            id: "password"
+                          },
+                          domProps: { value: _vm.form.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "password" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger mr-2",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("بستن")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success mr-2",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("ویرایش")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" })
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [
+        _vm._v("\nتعییر رمز عبور کاربر\n                        ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("رمز عبور فعلی")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [_vm._v("رمز عبور جدید")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _vm._v("تکرار رمز عبور")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ColdChain.vue?vue&type=template&id=78c9ac3c&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ColdChain.vue?vue&type=template&id=78c9ac3c& ***!
@@ -105161,7 +105774,8 @@ Vue.component(vform__WEBPACK_IMPORTED_MODULE_3__["AlertError"].name, vform__WEBP
 Vue.component('cold-chain', __webpack_require__(/*! ./components/ColdChain.vue */ "./resources/js/components/ColdChain.vue")["default"]);
 Vue.component('users-component', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]); //Vue.component('test-component', require('./components/test.vue').default);
 
-Vue.component('regions-component', __webpack_require__(/*! ./components/Regions.vue */ "./resources/js/components/Regions.vue")["default"]); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('regions-component', __webpack_require__(/*! ./components/Regions.vue */ "./resources/js/components/Regions.vue")["default"]);
+Vue.component('change-password-component', __webpack_require__(/*! ./components/Change-password.vue */ "./resources/js/components/Change-password.vue")["default"]); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 
 var app = new Vue({
@@ -105255,6 +105869,75 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Change-password.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/Change-password.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Change-password.vue?vue&type=template&id=3978df06& */ "./resources/js/components/Change-password.vue?vue&type=template&id=3978df06&");
+/* harmony import */ var _Change_password_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Change-password.vue?vue&type=script&lang=js& */ "./resources/js/components/Change-password.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Change_password_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Change-password.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Change-password.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/Change-password.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Change_password_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Change-password.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Change-password.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Change_password_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Change-password.vue?vue&type=template&id=3978df06&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/Change-password.vue?vue&type=template&id=3978df06& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Change-password.vue?vue&type=template&id=3978df06& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Change-password.vue?vue&type=template&id=3978df06&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Change_password_vue_vue_type_template_id_3978df06___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

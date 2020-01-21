@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">مدیریت کاربران</h1>
+            <h1 class="m-0 text-dark">تغییر رمز عبور</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-<users-component></users-component>
+<change-password-component></change-password-component>
 <vue-progress-bar></vue-progress-bar>
 
 @endsection

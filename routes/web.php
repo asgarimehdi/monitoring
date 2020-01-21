@@ -19,3 +19,4 @@ Route::get('/', 'HomeController@coldchain');
 Route::get('/users', 'HomeController@users');
 Route::get('/regions', 'HomeController@region');
 Route::get('/coldchain', 'HomeController@coldchain');
+Route::get('/changepassword', 'HomeController@changepassword');
