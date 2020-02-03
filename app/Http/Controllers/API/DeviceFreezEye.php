@@ -14,8 +14,11 @@ class DeviceFreezEye extends Controller
     {
 
         $myObj=new \stdClass();
-        if(strlen($request['data1'])==105){
-            $data=$request['data1'];
+        $data=$request['data1'];
+        $data=explode(':',$data);
+        $data=$data[0];
+        if(strlen($data)==103){
+
 /////
             if($data[2]==0)
                 $neg='-';
@@ -23,7 +26,7 @@ class DeviceFreezEye extends Controller
                 $neg='';
             $temp= ($neg.$data[4].$data[5].'.'.$data[6]);
 /////
-            $device_id=($data[-7].$data[-6].$data[-5].$data[-4]);
+            $device_id=($data[-5].$data[-4].$data[-3].$data[-2]);
 /////
             if($data[7]==0)
                 $power='0';

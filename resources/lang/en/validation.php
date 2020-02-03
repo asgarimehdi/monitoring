@@ -72,6 +72,10 @@ return array(
     "timezone"         => "The :attribute must be a valid zone.",
     "unique"           => ":attribute قبلا انتخاب شده است.",
     "url"              => "فرمت آدرس :attribute اشتباه است.",
+    "password"              => ":attribute اشتباه است.",
+    "string" => "نباید خالی باشد",
+
+
 
     /*
     |--------------------------------------------------------------------------

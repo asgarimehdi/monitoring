@@ -55,3 +55,4 @@ Route::get('freezeye', 'API\DeviceFreezEye@index');
 
 Route::get('tempListByCounty/{county_id}', 'API\ColdChainController@tempByCounty');
 
+Route::put('changePassword', 'API\UserController@changePassword');

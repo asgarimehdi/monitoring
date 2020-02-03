@@ -45,4 +45,8 @@ class HomeController extends Controller
     {
         return view('change-password');
     }
+    public function draggablemap()
+    {
+        return view('draggable-map');
+    }
 }

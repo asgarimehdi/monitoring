@@ -1768,285 +1768,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       // Create a new form instance
-      editmode: false,
-      users: {},
-      groups: {},
-      roles: {},
-      counties: [],
-      types: {},
-      centers: {},
-      points: {},
-      county_selected: false,
-      type_selected: false,
-      center_selected: false,
-      point_selected: false,
-      user_county: '',
       form: new Form({
-        id: '',
-        name: '',
-        username: '',
         password: '',
-        role_id: '',
-        group_id: '',
-        county_id: '',
-        type_id: '',
-        center_id: '',
-        point_id: '',
-        g: '',
-        group: '',
-        r: '',
-        role: '',
-        region_point: ''
+        new_password: '',
+        confirm_password: ''
       })
     };
   },
   methods: {
-    getResults: function getResults() {
+    updateUser: function updateUser() {
       var _this = this;
 
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('api/user?page=' + page).then(function (response) {
-        _this.users = response.data;
-      });
-    },
-    updateUser: function updateUser() {
-      var _this2 = this;
-
-      this.$Progress.start(); //console.log('editmode');
-
-      this.form.put('api/user/' + this.form.id).then(function () {
-        _this2.$emit('UserTableChanged');
-
-        $('#addNew').modal('hide');
-        toast.fire({
-          type: 'success',
-          title: 'کاربر با موفقیت ویرایش شد'
-        });
-
-        _this2.$Progress.finish();
-      })["catch"](function () {
-        _this2.$Progress.fail();
-      });
-    },
-    editModal: function editModal(user) {
-      this.editmode = true;
-      this.form.reset();
-      $('#addNew').modal('show');
-      this.form.fill(user);
-      this.county_selected = false;
-      this.type_selected = false;
-      this.center_selected = false;
-      this.point_selected = false;
-    },
-    newModal: function newModal() {
-      this.editmode = false;
-      this.form.reset();
-      $('#addNew').modal('show');
-      this.county_selected = false;
-      this.type_selected = false;
-      this.center_selected = false;
-      this.point_selected = false;
-    },
-    deleteUser: function deleteUser(id) {
-      var _this3 = this;
-
-      swal.fire({
-        title: 'آیا اطمینان دارید؟',
-        text: "این عملیات غیر قابل بازگشت است",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'بله حذف کن!',
-        cancelButtonText: 'بیخیال'
-      }).then(function (result) {
-        if (result.value) {
-          _this3.form["delete"]('/api/user/' + id).then(function () {
-            swal.fire('پاک شد', 'با موفقیت حذف شد', 'success');
-
-            _this3.$emit('UserTableChanged');
-          })["catch"](function () {
-            swal("Failed!", "خطایی رخ داده", "warning");
-          });
-        }
-      });
-    },
-    loadUsers: function loadUsers() {
-      var _this4 = this;
-
-      if (this.$gate.isAdmin()) {
-        this.$Progress.start();
-        axios.get("api/user").then(function (_ref) {
-          var data = _ref.data;
-          return _this4.users = data;
-        }).then(function () {
-          _this4.$Progress.finish();
-        })["catch"](function () {
-          _this4.$Progress.fail();
-
-          toast.fire({
-            type: 'error',
-            title: 'خطایی در لود اطلاعات رخ داد'
-          });
-        });
-      }
-    },
-    loadGroups: function loadGroups() {
-      var _this5 = this;
-
-      axios.get("api/groupList").then(function (_ref2) {
-        var data = _ref2.data;
-        return _this5.groups = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadRoles: function loadRoles() {
-      var _this6 = this;
-
-      axios.get("api/roleList").then(function (_ref3) {
-        var data = _ref3.data;
-        return _this6.roles = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadCounties: function loadCounties() {
-      var _this7 = this;
-
-      this.user_county = this.$gate.user.region_point.region_center.county_id;
-
-      if (this.$gate.isOstan()) {
-        axios.get("api/countyList").then(function (_ref4) {
-          var data = _ref4.data;
-          return _this7.counties = data;
-        }).then(function () {})["catch"](function () {
-          toast.fire({
-            type: 'error',
-            title: 'خطایی در لود اطلاعات رخ داد'
-          });
-        });
-      } else {
-        axios.get("api/county/" + this.user_county).then(function (_ref5) {
-          var data = _ref5.data;
-          return _this7.counties[0] = data;
-        }).then(function () {})["catch"](function () {
-          toast.fire({
-            type: 'error',
-            title: 'خطایی در لود اطلاعات رخ داد'
-          });
-        });
-      }
-    },
-    loadTypes: function loadTypes() {
-      var _this8 = this;
-
-      axios.get("api/typeList").then(function (_ref6) {
-        var data = _ref6.data;
-        return _this8.types = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadCenters: function loadCenters() {
-      var _this9 = this;
-
-      axios.get("api/centerList/" + this.form.county_id + "/" + this.form.type_id).then(function (_ref7) {
-        var data = _ref7.data;
-        return _this9.centers = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    loadPoints: function loadPoints() {
-      var _this10 = this;
-
-      axios.get("api/pointList/" + this.form.center_id).then(function (_ref8) {
-        var data = _ref8.data;
-        return _this10.points = data;
-      }).then(function () {})["catch"](function () {
-        toast.fire({
-          type: 'error',
-          title: 'خطایی در لود اطلاعات رخ داد'
-        });
-      });
-    },
-    createUser: function createUser() {
-      var _this11 = this;
-
       this.$Progress.start();
-      this.form.post('api/user').then(function () {
-        _this11.$emit('UserTableChanged');
-
-        $('#addNew').modal('hide');
+      this.form.put('api/changePassword').then(function () {
         toast.fire({
           type: 'success',
-          title: 'کاربر با موفقیت ایجاد گردید'
+          title: 'رمز عبور ویرایش شد'
         });
 
-        _this11.$Progress.finish();
+        _this.$Progress.finish();
+
+        axios.post('/logout').then(function () {
+          window.location.href = '/login';
+        });
       })["catch"](function () {
-        _this11.$Progress.fail();
+        _this.$Progress.fail();
       });
     }
   },
-  created: function created() {
-    var _this12 = this;
-
-    Fire.$on('searching', function () {
-      var query = _this12.$parent.search;
-      axios.get('api/findUser?q=' + query).then(function (data) {
-        _this12.users = data.data;
-      })["catch"](function () {});
-    });
-    this.loadUsers();
-    this.loadGroups();
-    this.loadRoles();
-    this.loadCounties();
-    this.$on('UserTableChanged', function () {
-      _this12.loadUsers();
-    });
-    this.$on('countySelected', function () {
-      //if(this.$refs.c.value){}
-      _this12.loadTypes();
-
-      _this12.county_selected = true;
-      _this12.type_selected = false;
-      _this12.center_selected = false; //  this.point_selected=false;
-    });
-    this.$on('typeSelected', function () {
-      // console.log(this.$refs.c.value);
-      _this12.loadCenters();
-
-      _this12.type_selected = true;
-      _this12.center_selected = false; // this.point_selected=false;
-    });
-    this.$on('centerSelected', function () {
-      _this12.loadPoints();
-
-      _this12.center_selected = true; // this.point_selected=false;
-    });
-    this.$on('pointSelected', function () {
-      _this12.point_selected = true;
-    }); // setInterval(()=>this.loadUsers(),5000);
+  created: function created() {// setInterval(()=>this.loadUsers(),5000);
   }
 });
 
@@ -3881,6 +3635,171 @@ __webpack_require__.r(__webpack_exports__);
       _this12.point_selected = true;
     }); // setInterval(()=>this.loadUsers(),5000);
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/draggableMap.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/draggableMap.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "draggable-map",
+  components: {
+    LMap: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LMap"],
+    LTileLayer: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LTileLayer"],
+    LMarker: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LMarker"],
+    LPopup: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LPopup"],
+    LIcon: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LIcon"],
+    LCircle: vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["LCircle"]
+  },
+  data: function data() {
+    return {
+      zoom: 14,
+      center: Object(leaflet__WEBPACK_IMPORTED_MODULE_1__["latLng"])(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
+      //url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+      url: "http://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=897f18a7e1c0407286ce168d9fdf1b09",
+      attribution: '',
+      currentZoom: 9,
+      currentCenter: Object(leaflet__WEBPACK_IMPORTED_MODULE_1__["latLng"])(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
+      markerLatLng: [this.$gate.user.region_point.lat, this.$gate.user.region_point.lng],
+      lat: '',
+      lng: '',
+      circle: {
+        center: [this.$gate.user.region_point.lat, this.$gate.user.region_point.lng],
+        radius: 100,
+        color: 'yellow'
+      }
+    };
+  },
+  methods: {
+    zoomUpdate: function zoomUpdate(zoom) {
+      this.currentZoom = zoom;
+    },
+    centerUpdate: function centerUpdate(center) {
+      this.currentCenter = center;
+    },
+    latlngUpdate: function latlngUpdate(latlng) {
+      this.markerLatLng = latlng;
+      this.lat = this.markerLatLng.lat.toFixed(6);
+      this.lng = this.markerLatLng.lng.toFixed(6);
+    }
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/test.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  methods: {
+    newModal: function newModal() {
+      $('#addNew').modal('show');
+    }
+  },
+  created: function created() {}
 });
 
 /***/ }),
@@ -69883,7 +69802,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -70229,7 +70148,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -70384,8 +70303,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -70406,8 +70325,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -71346,8 +71265,8 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
@@ -77516,21 +77435,21 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.password,
-                              expression: "form.password"
+                              value: _vm.form.new_password,
+                              expression: "form.new_password"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("password")
+                            "is-invalid": _vm.form.errors.has("new_password")
                           },
                           attrs: {
                             type: "password",
                             placeholder: "رمز عبور جدید",
-                            name: "password",
-                            id: "password"
+                            name: "new_password",
+                            id: "new_password"
                           },
-                          domProps: { value: _vm.form.password },
+                          domProps: { value: _vm.form.new_password },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -77538,7 +77457,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "password",
+                                "new_password",
                                 $event.target.value
                               )
                             }
@@ -77548,7 +77467,7 @@ var render = function() {
                         _vm._m(2),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "password" }
+                          attrs: { form: _vm.form, field: "new_password" }
                         })
                       ],
                       1
@@ -77563,21 +77482,24 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.form.password,
-                              expression: "form.password"
+                              value: _vm.form.confirm_password,
+                              expression: "form.confirm_password"
                             }
                           ],
                           staticClass: "form-control",
                           class: {
-                            "is-invalid": _vm.form.errors.has("password")
+                            "is-invalid": _vm.form.errors.has(
+                              "confirm_password"
+                            )
                           },
                           attrs: {
                             type: "password",
                             placeholder: "تکرار رمز عبور",
-                            name: "password",
-                            id: "password"
+                            name: "confirm_password",
+                            id: "confirm_password",
+                            "data-match": "new_password"
                           },
-                          domProps: { value: _vm.form.password },
+                          domProps: { value: _vm.form.confirm_password },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
@@ -77585,7 +77507,7 @@ var render = function() {
                               }
                               _vm.$set(
                                 _vm.form,
-                                "password",
+                                "confirm_password",
                                 $event.target.value
                               )
                             }
@@ -77595,19 +77517,10 @@ var render = function() {
                         _vm._m(3),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "password" }
+                          attrs: { form: _vm.form, field: "confirm_password" }
                         })
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-danger mr-2",
-                        attrs: { type: "button" }
-                      },
-                      [_vm._v("بستن")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -82107,6 +82020,168 @@ var staticRenderFns = [
     ])
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-12" },
+        [
+          _c("span", [
+            _vm._v(
+              "\n                 " +
+                _vm._s(_vm.lat) +
+                "\n                 " +
+                _vm._s(_vm.lng) +
+                "\n             "
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "l-map",
+            {
+              staticStyle: { height: "500px", width: "100%" },
+              attrs: { zoom: _vm.zoom, center: _vm.center },
+              on: {
+                "update:center": _vm.centerUpdate,
+                "update:zoom": _vm.zoomUpdate
+              }
+            },
+            [
+              _c("l-tile-layer", {
+                attrs: { url: _vm.url, attribution: _vm.attribution }
+              }),
+              _vm._v(" "),
+              _c("l-marker", {
+                attrs: { "lat-lng": _vm.markerLatLng, draggable: true },
+                on: { "update:latLng": _vm.latlngUpdate }
+              }),
+              _vm._v(" "),
+              _c("l-circle", {
+                attrs: {
+                  "lat-lng": _vm.circle.center,
+                  radius: _vm.circle.radius,
+                  color: _vm.circle.color
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _c("h3", { staticClass: "card-title" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: {
+                    type: "button",
+                    "data-toggle": "modal",
+                    "data-target": "#addNew"
+                  },
+                  on: { click: _vm.newModal }
+                },
+                [
+                  _vm._v(
+                    "\n                            ایجاد کاربر جدید\n                            "
+                  ),
+                  _c("i", { staticClass: "fa fa-user-plus fa-fw" })
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal rtl fade",
+        attrs: {
+          id: "addNew",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "addNewLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-content" },
+              [_c("draggable-map-component")],
+              1
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -105772,10 +105847,11 @@ Vue.component(vform__WEBPACK_IMPORTED_MODULE_3__["AlertError"].name, vform__WEBP
 //Vue.component('map-component', require('./components/mapComponent.vue').default);
 
 Vue.component('cold-chain', __webpack_require__(/*! ./components/ColdChain.vue */ "./resources/js/components/ColdChain.vue")["default"]);
-Vue.component('users-component', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]); //Vue.component('test-component', require('./components/test.vue').default);
-
+Vue.component('users-component', __webpack_require__(/*! ./components/Users.vue */ "./resources/js/components/Users.vue")["default"]);
+Vue.component('test-component', __webpack_require__(/*! ./components/test.vue */ "./resources/js/components/test.vue")["default"]);
 Vue.component('regions-component', __webpack_require__(/*! ./components/Regions.vue */ "./resources/js/components/Regions.vue")["default"]);
-Vue.component('change-password-component', __webpack_require__(/*! ./components/Change-password.vue */ "./resources/js/components/Change-password.vue")["default"]); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('change-password-component', __webpack_require__(/*! ./components/Change-password.vue */ "./resources/js/components/Change-password.vue")["default"]);
+Vue.component('draggable-map-component', __webpack_require__(/*! ./components/draggableMap.vue */ "./resources/js/components/draggableMap.vue")["default"]); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 
 var app = new Vue({
@@ -106212,6 +106288,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_30c27aa6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/draggableMap.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/draggableMap.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./draggableMap.vue?vue&type=template&id=6e8478da& */ "./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da&");
+/* harmony import */ var _draggableMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./draggableMap.vue?vue&type=script&lang=js& */ "./resources/js/components/draggableMap.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _draggableMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/draggableMap.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/draggableMap.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/draggableMap.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_draggableMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./draggableMap.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/draggableMap.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_draggableMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./draggableMap.vue?vue&type=template&id=6e8478da& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/draggableMap.vue?vue&type=template&id=6e8478da&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_draggableMap_vue_vue_type_template_id_6e8478da___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/test.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/test.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.vue?vue&type=template&id=5b6abe5d& */ "./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&");
+/* harmony import */ var _test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.vue?vue&type=script&lang=js& */ "./resources/js/components/test.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/test.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/test.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/test.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./test.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/test.vue?vue&type=template&id=5b6abe5d& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./test.vue?vue&type=template&id=5b6abe5d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/test.vue?vue&type=template&id=5b6abe5d&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_test_vue_vue_type_template_id_5b6abe5d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

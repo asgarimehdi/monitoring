@@ -186,4 +186,21 @@ class UserController extends Controller
         $us = Role::all();
         return $us;
     }
+
+    public function changePassword(Request $request)
+    {
+        $user_id=Auth::user()->id;
+        $user = User::findOrFail($user_id);
+        $this->validate($request,[
+            'password' => 'password:api',
+            'new_password' => 'bail|string|min:8',
+            'confirm_password' => 'bail|required_with:new_password|same:new_password|string|min:8'
+        ]);
+        if(!empty($request->password)){
+            $request->merge(['password' => Hash::make($request['new_password'])]);
+            $request->merge(['id' => $user_id]);
+        }
+        $user->update($request->all());
+        return ['message' => 'Updated the user info'];
+    }
 }
