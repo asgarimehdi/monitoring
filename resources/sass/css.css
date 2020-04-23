@@ -2,17 +2,24 @@
     background-image: linear-gradient(#1f6fb2,#ddd ) !important;
     color:#fff;
 }
-#coldChainMap{
+#myMap{
 
     position: relative;
 }
 #coldChainMapHelp{
     width: 200px;
     position: absolute;
-    top: 50pt   ;
+    top: 10pt;
     right: 10pt;
     z-index: 1000;
 }
-#coldChainMapHelp img{
+#coldChainMapHelp2{
+    width: 200px;
+    position: absolute;
+    top: 10pt;
+    left: 35pt;
+    z-index: 1000;
+}
+#coldChainMapHelp img,#coldChainMapHelp2 img{
 height: 25px;
 }

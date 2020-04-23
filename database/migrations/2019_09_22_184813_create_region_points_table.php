@@ -20,6 +20,7 @@ class CreateRegionPointsTable extends Migration
             $table->unsignedBigInteger('device_id')->nullable();
             $table->double('lat');
             $table->double('lng');
+			$table->unsignedBigInteger('type_id');
             $table->timestamps();
         });
     }

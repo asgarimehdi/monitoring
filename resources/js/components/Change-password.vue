@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container">
-        <div class="row" v-if="$gate.isAdmin()">
+        <div class="row">
             <div class="col-md-8 container-fluid">
                 <div class="card bg-info-gradient">
                     <div class="card-header">
@@ -60,9 +60,7 @@
                 <!-- /.card -->
             </div>
         </div>
-        <div v-if="!$gate.isAdmin()">
-            <not-found></not-found>
-        </div>
+
 
     </div>
 

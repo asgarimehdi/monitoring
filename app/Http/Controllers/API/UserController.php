@@ -31,10 +31,10 @@ class UserController extends Controller
 
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
-            return   $us = User::with('group','role','region_point')->paginate(10);
+            return   $us = User::with('group','role','region_point','region_point.region_center.region_county')->paginate(20);
         }
         else{
-            return    User::with(['group','role','region_point'])
+            return    User::with(['group','role','region_point','region_point.region_center.region_county'])
                 ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional

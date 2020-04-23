@@ -25,6 +25,7 @@
                                 <th>نام کاربری</th>
                                 <th>نقش</th>
                                 <th>گروه</th>
+                                <th>شهرستان</th>
                                 <th>تغییر</th>
 
                             </tr>
@@ -34,6 +35,7 @@
                                 <td>{{user.username}}</td>
                                 <td>{{user.role.name}}</td>
                                 <td>{{user.group.name}}</td>
+                                <td>{{user.region_point.region_center.region_county.name}}</td>
 
 
                                 <td>
@@ -244,7 +246,7 @@
                 users: {},
                 groups: {},
                 roles: {},
-                counties: [],
+                counties: {},
                 types: {},
                 centers: {},
                 points: {},
@@ -389,7 +391,7 @@
                         });
                     });
                 } else {
-                    axios.get("api/county/" + this.user_county).then(({data}) => (this.counties[0] = data)).then(() => {
+                    axios.get("api/county/" + this.user_county).then(({data}) => (this.counties = data)).then(() => {
                     }).catch(() => {
                         toast.fire({
                             type: 'error',
@@ -422,7 +424,7 @@
 
             },
             loadPoints() {
-                axios.get("api/pointList/" + this.form.center_id).then(({data}) => (this.points = data)).then(() => {
+                axios.get("api/pointList/" + this.form.center_id + "/" + this.form.type_id).then(({data}) => (this.points = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',

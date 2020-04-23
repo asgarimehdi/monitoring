@@ -120,13 +120,13 @@
                         <div class="card-body">
                             <div v-if="centers[0]">
                                 <button class="btn btn-info btn-block btn-sm center" type="button" v-for="r in centers"
-                                        v-if="r.id" :ref="'ce'+r.id" @click="loadPoints(r.id)">{{r.name}}
+                                        v-if="r.id" :ref="'ce'+r.id" @click="loadPoints(r.id,type_id)">{{r.name}}
                                 </button>
                             </div>
                             <div v-else>چیزی برای نمایش وجود ندارد</div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer bg-transparent">
+                        <div class="card-footer bg-transparent" v-show="(type_id!=5)&&(type_id!=6)">
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
@@ -511,9 +511,9 @@
                 this.$refs['t' + type_id][0].classList.add('btn-warning');
                 this.$refs['t' + type_id][0].classList.remove('btn-success');
             },
-            loadPoints(center_id) {
+            loadPoints(center_id,type_id) {
 
-                axios.get("api/pointList/" + center_id).then(({data}) => (this.points = data)).then(() => {
+                axios.get("api/pointList/" + center_id+"/"+type_id).then(({data}) => (this.points = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
                         type: 'error',
@@ -707,6 +707,7 @@
             createPoint() {
                 this.$Progress.start();
                 this.form.center_id = this.center_id;
+                this.form.type_id = this.type_id;
                 this.form.post('api/point')
                     .then(() => {
                         this.$emit('PointTableChanged');
@@ -719,6 +720,10 @@
 
                     })
                     .catch(() => {
+                        toast.fire({
+                            type: 'error',
+                            title: 'خطا در ثبت'
+                        });
                         this.$Progress.fail();
                     });
 
@@ -996,7 +1001,7 @@
             });
             this.$on('PointTableChanged', () => {
                 //this.loadCounties();
-                this.loadPoints(this.center_id);
+                this.loadPoints(this.center_id,this.type_id);
             });
         }
     }

@@ -1,35 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Open Files" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/draggableMap.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/test.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/draggable-map.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/401.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/403.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/419.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/429.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/500.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/503.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/illustrated-layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/errors/minimal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Cd_corona.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Environment_item.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Environment_value.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CdController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/EnvironmentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_03_174032_create_environment_value_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_03_174449_create_environment_item_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_03_182256_create_cd_coronas_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CdCorona.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CdCoronaManage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/DevelopManage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/EnvironmentManage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/LineChart.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/reports/ReportCdCorona.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cd-corona-manage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cd-corona.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/develop-manage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/environment-manage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reports/report-cd-corona.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/monitoring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/monitoring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/DeviceFreezEye.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/DeviceFreezEye.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/RegionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Region_point.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Region_point.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_22_184813_create_region_points_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_22_184813_create_region_points_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Gate.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Gate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Change-password.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Change-password.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ColdChain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ColdChain.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Regions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Regions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Users.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/test.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/test.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/coldchain.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/coldchain.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/region.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/region.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,13 +90,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Auth</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="SYNC" />
@@ -181,8 +204,13 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/league/commonmark" />
-      <path value="$PROJECT_DIR$/vendor/league/commonmark-ext-table" />
     </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="13" />
+    <option name="y" value="11" />
+    <option name="width" value="1260" />
+    <option name="height" value="954" />
   </component>
   <component name="ProjectId" id="1SH9xDGqtB4YN6IUm4pZWRiRwij" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -202,14 +230,20 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\monitoring\resources\js\components\reports" />
+      <recent name="C:\xampp\htdocs\monitoring\resources\js\components" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\monitoring\resources\js\components" />
       <recent name="C:\xampp\htdocs\monitoring\resources\views" />
-      <recent name="C:\xampp\htdocs\monitoring\public\js" />
-      <recent name="C:\xampp\htdocs\monitoring\database\seeds" />
+      <recent name="C:\xampp\htdocs\monitoring\resources\views\layouts" />
+      <recent name="C:\xampp\htdocs\monitoring\resources\js\components\reports" />
+      <recent name="C:\xampp\htdocs\monitoring\resources\views\reports" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -369,6 +403,108 @@
       <workItem from="1579730705330" duration="248000" />
       <workItem from="1579988424715" duration="652000" />
       <workItem from="1580070659945" duration="4902000" />
+      <workItem from="1580748535437" duration="4880000" />
+      <workItem from="1580759246351" duration="3390000" />
+      <workItem from="1580831241946" duration="6324000" />
+      <workItem from="1580919837916" duration="10089000" />
+      <workItem from="1581008499077" duration="2045000" />
+      <workItem from="1581083231456" duration="590000" />
+      <workItem from="1581094145342" duration="2895000" />
+      <workItem from="1581173820379" duration="2531000" />
+      <workItem from="1581270284906" duration="1684000" />
+      <workItem from="1581277398617" duration="1940000" />
+      <workItem from="1581970007371" duration="4476000" />
+      <workItem from="1582126547144" duration="6908000" />
+      <workItem from="1582474674410" duration="1765000" />
+      <workItem from="1582650719558" duration="1444000" />
+      <workItem from="1583162462327" duration="637000" />
+      <workItem from="1583164113841" duration="629000" />
+      <workItem from="1583257942896" duration="3558000" />
+      <workItem from="1583264610664" duration="1624000" />
+      <workItem from="1583268387741" duration="141000" />
+      <workItem from="1583268552187" duration="164000" />
+      <workItem from="1583268741371" duration="7000" />
+      <workItem from="1583269095980" duration="99000" />
+      <workItem from="1583269214898" duration="22000" />
+      <workItem from="1583269264670" duration="417000" />
+      <workItem from="1583269700941" duration="4781000" />
+      <workItem from="1583309542137" duration="14000" />
+      <workItem from="1583309601282" duration="4396000" />
+      <workItem from="1583337574598" duration="3243000" />
+      <workItem from="1583426132506" duration="1023000" />
+      <workItem from="1583782051182" duration="1982000" />
+      <workItem from="1583785547653" duration="2857000" />
+      <workItem from="1583860157142" duration="3391000" />
+      <workItem from="1583867963395" duration="3861000" />
+      <workItem from="1583917962278" duration="2576000" />
+      <workItem from="1583944017514" duration="6463000" />
+      <workItem from="1583956412166" duration="4009000" />
+      <workItem from="1583987793981" duration="1358000" />
+      <workItem from="1584202306186" duration="7656000" />
+      <workItem from="1584215051094" duration="2944000" />
+      <workItem from="1584254744978" duration="1557000" />
+      <workItem from="1584334620102" duration="4619000" />
+      <workItem from="1584436068035" duration="1980000" />
+      <workItem from="1584466859159" duration="3652000" />
+      <workItem from="1584472877255" duration="9734000" />
+      <workItem from="1584511431204" duration="4058000" />
+      <workItem from="1584592183187" duration="6710000" />
+      <workItem from="1584761794707" duration="12955000" />
+      <workItem from="1584801249340" duration="13512000" />
+      <workItem from="1584821393641" duration="3979000" />
+      <workItem from="1584860473482" duration="2384000" />
+      <workItem from="1584901618172" duration="3062000" />
+      <workItem from="1584906937262" duration="4130000" />
+      <workItem from="1584938417458" duration="5655000" />
+      <workItem from="1584983734530" duration="5936000" />
+      <workItem from="1584993998982" duration="2318000" />
+      <workItem from="1585059515437" duration="4670000" />
+      <workItem from="1585108509427" duration="2437000" />
+      <workItem from="1585128542022" duration="616000" />
+      <workItem from="1585193002159" duration="70000" />
+      <workItem from="1585193115691" duration="4997000" />
+      <workItem from="1585453790519" duration="4471000" />
+      <workItem from="1585495093507" duration="2625000" />
+      <workItem from="1585504844400" duration="3057000" />
+      <workItem from="1585581118948" duration="7122000" />
+      <workItem from="1585686848372" duration="4306000" />
+      <workItem from="1585764761342" duration="4696000" />
+      <workItem from="1585798332968" duration="6660000" />
+      <workItem from="1585842976273" duration="9808000" />
+      <workItem from="1585890623381" duration="1308000" />
+      <workItem from="1585939062748" duration="8253000" />
+      <workItem from="1585978460361" duration="5995000" />
+      <workItem from="1586013585593" duration="6084000" />
+      <workItem from="1586031316710" duration="5066000" />
+      <workItem from="1586115882562" duration="5216000" />
+      <workItem from="1586196129483" duration="4744000" />
+      <workItem from="1586231409043" duration="5098000" />
+      <workItem from="1586245463141" duration="1622000" />
+      <workItem from="1586267117324" duration="4105000" />
+      <workItem from="1586316804252" duration="3410000" />
+      <workItem from="1586378571665" duration="2847000" />
+      <workItem from="1586413043861" duration="4011000" />
+      <workItem from="1586441563811" duration="598000" />
+      <workItem from="1586506126646" duration="1113000" />
+      <workItem from="1586539553952" duration="6388000" />
+      <workItem from="1586624653392" duration="594000" />
+      <workItem from="1586701632691" duration="587000" />
+      <workItem from="1586712055220" duration="3764000" />
+      <workItem from="1586763861363" duration="4427000" />
+      <workItem from="1586789755343" duration="8706000" />
+      <workItem from="1586891518440" duration="5597000" />
+      <workItem from="1586962349206" duration="5025000" />
+      <workItem from="1586978782937" duration="4274000" />
+      <workItem from="1587008149413" duration="5168000" />
+      <workItem from="1587045410747" duration="9117000" />
+      <workItem from="1587141164897" duration="4371000" />
+      <workItem from="1587236486678" duration="2383000" />
+      <workItem from="1587306793824" duration="14968000" />
+      <workItem from="1587327266914" duration="2481000" />
+      <workItem from="1587496809175" duration="5456000" />
+      <workItem from="1587569187563" duration="8888000" />
+      <workItem from="1587585417999" duration="9858000" />
+      <workItem from="1587672352038" duration="1373000" />
     </task>
     <servers />
   </component>
@@ -402,29 +538,46 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="22" key="#Notifications" timestamp="1575748686557">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="22" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1575748686557" />
     <state x="0" y="0" key="#Updates" timestamp="1579031946504">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="#Updates/0.0.1366.728@0.0.1366.728" timestamp="1579031946504" />
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578770856746">
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583268281196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1578770856746" />
-    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1575779456920">
+    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1583268281196" />
+    <state x="452" y="156" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1584826464740">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="452" y="156" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1584826464740" />
+    <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583271530335">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1583271530335" />
+    <state width="1323" height="98" key="GridCell.Tab.0.bottom" timestamp="1586891992954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="98" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586891992954" />
+    <state width="1323" height="98" key="GridCell.Tab.0.center" timestamp="1586891992954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="98" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586891992954" />
+    <state width="1323" height="98" key="GridCell.Tab.0.left" timestamp="1586891992954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="98" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586891992954" />
+    <state width="1323" height="98" key="GridCell.Tab.0.right" timestamp="1586891992954">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="98" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586891992954" />
+    <state x="243" y="13" key="SettingsEditor" timestamp="1583270261733">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="243" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583270261733" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1586767726002">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="184" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1575779456919" />
-    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup" timestamp="1575749961441">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="21" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1575749961441" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1586767726002" />
   </component>
 </project>

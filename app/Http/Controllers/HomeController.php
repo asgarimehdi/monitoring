@@ -49,4 +49,24 @@ class HomeController extends Controller
     {
         return view('draggable-map');
     }
+    public function environmentmanage()
+    {
+        return view('environment-manage');
+    }
+    public function cdcoronamanage()
+    {
+        return view('cd-corona-manage');
+    }
+    public function cdcorona()
+    {
+        return view('cd-corona');
+    }
+    public function report_cdcorona()
+    {
+        return view('reports/report-cd-corona');
+    }
+    public function developmanage()
+    {
+        return view('develop-manage');
+    }
 }

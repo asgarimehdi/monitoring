@@ -41,6 +41,15 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isBimaGVagir',function($user){
             return $user->group->id === 4;
         });
+        Gate::define('isRiasat',function($user){
+            return $user->group->id === 2;
+        });
+        Gate::define('isRiasat',function($user){
+            return $user->group->id === 2;
+        });
+        Gate::define('isGostaresh',function($user){
+            return $user->group->id === 3;
+        });
 
 
     }

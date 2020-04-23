@@ -7,6 +7,9 @@ export default class Gate{
     isAdmin(){
         return this.user.role_id === 1;
     }
+    isGroup_admin(){
+        return this.user.role_id === 2;
+    }
 
     isJustUser(){
         return this.user.role_id === 3;
@@ -28,6 +31,12 @@ export default class Gate{
     }
     isBimaGVagir(){
         return this.user.group.id === 4;
+    }
+    isRiasat(){
+        return this.user.group.id === 2;
+    }
+    isGostaresh(){
+        return this.user.group.id === 3;
     }
 
 

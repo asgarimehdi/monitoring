@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/coldchain';
+    protected $redirectTo = '/cdcorona';
     protected $username='username';
 
     /**

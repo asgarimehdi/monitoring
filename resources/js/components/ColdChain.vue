@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="row"  v-if="$gate.isAdminOrGroup_admin()">
-            <div class="col-sm-12" id="coldChainMap">
+            <div class="col-sm-12" id="myMap">
                 <div class="card bg-info-gradient"  id="coldChainMapHelp">
                     <div class="card-header no-border ">
                         <h3 class="card-title">
@@ -49,9 +49,9 @@
                                     v-model="county_id" id="county_id" class="form-control">
                                 <option  value=""  >همه شهرستان</option>
                                 <option v-if="r.id!=9"
-                                    v-for="r in counties"
-                                    :value="r.id"
-
+                                    v-for="(r,index) in counties"
+                                        :value="r.id"
+                                        :key="index"
                                 >
                                     {{r.name}}
                                 </option>
@@ -63,7 +63,7 @@
                 </div>
 
 
-                <h4> زنجیره سرما</h4>
+
                 <!-- <span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
 
                 <l-map
@@ -75,7 +75,7 @@
                 >
                     <l-tile-layer :url="url" :attribution="attribution" />
 
-                    <l-marker v-for="marker in markers"  :lat-lng="marker"
+                    <l-marker v-for="(marker,index) in markers"  :key="index"  :lat-lng="marker"
                               v-if="marker.device
                   && highTempCheck(marker.device.temp)
                   && disconnectCheck(marker.device.updated_at)

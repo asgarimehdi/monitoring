@@ -9,6 +9,7 @@ use App\Region_type;
 use App\Region_center;
 use App\Region_point;
 
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
@@ -49,24 +50,31 @@ class RegionController extends Controller
     public function center($county_id,$type_id)
     {
       //  $type_id=\Request::get('type_id');
-/*        if($type_id==5){
-            $type_id="4";
-            $type_id2="3";
-            return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->orWhere('type_id','=',$type_id2)->get();
+        if($type_id==5){ //خانه بهداشت
+            return Region_center::where('county_id','=',$county_id)
+                ->where(function($q) {
+                    $q->where('type_id', 3)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
         }
-        elseif($type_id==6){
-            $type_id="4";
-            $type_id2="2";
-            return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->orWhere('type_id','=',$type_id2)->get();
+        elseif($type_id==6){ // پایگاه سلامت
+                return Region_center::where('county_id','=',$county_id)
+                ->where(function($q) {
+                    $q->where('type_id', 2)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
         }
-        else*/
+        else
         return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->get();
 
     }
-    public function point($center_id)
+    public function point($center_id,$type_id)
     {
-        //
-        return    Region_point::where('center_id','=',$center_id)->get();
+
+        //return    Region_point::where('center_id','=',$center_id)->where('type_id','=',$type_id)->get();
+        return    Region_point::where('center_id','=',$center_id)->where('type_id','=',$type_id)->get();
     }
 
 
@@ -125,6 +133,7 @@ class RegionController extends Controller
             'lat' => $request['lat'],
             'lng' => $request['lng'],
             'device_id' => $request['device_id'],
+            'type_id' => $request['type_id'],
         ]);
     }
 
@@ -171,7 +180,7 @@ class RegionController extends Controller
     }
     public function countyById($county_id)
     {
-        return  $county = Region_county::find($county_id);
+        return  Region_county::where('id','=',$county_id)->get();
     }
     public function typeById($type_id)
     {
@@ -183,7 +192,7 @@ class RegionController extends Controller
     }
     public function pointById($point_id)
     {
-        return  $point = Region_point::find($point_id);
+        return  $point = Region_point::with('develop:point_id,population,id')->find($point_id);
     }
 
 
@@ -192,11 +201,11 @@ class RegionController extends Controller
         //$this->authorize('isAdmin');
 
         $county = Region_county::findOrFail($id);
-        // delete the user
+        // delete the County
 
         $county->delete();
 
-        return ['message' => 'User Deleted'];
+        return ['message' => 'County Deleted'];
     }
     public function deleteType($id)
     {
@@ -241,5 +250,75 @@ class RegionController extends Controller
     public function pointByCenterId($center_id)
     {
         return Region_point::where('center_id','=',$center_id)->get();
+    }
+
+    public function pointByCounty($county_id)
+    {       //
+
+       $items= Region_point::with(['Region_center','develop:point_id,population'])
+           ->Where("type_id","<","7")
+           ->whereHas('Region_center', function($q) use($county_id) {
+                $q->where('county_id', '=', $county_id);
+            })
+            ->get();
+        foreach($items as $item) {
+            if(($item['type_id']==2)or($item['type_id']==3)or($item['type_id']==4))
+            {
+                $b=Region_point::with('develop:point_id,population')
+                    ->Where("center_id","=",$item['center_id'])
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$b;
+            }
+            elseif($item['type_id']==1)
+            {
+                $county_id=$item['region_center'];
+                $county_id=$county_id->county_id;
+                $c=Region_point::with(['develop:point_id,population','Region_center'])
+                    ->whereHas('Region_center', function($q) use($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    })
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$c;
+            }
+
+        }
+       return  $items;
+    }
+    public function pointList()
+    {       //
+
+        $items=   Region_point::with(['Region_center','develop:point_id,population'])
+            ->Where("type_id","<","7")
+            ->get();
+        foreach($items as $item) {
+            if(($item['type_id']==2)or($item['type_id']==3)or($item['type_id']==4))
+            {
+                $b=Region_point::with('develop:point_id,population')
+                    ->Where("center_id","=",$item['center_id'])
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$b;
+            }
+            elseif($item['type_id']==1)
+            {
+                $county_id=$item['region_center'];
+                $county_id=$county_id->county_id;
+                $c=Region_point::with(['develop:point_id,population','Region_center'])
+                    ->whereHas('Region_center', function($q) use($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    })
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$c;
+            }
+
+        }
+
+
+        return  $items;
     }
 }

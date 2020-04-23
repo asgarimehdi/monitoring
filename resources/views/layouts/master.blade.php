@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
+
+<html lang="fa">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="shortcut icon" href="{{asset('/images/favicon.ico')}}" type="image/x-icon"/>
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini sidebar-collapse">
 <div class="wrapper" id="app">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -52,14 +49,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Right navbar links -->
         <ul class="navbar-nav mr-auto">
-        <a href="/changepassword">
-            <li class="nav-item mt-2">
-
-                {{Auth::user()->name}}
-
-
-            </li>
-        </a>
+            <a href="/changepassword" title="{{Auth::user()->role->name}} - {{Auth::user()->group->name}} - {{Auth::user()->region_point->region_center->region_county->name}}">
+                <li class="nav-item mt-2">
+                    <i class="fa fa-user"></i>
+                    {{Auth::user()->name}}
+                </li>
+            </a>
             <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link"
                    onclick="event.preventDefault();
@@ -70,10 +65,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @csrf
                 </form>
             </li>
-            <li class="nav-item">
+            {{--<li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
                         class="fa fa-th-large"></i></a>
-            </li>
+            </li>--}}
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -82,8 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="/" class="brand-link">
-            <img src={{ asset("images/zums.png") }} alt="zums logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+            <img src={{ asset("images/zums.png") }} alt="zums" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
             <span class="brand-text font-weight-light">سامانه جامع مانیتورینگ</span>
         </a>
 
@@ -98,7 +93,138 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
+                        @canany(['isGostaresh','isBimaGVagir','isAdmin'])
+                            @cannot('isJustUser')
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fa fa-gear"></i>
+                                    <p>
+                                        مدیریت
+                                        <i class="right fa fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    @canany(['isGostaresh','isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\developmanage"
+                                               class="nav-link {{ (request()->is('developmanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-globe nav-icon"></i>
+                                                <p>
+                                                    توسعه شبکه
+                                                    <span class="right badge badge-danger">جدید</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                    @canany(['isBimaGVagir','isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\cdcoronamanage"
+                                               class="nav-link {{ (request()->is('cdcoronamanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <p>
+                                                    مدیریت کرونا
+                                                    <span class="right badge badge-success">توسعه</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#"
+                                               class="nav-link ">
+                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <p>
+                                                     سل
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#"
+                                               class="nav-link ">
+                                                <i class="fa fa-wheelchair nav-icon"></i>
+                                                <p>
+                                                     فلج شل حاد
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#"
+                                               class="nav-link ">
+                                                <i class="fa fa-medkit nav-icon"></i>
+                                                <p>
+                                                     HIV
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#"
+                                               class="nav-link ">
+                                                <i class="fa fa-certificate nav-icon"></i>
+                                                <p>
+                                                     هاری
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#"
+                                               class="nav-link ">
+                                                <i class="fa fa-thermometer nav-icon"></i>
+                                                <p>
+                                                     تب مالت
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+
+                                    @canany(['isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\environmentmanage"
+                                               class="nav-link {{ (request()->is('environmentmanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-eyedropper nav-icon"></i>
+                                                <p>
+                                                    بهداشت محیط
+                                                    <span class="right badge badge-warning">در انتظار</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                    @canany(['isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\regions"
+                                               class="nav-link {{ (request()->is('regions')) ? 'active' : '' }}">
+                                                <i class="fa fa-map-marker nav-icon"></i>
+                                                <p>مدیریت مناطق
+                                                    <span class="right badge badge-info">تکمیل</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                    @canany(['isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\users"
+                                               class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
+                                                <i class="fa fa-users nav-icon"></i>
+                                                <p>مدیریت کاربران
+                                                    <span class="right badge badge-info">تکمیل</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                </ul>
+                            </li>
+                            @endcannot
+                        @endcanany
+
+                    </ul>
+
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview  menu-open">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
@@ -107,44 +233,58 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                @canany(['isBimaGVagir','isAdmin'])
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fa fa-heartbeat nav-icon"></i>
-                                        <p>
-                                            مبارزه با بیماریهای واگیر
-                                        </p>
-                                    </a>
-                                </li>
 
-
+                                @canany(['isBimaGVagir','isAdmin','isRiasat'])
+                                    @cannot('isJustUser')
                                     <li class="nav-item">
                                         <a href="\coldchain"
                                            class="nav-link {{ (request()->is('coldchain')) ? 'active' : '' }}">
                                             <i class="fa fa-snowflake-o nav-icon"></i>
                                             <p>زنجیره سرما
+                                                <span class="right badge badge-info">تکمیل</span>
+                                            </p>
+                                        </a>
+                                    </li>
+                                    @endcannot
+                                    <li class="nav-item">
+                                        <a href="\cdcorona"
+                                           class="nav-link {{ (request()->is('cdcorona')) ? 'active' : '' }}">
+                                            <i class="fa fa-ambulance nav-icon"></i>
+                                            <p>کرونا
                                                 <span class="right badge badge-success">توسعه</span>
                                             </p>
                                         </a>
                                     </li>
+
                                 @endcanany
-                                @canany(['isAdmin'])
-                                    <li class="nav-item">
-                                        <a href="\regions"
-                                           class="nav-link {{ (request()->is('regions')) ? 'active' : '' }}">
-                                            <i class="fa fa-map-marker nav-icon"></i>
-                                            <p>مدیریت مناطق
-                                                <span class="right badge badge-danger">تکمیل</span>
-                                            </p>
-                                        </a>
-                                    </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    {{--<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview ">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-area-chart"></i>
+                                <p>
+                                    گزارشات
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                @canany(['isBimaGVagir','isAdmin','isRiasat'])
 
                                     <li class="nav-item">
-                                        <a href="\users"
-                                           class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
-                                            <i class="fa fa-users nav-icon"></i>
-                                            <p>مدیریت کاربران
-                                                <span class="right badge badge-danger">تکمیل</span>
+                                        <a href="\report\cdcorona"
+                                           class="nav-link {{ (request()->is('\report\cdcorona')) ? 'active' : '' }}">
+                                            <i class="fa fa-ambulance nav-icon"></i>
+                                            <p>کرونا
+                                                <span class="right badge badge-success">توسعه</span>
                                             </p>
                                         </a>
                                     </li>
@@ -153,7 +293,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
-                    </ul>
+                    </ul>--}}
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -170,18 +310,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-            <h5> اطلاعات کاربر </h5>
-            نقش کاربر:{{Auth::user()->role->name}}
-            <br/>
-            شهرستان کاربر:{{Auth::user()->region_point->region_center->region_county->name}}
-            <br/>
-            گروه کاربر:{{Auth::user()->group->name}}
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
+
+    <!-- Control sidebar content goes here -->
+@yield('left-panel')
+
+
+<!-- /.control-sidebar -->
 
     <!-- Main Footer -->
     <footer class="main-footer">
@@ -189,18 +323,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="float-right d-none d-sm-inline">
 
         </div>
-        <!-- Default to the
-        <strong>CopyRight &copy; 2019 <a href="#">M.Asgari</a>.</strong> left-->
+        <!-- Default to the left-->
+        <span class="small">CopyRight &copy; 2019-2020 <a href="#">Mehdi.Asgari@gmail.com</a></span>
     </footer>
 </div>
 <!-- ./wrapper -->
 @auth
     <script>
-        window.user = @json(auth()->user())
+        window.user =@json(auth()->user())
     </script>
 @endauth
 <!-- REQUIRED SCRIPTS -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+
 <!-- jQuery -->
 
 </body>

@@ -24,7 +24,7 @@ Route::get('roleList', 'API\UserController@roleList');
 Route::get('countyList', 'API\RegionController@county');
 Route::get('typeList', 'API\RegionController@type');
 Route::get('centerList/{county_id}/{type_id}', 'API\RegionController@center');
-Route::get('pointList/{center_id}', 'API\RegionController@point');
+Route::get('pointList/{center_id}/{type_id}', 'API\RegionController@point');
 
 Route::post('county', 'API\RegionController@addCounty');
 Route::put('county/{id}', 'API\RegionController@updateCounty');
@@ -56,3 +56,35 @@ Route::get('freezeye', 'API\DeviceFreezEye@index');
 Route::get('tempListByCounty/{county_id}', 'API\ColdChainController@tempByCounty');
 
 Route::put('changePassword', 'API\UserController@changePassword');
+
+Route::get('environment/itemList', 'API\EnvironmentController@itemList');
+Route::get('environment/valueList', 'API\EnvironmentController@valueList');
+Route::post('environment/value', 'API\EnvironmentController@addValue');
+Route::put('environment/value/{id}', 'API\EnvironmentController@updateValue');
+Route::delete('environment/value/{id}', 'API\EnvironmentController@deleteValue');
+
+
+Route::post('/cd/corona/', 'API\CdController@addCorona');
+Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');
+Route::get('/cd/corona/ListByCounty/{county_id}', 'API\CdController@coronaByCounty');
+Route::get('/cd/corona/ListByCounty/', 'API\CdController@corona');
+Route::get('/cd/corona/PaginateByCounty/', 'API\CdController@paginateByCounty');
+Route::delete('/cd/corona/{id}', 'API\CdController@deleteValue');
+Route::get('/cd/corona/StatByCounty/{county_id}', 'API\CdController@statByCounty');
+Route::get('/cd/corona/StatByPoint/{point_id}/{type_id}/{center_id}/{county_id}', 'API\CdController@statByPoint');
+Route::get('/cd/corona/StatByCounty', 'API\CdController@stat');
+Route::get('/cd/corona/expose/{national_code}', 'API\CdController@expose');
+Route::get('/cd/corona/findValue', 'API\CdController@search');
+
+Route::get('/cd/corona/chart', 'API\CdController@chart');
+Route::get('/cd/corona/newCasePerDay', 'API\CdController@chart_NewCasePerDay');
+Route::get('/cd/corona/newCasePerDiagnosis/{county_id}', 'API\CdController@chart_newCasePerDiagnosis');
+Route::get('/cd/corona/newCasePerDiagnosis', 'API\CdController@chart_newCasePerDiagnosis');
+
+Route::get('/region/pointByCounty/{county_id}', 'API\RegionController@pointByCounty');
+Route::get('/region/pointByCounty', 'API\RegionController@pointList');
+
+Route::get('/develop/{point_id}', 'API\DevelopController@develop');
+Route::put('/develop/{point_id}', 'API\DevelopController@updateDevelop');
+Route::post('develop', 'API\DevelopController@store');
+

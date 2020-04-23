@@ -28,7 +28,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Region_point','point_id','id');
     }
-
+    public function environment_values()
+    {
+        return $this->hasMany('App\Environment_value');
+    }
     protected $fillable = [
         'id','name', 'password','username','role_id','group_id','point_id'
     ];

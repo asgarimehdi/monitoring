@@ -18,7 +18,19 @@ class Region_point extends Model
     {
         return $this->belongsTo('App\Region_center','center_id','id');
     }
+    public function environment_values()
+    {
+        return $this->hasMany('App\Environment_value');
+    }
+    public function cd_corona()
+    {
+        return $this->hasMany('App\Cd_corona');
+    }
+    public function develop()
+    {
+        return $this->hasOne('App\Develop', 'point_id');
+    }
     protected $fillable = [
-        'name', 'id','center_id','lat','lng','device_id'
+        'name', 'id','center_id','lat','lng','device_id','type_id'
     ];
 }

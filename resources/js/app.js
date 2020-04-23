@@ -49,11 +49,15 @@ Vue.component(AlertError.name, AlertError);
 //Vue.component('map-component', require('./components/mapComponent.vue').default);
 Vue.component('cold-chain', require('./components/ColdChain.vue').default);
 Vue.component('users-component', require('./components/Users.vue').default);
-Vue.component('test-component', require('./components/test.vue').default);
+//Vue.component('test-component', require('./components/test.vue').default);
 Vue.component('regions-component', require('./components/Regions.vue').default);
 Vue.component('change-password-component', require('./components/Change-password.vue').default);
-Vue.component('draggable-map-component', require('./components/draggableMap.vue').default);
-
+//Vue.component('draggable-map-component', require('./components/draggableMap.vue').default);
+Vue.component('environment-manage-component', require('./components/EnvironmentManage.vue').default);
+Vue.component('cd-corona-manage-component', require('./components/CdCoronaManage.vue').default);
+Vue.component('cd-corona-component', require('./components/CdCorona.vue').default);
+Vue.component('report-cd-corona-component', require('./components/reports/ReportCdCorona.vue').default);
+Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 const app = new Vue({
@@ -86,10 +90,11 @@ Icon.Default.mergeOptions({
 });
 
 let moment = require('moment-jalaali');
-moment.loadPersian({dialect: 'persian-modern',usePersianDigits: true});
+
 
 Vue.filter('myDate',function(created){
     //return moment(created).format(' jMMMM  jD  HH:mm:ss');
+    moment.loadPersian({dialect: 'persian-modern',usePersianDigits: true});
      return moment(created).add(3.5, 'hours').fromNow();
 
 });
