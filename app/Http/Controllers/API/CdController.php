@@ -128,16 +128,16 @@ class CdController extends Controller
                 })->get();
         }
         else{
-        $items=   Cd_corona::with([
-            'region_point:id,name,center_id',
-            'region_point.region_center:id,name,type_id,county_id',
-            'region_point.region_center.region_county:id,name'
-        ])
-            ->whereHas('Region_point.Region_center', function($q) use($county_id) {
-                // Query the name field in status table
-                $q->where('county_id', '=', $county_id); // '=' is optional
-            })
-            ->get();
+            $items=   Cd_corona::with([
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])
+                ->whereHas('Region_point.Region_center', function($q) use($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                })
+                ->get();
         }
         foreach($items as $item){
             if ($item['expose']) {
@@ -164,8 +164,8 @@ class CdController extends Controller
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name'
-             ])
-           // ->where('expose', '=', NULL)
+            ])
+            // ->where('expose', '=', NULL)
             ->get();
         foreach($items as $item) {
             if ($item['expose']) {
@@ -494,65 +494,89 @@ class CdController extends Controller
         return $us;
     }
 
-    public function chart(){
-        return Cd_corona::with(['region_point.region_center.region_county'])->get();
-    }
-    public function chart_NewCasePerDay(){
-        //SELECT diagnosis_at,count(id) as count FROM `cd_coronas` GROUP BY `diagnosis_at`
-        // return Cd_corona::select("diagnosis_at")->groupBy("diagnosis_at")->get();
-        return $results =\ DB::select(
-            \DB::raw("SELECT diagnosis_at,count(id) as count FROM `cd_coronas` GROUP BY `diagnosis_at`")
-        );
-    }
+    /*  public function chart(){
+          return Cd_corona::with(['region_point.region_center.region_county'])->get();
+      }*/
+    /*   public function chart_NewCasePerDay(){
+           //SELECT diagnosis_at,count(id) as count FROM `cd_coronas` GROUP BY `diagnosis_at`
+           // return Cd_corona::select("diagnosis_at")->groupBy("diagnosis_at")->get();
+           return $results =\ DB::select(
+               \DB::raw("SELECT diagnosis_at,count(id) as count FROM `cd_coronas` GROUP BY `diagnosis_at`")
+           );
+       }*/
     public function chart_newCasePerDiagnosis($county_id){
         if($county_id==9){
             $data[0]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
                 ->where("diagnosis",'=','1')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
                 ->groupBy("diagnosis_at")->get();
             $data[1]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
                 ->where("diagnosis",'=','1')
                 ->where("hospitalization",'=','0')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
                 ->groupBy("diagnosis_at")->get();
             $data[2]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
                 ->where("diagnosis",'=','1')
                 ->where("hospitalization",'=','1')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
                 ->groupBy("diagnosis_at")->get();
 
+
         }else {
-             $data[0]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
+            $data[0]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
                 ->where("diagnosis",'=','1')
-                ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
-                    // Query the name field in status table
-                    $q->where('county_id', '=', $county_id); // '=' is optional
-                })
-                 ->where("hospitalization",'=','0')
-                ->groupBy("diagnosis_at")->get();
-             $data[1]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
-                ->where("diagnosis",'=','1')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
                 ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
                 ->groupBy("diagnosis_at")->get();
-             $data[2]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
+
+            $data[1]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
                 ->where("diagnosis",'=','1')
+                ->where("hospitalization",'=','0')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
                 ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
-                 ->where("hospitalization",'=','1')
+                ->groupBy("diagnosis_at")->get();
+
+            $data[2]=Cd_corona::select("diagnosis_at", \DB::raw('count(id) as count'))
+                ->where("diagnosis",'=','1')
+                ->where("hospitalization",'=','1')
+                ->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+                ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                })
                 ->groupBy("diagnosis_at")->get();
         }
+        foreach ($data[0] as $item)
+        {
+            //  if (!array_search($item['diagnosis_at'], $data[1]->toArray())) {
+            $x = new class{};
+            $x->diagnosis_at = $item['diagnosis_at'];
+            $x->count = 0;
+            $data[1]->push($x);
+            $data[2]->push($x);
+
+        }
+        //$data[0]=collect($data[0])->unique('diagnosis_at')->sortBy('diagnosis_at')->values();
+        $data[1]=collect($data[1])->unique('diagnosis_at')->sortBy('diagnosis_at')->values();
+        $data[2]=collect($data[2])->unique('diagnosis_at')->sortBy('diagnosis_at')->values();
+
+
         return $data;
         //SELECT diagnosis_at,count(id) as count FROM `cd_coronas` GROUP BY `diagnosis_at`
-/*        return \DB::table('cd_coronas')
-            ->select(\DB::raw('diagnosis_at,count(*) as count'))
-            ->whereHas('Region_point.Region_center', function($q) use($county_id) {
-                // Query the name field in status table
-                $q->where('county_id', '=', $county_id); // '=' is optional
-            })
-            ->groupBy('diagnosis_at')
-            ->get();*/
+        /*        return \DB::table('cd_coronas')
+                    ->select(\DB::raw('diagnosis_at,count(*) as count'))
+                    ->whereHas('Region_point.Region_center', function($q) use($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    })
+                    ->groupBy('diagnosis_at')
+                    ->get();*/
         // return $results =\ DB::select( \DB::raw("SELECT status_at,count(id) as count FROM `cd_coronas` where status=2 GROUP BY `status_at`") );
     }
 }

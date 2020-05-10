@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-0">
@@ -7,20 +8,7 @@
                         <h5 class="m-0 text-dark">مانیتورینگ Covid-19</h5>
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default btn-sm" @click="day--,show_timeSeries=true"><i
-                                class="fa fa-arrow-right"></i></button>
-                            <button type="button" class="btn btn-default btn-sm"
-                                    @click="day=nDay,show_timeSeries=false,$emit('stop_timeSeries')"><i
-                                class="fa fa-stop"></i></button>
-                            <button type="button" class="btn btn-default btn-sm" @click="$emit('stop_timeSeries')"><i
-                                class="fa fa-pause"></i></button>
-                            <button type="button" class="btn btn-default btn-sm"
-                                    @click="show_timeSeries=true,$emit('show_timeSeries')"><i class="fa fa-play"></i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-sm" @click="day++,show_timeSeries=true"><i
-                                class="fa fa-arrow-left"></i></button>
-                        </div>
+
                     </div><!-- /.col -->
                     <div class="col-sm-7" v-if="show_timeSeries">
                         <h5 class="m-0 text-dark">
@@ -34,6 +22,12 @@
 
             <div class="row" v-if="$gate.isAdminOrGroup_admin() || $gate.isBimaGVagir()">
                 <div class="col-lg-12" id="myMap">
+                    <loading :active.sync="show_loading"
+                                                           :can-cancel="true"
+                                                           loader="bars"
+                                                           :is-full-page="fullPage">
+
+                    </loading>
                     <div class="card bg-info-gradient" id="coldChainMapHelp">
 
                         <div class="card-header no-border ">
@@ -51,192 +45,195 @@
                             </div>
                         </div>
                         <div class="card-body small">
+                            <div class="small ">
+                                <div class="card bg-info-gradient">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/corona6.png">
+                                            کرونا +
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_corona"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
 
-                            <div class="small m-2">
-
-
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/corona6.png">
-                                        کرونا +
+                                            <img alt="" src="/images/vendor/leaflet/dist/corona1.png">
+                                            کرونا -
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_corona_neg"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_corona"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-
-                                        <img alt="" src="/images/vendor/leaflet/dist/corona1.png">
-                                        کرونا -
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_corona_neg"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/corona2.png">
-                                        مشکوک
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_corona_mashkok"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/corona3.png">
-                                        بهبود
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_status_recover"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/corona4.png">
-                                        مرگ
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_status_death"/>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/corona2.png">
+                                            مشکوک
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_corona_mashkok"/>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        درحال درمان
+                                <div class="card bg-info-gradient">
+                                    <div class="row pt-1">
+                                        <div class="col-8">
+                                            بستری
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_hospitalization_bastari"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_status_darhaledarman"/>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            سرپایی
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_hospitalization_sarpaei"/>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="card bg-info-gradient">
+                                    <div class="row pt-1">
+                                        <div class="col-8">
+                                            ILI
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_situation_ili"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            SARI
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_situation_sari"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card bg-info-gradient">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/corona3.png">
+                                            بهبود
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_recover"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/corona4.png">
+                                            مرگ
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_death"/>
+                                        </div>
+                                    </div>
 
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        بستری ویژه
+                                    <div class="row">
+                                        <div class="col-8">
+                                            درحال درمان
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_darhaledarman"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_status_icu"/>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        نقاهتگاه
+                                    <div class="row">
+                                        <div class="col-8">
+                                            بستری ویژه
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_icu"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_status_neghahatgah"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        بستری درمنزل
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16" v-model="show_status_manzel"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        بستری
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_hospitalization_bastari"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
 
-                                        سرپایی
+                                    <div class="row">
+                                        <div class="col-8">
+                                            نقاهتگاه
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_neghahatgah"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_hospitalization_sarpaei"/>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            بستری درمنزل
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16" v-model="show_status_manzel"/>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="card bg-info-gradient">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/shabake.png">
+                                            شبکه بهداشت
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16" v-model="show_point_shabake"/>
+                                        </div>
+                                    </div>
 
-                                <div class="row">
-                                    <div class="col-8 p-1">
-
-                                        ILI
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/shahri.png">
+                                            مراکز سلامت
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16" v-model="show_point_marakez"/>
+                                        </div>
                                     </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_situation_ili"/>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/home.png">
+                                            خانه بهداشت
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16" v-model="show_point_home"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-
-                                        SARI
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16"
-                                                       v-model="show_situation_sari"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/shabake.png">
-                                        شبکه بهداشت
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16" v-model="show_point_shabake"/>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/shahri.png">
-                                        مراکز سلامت
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16" v-model="show_point_marakez"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/home.png">
-                                        خانه بهداشت
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16" v-model="show_point_home"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-8 p-1">
-                                        <img alt="" src="/images/vendor/leaflet/dist/paygah.png">
-                                        پایگاه بهداشت
-                                    </div>
-                                    <div class="col-4 p-0 pt-1">
-                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                       :height="16" v-model="show_point_paygah"/>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/paygah.png">
+                                            پایگاه بهداشت
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16" v-model="show_point_paygah"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -335,6 +332,7 @@
                             </div>
                         </div>
                         <div class="card-body small">
+
                         <span v-if="selectedPoint" class="label-success">
                              {{selectedPoint}}
                              <br>
@@ -385,8 +383,21 @@
 
                         </span>
                             <!---->
-                            <report-cd-corona-component></report-cd-corona-component>
-
+                            <bar-chart-component  v-if="!show_loading"></bar-chart-component>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-success btn-sm" @click="day--,show_timeSeries=true"><i
+                                    class="fa fa-arrow-right"></i></a>
+                                <a class="btn btn-success btn-sm"
+                                   @click="day=nDay,show_timeSeries=false,$emit('stop_timeSeries')"><i
+                                    class="fa fa-stop"></i></a>
+                                <a class="btn btn-success btn-sm"
+                                   @click="show_timeSeries=true,$emit('show_timeSeries')"><i class="fa fa-play"></i>
+                                </a>
+                                <a class="btn btn-success btn-sm" @click="$emit('stop_timeSeries')"><i
+                                    class="fa fa-pause"></i></a>
+                                <a class="btn btn-success btn-sm" @click="day++,show_timeSeries=true"><i
+                                    class="fa fa-arrow-left"></i></a>
+                            </div>
 
                         </div>
                         <!-- /.card-body -->
@@ -394,7 +405,7 @@
                     </div>
 
 
-                    <!-- <span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
+                     <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
 
                     <l-map
                         :center="center"
@@ -410,7 +421,8 @@
                                       v-for="tileProvider in tileProviders"
 
                         />
-                        <span :key="index" v-for="(marker,index) in markers">
+
+                        <span :key="index" v-for="(marker,index) in markers" v-for-callback="{key: index, array: markers, callback: callback}">
                     <l-marker :lat-lng="marker" v-if="mapWatch(marker)">
 
                         <l-popup class="vazir">
@@ -470,23 +482,24 @@
                         </l-popup>
                         <l-icon
                             :icon-url=iconCheck(marker)
+                            shadow-url='/images/vendor/leaflet/dist/marker-shadow.png'
                         />
 
                     </l-marker>
                       <l-polyline :color="polyline.color" :lat-lngs="marker.exp" :opacity="0.7"
-                                  v-if="((marker.expose !=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"></l-polyline>
+                                  v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"></l-polyline>
 
                     <l-circle :lat-lng="marker"
                               :opacity="0.6"
                               :radius="marker.expose.length"
                               color="blue"
-                              v-if="((marker.expose !=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"
+                              v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"
                     />
                         <l-circle :lat-lng="marker"
                                   :opacity="0.6"
                                   :radius="marker.expose.length"
                                   color="green"
-                                  v-if="((marker.expose !=undefined) &&(marker.exp.length == 0)&&(mapWatch(marker)))"
+                                  v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length == 0)&&(mapWatch(marker)))"
                         />
 
     </span>
@@ -547,7 +560,9 @@
 
     import {latLng} from "leaflet";
     import {ToggleButton} from 'vue-js-toggle-button'
-
+    import Loading from 'vue-loading-overlay';
+    // Import stylesheet
+    import 'vue-loading-overlay/dist/vue-loading.css';
     Vue.component('ToggleButton', ToggleButton)
 
     export default {
@@ -561,6 +576,7 @@
             LIcon,
             LPolyline,
             LCircle,
+            Loading
 
         },
         data() {
@@ -621,10 +637,15 @@
                 //  show_corona_mashkok_bastari: true,
                 mapFilter: '',
 
+
                 show_point_home: false,
                 show_point_paygah: false,
                 show_point_shabake: false,
                 show_point_marakez: false,
+
+                show_loading:true,
+                fullPage: false,
+
                 selectedPoint: '',
                 population: '',
                 user_county_id: '',
@@ -951,6 +972,10 @@
                 if (this.day <= 0)
                     this.day = this.nDay
             },
+            callback() {
+                console.log('shit');
+                this.show_loading=false;
+            },
             loadPoints() {
                 if (this.$gate.isOstan()) {
                     this.user_county_id = this.county_id;
@@ -981,6 +1006,18 @@
                 var diffInMinutes = date.diff(date2, 'days');
                 return diffInMinutes;
             },
+            chunkedItems () {
+                return _.chunk(this.markers,4)
+            }
+        },
+        directives: {
+            forCallback(el, binding) {
+                let element = binding.value
+                if (element.key == element.array.length - 1)
+                    if (typeof element.callback === 'function') {
+                        element.callback()
+                    }
+            }
         },
         created() {
 //console.log(this.subDate(Date(), Date()));
@@ -1008,9 +1045,4 @@
         }
     };
 </script>
-<style>
-    .vazir {
-        text-align: right;
-        font-family: vazir
-    }
-</style>
+

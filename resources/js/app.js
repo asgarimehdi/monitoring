@@ -23,9 +23,9 @@ Vue.component('not-found',require('./components/NotFound.vue').default);
 import VueProgressBar from 'vue-progressbar';
 
 Vue.use(VueProgressBar, {
-    color: 'rgb(143, 255, 199)',
-    failedColor: 'red',
-    height: '2px'
+    color: 'rgb(143, 225, 199)',
+    failedColor: 'orange',
+    height: '10px'
 });
 ////////////////////
 import swal from 'sweetalert2';
@@ -57,6 +57,7 @@ Vue.component('environment-manage-component', require('./components/EnvironmentM
 Vue.component('cd-corona-manage-component', require('./components/CdCoronaManage.vue').default);
 Vue.component('cd-corona-component', require('./components/CdCorona.vue').default);
 Vue.component('report-cd-corona-component', require('./components/reports/ReportCdCorona.vue').default);
+Vue.component('bar-chart-component', require('./components/LineChart.vue').default);
 Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////

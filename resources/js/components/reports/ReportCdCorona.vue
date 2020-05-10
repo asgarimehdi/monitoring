@@ -1,9 +1,4 @@
-
-
-        <bar :chart-data="datacollection"></bar>
-
-
-
+<bar :chart-data="datacollection" :options="options" ></bar>
 
 <script>
 
@@ -11,7 +6,7 @@
     import { Pie, Bar, mixins } from 'vue-chartjs'
     export default {
         components: {
-                Bar
+            Bar
         },
         extends: Bar,
         mixins: [mixins.reactiveData],
@@ -43,21 +38,32 @@
 
                     this.chartData = {
                         labels: this.markers[0].map(item => item.diagnosis_at),
-                        datasets: [{
-                            label: 'covid19',
-                            backgroundColor: '#080979',
+
+                        datasets: [
+                            {
+                            label: ' موارد مثبت',
+                            backgroundColor: '#ff0000',
                             data: this.markers[0].map(item=> item.count)
                         }
-                            /*,{
+                            ,{
                                 label: 'سرپایی مثبت',
-                                backgroundColor: '#e87979',
+                                backgroundColor: '#5879f9',
                                 data: this.markers[1].map(item=> item.count)
                           },{
                                 label: 'بستری مثبت',
-                                backgroundColor: '#5879f9',
+                                backgroundColor: '#e87979',
                                 data: this.markers[2].map(item=> item.count)
+                            }/*,{
+                                label: 'مرگ مثبت',
+                                disabled:true,
+                                backgroundColor: '#000000',
+                                data: this.markers[3].map(item=> item.count)
                             }*/
-						]
+						],
+                        options: {
+                            responsive: false,
+                            maintainAspectRatio: true,
+                        }
                     }
                 }).catch(() => {
                     toast.fire({

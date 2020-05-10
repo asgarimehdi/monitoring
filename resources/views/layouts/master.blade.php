@@ -262,8 +262,8 @@
                         </li>
 
                     </ul>
-
-                    {{--<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    @canany(['isAbhar'])
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
@@ -277,7 +277,7 @@
                             </a>
                             <ul class="nav nav-treeview">
 
-                                @canany(['isBimaGVagir','isAdmin','isRiasat'])
+
 
                                     <li class="nav-item">
                                         <a href="\report\cdcorona"
@@ -288,12 +288,13 @@
                                             </p>
                                         </a>
                                     </li>
-                                @endcanany
+
 
                             </ul>
                         </li>
 
-                    </ul>--}}
+                    </ul>
+                    @endcanany
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -319,13 +320,10 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
+        <x-footer>
 
-        </div>
-        <!-- Default to the left-->
-        <span class="small">CopyRight &copy; 2019-2020 <a href="#">Mehdi.Asgari@gmail.com</a></span>
-    </footer>
+        </x-footer>
+   </footer>
 </div>
 <!-- ./wrapper -->
 @auth

@@ -145,8 +145,8 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" v-show="editmode" id="addNewLabel">ویرایش نقطه</h5>
-                            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">ایجاد نقطه جدید</h5>
+                            <h5 class="modal-title" v-show="editmode">ویرایش جمعیت</h5>
+                            <h5 class="modal-title" v-show="!editmode">ثبت جمعیت جدید</h5>
 
                         </div>
                         <form @submit.prevent="editmode ? updatePoint() : createPoint()">

@@ -253,6 +253,7 @@
                                     <option
                                         v-for="g in types"
                                         :value="g.id"
+                                        v-if="g.id==5 || g.id==6"
                                     >
                                         {{g.name}}
                                     </option>

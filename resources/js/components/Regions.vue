@@ -959,7 +959,8 @@
                         confirmButtonText: 'بله حذف کن!',
                         cancelButtonText: 'بیخیال'
                     }).then((result) => {
-                        if (result.value) {
+                      //  if (result.value) {
+                        if (1==2) {
                             this.form.delete('/api/point/' + id).then(() => {
                                 swal.fire(
                                     'پاک شد',
