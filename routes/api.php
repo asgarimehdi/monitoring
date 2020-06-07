@@ -88,3 +88,24 @@ Route::get('/develop/{point_id}', 'API\DevelopController@develop');
 Route::put('/develop/{point_id}', 'API\DevelopController@updateDevelop');
 Route::post('develop', 'API\DevelopController@store');
 
+Route::get('/cd/thyroid/ListByCounty/{county_id}', 'API\CdThyroidController@thyroidByCounty');
+Route::get('/cd/thyroid/ListByCounty/', 'API\CdThyroidController@thyroid');
+
+Route::post('/cd/thyroid/', 'API\CdThyroidController@addThyroid');
+Route::put('/cd/thyroid/{id}', 'API\CdThyroidController@updateThyroid');
+Route::get('/cd/thyroid/ListByCounty/{county_id}', 'API\CdThyroidController@thyroidByCounty');
+Route::get('/cd/thyroid/ListByCounty/', 'API\CdThyroidController@thyroid');
+Route::get('/cd/thyroid/PaginateByCounty/', 'API\CdThyroidController@paginateByCounty');
+Route::delete('/cd/thyroid/{id}', 'API\CdThyroidController@deleteValue');
+Route::get('/cd/thyroid/findValue', 'API\CdThyroidController@search');
+
+Route::get('/cd/finil/ListByCounty/{county_id}', 'API\CdFinilController@finilByCounty');
+Route::get('/cd/finil/ListByCounty/', 'API\CdFinilController@finil');
+
+Route::post('/cd/finil/', 'API\CdFinilController@addFinil');
+Route::put('/cd/finil/{id}', 'API\CdFinilController@updateFinil');
+Route::get('/cd/finil/ListByCounty/{county_id}', 'API\CdFinilController@finilByCounty');
+Route::get('/cd/finil/ListByCounty/', 'API\CdFinilController@finil');
+Route::get('/cd/finil/PaginateByCounty/', 'API\CdFinilController@paginateByCounty');
+Route::delete('/cd/finil/{id}', 'API\CdFinilController@deleteValue');
+Route::get('/cd/finil/findValue', 'API\CdFinilController@search');

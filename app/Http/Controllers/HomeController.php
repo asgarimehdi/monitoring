@@ -69,4 +69,20 @@ class HomeController extends Controller
     {
         return view('develop-manage');
     }
+    public function cd_thyroid()
+    {
+        return view('cd-thyroid');
+    }
+    public function cdthyroidmanage()
+    {
+        return view('cd-thyroid-manage');
+    }
+    public function cd_finil()
+    {
+        return view('cd-finil');
+    }
+    public function cdfinilmanage()
+    {
+        return view('cd-finil-manage');
+    }
 }

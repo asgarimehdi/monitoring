@@ -11,14 +11,14 @@
     },
     "devDependencies": {
         "axios": "^0.18.1",
-        "bootstrap": "^4.4.1",
+        "bootstrap": "^4.5.0",
         "cross-env": "^5.1",
         "jquery": "^3.5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
         "popper.js": "^1.16.1",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.26.5",
+        "sass": "^1.26.8",
         "sass-loader": "^7.1.0",
         "vue": "^2.6.11",
         "vue-template-compiler": "^2.6.11"
@@ -28,7 +28,7 @@
         "chart.js": "^2.9.3",
         "laravel-vue-pagination": "^2.3.1",
         "leaflet": "^1.6.0",
-        "leaflet-wms-header": "^1.0.8",
+        "leaflet-wms-header": "^1.0.9",
         "moment-jalaali": "^0.9.2",
         "sweetalert2": "^8.19.0",
         "vform": "^1.0.1",
@@ -37,6 +37,7 @@
         "vue-loading-overlay": "^3.3.2",
         "vue-persian-datetime-picker": "^2.1.5",
         "vue-progressbar": "^0.7.5",
-        "vue2-leaflet": "^2.5.2"
+        "vue2-leaflet": "^2.5.2",
+        "vue2-leaflet-markercluster": "^3.1.0"
     }
 }

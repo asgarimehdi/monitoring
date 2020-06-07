@@ -128,6 +128,26 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a href="\cdthyroidmanage"
+                                               class="nav-link {{ (request()->is('cdthyroidmanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <p>
+                                                    مدیریت هایپوتیروئید
+                                                    <span class="right badge badge-success">توسعه</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="\cdfinilmanage"
+                                               class="nav-link {{ (request()->is('cdfinilmanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-bank nav-icon"></i>
+                                                <p>
+                                                    مدیریت فینیل
+                                                    <span class="right badge badge-success">توسعه</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
                                             <a href="#"
                                                class="nav-link ">
                                                 <i class="fa fa-ambulance nav-icon"></i>
@@ -251,6 +271,24 @@
                                            class="nav-link {{ (request()->is('cdcorona')) ? 'active' : '' }}">
                                             <i class="fa fa-ambulance nav-icon"></i>
                                             <p>کرونا
+                                                <span class="right badge badge-success">توسعه</span>
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="\cdthyroid"
+                                           class="nav-link {{ (request()->is('cdthyroid')) ? 'active' : '' }}">
+                                            <i class="fa fa-address-card nav-icon"></i>
+                                            <p>تیروئید نوزادان
+                                                <span class="right badge badge-success">توسعه</span>
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="\cdfinil"
+                                           class="nav-link {{ (request()->is('cdfinil')) ? 'active' : '' }}">
+                                            <i class="fa fa-bank nav-icon"></i>
+                                            <p>فینیل
                                                 <span class="right badge badge-success">توسعه</span>
                                             </p>
                                         </a>

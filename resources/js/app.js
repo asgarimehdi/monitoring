@@ -55,7 +55,11 @@ Vue.component('change-password-component', require('./components/Change-password
 //Vue.component('draggable-map-component', require('./components/draggableMap.vue').default);
 Vue.component('environment-manage-component', require('./components/EnvironmentManage.vue').default);
 Vue.component('cd-corona-manage-component', require('./components/CdCoronaManage.vue').default);
+Vue.component('cd-thyroid-manage-component', require('./components/CdThyroidManage.vue').default);
+Vue.component('cd-finil-manage-component', require('./components/CdFinilManage.vue').default);
 Vue.component('cd-corona-component', require('./components/CdCorona.vue').default);
+Vue.component('cd-thyroid-component', require('./components/CdThyroid.vue').default);
+Vue.component('cd-finil-component', require('./components/CdFinil.vue').default);
 Vue.component('report-cd-corona-component', require('./components/reports/ReportCdCorona.vue').default);
 Vue.component('bar-chart-component', require('./components/LineChart.vue').default);
 Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);

@@ -14,7 +14,7 @@
 
 //Auth::routes();
 Auth::routes(['register' => false,'reset' => false]);
-Route::get('/', 'HomeController@cdcorona');
+Route::get('/', 'HomeController@cd_thyroid');
 
 Route::get('/users', 'HomeController@users');
 Route::get('/regions', 'HomeController@region');
@@ -26,3 +26,7 @@ Route::get('/cdcoronamanage', 'HomeController@cdcoronamanage');
 Route::get('/cdcorona', 'HomeController@cdcorona');
 Route::get('/report/cdcorona', 'HomeController@report_cdcorona');
 Route::get('/developmanage', 'HomeController@developmanage');
+Route::get('/cdthyroid', 'HomeController@cd_thyroid');
+Route::get('/cdthyroidmanage', 'HomeController@cdthyroidmanage');
+Route::get('/cdfinil', 'HomeController@cd_finil');
+Route::get('/cdfinilmanage', 'HomeController@cdfinilmanage');
