@@ -23,7 +23,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="" />
+    <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -533,7 +536,7 @@
       <workItem from="1595083003415" duration="7068000" />
       <workItem from="1595168387961" duration="2885000" />
       <workItem from="1595259282806" duration="18000" />
-      <workItem from="1595259349322" duration="1796000" />
+      <workItem from="1595259349322" duration="4894000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;environment updated&quot;">
       <created>1595261099114</created>
