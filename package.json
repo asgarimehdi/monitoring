@@ -39,5 +39,6 @@
         "vue-progressbar": "^0.7.5",
         "vue2-leaflet": "^2.5.2",
         "vue2-leaflet-markercluster": "^3.1.0"
-    }
+    },
+    "version": "0.0.0"
 }
