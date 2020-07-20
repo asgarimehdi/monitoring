@@ -6,28 +6,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CdFinil.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CdFinilManage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CdThyroid.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CdThyroidManage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cd-finil-manage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cd-finil.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cd-thyroid-manage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/cd-thyroid.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CdCancer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CdCancerManage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CdCoronaLite.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/Environment.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cd-cancer-manage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cd-cancer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cd-corona-lite.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/environment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/monitoring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/monitoring.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Cd_thyroid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cd_thyroid.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CdThyroidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CdThyroidController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Environment_value.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Environment_value.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CdController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/CdController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/EnvironmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/EnvironmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/RegionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/RegionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Gate.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Gate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CdCorona.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CdCorona.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CdFinil.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CdFinil.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CdThyroid.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CdThyroid.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/EnvironmentManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EnvironmentManage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -198,13 +209,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
     </include_path>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="13" />
-    <option name="y" value="11" />
-    <option name="width" value="1260" />
-    <option name="height" value="954" />
   </component>
   <component name="ProjectId" id="1SH9xDGqtB4YN6IUm4pZWRiRwij" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -219,8 +225,9 @@
     <property name="DatabaseDriversLRU" value="mariadb" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -520,7 +527,32 @@
       <workItem from="1590002454520" duration="2092000" />
       <workItem from="1590423374666" duration="1189000" />
       <workItem from="1591474326093" duration="686000" />
-      <workItem from="1591541624435" duration="3943000" />
+      <workItem from="1591541624435" duration="7485000" />
+      <workItem from="1591800657961" duration="1260000" />
+      <workItem from="1591804808078" duration="2575000" />
+      <workItem from="1591990721447" duration="3382000" />
+      <workItem from="1592066791669" duration="6864000" />
+      <workItem from="1592155739234" duration="792000" />
+      <workItem from="1592233812204" duration="6931000" />
+      <workItem from="1592499089686" duration="37000" />
+      <workItem from="1592499214029" duration="604000" />
+      <workItem from="1593031606323" duration="159000" />
+      <workItem from="1593031854889" duration="621000" />
+      <workItem from="1593625785666" duration="2702000" />
+      <workItem from="1593701521970" duration="1532000" />
+      <workItem from="1593794384094" duration="4560000" />
+      <workItem from="1593962265965" duration="4450000" />
+      <workItem from="1594140000921" duration="6609000" />
+      <workItem from="1594401832868" duration="580000" />
+      <workItem from="1594485034897" duration="5783000" />
+      <workItem from="1594583034205" duration="432000" />
+      <workItem from="1594734558339" duration="4329000" />
+      <workItem from="1594837788645" duration="815000" />
+      <workItem from="1594841980540" duration="2191000" />
+      <workItem from="1595083003415" duration="7068000" />
+      <workItem from="1595168387961" duration="2885000" />
+      <workItem from="1595259282806" duration="18000" />
+      <workItem from="1595259349322" duration="1175000" />
     </task>
     <servers />
   </component>
@@ -554,38 +586,35 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583268281196">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="424" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594150242943">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state x="363" y="99" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1583268281196" />
-    <state x="452" y="156" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589831669844">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
+    <state x="424" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.994@0.0.1280.994" timestamp="1594150242943" />
     <state x="452" y="156" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1589831669844" />
     <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587674422450">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587674422450" />
-    <state width="1323" height="113" key="GridCell.Tab.0.bottom" timestamp="1588017127491">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1595259607523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="113" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588017127491" />
-    <state width="1323" height="113" key="GridCell.Tab.0.center" timestamp="1588017127475">
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1595259607523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="113" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588017127475" />
-    <state width="1323" height="113" key="GridCell.Tab.0.left" timestamp="1588017127475">
+    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1595259607523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="113" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588017127475" />
-    <state width="1323" height="113" key="GridCell.Tab.0.right" timestamp="1588017127491">
+    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1595259607523">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="113" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588017127491" />
-    <state x="243" y="13" key="SettingsEditor" timestamp="1583270261733">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="243" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583270261733" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1587675324418">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

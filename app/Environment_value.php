@@ -20,6 +20,6 @@ class Environment_value extends Model
         return $this->hasOne('App\User','id','user_id');
     }
     protected $fillable = [
-        'id','value', 'point_id','user_id','environment_item_id','status'
+        'id','value', 'point_id','user_id','environment_item_id','status','lat','lng'
     ];
 }

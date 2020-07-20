@@ -8,7 +8,9 @@
                         <h5 class="m-0 text-dark">مانیتورینگ Covid-19</h5>
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
-
+                        <a class="btn bg-info " href="\cdcoronalite">
+                            کرونا سبک
+                        </a>
                     </div><!-- /.col -->
                     <div class="col-sm-7" v-if="show_timeSeries">
                         <h5 class="m-0 text-dark">
@@ -82,7 +84,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="card bg-info-gradient">
                                     <div class="row pt-1">
                                         <div class="col-8">

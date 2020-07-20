@@ -156,7 +156,47 @@ class CdController extends Controller
         }
         return   $items;
     }
+    public function coronaByCountyLite($county_id)
+    {
+        // return    Cd_corona::get();
+        $user_point_type_id=Auth::user()->region_point->type_id;
+        $user_point_id=Auth::user()->point_id;
+        $user_center_id=Auth::user()->region_point->center_id;
+        if($user_point_type_id==5 or $user_point_type_id==6) {
+            $items=   Cd_corona::with([
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])
+                ->where('point_id','=',$user_point_id)
+                ->get();
+        }
+        elseif($user_point_type_id==2 or $user_point_type_id==3 or $user_point_type_id==4) {
+            $items=   Cd_corona::with([
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])
+                ->whereHas('Region_point', function($q) use($user_center_id) {
+                    // Query the name field in status table
+                    $q->where('center_id', '=', $user_center_id); // '=' is optional
+                })->get();
+        }
+        else{
+            $items=   Cd_corona::with([
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])
+                ->whereHas('Region_point.Region_center', function($q) use($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                })
+                ->get();
+        }
 
+        return   $items;
+    }
     public function corona()
     {       //
         $items=   Cd_corona::with(
@@ -186,12 +226,29 @@ class CdController extends Controller
         return   $items;
 
     }
+    public function coronaLite()
+    {       //
+        $items=   Cd_corona::with(
+            [
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])
+            /*->where('status','!=',3)
+            ->where('diagnosis','=',1)*/
+            ->get();
+
+        return   $items;
+
+    }
 
     public function paginateByCounty()
     {
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
-            return   $us = Cd_corona::with('region_point.region_center.region_county')->paginate(10);
+            return   $us = Cd_corona::with('region_point.region_center.region_county')
+                ->orderBy('id', 'DESC')
+                ->paginate(10);
         }
         else{
             return    Cd_corona::with(['region_point.region_center.region_county'])
@@ -199,6 +256,7 @@ class CdController extends Controller
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
+                ->orderBy('id', 'DESC')
                 ->paginate(10);
         }
     }
@@ -461,10 +519,14 @@ class CdController extends Controller
                         $query->where('first_name','LIKE',"%$search%")
                             ->orWhere('last_name','LIKE',"%$search%")
                             ->orWhere('national_code','LIKE',"%$search%");
-                    })->paginate(20);
+                    })
+                    ->orderBy('id', 'DESC')
+                    ->paginate(20);
 
             }else{
-                $us = Cd_corona::with('region_point.region_center.region_county')->latest()->paginate(5);
+                $us = Cd_corona::with('region_point.region_center.region_county')->latest()
+                    ->orderBy('id', 'DESC')
+                    ->paginate(20);
 
                 return $us;
             }
@@ -479,7 +541,9 @@ class CdController extends Controller
                         $query->where('first_name','LIKE',"%$search%")
                             ->orWhere('last_name','LIKE',"%$search%")
                             ->orWhere('national_code','LIKE',"%$search%");
-                    })->paginate(20);
+                    })
+                    ->orderBy('id', 'DESC')
+                    ->paginate(20);
 
 
             }else{
@@ -488,7 +552,8 @@ class CdController extends Controller
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     })
-                    ->paginate(10);
+                    ->orderBy('id', 'DESC')
+                    ->paginate(20);
             }
         }
         return $us;

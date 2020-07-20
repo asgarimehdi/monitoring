@@ -53,6 +53,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isGostaresh',function($user){
             return $user->group->id === 3;
         });
+        Gate::define('isEnvironment',function($user){
+            return $user->group->id === 5;
+        });
+        Gate::define('isBehvarz',function($user){
+            return $user->group->id === 6;
+        });
 
 
     }

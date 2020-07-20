@@ -133,5 +133,11 @@ return array(
         "size" => "اندازه",
         "role" => "نقش",
         "group_id" => "گروه کاربری",
+        "full_name" => "نام و نام خانوادگی",
+        "job" => "شغل",
+        "detection_type" => "نوع تشخیص",
+        "point_id" => "نقطه نهایی",
+        "diagnosis_at" => "تاریخ تشخیص",
+        "birth_at" => "تاریخ تولد",
     ),
 );

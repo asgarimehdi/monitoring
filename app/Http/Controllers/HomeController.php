@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -53,6 +53,10 @@ class HomeController extends Controller
     {
         return view('environment-manage');
     }
+    public function environment()
+    {
+        return view('environment');
+    }
     public function cdcoronamanage()
     {
         return view('cd-corona-manage');
@@ -60,6 +64,10 @@ class HomeController extends Controller
     public function cdcorona()
     {
         return view('cd-corona');
+    }
+    public function cdcoronalite()
+    {
+        return view('cd-corona-lite');
     }
     public function report_cdcorona()
     {
@@ -84,5 +92,13 @@ class HomeController extends Controller
     public function cdfinilmanage()
     {
         return view('cd-finil-manage');
+    }
+    public function cd_cancer()
+    {
+        return view('cd-cancer');
+    }
+    public function cdcancermanage()
+    {
+        return view('cd-cancer-manage');
     }
 }

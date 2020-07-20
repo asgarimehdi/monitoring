@@ -8,10 +8,23 @@
 }
 #coldChainMapHelp{
     width: 200px;
+
     position: absolute;
     top: 10pt;
     right: 10pt;
     z-index: 1000;
+
+
+}
+#coldChainMapHelp3{
+    width: 250px;
+    max-height: 700px;
+    position: absolute;
+    top: 10pt;
+    right: 10pt;
+    z-index: 1000;
+    overflow:scroll;
+
 }
 #coldChainMapHelp2{
     width: 200px;
@@ -20,7 +33,7 @@
     left: 35pt;
     z-index: 1000;
 }
-#coldChainMapHelp img,#coldChainMapHelp2 img{
+#coldChainMapHelp img,#coldChainMapHelp2 img,#coldChainMapHelp3 img{
 height: 25px;
 }
 .vazir {

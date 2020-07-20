@@ -31,7 +31,7 @@ class UserController extends Controller
 
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
-            return   $us = User::with('group','role','region_point','region_point.region_center.region_county')->paginate(20);
+            return   $us = User::with('group','role','region_point','region_point.region_center.region_county')->paginate(40);
         }
         else{
             return    User::with(['group','role','region_point','region_point.region_center.region_county'])
@@ -39,7 +39,7 @@ class UserController extends Controller
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
-                ->paginate(10);
+                ->paginate(40);
         }
     }
 
@@ -130,45 +130,41 @@ class UserController extends Controller
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
             if ($search = \Request::get('q')) {
-                $us = User::where(function($query) use ($search){
+                $us = User::with(['group','role','region_point','region_point.region_center.region_county'])
+                    ->where(function($query) use ($search){
                     $query->where('name','LIKE',"%$search%")
                         ->orWhere('username','LIKE',"%$search%");
-                })->paginate(20);
-                foreach ($us as $u ) {
-                    $us->gname= ($u->group->name);
-                    $us->rname= ($u->role->name);
-                }
+                })->paginate(40);
+
             }else{
-                $us = User::latest()->paginate(5);
-                foreach ($us as $u ) {
-                    $us->gname= ($u->group->name);
-                    $us->rname= ($u->role->name);
-                }
+                $us = User::with(['group','role','region_point','region_point.region_center.region_county'])
+                    ->latest()->paginate(40);
+
                 return $us;
             }
         }
         else{
             if ($search = \Request::get('q')) {
-                $us = User::with(['group','role','region_point'])
+                $us = User::with(['group','role','region_point','region_point.region_center.region_county'])
                     ->whereHas('Region_point.Region_center', function ($qe) use ($county_id) {
                         // Query the name field in status table
                         $qe->where('county_id', '=', $county_id); // '=' is optional
                     })->where(function($query) use ($search){
                         $query->where('name','LIKE',"%$search%")
                             ->orWhere('username','LIKE',"%$search%");
-                    })->paginate(20);
+                    })->paginate(40);
 
                 foreach ($us as $u ) {
                     $us->gname= ($u->group->name);
                     $us->rname= ($u->role->name);
                 }
             }else{
-                return User::with(['group','role','region_point'])
+                return User::with(['group','role','region_point','region_point.region_center.region_county'])
                     ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     })
-                    ->paginate(10);
+                    ->paginate(40);
             }
         }
 

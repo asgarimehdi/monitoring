@@ -181,8 +181,8 @@
 
                             <br/>
                             مشخصات:
-<br/>تاریخ تولد:
-                            {{marker.birth_at}}
+<br/>متولد:
+                            {{marker.birth_at|myDate}}
 <br/>
                             تحت پوشش:
                             {{marker.region_point.region_center.region_county.name}} -

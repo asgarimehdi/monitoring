@@ -41,6 +41,12 @@ export default class Gate{
     isGostaresh(){
         return this.user.group.id === 3;
     }
+    isEnvironment(){
+        return this.user.group.id === 5;
+    }
+    isBehvarz(){
+        return this.user.group.id === 6;
+    }
 
 
 }

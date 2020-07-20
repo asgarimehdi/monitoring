@@ -93,8 +93,7 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        @canany(['isGostaresh','isBimaGVagir','isAdmin'])
-                            @cannot('isJustUser')
+
                             <li class="nav-item has-treeview ">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fa fa-gear"></i>
@@ -111,7 +110,7 @@
                                                 <i class="fa fa-globe nav-icon"></i>
                                                 <p>
                                                     توسعه شبکه
-                                                    <span class="right badge badge-danger">جدید</span>
+
                                                 </p>
                                             </a>
                                         </li>
@@ -123,17 +122,17 @@
                                                 <i class="fa fa-ambulance nav-icon"></i>
                                                 <p>
                                                     مدیریت کرونا
-                                                    <span class="right badge badge-success">توسعه</span>
+
                                                 </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="\cdthyroidmanage"
                                                class="nav-link {{ (request()->is('cdthyroidmanage')) ? 'active' : '' }}">
-                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <i class="fa fa-address-card nav-icon"></i>
                                                 <p>
                                                     مدیریت هایپوتیروئید
-                                                    <span class="right badge badge-success">توسعه</span>
+
                                                 </p>
                                             </a>
                                         </li>
@@ -143,11 +142,21 @@
                                                 <i class="fa fa-bank nav-icon"></i>
                                                 <p>
                                                     مدیریت فینیل
-                                                    <span class="right badge badge-success">توسعه</span>
+
                                                 </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
+                                            <a href="\cdcancermanage"
+                                               class="nav-link {{ (request()->is('cdcancermanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-bed nav-icon"></i>
+                                                <p>
+                                                    مدیریت سرطان
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        {{--<li class="nav-item">
                                             <a href="#"
                                                class="nav-link ">
                                                 <i class="fa fa-ambulance nav-icon"></i>
@@ -196,17 +205,16 @@
 
                                                 </p>
                                             </a>
-                                        </li>
+                                        </li>--}}
                                     @endcanany
-
-                                    @canany(['isAdmin'])
+                                    @canany(['isEnvironment','isAdmin','isBehvarz'])
                                         <li class="nav-item">
                                             <a href="\environmentmanage"
                                                class="nav-link {{ (request()->is('environmentmanage')) ? 'active' : '' }}">
                                                 <i class="fa fa-eyedropper nav-icon"></i>
                                                 <p>
                                                     بهداشت محیط
-                                                    <span class="right badge badge-warning">در انتظار</span>
+                                                    <span class="right badge badge-info">توسعه</span>
                                                 </p>
                                             </a>
                                         </li>
@@ -217,7 +225,7 @@
                                                class="nav-link {{ (request()->is('regions')) ? 'active' : '' }}">
                                                 <i class="fa fa-map-marker nav-icon"></i>
                                                 <p>مدیریت مناطق
-                                                    <span class="right badge badge-info">تکمیل</span>
+
                                                 </p>
                                             </a>
                                         </li>
@@ -228,15 +236,14 @@
                                                class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
                                                 <i class="fa fa-users nav-icon"></i>
                                                 <p>مدیریت کاربران
-                                                    <span class="right badge badge-info">تکمیل</span>
+
                                                 </p>
                                             </a>
                                         </li>
                                     @endcanany
                                 </ul>
                             </li>
-                            @endcannot
-                        @endcanany
+
 
                     </ul>
 
@@ -261,17 +268,17 @@
                                            class="nav-link {{ (request()->is('coldchain')) ? 'active' : '' }}">
                                             <i class="fa fa-snowflake-o nav-icon"></i>
                                             <p>زنجیره سرما
-                                                <span class="right badge badge-info">تکمیل</span>
+
                                             </p>
                                         </a>
                                     </li>
                                     @endcannot
                                     <li class="nav-item">
-                                        <a href="\cdcorona"
-                                           class="nav-link {{ (request()->is('cdcorona')) ? 'active' : '' }}">
+                                        <a href="\cdcoronalite"
+                                           class="nav-link {{ (request()->is('cdcoronalite')) ? 'active' : '' }}">
                                             <i class="fa fa-ambulance nav-icon"></i>
                                             <p>کرونا
-                                                <span class="right badge badge-success">توسعه</span>
+
                                             </p>
                                         </a>
                                     </li>
@@ -280,7 +287,7 @@
                                            class="nav-link {{ (request()->is('cdthyroid')) ? 'active' : '' }}">
                                             <i class="fa fa-address-card nav-icon"></i>
                                             <p>تیروئید نوزادان
-                                                <span class="right badge badge-success">توسعه</span>
+
                                             </p>
                                         </a>
                                     </li>
@@ -289,18 +296,38 @@
                                            class="nav-link {{ (request()->is('cdfinil')) ? 'active' : '' }}">
                                             <i class="fa fa-bank nav-icon"></i>
                                             <p>فینیل
-                                                <span class="right badge badge-success">توسعه</span>
+
                                             </p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="\cdcancer"
+                                           class="nav-link {{ (request()->is('cdcancer')) ? 'active' : '' }}">
+                                            <i class="fa fa-bed nav-icon"></i>
+                                            <p>سرطان
 
+                                            </p>
+                                        </a>
+                                    </li>
                                 @endcanany
 
+                                @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
+                                    <li class="nav-item">
+                                        <a href="\environment"
+                                           class="nav-link {{ (request()->is('environment')) ? 'active' : '' }}">
+                                            <i class="fa fa-eyedropper nav-icon"></i>
+                                            <p>کلرسنجی
+
+                                            </p>
+                                        </a>
+                                    </li>
+                                 @endcanany
                             </ul>
                         </li>
 
                     </ul>
                     @canany(['isAbhar'])
+                        @canany(['isBimaGVagir','isAdmin','isRiasat'])
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
@@ -332,6 +359,7 @@
                         </li>
 
                     </ul>
+                    @endcanany
                     @endcanany
                 </nav>
                 <!-- /.sidebar-menu -->

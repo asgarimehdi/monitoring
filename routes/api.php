@@ -58,16 +58,19 @@ Route::get('tempListByCounty/{county_id}', 'API\ColdChainController@tempByCounty
 Route::put('changePassword', 'API\UserController@changePassword');
 
 Route::get('environment/itemList', 'API\EnvironmentController@itemList');
-Route::get('environment/valueList', 'API\EnvironmentController@valueList');
+Route::get('environment/valueList', 'API\EnvironmentController@paginateByCounty');
 Route::post('environment/value', 'API\EnvironmentController@addValue');
 Route::put('environment/value/{id}', 'API\EnvironmentController@updateValue');
 Route::delete('environment/value/{id}', 'API\EnvironmentController@deleteValue');
-
+Route::get('environment/ListByCounty/{county_id}', 'API\EnvironmentController@environmentByCounty');
+Route::get('environment/ListByCounty/', 'API\EnvironmentController@environment');
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');
 Route::get('/cd/corona/ListByCounty/{county_id}', 'API\CdController@coronaByCounty');
+Route::get('/cd/corona/ListByCountyLite/{county_id}', 'API\CdController@coronaByCountyLite');
 Route::get('/cd/corona/ListByCounty/', 'API\CdController@corona');
+Route::get('/cd/corona/ListByCountyLite/', 'API\CdController@coronaLite');
 Route::get('/cd/corona/PaginateByCounty/', 'API\CdController@paginateByCounty');
 Route::delete('/cd/corona/{id}', 'API\CdController@deleteValue');
 Route::get('/cd/corona/StatByCounty/{county_id}', 'API\CdController@statByCounty');
@@ -109,3 +112,15 @@ Route::get('/cd/finil/ListByCounty/', 'API\CdFinilController@finil');
 Route::get('/cd/finil/PaginateByCounty/', 'API\CdFinilController@paginateByCounty');
 Route::delete('/cd/finil/{id}', 'API\CdFinilController@deleteValue');
 Route::get('/cd/finil/findValue', 'API\CdFinilController@search');
+
+Route::get('/cd/cancer/ListByCounty/{county_id}', 'API\CdFinilController@cancerByCounty');
+Route::get('/cd/cancer/ListByCounty/', 'API\CdFinilController@cancer');
+
+Route::post('/cd/cancer/', 'API\CdCancerController@addCancer');
+Route::put('/cd/cancer/{id}', 'API\CdCancerController@updateCancer');
+Route::get('/cd/cancer/ListByCounty/{county_id}', 'API\CdCancerController@cancerByCounty');
+Route::get('/cd/cancer/ListByCounty/', 'API\CdCancerController@cancer');
+Route::get('/cd/cancer/PaginateByCounty/', 'API\CdCancerController@paginateByCounty');
+Route::delete('/cd/cancer/{id}', 'API\CdCancerController@deleteValue');
+Route::get('/cd/cancer/findValue', 'API\CdCancerController@search');
+Route::get('/cd/cancer/typeList', 'API\CdCancerController@cancerType');

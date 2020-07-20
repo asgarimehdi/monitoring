@@ -68,7 +68,6 @@ class RegionController extends Controller
         }
         else
         return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->get();
-
     }
     public function point($center_id,$type_id)
     {
