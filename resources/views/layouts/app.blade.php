@@ -7,17 +7,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'سامانه جامع مانیتورینگ') }}</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href={{ asset("PersianAdminLTE/plugins/font-awesome/css/font-awesome.min.css") }}>
     <!-- Theme style -->
-    <link rel="stylesheet" href={{ asset("PersianAdminLTE/dist/css/adminlte.min.css") }}>
+    <link rel="stylesheet" href={{ asset("/css/adminlte.min.css") }}>
     <!-- leaflet -->
     <link rel="stylesheet" href="{{asset('/css/leaflet.css')}}" >
 
     <!-- bootstrap rtl -->
-    <link rel="stylesheet" href={{ asset("PersianAdminLTE/dist/css/bootstrap-rtl.min.css") }}>
+    <link rel="stylesheet" href={{ asset("/css/bootstrap-rtl.min.css") }}>
     <!-- template rtl version -->
-    <link rel="stylesheet" href={{ asset("PersianAdminLTE/dist/css/custom-style.css") }}>
+    <link rel="stylesheet" href={{ asset("/css/custom-style.css") }}>
     <link rel="icon" href="{{asset('/images/favicon.ico')}}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{asset('/images/favicon.ico')}}" type="image/x-icon"/>
     <style>
