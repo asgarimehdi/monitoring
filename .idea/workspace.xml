@@ -24,8 +24,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc6f01ea-f736-4fb2-950a-a0d78e7d4100" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.yarn/releases/yarn-1.22.4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.yarnrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,12 +221,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -537,6 +548,10 @@
       <workItem from="1595168387961" duration="2885000" />
       <workItem from="1595259282806" duration="18000" />
       <workItem from="1595259349322" duration="4894000" />
+      <workItem from="1595266558186" duration="3644000" />
+      <workItem from="1595703116860" duration="272000" />
+      <workItem from="1595705084530" duration="1357000" />
+      <workItem from="1595775085488" duration="252000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;environment updated&quot;">
       <created>1595261099114</created>
@@ -578,6 +593,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/public/PersianAdminLTE" />
+    </ignored-roots>
     <MESSAGE value="&quot;environment updated&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;environment updated&quot;" />
   </component>
@@ -586,6 +604,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="568" y="227" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1595261162397" />
+    <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595703388429">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1595703388429" />
     <state x="424" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594150242943">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -595,26 +617,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587674422450" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1595259607523">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1595259607523">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
     <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1595259607523">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
     <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1595259607523">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
     </state>
-    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1595186852532" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state x="141" y="142" key="SettingsEditor" timestamp="1595705592515">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="141" y="142" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1595705592515" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595261122117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -623,10 +649,6 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1587674580676" />
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1586767726002">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1586767726002" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
