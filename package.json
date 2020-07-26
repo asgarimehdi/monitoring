@@ -14,7 +14,7 @@
         "bootstrap": "^4.5.0",
         "cross-env": "^5.1",
         "jquery": "^3.5.1",
-        "laravel-mix": "^4.0.7",
+        "laravel-mix": "^5.0.4",
         "lodash": "^4.17.19",
         "popper.js": "^1.16.1",
         "resolve-url-loader": "^2.3.1",
@@ -26,6 +26,7 @@
     "dependencies": {
         "@types/leaflet": "^1.5.16",
         "chart.js": "^2.9.3",
+        "font-awesome": "^4.7.0",
         "laravel-vue-pagination": "^2.3.1",
         "leaflet": "^1.6.0",
         "leaflet-wms-header": "^1.0.9",
