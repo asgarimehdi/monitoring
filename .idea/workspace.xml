@@ -539,7 +539,13 @@
       <workItem from="1595259282806" duration="18000" />
       <workItem from="1595259349322" duration="4894000" />
       <workItem from="1595266558186" duration="3644000" />
+<<<<<<< HEAD
       <workItem from="1595779064422" duration="4271000" />
+=======
+      <workItem from="1595703116860" duration="272000" />
+      <workItem from="1595705084530" duration="1357000" />
+      <workItem from="1595775085488" duration="1173000" />
+>>>>>>> 26f3bb335419290bfba0c1751aab2eebe8761f09
     </task>
     <task id="LOCAL-00001" summary="&quot;environment updated&quot;">
       <created>1595261099114</created>
@@ -592,10 +598,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="568" y="227" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1595261162397" />
+<<<<<<< HEAD
     <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595274758156">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1595274758156" />
+=======
+    <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595703388429">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="412" y="295" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.994@0.0.1280.994" timestamp="1595703388429" />
+>>>>>>> 26f3bb335419290bfba0c1751aab2eebe8761f09
     <state x="424" y="213" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1594150242943">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -605,6 +618,7 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="211" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1587674422450" />
+<<<<<<< HEAD
     <state width="1237" height="219" key="GridCell.Tab.0.bottom" timestamp="1595782316646">
       <screen x="0" y="0" width="1280" height="994" />
     </state>
@@ -629,6 +643,32 @@
       <screen x="0" y="0" width="1280" height="994" />
     </state>
     <state x="141" y="142" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1595780304713" />
+=======
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.bottom/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1237" height="189" key="GridCell.Tab.0.center" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.center/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1237" height="189" key="GridCell.Tab.0.left" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.left/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state width="1237" height="189" key="GridCell.Tab.0.right" timestamp="1595706977602">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state width="1237" height="189" key="GridCell.Tab.0.right/0.0.1280.994@0.0.1280.994" timestamp="1595706977602" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595259607523" />
+    <state x="141" y="142" key="SettingsEditor" timestamp="1595705592515">
+      <screen x="0" y="0" width="1280" height="994" />
+    </state>
+    <state x="141" y="142" key="SettingsEditor/0.0.1280.994@0.0.1280.994" timestamp="1595705592515" />
+>>>>>>> 26f3bb335419290bfba0c1751aab2eebe8761f09
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1595261122117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
