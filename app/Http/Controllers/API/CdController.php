@@ -206,6 +206,8 @@ class CdController extends Controller
                 'region_point.region_center.region_county:id,name'
             ])
             // ->where('expose', '=', NULL)
+            /*->where('status','!=',3)
+            ->where('diagnosis','=',1)*/
             ->get();
         foreach($items as $item) {
             if ($item['expose']) {
@@ -234,8 +236,8 @@ class CdController extends Controller
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name'
             ])
-            /*->where('status','!=',3)
-            ->where('diagnosis','=',1)*/
+            ->where('status','!=',3)
+            ->where('diagnosis','=',1)
             ->get();
 
         return   $items;

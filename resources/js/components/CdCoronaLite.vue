@@ -45,7 +45,7 @@
                         </div>
                         <div class="card-body small">
                             <div class="small ">
-                                <div class="card bg-info-gradient">
+                                <!--<div class="card bg-info-gradient">
                                     <div class="row">
                                         <div class="col-8">
                                             <img alt="" src="/images/vendor/leaflet/dist/corona6.png">
@@ -80,7 +80,7 @@
                                                            v-model="show_corona_mashkok"/>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="card bg-info-gradient">
                                     <div class="row pt-1">
                                         <div class="col-8">
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
                                 <div class="card bg-info-gradient">
-                                    <div class="row">
+                                    <!--<div class="row">
                                         <div class="col-8">
                                             <img alt="" src="/images/vendor/leaflet/dist/corona3.png">
                                             بهبود
@@ -136,7 +136,7 @@
                                                            :height="16"
                                                            v-model="show_status_recover"/>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="row">
                                         <div class="col-8">
                                             <img alt="" src="/images/vendor/leaflet/dist/corona4.png">
@@ -404,7 +404,7 @@
 
                     </div>
 
-                     <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
+                    <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
 
                     <l-map
                         :center="center"
