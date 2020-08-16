@@ -7,10 +7,23 @@
                     <div class="col-sm-3">
                         <h5 class="m-0 text-dark">مانیتورینگ کلرسنجی</h5>
                     </div><!-- /.col -->
-                    <div class="col-sm-2 m-0 p-0">
-
+                    <div class="col-sm-1 m-0 p-0">
                     </div><!-- /.col -->
-
+                    <div class="col-sm-3" >
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_from"
+                                      format="YYYY-MM-DD"
+                        />
+                    </div><!-- /.col -->
+                    <div class="col-sm-3" >
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_to"
+                                      format="YYYY-MM-DD"
+                        />
+                    </div><!-- /.col -->
+                    <div class="col-sm-2 m-0 p-0">
+                        <a href="#" class="btn btn-primary">فیلتر</a>
+                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -241,7 +254,7 @@
                             {{marker.user.name}}
                             <br/>
                             تاریخ نمونه برداری:
-                            {{marker.created_at|myDate}}
+                            {{marker.created_at|myDate1}}
                             <br/>
                             تحت پوشش:
                             {{marker.region_point.region_center.region_county.name}} -
@@ -306,7 +319,8 @@
 
 <script>
 
-    import {LMap, LTileLayer, LMarker, LPopup, LIcon} from "vue2-leaflet";
+    import {LMap, LTileLayer, LMarker, LPopup, LIcon, LCircle} from "vue2-leaflet";
+    import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
     import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster';
     import {latLng} from "leaflet";
     import {ToggleButton} from 'vue-js-toggle-button'
@@ -317,10 +331,11 @@
     import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 
+
     Vue.component('ToggleButton', ToggleButton);
 
     export default {
-        name: "CdFinil",
+        name: "Environment",
 
         components: {
             LMap,
@@ -328,7 +343,7 @@
             LMarker,
             LPopup,
             LIcon,
-
+            'datePicker': VuePersianDatetimePicker,
             'v-marker-cluster': Vue2LeafletMarkercluster
 
         },
@@ -366,6 +381,9 @@
                 ],
                 counties: {},
                 county_id: "",
+
+                date_from: "", //تاریخ شروع و پایان یعنی یک هفته بعدش رو پیشفرض میریزیم اینجا و پاس میدیم به کنترلر
+                date_to: "",
 
 
 

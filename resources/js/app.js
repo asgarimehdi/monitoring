@@ -107,6 +107,12 @@ Vue.filter('myDate',function(created){
      return moment(created).add(3.5, 'hours').fromNow();
 
 });
+Vue.filter('myDate1',function(created){
+    //return moment(created).format(' jMMMM  jD  HH:mm:ss');
+    //moment.loadPersian({dialect: 'persian-modern',usePersianDigits: true});
+     return moment(created).add(3.5, 'hours').fromNow();
+
+});
 Vue.filter('myDate2',function(created){
     return moment(created).add(3.5, 'hours').format('jYYYY/jM/jD');
 

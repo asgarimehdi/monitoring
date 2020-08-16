@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -143,6 +143,8 @@ class EnvironmentController extends Controller
     }
     public function environment()
     {       //
+        $from = date('2020-07-14');
+        $to = date('2020-08-02');
         return  Environment_value::with(
             [
                 'region_point:id,name,center_id',
@@ -151,7 +153,8 @@ class EnvironmentController extends Controller
                 'environment_item',
                 'user'
             ])
-            // ->where('expose', '=', NULL)
+            // ->whereBetween('created_at', [$from, $to])
+             ->whereBetween('created_at',[(new Carbon)->subDays(2)->toDateString(),(new Carbon)->now()->toDateString()] )
             ->get();
     }
     public function environmentByCounty($county_id)
