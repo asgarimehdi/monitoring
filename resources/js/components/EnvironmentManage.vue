@@ -34,7 +34,7 @@
                                 </td>
                                 <td>{{value.region_point.name}}</td>
                                 <td>{{value.user.name}}</td>
-                                <td>{{value.created_at|myDate}}</td>
+                                <td>{{value.created_at|myDate1}}</td>
                                 <td>
                                     <a href="#" @click="edit(value)">
                                         <i class="fa fa-edit blue"></i>
@@ -52,7 +52,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
 
-                        <pagination :data="values" @pagination-change-page="getResults"></pagination>
+                        <pagination :data="values" size="small" :limit="8" @pagination-change-page="getResults"></pagination>
 
                     </div>
                 </div>
@@ -186,6 +186,16 @@
                                 <has-error :form="form" field="lng"></has-error>
                             </div>
 
+                            <div class="input-group mb-3">
+                                <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('created_at') }"
+                                              v-model="form.created_at"
+                                              format="YYYY-MM-DD"
+                                />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">تاریخ نمونه</span>
+                                </div>
+                                <has-error :form="form" field="created_at"></has-error>
+                            </div>
 
                         </div>
                         <div class="card-footer">
@@ -239,6 +249,7 @@
             LPopup,
             LIcon,
             LCircle,
+            datePicker: VuePersianDatetimePicker
 
         },
         data() {
@@ -283,7 +294,7 @@
                     type_id: '',
                     center_id: '',
                     point_id: '',
-
+                    created_at:'',
 
 
                 })

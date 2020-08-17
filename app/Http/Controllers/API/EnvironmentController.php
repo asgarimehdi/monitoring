@@ -84,6 +84,7 @@ class EnvironmentController extends Controller
             'environment_item_id'=> 'required|numeric|max:100',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
+            'created_at' => 'required|date',
         ]);
         $item=Environment_item::findOrFail($request['environment_item_id']);
         if($request['value']>$item->high){
@@ -103,6 +104,7 @@ class EnvironmentController extends Controller
             'environment_item_id' => $request['environment_item_id'],
             'user_id' => Auth::user()->id,
             'point_id' => $request['point_id'],
+            'created_at' => $request['created_at'],
             'status' => $status,
         ]);
     }
@@ -114,6 +116,7 @@ class EnvironmentController extends Controller
             'environment_item_id'=> 'required|numeric|max:100',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
+            'created_at' => 'required|date',
         ]);
         $item=Environment_item::findOrFail($request['environment_item_id']);
         if($request['value']>$item->high){
