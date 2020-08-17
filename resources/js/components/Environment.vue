@@ -8,6 +8,7 @@
                         <h5 class="m-0 text-dark">مانیتورینگ کلرسنجی</h5>
                     </div><!-- /.col -->
                     <div class="col-sm-1 m-0 p-0">
+                        <!--{{ date_from }}-->
                     </div><!-- /.col -->
                     <div class="col-sm-3" >
                         <date-picker  :auto-submit="true"
@@ -22,7 +23,7 @@
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
-                        <a href="#" class="btn btn-primary">فیلتر</a>
+                        <a href="#" class="btn btn-primary" @click="loadTemps">فیلتر</a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -329,7 +330,7 @@
 
     import "leaflet.markercluster/dist/MarkerCluster.css";
     import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-
+    var moment = require('moment-jalaali');
 
 
     Vue.component('ToggleButton', ToggleButton);
@@ -382,9 +383,12 @@
                 counties: {},
                 county_id: "",
 
-                date_from: "", //تاریخ شروع و پایان یعنی یک هفته بعدش رو پیشفرض میریزیم اینجا و پاس میدیم به کنترلر
-                date_to: "",
+                //date_from: "2020-08-15", //تاریخ شروع و پایان یعنی یک هفته بعدش رو پیشفرض میریزیم اینجا و پاس میدیم به کنترلر
 
+
+
+                date_to: new Date().toISOString().slice(0,10),
+                date_from:moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD') ,
 
 
 
@@ -460,7 +464,7 @@
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("/api/environment/ListByCounty/" + this.user_county_id).then(({data}) => (this.markers = data)).then(() => {
+                axios.get("/api/environment/ListByCounty/" + this.user_county_id + "/" + this.date_from + "/" + this.date_to).then(({data}) => (this.markers = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {
@@ -617,6 +621,7 @@
             },
 
         },
+
 
         created() {
 //console.log(this.subDate(Date(), Date()));

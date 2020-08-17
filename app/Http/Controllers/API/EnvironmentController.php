@@ -141,10 +141,9 @@ class EnvironmentController extends Controller
 
         return ['message' => 'Value Deleted'];
     }
-    public function environment()
+    public function environment($date_from,$date_to)
     {       //
-        $from = date('2020-07-14');
-        $to = date('2020-08-02');
+
         return  Environment_value::with(
             [
                 'region_point:id,name,center_id',
@@ -153,11 +152,11 @@ class EnvironmentController extends Controller
                 'environment_item',
                 'user'
             ])
-            // ->whereBetween('created_at', [$from, $to])
-             ->whereBetween('created_at',[(new Carbon)->subDays(2)->toDateString(),(new Carbon)->now()->toDateString()] )
+             ->whereBetween('created_at', [$date_from, $date_to])
+            // ->whereBetween('created_at',[(new Carbon)->subDays(2)->toDateString(),(new Carbon)->now()->toDateString()] )
             ->get();
     }
-    public function environmentByCounty($county_id)
+    public function environmentByCounty($county_id,$date_from,$date_to)
     {
         $user_point_type_id=Auth::user()->region_point->type_id;
         $user_point_id=Auth::user()->point_id;
@@ -171,6 +170,7 @@ class EnvironmentController extends Controller
                 'user'
             ])
                 ->where('point_id','=',$user_point_id)
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
         elseif($user_point_type_id==2 or $user_point_type_id==3 or $user_point_type_id==4) {
@@ -184,7 +184,9 @@ class EnvironmentController extends Controller
                 ->whereHas('Region_point', function($q) use($user_center_id) {
                     // Query the name field in status table
                     $q->where('center_id', '=', $user_center_id); // '=' is optional
-                })->get();
+                })
+                ->whereBetween('created_at', [$date_from, $date_to])
+                ->get();
         }
         else{
             $items=   Environment_value::with([
@@ -198,6 +200,7 @@ class EnvironmentController extends Controller
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
 
