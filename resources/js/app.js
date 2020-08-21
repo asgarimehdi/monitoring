@@ -59,11 +59,13 @@ Vue.component('cd-corona-manage-component', require('./components/CdCoronaManage
 Vue.component('cd-thyroid-manage-component', require('./components/CdThyroidManage.vue').default);
 Vue.component('cd-finil-manage-component', require('./components/CdFinilManage.vue').default);
 Vue.component('cd-cancer-manage-component', require('./components/CdCancerManage.vue').default);
+Vue.component('cd-disease-manage-component', require('./components/CdDiseaseManage.vue').default);
 Vue.component('cd-corona-component', require('./components/CdCorona.vue').default);
 Vue.component('cd-corona-lite-component', require('./components/CdCoronaLite.vue').default);
 Vue.component('cd-thyroid-component', require('./components/CdThyroid.vue').default);
 Vue.component('cd-finil-component', require('./components/CdFinil.vue').default);
 Vue.component('cd-cancer-component', require('./components/CdCancer.vue').default);
+Vue.component('cd-disease-component', require('./components/CdDisease.vue').default);
 Vue.component('report-cd-corona-component', require('./components/reports/ReportCdCorona.vue').default);
 Vue.component('bar-chart-component', require('./components/LineChart.vue').default);
 Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);

@@ -101,4 +101,12 @@ class HomeController extends Controller
     {
         return view('cd-cancer-manage');
     }
+    public function cd_disease()
+    {
+        return view('cd-disease');
+    }
+    public function cddiseasemanage()
+    {
+        return view('cd-disease-manage');
+    }
 }

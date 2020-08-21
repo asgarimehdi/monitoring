@@ -34,3 +34,5 @@ Route::get('/cdfinil', 'HomeController@cd_finil');
 Route::get('/cdfinilmanage', 'HomeController@cdfinilmanage');
 Route::get('/cdcancer', 'HomeController@cd_cancer');
 Route::get('/cdcancermanage', 'HomeController@cdcancermanage');
+Route::get('/cddisease', 'HomeController@cd_disease');
+Route::get('/cddiseasemanage', 'HomeController@cddiseasemanage');

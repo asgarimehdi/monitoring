@@ -155,6 +155,16 @@
                                                 </p>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="\cddiseasemanage"
+                                               class="nav-link {{ (request()->is('cddiseasemanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-medkit nav-icon"></i>
+                                                <p>
+                                                    مدیریت بیماری واگیر
+
+                                                </p>
+                                            </a>
+                                        </li>
                                         {{--<li class="nav-item">
                                             <a href="#"
                                                class="nav-link ">
@@ -304,6 +314,15 @@
                                            class="nav-link {{ (request()->is('cdcancer')) ? 'active' : '' }}">
                                             <i class="fa fa-bed nav-icon"></i>
                                             <p>سرطان
+
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="\cddisease"
+                                           class="nav-link {{ (request()->is('cddisease')) ? 'active' : '' }}">
+                                            <i class="fa fa-medkit nav-icon"></i>
+                                            <p>بیماری واگیر
 
                                             </p>
                                         </a>
