@@ -41,14 +41,15 @@ class CdDiseaseController extends Controller
             'full_name'=> 'required|string',
 
             'sex'=> 'required|numeric',
-            'job'=> 'required|string',
+            'national_code'=> 'required|numeric',
+
 
             'birth_at'=> 'required|date',
 
             'point_id'=> 'required|numeric',
-            'type_id'=> 'required|numeric',
-            'detection_type'=> 'required|numeric',
-
+            'disease_id'=> 'required|numeric',
+            'status_id'=> 'required|numeric',
+            'result_id'=> 'required|numeric',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'diagnosis_at' => 'required|date',
@@ -68,14 +69,15 @@ class CdDiseaseController extends Controller
             'full_name'=> 'required|string',
 
             'sex'=> 'required|numeric',
-            'job'=> 'required|string',
+            'national_code'=> 'required|numeric',
+
 
             'birth_at'=> 'required|date',
 
             'point_id'=> 'required|numeric',
-            'type_id'=> 'required|numeric',
-            'detection_type'=> 'required|numeric',
-
+            'disease_id'=> 'required|numeric',
+            'status_id'=> 'required|numeric',
+            'result_id'=> 'required|numeric',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'diagnosis_at' => 'required|date',
@@ -177,9 +179,9 @@ class CdDiseaseController extends Controller
                 $us = Cd_disease::with('region_point.region_center.region_county')
                     ->where(function($query) use ($search){
                         $query->where('full_name','LIKE',"%$search%")
-
-                            ->orWhere('type_id','=',"$search");
-                    })->paginate(10);
+                            ->orWhere('national_code','LIKE',"%$search%")
+                            ->orWhere('disease_id','=',"$search");
+                    })->paginate(20);
 
             }else{
                 $us = Cd_disease::with('region_point.region_center.region_county')->latest()->paginate(10);
@@ -195,7 +197,8 @@ class CdDiseaseController extends Controller
                         $qe->where('county_id', '=', $county_id); // '=' is optional
                     })->where(function($query) use ($search){
                         $query->where('full_name','LIKE',"%$search%")
-                            ->orWhere('type_id','=',"$search");
+                            ->orWhere('national_code','LIKE',"%$search%")
+                            ->orWhere('disease_id','=',"$search");
                     })->paginate(20);
 
 
@@ -205,7 +208,7 @@ class CdDiseaseController extends Controller
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     })
-                    ->paginate(10);
+                    ->paginate(20);
             }
         }
         return $us;

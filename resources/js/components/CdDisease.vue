@@ -5,21 +5,35 @@
             <div class="container-fluid">
                 <div class="row mb-0">
                     <div class="col-sm-3">
-                        <h5 class="m-0 text-dark">مانیتورینگ سرطان</h5>
+                        <h5 class="m-0 text-dark">مانیتورینگ بیماریهای واگیر</h5>
+                    </div><!-- /.col -->
+                    <div class="col-sm-1 m-0 p-0">
+                        <!--{{ date_from }}-->
+                    </div><!-- /.col -->
+                    <div class="col-sm-3" >
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_from"
+                                      format="YYYY-MM-DD"
+                        />
+                    </div><!-- /.col -->
+                    <div class="col-sm-3" >
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_to"
+                                      format="YYYY-MM-DD"
+                        />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
-
+                        <a href="#" class="btn btn-primary" @click="loadTemps">فیلتر</a>
                     </div><!-- /.col -->
-
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <div class="container-fluid">
 
-            <div class="row" v-if="$gate.isAdminOrGroup_admin() || $gate.isBimaGVagir()">
+            <div class="row" v-if="$gate.isAdminOrGroup_admin() || $gate.isBimaGVagir() || $gate.isBehvarz() ">
                 <div class="col-lg-12" id="myMap">
 
-                    <div class="card bg-info-gradient" id="coldChainMapHelp3">
+                    <div class="card bg-info-gradient" id="coldChainMapHelp">
 
                         <div class="card-header no-border ">
                             <h3 class="card-title">
@@ -39,20 +53,54 @@
                             <div class="small ">
 
                                 <div class="card bg-info-gradient">
-
-                                    <div class="row" v-for="type in disease_type">
+                                    <div class="row" v-for="item in disease_item">
                                         <div class="col-8">
-                                            {{type.name}}
+                                            {{item.name}}
+                                        </div>
+
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_item[item.id]"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card bg-info-gradient">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/marker-red.png">
+                                            مقدار بیش از حد
                                         </div>
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
-                                                           v-model="show_disease[type.id]"/>
+                                                           v-model="show_high"/>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-8">
 
+                                            <img alt="" src="/images/vendor/leaflet/dist/marker-ok.png">
+                                            مقدار مطلوب
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_ok"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <img alt="" src="/images/vendor/leaflet/dist/marker-freeze.png">
+                                            مقدار کمتر از حد
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_low"/>
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <div class="card bg-info-gradient">
                                     <div class="row">
                                         <div class="col-8">
@@ -175,7 +223,7 @@
 
 
 
-                     <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
+                    <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
 
                     <l-map
                         :center="center"
@@ -197,25 +245,25 @@
 
                         <l-popup class="vazir">
              <span class="label-info">
-               {{marker.full_name}}
+                            {{marker.disease_item.name}}
              </span>
-
                             <br/>
-                            مشخصات:
-<br/>متولد:
-                            {{marker.birth_at|myDate}}
-<br/>
+                            مقدار عددی:
+                            {{marker.value}}
+                            <br/>
+                            ثبت کننده:
+                            {{marker.user.name}}
+                            <br/>
+                            تاریخ نمونه برداری:
+                            {{marker.created_at|myDate1}}
+                            <br/>
                             تحت پوشش:
                             {{marker.region_point.region_center.region_county.name}} -
                             {{marker.region_point.region_center.name}} -
                             {{marker.region_point.name}}
- <br/>
-                            تاریخ تشخیص:
-                            {{marker.diagnosis_at}}
                         </l-popup>
                         <l-icon
-
-                            icon-url='/images/vendor/leaflet/dist/marker-icon.png'
+                            :icon-url=iconCheck(marker)
                             shadow-url='/images/vendor/leaflet/dist/marker-shadow.png'
                         />
 
@@ -263,7 +311,7 @@
                 </div>
             </div>
             <!-- end is admin -->
-            <div v-if="!($gate.isAdminOrGroup_admin() || $gate.isBimaGVagir())">
+            <div v-if="!($gate.isAdminOrGroup_admin() || $gate.isBimaGVagir() || $gate.isBehvarz())">
                 <not-found></not-found>
             </div>
         </div>
@@ -272,7 +320,8 @@
 
 <script>
 
-    import {LMap, LTileLayer, LMarker, LPopup, LIcon} from "vue2-leaflet";
+    import {LMap, LTileLayer, LMarker, LPopup, LIcon, LCircle} from "vue2-leaflet";
+    import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
     import Vue2LeafletMarkercluster from 'vue2-leaflet-markercluster';
     import {latLng} from "leaflet";
     import {ToggleButton} from 'vue-js-toggle-button'
@@ -281,12 +330,13 @@
 
     import "leaflet.markercluster/dist/MarkerCluster.css";
     import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+    var moment = require('moment-jalaali');
 
 
     Vue.component('ToggleButton', ToggleButton);
 
     export default {
-        name: "CdFinil",
+        name: "Disease",
 
         components: {
             LMap,
@@ -294,7 +344,7 @@
             LMarker,
             LPopup,
             LIcon,
-
+            'datePicker': VuePersianDatetimePicker,
             'v-marker-cluster': Vue2LeafletMarkercluster
 
         },
@@ -333,6 +383,12 @@
                 counties: {},
                 county_id: "",
 
+                //date_from: "2020-08-15", //تاریخ شروع و پایان یعنی یک هفته بعدش رو پیشفرض میریزیم اینجا و پاس میدیم به کنترلر
+
+
+
+                date_to: new Date().toISOString().slice(0,10),
+                date_from:moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD') ,
 
 
 
@@ -343,13 +399,14 @@
                 show_point_paygah: false,
                 show_point_shabake: false,
                 show_point_marakez: false,
-                show_hpa: true,
-                show_mild1: true,
-                show_mild2: true,
-                show_mild3: true,
-                show_classic: true,
+
                 show_latest: false,
-                show_disease:[],
+
+                show_high: true,
+                show_ok: true,
+                show_low: true,
+
+
 
 
                 selectedPoint: '',
@@ -357,7 +414,7 @@
                 user_county_id: '',
                 markers: {},
                 markers2: {},
-                disease_type: {},
+                disease_item: {},
                 zoom: 9,
                 center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
 
@@ -369,7 +426,31 @@
 
             };
         },
-
+        props: {
+            show_item: {
+                default: () => ({
+                    1: true,
+                    2: true,
+                    3: true,
+                    4: true,
+                    5: true,
+                    6: true,
+                    7: true,
+                    8: true,
+                    9: true,
+                    10: true,
+                    11: true,
+                    12: true,
+                    13: true,
+                    14: true,
+                    15: true,
+                    16: true,
+                    17: true,
+                    18: true,
+                    19: true,
+                }),
+            },
+        },
         methods: {
             loadCounties() {
                 axios.get("/api/countyList").then(({data}) => (this.counties = data)).then(() => {
@@ -390,7 +471,7 @@
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("/api/cd/disease/ListByCounty/" + this.user_county_id).then(({data}) => (this.markers = data)).then(() => {
+                axios.get("/api/cd/disease/ListByCounty/" + this.user_county_id + "/" + this.date_from + "/" + this.date_to).then(({data}) => (this.markers = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {
@@ -413,7 +494,17 @@
             },
 
 
-
+            iconCheck(val) {
+                if (val.status == '1')
+                    val = '/images/vendor/leaflet/dist/marker-ok.png';
+                else if (val.status == '2')
+                    val = '/images/vendor/leaflet/dist/marker-red.png';
+                else if (val.status == '0')
+                    val = '/images/vendor/leaflet/dist/marker-freeze.png';
+                else
+                    val = '/images/vendor/leaflet/dist/marker-icon.png';
+                return val;
+            },
             iconCheck2(val) {
                 if (val.type_id == '5')
                     val = '/images/vendor/leaflet/dist/home.png';
@@ -436,9 +527,23 @@
                 let x = [];
                 let y ;
                 let z ;
-                if (this.show_disease[marker.type_id])
+                let w=[] ;
+
+                if (this.show_low) //
                 {
-                    x[marker.type_id] = true;
+                    w[0] = marker.status === 0;
+                }
+                if (this.show_ok) //
+                {
+                    w[1] = marker.status === 1;
+                }
+                if (this.show_high) //
+                {
+                    w[2] = marker.status === 2;
+                }
+                if (this.show_item[marker.disease_item_id])
+                {
+                    x[marker.disease_item_id] = true;
                 }
 
                 if (this.show_latest)
@@ -448,7 +553,7 @@
                     y = true;
                 }
                 z=x.find(element => element === true);
-                return (z && y);
+                return (z && y && (w[0]||w[1]||w[2]));
                 //  return x.find(element => element === true);
             },
             mapWatch2(point) {
@@ -501,7 +606,7 @@
                 });
 
             },
-            loadTypeList() {
+            loadItemList() {
                 if (this.$gate.isOstan()) {
                     this.user_county_id = this.county_id;
 
@@ -509,13 +614,14 @@
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("api/cd/disease/typeList" ).then(({data}) => (this.disease_type = data)).then(() => {
-                    //  console.log(this.markers);
+                axios.get("api/cd/disease/typeList" ).then(({data}) => (this.disease_item = data)).then(() => {
+
+
                 }).catch(() => {
                     toast.fire({
 
                         type: 'error',
-                        title: 'خطایی در لود انواع سرطان رخ داد'
+                        title: 'خطایی در لود مقادیر بهداشت محیط رخ داد'
                     });
                 });
 
@@ -530,9 +636,9 @@
 
             this.loadCounties();
             this.loadTemps();
+            this.loadItemList();
 
             this.loadPoints();
-            this.loadTypeList();
 
 
             //setInterval(this.loadTemps, 300000);

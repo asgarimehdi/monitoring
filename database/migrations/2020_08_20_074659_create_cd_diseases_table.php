@@ -21,7 +21,7 @@ class CreateCdDiseasesTable extends Migration
             $table->date('birth_at');
             $table->date('diagnosis_at');
             $table->tinyInteger('result_id');
-            $table->tinyInteger('type_id');
+            $table->tinyInteger('disease_id');
             $table->tinyInteger('status_id');
             $table->integer('point_id');
             $table->unsignedInteger('user_id');

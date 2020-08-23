@@ -83,7 +83,15 @@
                                 </div>
                                 <has-error :form="form" field="full_name"></has-error>
                             </div>
+                            <div class="input-group mb-3">
+                                <input :class="{ 'is-invalid': form.errors.has('national_code') }" class="form-control" name="national_code"
 
+                                       type="text" v-model="form.national_code">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">کدملی</span>
+                                </div>
+                                <has-error :form="form" field="national_code"></has-error>
+                            </div>
                             <div class="input-group mb-3">
                                 <select :class="{ 'is-invalid': form.errors.has('sex') }" class="form-control"
                                         name="sex" v-model="form.sex">
@@ -100,18 +108,10 @@
                                 <has-error :form="form" field="sex"></has-error>
                             </div>
 
-                            <div class="input-group mb-3">
-                                <input :class="{ 'is-invalid': form.errors.has('job') }" class="form-control" name="job"
 
-                                       type="text" v-model="form.job">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">شغل</span>
-                                </div>
-                                <has-error :form="form" field="job"></has-error>
-                            </div>
                             <div class="input-group mb-3">
-                                <select :class="{ 'is-invalid': form.errors.has('type_id') }" class="form-control"
-                                        name="type_id" v-model="form.type_id">
+                                <select :class="{ 'is-invalid': form.errors.has('disease_id') }" class="form-control"
+                                        name="disease_id" v-model="form.disease_id">
                                     <option
                                         v-for="g in disease_type"
                                         :value="g.id"
@@ -121,30 +121,54 @@
 
                                 </select>
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">نوع سرطان</span>
+                                    <span class="input-group-text pl-5">نوع بیماری</span>
                                 </div>
-                                <has-error :form="form" field="type_id"></has-error>
+                                <has-error :form="form" field="disease_id"></has-error>
                             </div>
                             <div class="input-group mb-3">
-                                <select :class="{ 'is-invalid': form.errors.has('detection_type') }" class="form-control"
-                                        name="detection_type" v-model="form.detection_type">
+                                <select :class="{ 'is-invalid': form.errors.has('status_id') }" class="form-control"
+                                        name="status_id" v-model="form.status_id">
                                     <option value="1">
-                                        بالینی
+                                        مشکوک
                                     </option>
                                     <option value="2">
-                                        پاتولوژی
+                                        قطعی
                                     </option>
                                     <option value="3">
-                                        سیماری مرگ
+                                        نامعلوم
                                     </option>
                                     <option value="4">
                                         سایر
                                     </option>
                                 </select>
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">نوع تشخیص</span>
+                                    <span class="input-group-text pl-5">وضعیت</span>
                                 </div>
-                                <has-error :form="form" field="detection_type"></has-error>
+                                <has-error :form="form" field="status_id"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
+                                <select :class="{ 'is-invalid': form.errors.has('result_id') }" class="form-control"
+                                        name="result_id" v-model="form.result_id">
+                                    <option value="1">
+                                        تحت درمان
+                                    </option>
+                                    <option value="2">
+                                        بهبود
+                                    </option>
+                                    <option value="3">
+                                        فوت
+                                    </option>
+                                    <option value="4">
+                                        توقف درمان
+                                    </option>
+                                    <option value="5">
+                                        سایر
+                                    </option>
+                                </select>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">نتیجه بیماری</span>
+                                </div>
+                                <has-error :form="form" field="result_id"></has-error>
                             </div>
 
                             <div class="input-group mb-3" v-if="(point_selected) || (!editmode)">
@@ -343,18 +367,20 @@
                     id: '',
 
                     full_name: '',
-
+                    national_code:'',
                     birth_at: '',
+                    diagnosis_at:'',
                     sex: '',
-                    detection_type: '',
-                    job: '',
+                    disease_id: '',
+                    result_id: '',
+                    status_id: '',
                     lat: '',
                     lng: '',
                     county_id: '',
                     type_id: '',
                     center_id: '',
                     point_id: '',
-                    diagnosis_at:'',
+
 
 
                 })
