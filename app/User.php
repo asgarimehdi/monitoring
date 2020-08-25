@@ -32,6 +32,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Environment_value');
     }
+
+
     protected $fillable = [
         'id','name', 'password','username','role_id','group_id','point_id'
     ];

@@ -15,6 +15,10 @@ class Cd_disease extends Model
     }
     public function cd_disease_type()
     {
-        return $this->belongsTo('App\Cd_disease_type','type_id','id');
+        return $this->belongsTo('App\Cd_disease_type','disease_id','id');
+    }
+    public function User()
+    {
+        return $this->hasOne('App\User','id','user_id');
     }
 }

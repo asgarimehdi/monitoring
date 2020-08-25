@@ -10,20 +10,20 @@
                     <div class="col-sm-1 m-0 p-0">
                         <!--{{ date_from }}-->
                     </div><!-- /.col -->
-                    <div class="col-sm-3" >
-                        <date-picker  :auto-submit="true"
-                                      v-model="date_from"
-                                      format="YYYY-MM-DD"
+                    <div class="col-sm-3">
+                        <date-picker :auto-submit="true"
+                                     format="YYYY-MM-DD"
+                                     v-model="date_from"
                         />
                     </div><!-- /.col -->
-                    <div class="col-sm-3" >
-                        <date-picker  :auto-submit="true"
-                                      v-model="date_to"
-                                      format="YYYY-MM-DD"
+                    <div class="col-sm-3">
+                        <date-picker :auto-submit="true"
+                                     format="YYYY-MM-DD"
+                                     v-model="date_to"
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
-                        <a href="#" class="btn btn-primary" @click="loadTemps">فیلتر</a>
+                        <a @click="loadTemps" class="btn btn-primary" href="#">فیلتر</a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -59,48 +59,13 @@
                                         </div>
 
                                         <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16"
+                                            <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                           :value="true"
                                                            v-model="show_item[item.id]"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card bg-info-gradient">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <img alt="" src="/images/vendor/leaflet/dist/marker-red.png">
-                                            مقدار بیش از حد
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16"
-                                                           v-model="show_high"/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-8">
 
-                                            <img alt="" src="/images/vendor/leaflet/dist/marker-ok.png">
-                                            مقدار مطلوب
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16"
-                                                           v-model="show_ok"/>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <img alt="" src="/images/vendor/leaflet/dist/marker-freeze.png">
-                                            مقدار کمتر از حد
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16"
-                                                           v-model="show_low"/>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="card bg-info-gradient">
                                     <div class="row">
                                         <div class="col-8">
@@ -108,8 +73,8 @@
                                             شبکه بهداشت
                                         </div>
                                         <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16" v-model="show_point_shabake"/>
+                                            <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                           :value="true" v-model="show_point_shabake"/>
                                         </div>
                                     </div>
 
@@ -119,8 +84,8 @@
                                             مراکز سلامت
                                         </div>
                                         <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16" v-model="show_point_marakez"/>
+                                            <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                           :value="true" v-model="show_point_marakez"/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -129,8 +94,8 @@
                                             خانه بهداشت
                                         </div>
                                         <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16" v-model="show_point_home"/>
+                                            <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                           :value="true" v-model="show_point_home"/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -139,8 +104,8 @@
                                             پایگاه بهداشت
                                         </div>
                                         <div class="col-4 p-0">
-                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
-                                                           :height="16" v-model="show_point_paygah"/>
+                                            <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                           :value="true" v-model="show_point_paygah"/>
                                         </div>
                                     </div>
                                 </div>
@@ -149,8 +114,9 @@
                                         تغییرات اخیر
                                     </div>
                                     <div class="col-4 p-0 pt-1">
-                                        <toggle-button :value="true" :height="16" v-model="show_latest"
-                                                       :labels="{checked: 'بله', unchecked: 'خیر'}"/>
+                                        <toggle-button :height="16" :labels="{checked: 'بله', unchecked: 'خیر'}"
+                                                       :value="true"
+                                                       v-model="show_latest"/>
                                     </div>
                                 </div>
 
@@ -222,7 +188,6 @@
                     </div>
 
 
-
                     <!--<span>{{ currentCenter }} زوم فعلی {{ currentZoom }}</span>-->
 
                     <l-map
@@ -241,20 +206,14 @@
                         />
                         <v-marker-cluster>
                         <span :key="index" v-for="(marker,index) in markers">
-                    <l-marker :lat-lng="marker"  v-if="mapWatch(marker)">
+                    <l-marker :lat-lng="marker" v-if="mapWatch(marker)">
 
                         <l-popup class="vazir">
              <span class="label-info">
-                            {{marker.disease_item.name}}
+                            {{marker.cd_disease_type.name}}
              </span>
-                            <br/>
-                            مقدار عددی:
-                            {{marker.value}}
-                            <br/>
-                            ثبت کننده:
-                            {{marker.user.name}}
-                            <br/>
-                            تاریخ نمونه برداری:
+<br/>
+                            تاریخ ثبت:
                             {{marker.created_at|myDate1}}
                             <br/>
                             تحت پوشش:
@@ -273,7 +232,7 @@
     </span>
                         </v-marker-cluster>
                         <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
-                    <l-marker :lat-lng="marker2" >
+                    <l-marker :lat-lng="marker2">
 
 
                         <l-icon
@@ -284,10 +243,10 @@
              <span class="label-info">
                {{marker2.name}}
              </span>
-    <br>
+    <br/>
 
     {{marker2.region_center.name}}
-    <br>
+    <br/>
 
 
             <span v-if="marker2.develop!=undefined">
@@ -330,6 +289,7 @@
 
     import "leaflet.markercluster/dist/MarkerCluster.css";
     import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+
     var moment = require('moment-jalaali');
 
 
@@ -386,10 +346,8 @@
                 //date_from: "2020-08-15", //تاریخ شروع و پایان یعنی یک هفته بعدش رو پیشفرض میریزیم اینجا و پاس میدیم به کنترلر
 
 
-
-                date_to: new Date().toISOString().slice(0,10),
-                date_from:moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD') ,
-
+                date_to: new Date().toISOString().slice(0, 10),
+                date_from: moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD'),
 
 
                 mapFilter: '',
@@ -401,12 +359,6 @@
                 show_point_marakez: false,
 
                 show_latest: false,
-
-                show_high: true,
-                show_ok: true,
-                show_low: true,
-
-
 
 
                 selectedPoint: '',
@@ -421,7 +373,6 @@
                 attribution: '',
                 currentZoom: 9,
                 currentCenter: latLng(36.425703, 48.213501),
-
 
 
             };
@@ -495,11 +446,11 @@
 
 
             iconCheck(val) {
-                if (val.status == '1')
+                if (val.status_id == '1')
                     val = '/images/vendor/leaflet/dist/marker-ok.png';
-                else if (val.status == '2')
+                else if (val.status_id == '2')
                     val = '/images/vendor/leaflet/dist/marker-red.png';
-                else if (val.status == '0')
+                else if (val.status_id == '3')
                     val = '/images/vendor/leaflet/dist/marker-freeze.png';
                 else
                     val = '/images/vendor/leaflet/dist/marker-icon.png';
@@ -525,35 +476,21 @@
 
             mapWatch(marker) {
                 let x = [];
-                let y ;
-                let z ;
-                let w=[] ;
+                let y;
+                let z;
 
-                if (this.show_low) //
-                {
-                    w[0] = marker.status === 0;
-                }
-                if (this.show_ok) //
-                {
-                    w[1] = marker.status === 1;
-                }
-                if (this.show_high) //
-                {
-                    w[2] = marker.status === 2;
-                }
-                if (this.show_item[marker.disease_item_id])
-                {
-                    x[marker.disease_item_id] = true;
+
+                if (this.show_item[marker.disease_id]) {
+                    x[marker.disease_id] = true;
                 }
 
-                if (this.show_latest)
-                {
+                if (this.show_latest) {
                     y = !this.connectionChack(marker.updated_at);
                 } else {
                     y = true;
                 }
-                z=x.find(element => element === true);
-                return (z && y && (w[0]||w[1]||w[2]));
+                z = x.find(element => element === true);
+                return (z && y);
                 //  return x.find(element => element === true);
             },
             mapWatch2(point) {
@@ -614,14 +551,14 @@
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("api/cd/disease/typeList" ).then(({data}) => (this.disease_item = data)).then(() => {
+                axios.get("api/cd/disease/typeList").then(({data}) => (this.disease_item = data)).then(() => {
 
 
                 }).catch(() => {
                     toast.fire({
 
                         type: 'error',
-                        title: 'خطایی در لود مقادیر بهداشت محیط رخ داد'
+                        title: 'خطایی در لود مقادیر بیماری ها رخ داد'
                     });
                 });
 
@@ -643,7 +580,6 @@
 
             //setInterval(this.loadTemps, 300000);
             // setInterval(this.loadStat, 300000);
-
 
 
         }

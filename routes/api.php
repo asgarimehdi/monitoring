@@ -127,8 +127,8 @@ Route::get('/cd/cancer/typeList', 'API\CdCancerController@cancerType');
 
 Route::post('/cd/disease/', 'API\CdDiseaseController@addDisease');
 Route::put('/cd/disease/{id}', 'API\CdDiseaseController@updateDisease');
-Route::get('/cd/disease/ListByCounty/{county_id}', 'API\CdDiseaseController@diseaseByCounty');
-Route::get('/cd/disease/ListByCounty/', 'API\CdDiseaseController@disease');
+Route::get('/cd/disease/ListByCounty/{county_id}/{date_from}/{date_to}', 'API\CdDiseaseController@diseaseByCounty');
+Route::get('/cd/disease/ListByCounty//{date_from}/{date_to}', 'API\CdDiseaseController@disease');
 Route::get('/cd/disease/PaginateByCounty/', 'API\CdDiseaseController@paginateByCounty');
 Route::delete('/cd/disease/{id}', 'API\CdDiseaseController@deleteValue');
 Route::get('/cd/disease/findValue', 'API\CdDiseaseController@search');
