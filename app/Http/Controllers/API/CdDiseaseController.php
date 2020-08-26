@@ -99,21 +99,22 @@ class CdDiseaseController extends Controller
         return ['message' => 'Value Deleted'];
     }
 
-    public function disease()
+    public function disease($date_from,$date_to)
     {       //
         return  Cd_disease::with(
             [
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name',
-                'cd_disease_type'
-
+                'cd_disease_type',
+                'user'
             ])
             // ->where('expose', '=', NULL)
+            ->whereBetween('created_at', [$date_from, $date_to])
             ->get();
     }
 
-    public function diseaseByCounty($county_id)
+    public function diseaseByCounty($county_id,$date_from,$date_to)
     {
         // return    Cd_corona::get();
         $user_point_type_id=Auth::user()->region_point->type_id;
@@ -124,9 +125,11 @@ class CdDiseaseController extends Controller
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name',
-                'cd_disease_type'
+                'cd_disease_type',
+                'user'
             ])
                 ->where('point_id','=',$user_point_id)
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
         elseif($user_point_type_id==2 or $user_point_type_id==3 or $user_point_type_id==4) {
@@ -134,24 +137,29 @@ class CdDiseaseController extends Controller
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name',
-                'cd_disease_type'
+                'cd_disease_type',
+                'user'
             ])
                 ->whereHas('Region_point', function($q) use($user_center_id) {
                     // Query the name field in status table
                     $q->where('center_id', '=', $user_center_id); // '=' is optional
-                })->get();
+                })
+                ->whereBetween('created_at', [$date_from, $date_to])
+                ->get();
         }
         else{
             $items=   Cd_disease::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name',
-                'cd_disease_type'
+                'cd_disease_type',
+                'user'
             ])
                 ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
 

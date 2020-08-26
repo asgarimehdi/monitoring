@@ -520,10 +520,11 @@ class CdController extends Controller
                     ->where(function($query) use ($search){
                         $query->where('first_name','LIKE',"%$search%")
                             ->orWhere('last_name','LIKE',"%$search%")
+                            ->orWhere('occupation','LIKE',"%$search%")
                             ->orWhere('national_code','LIKE',"%$search%");
                     })
                     ->orderBy('id', 'DESC')
-                    ->paginate(20);
+                    ->paginate(40);
 
             }else{
                 $us = Cd_corona::with('region_point.region_center.region_county')->latest()
@@ -542,10 +543,11 @@ class CdController extends Controller
                     })->where(function($query) use ($search){
                         $query->where('first_name','LIKE',"%$search%")
                             ->orWhere('last_name','LIKE',"%$search%")
+                            ->orWhere('occupation','LIKE',"%$search%")
                             ->orWhere('national_code','LIKE',"%$search%");
                     })
                     ->orderBy('id', 'DESC')
-                    ->paginate(20);
+                    ->paginate(40);
 
 
             }else{

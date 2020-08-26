@@ -209,10 +209,16 @@
                     <l-marker :lat-lng="marker" v-if="mapWatch(marker)">
 
                         <l-popup class="vazir">
-             <span class="label-info">
+                            <span class="label-info">
+                              {{marker.full_name}}
+                            </span>
+                            <br/>
+                            بیماری:
                             {{marker.cd_disease_type.name}}
-             </span>
-<br/>
+                            <br/>
+                            ثبت کننده:
+                            {{marker.user.name}}
+                            <br/>
                             تاریخ ثبت:
                             {{marker.created_at|myDate1}}
                             <br/>
@@ -347,7 +353,7 @@
 
 
                 date_to: new Date().toISOString().slice(0, 10),
-                date_from: moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD'),
+                date_from: moment(new Date()).subtract(7, 'days').format('YYYY-MM-DD'),
 
 
                 mapFilter: '',
@@ -446,13 +452,13 @@
 
 
             iconCheck(val) {
-                if (val.status_id == '1')
+               /* if (val.status_id == '1')
                     val = '/images/vendor/leaflet/dist/marker-ok.png';
                 else if (val.status_id == '2')
                     val = '/images/vendor/leaflet/dist/marker-red.png';
                 else if (val.status_id == '3')
                     val = '/images/vendor/leaflet/dist/marker-freeze.png';
-                else
+                else*/
                     val = '/images/vendor/leaflet/dist/marker-icon.png';
                 return val;
             },
