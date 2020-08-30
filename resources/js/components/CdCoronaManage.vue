@@ -457,10 +457,21 @@
                 this.form.lng=this.markerLatLng.lng.toFixed(6);
             },
             getResults(page = 1) {
-                axios.get('api/cd/corona/PaginateByCounty?page=' + page)
-                    .then(response => {
-                        this.coronas = response.data;
-                    });
+                if(this.$parent.search)
+                    {
+                        let query = this.$parent.search;
+                        axios.get('api/cd/corona/findValue?q=' + query+'&page=' + page)
+                            .then((data) => {
+                                this.coronas = data.data
+                            });
+                    }
+                    else
+                    {
+                    axios.get('api/cd/corona/PaginateByCounty?page=' + page)
+                        .then(response => {
+                            this.coronas = response.data;
+                        });
+                    }
             },
             edit(value) {
                 this.editmode = true;
