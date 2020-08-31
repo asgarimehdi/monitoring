@@ -22,7 +22,7 @@
         </div>
         <div class="container-fluid">
 
-            <div class="row" v-if="$gate.isAdminOrGroup_admin() || $gate.isBimaGVagir()">
+            <div class="row" v-if="$gate.isAdmin() ||$gate.isRiasat() || $gate.isBimaVagir() || $gate.isBehvarz()">
                 <div class="col-lg-12" id="myMap">
                     <loading :active.sync="show_loading"
                                                            :can-cancel="true"
@@ -548,7 +548,7 @@
                 </div>
             </div>
             <!-- end is admin -->
-            <div v-if="!($gate.isAdminOrGroup_admin() || $gate.isBimaGVagir())">
+            <div v-if="!($gate.isAdmin() ||$gate.isRiasat() || $gate.isBimaVagir() || $gate.isBehvarz())">
                 <not-found></not-found>
             </div>
         </div>

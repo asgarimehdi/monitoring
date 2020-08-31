@@ -1,7 +1,7 @@
 <template>
     <div class="container">
 
-        <div class="row"  v-if="$gate.isAdminOrGroup_admin()">
+        <div class="row"  v-if="$gate.isAdmin() ||$gate.isRiasat() || $gate.isBimaVagir() || $gate.isBehvarz()">
             <div class="col-sm-12" id="myMap">
                 <div class="card bg-info-gradient"  id="coldChainMapHelp">
                     <div class="card-header no-border ">
@@ -114,7 +114,7 @@
             </div>
         </div>
         <!-- end is admin -->
-        <div v-if="!$gate.isAdminOrGroup_admin()">
+        <div v-if="!($gate.isAdmin() ||$gate.isRiasat() || $gate.isBimaVagir() || $gate.isBehvarz())">
             <not-found></not-found>
         </div>
     </div>

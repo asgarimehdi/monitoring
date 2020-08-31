@@ -114,7 +114,7 @@
                                             </a>
                                         </li>
                                     @endcanany
-                                    @canany(['isBimaGVagir','isAdmin'])
+                                    @canany(['isBimaVagir','isAdmin'])
                                         <li class="nav-item">
                                             <a href="\cdcoronamanage"
                                                class="nav-link {{ (request()->is('cdcoronamanage')) ? 'active' : '' }}">
@@ -125,6 +125,18 @@
                                                 </p>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="\cddiseasemanage"
+                                               class="nav-link {{ (request()->is('cddiseasemanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-medkit nav-icon"></i>
+                                                <p>
+                                                    مدیریت بیماری واگیر
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                        @endcanany
+                                        @canany(['isBimaGVagir','isAdmin'])
                                         <li class="nav-item">
                                             <a href="\cdthyroidmanage"
                                                class="nav-link {{ (request()->is('cdthyroidmanage')) ? 'active' : '' }}">
@@ -155,66 +167,6 @@
                                                 </p>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="\cddiseasemanage"
-                                               class="nav-link {{ (request()->is('cddiseasemanage')) ? 'active' : '' }}">
-                                                <i class="fa fa-medkit nav-icon"></i>
-                                                <p>
-                                                    مدیریت بیماری واگیر
-
-                                                </p>
-                                            </a>
-                                        </li>
-                                        {{--<li class="nav-item">
-                                            <a href="#"
-                                               class="nav-link ">
-                                                <i class="fa fa-ambulance nav-icon"></i>
-                                                <p>
-                                                     سل
-
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#"
-                                               class="nav-link ">
-                                                <i class="fa fa-wheelchair nav-icon"></i>
-                                                <p>
-                                                     فلج شل حاد
-
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#"
-                                               class="nav-link ">
-                                                <i class="fa fa-medkit nav-icon"></i>
-                                                <p>
-                                                     HIV
-
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#"
-                                               class="nav-link ">
-                                                <i class="fa fa-certificate nav-icon"></i>
-                                                <p>
-                                                     هاری
-
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#"
-                                               class="nav-link ">
-                                                <i class="fa fa-thermometer nav-icon"></i>
-                                                <p>
-                                                     تب مالت
-
-                                                </p>
-                                            </a>
-                                        </li>--}}
                                     @endcanany
                                     @canany(['isEnvironment','isAdmin','isBehvarz'])
                                         <li class="nav-item">
@@ -270,27 +222,35 @@
                             </a>
                             <ul class="nav nav-treeview">
 
-                                @canany(['isBimaGVagir','isAdmin','isRiasat'])
-                                    @cannot('isJustUser')
+                                @canany(['isBimaVagir','isAdmin','isRiasat'])
+
                                     <li class="nav-item">
                                         <a href="\coldchain"
                                            class="nav-link {{ (request()->is('coldchain')) ? 'active' : '' }}">
                                             <i class="fa fa-snowflake-o nav-icon"></i>
                                             <p>زنجیره سرما
-
                                             </p>
                                         </a>
                                     </li>
-                                    @endcannot
+
                                     <li class="nav-item">
                                         <a href="\cdcoronalite"
                                            class="nav-link {{ (request()->is('cdcoronalite')) ? 'active' : '' }}">
                                             <i class="fa fa-ambulance nav-icon"></i>
                                             <p>کرونا
-
                                             </p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="\cddisease"
+                                           class="nav-link {{ (request()->is('cddisease')) ? 'active' : '' }}">
+                                            <i class="fa fa-medkit nav-icon"></i>
+                                            <p>بیماری واگیر
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcanany
+                                @canany(['isBimaGVagir','isAdmin','isRiasat'])
                                     <li class="nav-item">
                                         <a href="\cdthyroid"
                                            class="nav-link {{ (request()->is('cdthyroid')) ? 'active' : '' }}">
@@ -314,15 +274,6 @@
                                            class="nav-link {{ (request()->is('cdcancer')) ? 'active' : '' }}">
                                             <i class="fa fa-bed nav-icon"></i>
                                             <p>سرطان
-
-                                            </p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="\cddisease"
-                                           class="nav-link {{ (request()->is('cddisease')) ? 'active' : '' }}">
-                                            <i class="fa fa-medkit nav-icon"></i>
-                                            <p>بیماری واگیر
 
                                             </p>
                                         </a>

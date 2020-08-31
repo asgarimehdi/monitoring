@@ -41,7 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isAbhar',function($user){
             return $user->region_point->region_center->county_id === 2;
         });
-        Gate::define('isBimaGVagir',function($user){
+        Gate::define('isBimaVagir',function($user){
             return $user->group->id === 4;
         });
         Gate::define('isRiasat',function($user){
@@ -59,7 +59,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isBehvarz',function($user){
             return $user->group->id === 6;
         });
-
+        Gate::define('isBimaGVagir',function($user){
+            return $user->group->id === 7;
+        });
 
     }
 }

@@ -30,7 +30,7 @@
         </div>
         <div class="container-fluid">
 
-            <div class="row" v-if="$gate.isAdminOrGroup_admin() || $gate.isEnvironment() || $gate.isBehvarz() ">
+            <div class="row" v-if="$gate.isAdmin() ||$gate.isRiasat() || $gate.isEnvironment() || $gate.isBehvarz() ">
                 <div class="col-lg-12" id="myMap">
 
                     <div class="card bg-info-gradient" id="coldChainMapHelp">
@@ -311,7 +311,7 @@
                 </div>
             </div>
             <!-- end is admin -->
-            <div v-if="!($gate.isAdminOrGroup_admin() || $gate.isEnvironment() || $gate.isBehvarz())">
+            <div v-if="!($gate.isAdmin() ||$gate.isRiasat() || $gate.isEnvironment() || $gate.isBehvarz())">
                 <not-found></not-found>
             </div>
         </div>

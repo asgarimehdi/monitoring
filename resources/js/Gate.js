@@ -32,7 +32,7 @@ export default class Gate{
     isAbhar(){
         return this.user.region_point.region_center.county_id === 2;
     }
-    isBimaGVagir(){
+    isBimaVagir(){
         return this.user.group.id === 4;
     }
     isRiasat(){
@@ -47,6 +47,8 @@ export default class Gate{
     isBehvarz(){
         return this.user.group.id === 6;
     }
-
+    isBimaGVagir(){
+        return this.user.group.id === 7;
+    }
 
 }
