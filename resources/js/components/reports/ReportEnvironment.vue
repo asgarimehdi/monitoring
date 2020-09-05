@@ -34,13 +34,12 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                 </select>
                             </div><!-- /.col -->
                             <div class="col-sm-2" >
-                                <select name="point_type"  id="point_type" class="form-control"
-                                >
-                                    <option value="" selected>شهری روستایی</option>
-                                    <option value="5">
+                                <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
+                                    <option value="all" selected>شهری روستایی</option>
+                                    <option value="6">
                                         پایگاه
                                     </option>
-                                    <option value="6">
+                                    <option value="5">
                                         خانه
                                     </option>
                                 </select>
@@ -136,14 +135,25 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                 county_id: '',
                 environment_item_id:'',
                 user_county: '',
+                point_type: 'all',
                 date_to: new Date().toISOString().slice(0,10),
-                date_from:moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD') ,
+                date_from:moment(new Date()).subtract(7, 'days').format('YYYY-MM-DD') ,
             }
         },
         methods: {
 
+
             getResults(page = 1) {
-                axios.get('/api/environment/report/?page=' + page)
+                if (this.$gate.isOstan()) {
+                    if( this.county_id) // agar az list entekhab kard
+                        this.user_county = this.county_id;
+                    else
+                        this.user_county = this.$gate.user.region_point.region_center.county_id;
+
+                } else {
+                    this.user_county = this.$gate.user.region_point.region_center.county_id;
+                }
+                axios.get('/api/environment/report/'+ this.user_county+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -160,7 +170,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/environment/report/"+ this.user_county).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();
@@ -220,6 +230,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
 
                     })
             });
+
             this.loadValues();
             this.loadItems();
             this.$on('ValueTableChanged', () => {
