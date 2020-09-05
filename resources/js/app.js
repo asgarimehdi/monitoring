@@ -67,6 +67,7 @@ Vue.component('cd-finil-component', require('./components/CdFinil.vue').default)
 Vue.component('cd-cancer-component', require('./components/CdCancer.vue').default);
 Vue.component('cd-disease-component', require('./components/CdDisease.vue').default);
 Vue.component('report-cd-corona-component', require('./components/reports/ReportCdCorona.vue').default);
+Vue.component('report-environment-component', require('./components/reports/ReportEnvironment.vue').default);
 Vue.component('bar-chart-component', require('./components/LineChart.vue').default);
 Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);

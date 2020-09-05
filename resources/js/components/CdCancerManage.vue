@@ -445,7 +445,7 @@
                         this.$Progress.fail();
                         toast.fire({
                             type: 'error',
-                            title: 'خطایی در لود لیست فینیل رخ داد'
+                            title: 'خطایی در لود لیست سرطان رخ داد'
                         });
                     });
                 }

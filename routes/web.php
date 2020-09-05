@@ -27,6 +27,7 @@ Route::get('/cdcoronamanage', 'HomeController@cdcoronamanage');
 Route::get('/cdcorona', 'HomeController@cdcorona');
 Route::get('/cdcoronalite', 'HomeController@cdcoronalite');
 Route::get('/report/cdcorona', 'HomeController@report_cdcorona');
+Route::get('/report/environment', 'HomeController@report_environment');
 Route::get('/developmanage', 'HomeController@developmanage');
 Route::get('/cdthyroid', 'HomeController@cd_thyroid');
 Route::get('/cdthyroidmanage', 'HomeController@cdthyroidmanage');

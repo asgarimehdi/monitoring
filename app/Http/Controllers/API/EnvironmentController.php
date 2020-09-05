@@ -209,4 +209,62 @@ class EnvironmentController extends Controller
 
         return   $items;
     }
+    public function report($county_id){
+
+        $collection= Environment_value::with(
+            [
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])->select("point_id","status", \DB::raw('count(status) as count'))
+            //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+            ->whereHas('Region_point.Region_center', function($q) use($county_id) {
+                // Query the name field in status table
+                $q->where('county_id', '=', $county_id); // '=' is optional
+            })
+            ->groupBy("point_id","status")->paginate(50);
+
+        foreach($collection as $item) {
+
+            if($item['status']==1){
+                $item->ok = $item['count'];
+            }
+            else{
+                $item->Nok = $item['count'];
+            }
+            unset($item->count);
+            unset($item->status);
+
+        }
+        $collection1=$collection;
+        foreach($collection as $key =>$item) {
+
+            if($item['ok']){
+                $NokKey=$collection->where('point_id',$item['point_id'])->where('Nok')->keys()->last();
+                if($NokKey){
+                    $nok=$collection[$NokKey]['Nok'];
+                    $item->Nok = $nok;
+                    //unset($collection1[$NokKey]);
+                }
+            }
+            else{
+                $okKey=$collection->where('point_id',$item['point_id'])->where('ok')->keys()->last();
+                if($okKey){
+                    $ok=$collection[$okKey]['ok'];
+                    $item->ok = $ok;
+                }
+            }
+            if(($item['ok'])AND($item['Nok'])){
+                unset($collection1[$okKey]);
+            }
+
+        }
+
+
+
+        return $collection1;
+        //return $collection->where('point_id',2)->where('ok')->keys()->last();
+        //  return $collection->groupBy('point_id');
+        // return $collection->where('status',1);
+    }
 }
