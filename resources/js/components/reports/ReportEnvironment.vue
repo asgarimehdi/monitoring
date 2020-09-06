@@ -24,7 +24,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                             <div class="col-sm-2" v-if="$gate.isOstan()" >
                                 <select name="environment_item_id" v-model="environment_item_id" id="environment_item_id" class="form-control"
                                         >
-                                    <option value="" selected>انتخاب آیتم مورد نظر</option>
+                                    <option value="all" selected>انتخاب آیتم مورد نظر</option>
                                     <option
                                         v-for="r in environment_items"
                                         :value="r.id"
@@ -73,7 +73,6 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                 <th>نام نقطه</th>
                                 <th>تعداد مطلوب</th>
                                 <th>تعداد نامطلوب</th>
-                                <th>بازه زمانی</th>
 
                             </tr>
                             <tr v-for="value in values.data" :key="value.id" class="small">
@@ -85,9 +84,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                 <td>{{value.region_point.name}}</td>
                                 <td>{{value.ok}}</td>
                                 <td>{{value.Nok}}</td>
-                                <td>
 
-                                </td>
                             </tr>
 
                             </tbody>
@@ -96,7 +93,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                     <!-- /.card-body -->
                     <div class="card-footer">
 
-                        <pagination :data="values" size="small" :limit="8" @pagination-change-page="getResults"></pagination>
+                        <pagination :data="values" size="small" :limit="100" @pagination-change-page="getResults"></pagination>
 
                     </div>
                 </div>
@@ -133,7 +130,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                 centers: {},
                 points: {},
                 county_id: '',
-                environment_item_id:'',
+                environment_item_id:'all',
                 user_county: '',
                 point_type: 'all',
                 date_to: new Date().toISOString().slice(0,10),
@@ -153,7 +150,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
-                axios.get('/api/environment/report/'+ this.user_county+'/?page=' + page)
+                axios.get('/api/environment/report/'+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -170,7 +167,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();

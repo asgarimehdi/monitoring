@@ -52,7 +52,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
 
-                        <pagination :data="values" size="small" :limit="8" @pagination-change-page="getResults"></pagination>
+                        <pagination :data="values" size="small" :limit="50" @pagination-change-page="getResults"></pagination>
 
                     </div>
                 </div>

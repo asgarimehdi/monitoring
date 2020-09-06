@@ -209,74 +209,138 @@ class EnvironmentController extends Controller
         return $items;
     }
 
-    public function report($county_id, $date_from, $date_to, $point_type)
+    public function report($county_id, $date_from, $date_to, $point_type, $environment_item_id)
     {
         $user_point_type_id = Auth::user()->region_point->type_id;
         $user_point_id = Auth::user()->point_id;
         $user_center_id = Auth::user()->region_point->center_id;
         $user_county_id = Auth::user()->region_point->region_center->county_id;
-        if ($point_type == 'all') {
-            if ((Gate::allows('isOstan')) and ($county_id == 9)) {
-                $collection = Environment_value::with(
-                    [
-                        'region_point:id,name,center_id',
-                        'region_point.region_center:id,name,type_id,county_id',
-                        'region_point.region_center.region_county:id,name'
-                    ])->select("point_id", "status", \DB::raw('count(status) as count'))
-                    ->whereBetween('created_at', [$date_from, $date_to])
+        if ($environment_item_id == 'all') {
+            if ($point_type == 'all') {
+                if ((Gate::allows('isOstan')) and ($county_id == 9)) {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->groupBy("point_id", "status")->paginate(100);
+                } else {
 
-                    ->groupBy("point_id", "status")->paginate(50);
-            } else {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+                        ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                            // Query the name field in status table
+                            $q->where('county_id', '=', $county_id); // '=' is optional
+                        })
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->groupBy("point_id", "status")->paginate(100);
+                }
+            } else { // if khane ya paygah:
+                if ((Gate::allows('isOstan')) and ($county_id == 9)) {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->whereHas('Region_point', function ($q) use ($point_type) {
+                            $q->where('type_id', '=', $point_type);
+                        })
+                        ->groupBy("point_id", "status")->paginate(100);
+                } else {
 
-                $collection = Environment_value::with(
-                    [
-                        'region_point:id,name,center_id',
-                        'region_point.region_center:id,name,type_id,county_id',
-                        'region_point.region_center.region_county:id,name'
-                    ])->select("point_id", "status", \DB::raw('count(status) as count'))
-                    //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
-                    ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
-                        // Query the name field in status table
-                        $q->where('county_id', '=', $county_id); // '=' is optional
-                    })
-
-                    ->whereBetween('created_at', [$date_from, $date_to])
-                    ->groupBy("point_id", "status")->paginate(50);
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+                        ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                            // Query the name field in status table
+                            $q->where('county_id', '=', $county_id); // '=' is optional
+                        })
+                        ->whereHas('Region_point', function ($q) use ($point_type) {
+                            // Query the name field in status table
+                            $q->where('type_id', '=', $point_type); // '=' is optional
+                        })
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->groupBy("point_id", "status")->paginate(100);
+                }
             }
         }
+        else{ //environment item selected
+            if ($point_type == 'all') {
+                if ((Gate::allows('isOstan')) and ($county_id == 9)) {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->where('environment_item_id', '=', $environment_item_id)
+                        ->groupBy("point_id", "status")->paginate(100);
+                } else {
 
-        else{ // if khane ya paygah:
-            if ((Gate::allows('isOstan')) and ($county_id == 9)) {
-                $collection = Environment_value::with(
-                    [
-                        'region_point:id,name,center_id',
-                        'region_point.region_center:id,name,type_id,county_id',
-                        'region_point.region_center.region_county:id,name'
-                    ])->select("point_id", "status", \DB::raw('count(status) as count'))
-                    ->whereBetween('created_at', [$date_from, $date_to])
-                    ->whereHas('Region_point', function ($q) use ($point_type) {
-                        $q->where('type_id', '=', $point_type);
-                    })
-                    ->groupBy("point_id", "status")->paginate(50);
-            } else {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+                        ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                            // Query the name field in status table
+                            $q->where('county_id', '=', $county_id); // '=' is optional
+                        })
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->where('environment_item_id', '=', $environment_item_id)
+                        ->groupBy("point_id", "status")->paginate(100);
+                }
+            } else { // if khane ya paygah:
+                if ((Gate::allows('isOstan')) and ($county_id == 9)) {
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->whereHas('Region_point', function ($q) use ($point_type) {
+                            $q->where('type_id', '=', $point_type);
+                        })
+                        ->where('environment_item_id', '=', $environment_item_id)
+                        ->groupBy("point_id", "status")->paginate(100);
+                } else {
 
-                $collection = Environment_value::with(
-                    [
-                        'region_point:id,name,center_id',
-                        'region_point.region_center:id,name,type_id,county_id',
-                        'region_point.region_center.region_county:id,name'
-                    ])->select("point_id", "status", \DB::raw('count(status) as count'))
-                    //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
-                    ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
-                        // Query the name field in status table
-                        $q->where('county_id', '=', $county_id); // '=' is optional
-                    })
-                    ->whereHas('Region_point', function ($q) use ($point_type) {
-                        // Query the name field in status table
-                        $q->where('type_id', '=', $point_type); // '=' is optional
-                    })
-                    ->whereBetween('created_at', [$date_from, $date_to])
-                    ->groupBy("point_id", "status")->paginate(50);
+                    $collection = Environment_value::with(
+                        [
+                            'region_point:id,name,center_id',
+                            'region_point.region_center:id,name,type_id,county_id',
+                            'region_point.region_center.region_county:id,name'
+                        ])->select("point_id", "status", \DB::raw('count(status) as count'))
+                        //->whereDate('diagnosis_at', '<=', date('Y-m-d'))
+                        ->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                            // Query the name field in status table
+                            $q->where('county_id', '=', $county_id); // '=' is optional
+                        })
+                        ->whereHas('Region_point', function ($q) use ($point_type) {
+                            // Query the name field in status table
+                            $q->where('type_id', '=', $point_type); // '=' is optional
+                        })
+                        ->whereBetween('created_at', [$date_from, $date_to])
+                        ->where('environment_item_id', '=', $environment_item_id)
+                        ->groupBy("point_id", "status")->paginate(100);
+                }
             }
         }
         foreach ($collection as $item) {
