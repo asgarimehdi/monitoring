@@ -20,3 +20,4 @@
     <vue-progress-bar></vue-progress-bar>
 
 @endsection
+

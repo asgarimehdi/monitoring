@@ -242,7 +242,7 @@ class EnvironmentController extends Controller
                         ->whereBetween('created_at', [$date_from, $date_to])
                         ->groupBy("point_id", "status")->paginate(100);
                 }
-            } else { // if khane ya paygah:
+            } else { // if khane ya paygah selected:
                 if ((Gate::allows('isOstan')) and ($county_id == 9)) {
                     $collection = Environment_value::with(
                         [

@@ -34,17 +34,8 @@
 
         </ul>
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" @keyup="searchit" v-model="search" type="search"
-                       placeholder="جستجو" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" @click="searchit" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+        @yield('search-form')
+
 
         <!-- Right navbar links -->
         <ul class="navbar-nav mr-auto">
@@ -295,8 +286,8 @@
                         </li>
 
                     </ul>
-                    @canany(['isAbhar'])
-                        @canany(['isBimaGVagir','isAdmin','isRiasat'])
+
+
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
@@ -310,26 +301,37 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                @canany(['isAbhar'])
+                                    @canany(['isBimaGVagir','isAdmin','isRiasat'])
 
-
-
+                                        <li class="nav-item">
+                                            <a href="\report\cdcorona"
+                                               class="nav-link {{ (request()->is('\report\cdcorona')) ? 'active' : '' }}">
+                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <p>کرونا
+                                                    <span class="right badge badge-success">توسعه</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                @endcanany
+                                @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
                                     <li class="nav-item">
-                                        <a href="\report\cdcorona"
-                                           class="nav-link {{ (request()->is('\report\cdcorona')) ? 'active' : '' }}">
-                                            <i class="fa fa-ambulance nav-icon"></i>
-                                            <p>کرونا
-                                                <span class="right badge badge-success">توسعه</span>
+                                        <a href="\report\environment"
+                                           class="nav-link {{ (request()->is('\report\environment')) ? 'active' : '' }}">
+                                            <i class="fa fa-eyedropper nav-icon"></i>
+                                            <p>کلرسنجی
+
                                             </p>
                                         </a>
                                     </li>
-
+                                @endcanany
 
                             </ul>
                         </li>
-
                     </ul>
-                    @endcanany
-                    @endcanany
+
+
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

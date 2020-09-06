@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
     public function users()
     {
@@ -112,5 +112,9 @@ class HomeController extends Controller
     public function cddiseasemanage()
     {
         return view('cd-disease-manage');
+    }
+    public function welcome()
+    {
+        return view('welcome');
     }
 }

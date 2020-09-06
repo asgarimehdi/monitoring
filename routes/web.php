@@ -14,7 +14,7 @@
 
 //Auth::routes();
 Auth::routes(['register' => false,'reset' => false]);
-Route::get('/', 'HomeController@cdcoronalite');
+Route::get('/', 'HomeController@welcome');
 
 Route::get('/users', 'HomeController@users');
 Route::get('/regions', 'HomeController@region');
@@ -43,3 +43,4 @@ Route::get('/cdcancer', 'HomeController@cd_cancer');
 Route::get('/cdcancermanage', 'HomeController@cdcancermanage');
 Route::get('/cddisease', 'HomeController@cd_disease');
 Route::get('/cddiseasemanage', 'HomeController@cddiseasemanage');
+
