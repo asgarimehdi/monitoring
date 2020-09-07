@@ -50,10 +50,33 @@ class RegionController extends Controller
     }
     public function center($county_id,$type_id)
     {
-        $user_point_type_id = Auth::user()->region_point->type_id;
+    $user_point_type_id = Auth::user()->region_point->type_id;
     $user_center_id = Auth::user()->region_point->center_id;
     if ($user_point_type_id == 2 or $user_point_type_id == 3 or $user_point_type_id == 4){
-
+        if($type_id==5){ //خانه بهداشت
+            return Region_center::where('county_id','=',$county_id)
+                ->where('id',$user_center_id)
+                ->where(function($q) {
+                    $q->where('type_id', 3)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
+        }
+        elseif($type_id==6){ // پایگاه سلامت
+            return Region_center::where('county_id','=',$county_id)
+                ->where('id',$user_center_id)
+                ->where(function($q) {
+                    $q->where('type_id', 2)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
+        }
+        else
+            return Region_center::where('type_id','=',$type_id)
+                ->where('id',$user_center_id)
+                ->get();
+    }
+    if (Gate::allows('isBehvarz')){
         if($type_id==5){ //خانه بهداشت
             return Region_center::where('county_id','=',$county_id)
                 ->where('id',$user_center_id)
@@ -100,8 +123,12 @@ class RegionController extends Controller
     }
     public function point($center_id,$type_id)
     {
+        $user_point_id = Auth::user()->point_id;
+        if (Gate::allows('isBehvarz')){
+            return    Region_point::where('id','=',$user_point_id)->where('type_id','=',$type_id)->get();
+        }
+        else
 
-        //return    Region_point::where('center_id','=',$center_id)->where('type_id','=',$type_id)->get();
         return    Region_point::where('center_id','=',$center_id)->where('type_id','=',$type_id)->get();
     }
 
