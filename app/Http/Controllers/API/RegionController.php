@@ -33,6 +33,7 @@ class RegionController extends Controller
     public function county()
     {
         //
+
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
             return    Region_county::all();
@@ -49,7 +50,34 @@ class RegionController extends Controller
     }
     public function center($county_id,$type_id)
     {
-      //  $type_id=\Request::get('type_id');
+        $user_point_type_id = Auth::user()->region_point->type_id;
+    $user_center_id = Auth::user()->region_point->center_id;
+    if ($user_point_type_id == 2 or $user_point_type_id == 3 or $user_point_type_id == 4){
+
+        if($type_id==5){ //خانه بهداشت
+            return Region_center::where('county_id','=',$county_id)
+                ->where('id',$user_center_id)
+                ->where(function($q) {
+                    $q->where('type_id', 3)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
+        }
+        elseif($type_id==6){ // پایگاه سلامت
+            return Region_center::where('county_id','=',$county_id)
+                ->where('id',$user_center_id)
+                ->where(function($q) {
+                    $q->where('type_id', 2)
+                        ->orWhere('type_id', 4);
+                })
+                ->get();
+        }
+        else
+            return Region_center::where('type_id','=',$type_id)
+                ->where('id',$user_center_id)
+                ->get();
+    }
+    else{
         if($type_id==5){ //خانه بهداشت
             return Region_center::where('county_id','=',$county_id)
                 ->where(function($q) {
@@ -59,7 +87,7 @@ class RegionController extends Controller
                 ->get();
         }
         elseif($type_id==6){ // پایگاه سلامت
-                return Region_center::where('county_id','=',$county_id)
+            return Region_center::where('county_id','=',$county_id)
                 ->where(function($q) {
                     $q->where('type_id', 2)
                         ->orWhere('type_id', 4);
@@ -67,7 +95,8 @@ class RegionController extends Controller
                 ->get();
         }
         else
-        return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->get();
+            return Region_center::where('type_id','=',$type_id)->where('county_id','=',$county_id)->get();
+    }
     }
     public function point($center_id,$type_id)
     {
