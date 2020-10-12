@@ -40,6 +40,7 @@ suggestion: remove v-if in v-for
 computed:
  dataObject:function(){
 if(this.x)
+filter
 elseif(this.y)
 ...
 return data

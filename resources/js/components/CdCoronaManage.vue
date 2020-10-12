@@ -324,7 +324,7 @@
                                 </div>
                                 <has-error :form="form" field="diagnosis_at"></has-error>
                             </div>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3" v-if="form.status==3 || form.status==2">
                                 <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('status_at') }"
                                               v-model="form.status_at"
                                               format="YYYY-MM-DD"
