@@ -126,7 +126,7 @@
                             <div v-else>چیزی برای نمایش وجود ندارد</div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer bg-transparent" v-show="(type_id!=5)&&(type_id!=6)">
+                        <div class="card-footer bg-transparent" v-show="(type_id!=5)&&(type_id!=6)&&(type_id!=12)">
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="btn-group">
