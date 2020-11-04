@@ -21,7 +21,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                         </option>
                                     </select>
                             </div><!-- /.col -->
-                            <div class="col-sm-2" v-if="$gate.isOstan()" >
+                            <div class="col-sm-2">
                                 <select name="environment_item_id" v-model="environment_item_id" id="environment_item_id" class="form-control"
                                         >
                                     <option value="all" selected>انتخاب آیتم مورد نظر</option>
@@ -41,6 +41,9 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                     </option>
                                     <option value="5">
                                         خانه
+                                    </option>
+                                    <option value="12">
+                                        آبادی
                                     </option>
                                 </select>
                             </div><!-- /.col -->

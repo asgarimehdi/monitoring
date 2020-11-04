@@ -180,6 +180,7 @@ class RegionController extends Controller
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'device_id'=> 'nullable|numeric|max:50000',
+            'point_id'=> 'required|numeric|max:50000',
         ]);
 
         return Region_point::create([
@@ -189,6 +190,7 @@ class RegionController extends Controller
             'lng' => $request['lng'],
             'device_id' => $request['device_id'],
             'type_id' => $request['type_id'],
+            'point_id' => $request['point_id'],
         ]);
     }
 
@@ -228,6 +230,7 @@ class RegionController extends Controller
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'device_id'=> 'nullable|numeric|max:50000',
+            'point_id'=> 'required|numeric|max:50000',
 
         ]);
         $point->update($request->all());
@@ -311,7 +314,7 @@ class RegionController extends Controller
     {       //
 
        $items= Region_point::with(['Region_center','develop:point_id,population'])
-           ->Where("type_id","<","7")
+           //->Where("type_id","<","7") // in chi bood?
            ->whereHas('Region_center', function($q) use($county_id) {
                 $q->where('county_id', '=', $county_id);
             })
@@ -321,6 +324,7 @@ class RegionController extends Controller
             {
                 $b=Region_point::with('develop:point_id,population')
                     ->Where("center_id","=",$item['center_id'])
+                    ->Where("type_id","!=",12)// hazfe abadi az jamiat markaz
                     ->get()
                     ->sum('develop.population');
                 $item->population=$b;
@@ -334,6 +338,7 @@ class RegionController extends Controller
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     })
+                    ->Where("type_id","!=",12) // hazfe abadi az jamiat markaz
                     ->get()
                     ->sum('develop.population');
                 $item->population=$c;
@@ -346,13 +351,14 @@ class RegionController extends Controller
     {       //
 
         $items=   Region_point::with(['Region_center','develop:point_id,population'])
-            ->Where("type_id","<","7")
+            //->Where("type_id","<","7")
             ->get();
         foreach($items as $item) {
             if(($item['type_id']==2)or($item['type_id']==3)or($item['type_id']==4))
             {
                 $b=Region_point::with('develop:point_id,population')
                     ->Where("center_id","=",$item['center_id'])
+                    ->Where("type_id","!=",12)
                     ->get()
                     ->sum('develop.population');
                 $item->population=$b;
@@ -366,6 +372,7 @@ class RegionController extends Controller
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     })
+                    ->Where("type_id","!=",12)
                     ->get()
                     ->sum('develop.population');
                 $item->population=$c;

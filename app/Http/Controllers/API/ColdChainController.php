@@ -28,6 +28,7 @@ class ColdChainController extends Controller
             ->whereHas('Region_center', function($q) use($county_id) {
                 // Query the name field in status table
                 $q->where('county_id', '=', $county_id); // '=' is optional
+                $q->where('device_id', '!=', 'NULL'); // faghat jaei ke device dare
             })
         ->get();
     }

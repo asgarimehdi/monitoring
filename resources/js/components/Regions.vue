@@ -120,7 +120,7 @@
                         <div class="card-body">
                             <div v-if="centers[0]">
                                 <button class="btn btn-info btn-block btn-sm center" type="button" v-for="r in centers"
-                                        v-if="r.id" :ref="'ce'+r.id" @click="loadPoints(r.id,type_id)">{{r.name}}
+                                        v-if="r.id" :ref="'ce'+r.id" @click="loadPoints(r.id,type_id),loadPoints2(r.id)">{{r.name}}
                                 </button>
                             </div>
                             <div v-else>چیزی برای نمایش وجود ندارد</div>
@@ -340,11 +340,28 @@
                                            class="form-control" :class="{ 'is-invalid': form.errors.has('lng') }">
                                     <has-error :form="form" field="lng"></has-error>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" v-if="(type_id!=12)">
                                     <input v-model="form.device_id" type="text" name="device_id"
                                            placeholder="device_id"
                                            class="form-control" :class="{ 'is-invalid': form.errors.has('device_id') }">
                                     <has-error :form="form" field="device_id"></has-error>
+                                </div>
+                                <div class="form-group" v-if="(type_id==12)">
+                                    <div class="input-group mb-3">
+                                        <select name="point_id" v-model="form.point_id" id="point_id" class="form-control"
+                                                :class="{ 'is-invalid': form.errors.has('point_id') }">
+                                            <option
+                                                v-for="g in points2"
+                                                :value="g.id"
+                                            >
+                                                {{g.name}}
+                                            </option>
+                                        </select>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">نقطه</span>
+                                        </div>
+                                        <has-error :form="form" field="point_id"></has-error>
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -380,6 +397,7 @@
                 center: '',
                 centerIsNotActive: true,
                 points: {},
+                points2: {},
                 point: '',
                 pointIsNotActive: true,
                 type_id: '',
@@ -401,6 +419,7 @@
                     lat: '',
                     lng: '',
                     device_id: '',
+                    point_id: '',
 
                 }),
                 countyById: [],
@@ -512,7 +531,6 @@
                 this.$refs['t' + type_id][0].classList.remove('btn-success');
             },
             loadPoints(center_id,type_id) {
-
                 axios.get("api/pointList/" + center_id+"/"+type_id).then(({data}) => (this.points = data)).then(() => {
                 }).catch(() => {
                     toast.fire({
@@ -551,6 +569,15 @@
                 this.$refs['ce' + center_id][0].classList.add('btn-warning');
                 this.$refs['ce' + center_id][0].classList.remove('btn-info');
 
+            },
+            loadPoints2(center_id) {
+                axios.get("api/pointList/" + center_id+"/5").then(({data}) => (this.points2 = data)).then(() => {
+                }).catch(() => {
+                    toast.fire({
+                        type: 'error',
+                        title: 'خطایی در لود اطلاعات رخ داد'
+                    });
+                });
             },
             pointed(point_id) {
                 axios.get("api/point/" + point_id).then(({data}) => (this.pointById = data)).then(() => {
@@ -959,8 +986,9 @@
                         confirmButtonText: 'بله حذف کن!',
                         cancelButtonText: 'بیخیال'
                     }).then((result) => {
-                      //  if (result.value) {
-                        if (1==2) {
+                        if (result.value && this.type_id==12) {
+                        // if (result.value) {
+                        // if (1==2) {
                             this.form.delete('/api/point/' + id).then(() => {
                                 swal.fire(
                                     'پاک شد',

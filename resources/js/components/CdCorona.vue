@@ -1030,7 +1030,7 @@
             this.loadPoints();
 
 
-            setInterval(this.loadTemps, 300000);
+            //setInterval(this.loadTemps, 300000);
             // setInterval(this.loadStat, 300000);
             this.$on('show_timeSeries', () => {
 

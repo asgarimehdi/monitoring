@@ -31,6 +31,6 @@ class Region_point extends Model
         return $this->hasOne('App\Develop', 'point_id');
     }
     protected $fillable = [
-        'name', 'id','center_id','lat','lng','device_id','type_id'
+        'name', 'id','center_id','lat','lng','device_id','type_id','point_id'
     ];
 }

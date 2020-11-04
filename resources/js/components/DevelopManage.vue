@@ -118,7 +118,7 @@
                         <div class="card-footer bg-transparent">
                             <div class="row">
                                 <div class="col-md-12 text-center">
-                                    <div class="btn-group" v-if="(type_id==5)||(type_id==6)">
+                                    <div class="btn-group" v-if="(type_id==5)||(type_id==6)||(type_id==12)">
 
                                         <button v-if="pointById.develop" class="btn btn-warning btn-sm" @click="editmodalPoint"
                                                 data-toggle="modal" data-target="#exampleModalCenter">
