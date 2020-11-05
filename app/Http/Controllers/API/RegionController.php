@@ -125,7 +125,18 @@ class RegionController extends Controller
     {
         $user_point_id = Auth::user()->point_id;
         if (Gate::allows('isBehvarz')){
-            return    Region_point::where('id','=',$user_point_id)->where('type_id','=',$type_id)->get();
+            if($type_id==12) { // agar village bood
+                return Region_point::
+                where('type_id', '=', $type_id)
+                    ->where('point_id', '=', $user_point_id)
+                    ->get();
+            }
+            else {
+                return Region_point::
+                where('type_id', '=', $type_id)
+                    ->where('id', '=', $user_point_id)
+                    ->get();
+            }
         }
         else
 
