@@ -68,9 +68,9 @@ Route::get('environment/report/{county_id}/{date_from}/{date_to}/{point_type}/{e
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');
-Route::get('/cd/corona/ListByCounty/{county_id}', 'API\CdController@coronaByCounty');
+Route::get('/cd/corona/ListByCounty/{county_id}/{date_from}/{date_to}', 'API\CdController@coronaByCounty');
 Route::get('/cd/corona/ListByCountyLite/{county_id}', 'API\CdController@coronaByCountyLite');
-Route::get('/cd/corona/ListByCounty/', 'API\CdController@corona');
+Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}', 'API\CdController@corona');
 Route::get('/cd/corona/ListByCountyLite/', 'API\CdController@coronaLite');
 Route::get('/cd/corona/PaginateByCounty/', 'API\CdController@paginateByCounty');
 Route::delete('/cd/corona/{id}', 'API\CdController@deleteValue');

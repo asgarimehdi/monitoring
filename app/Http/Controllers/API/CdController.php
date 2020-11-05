@@ -101,7 +101,7 @@ class CdController extends Controller
         return ['message' => 'Value Deleted'];
     }
 
-    public function coronaByCounty($county_id)
+    public function coronaByCounty($county_id,$date_from, $date_to)
     {
         // return    Cd_corona::get();
         $user_point_type_id=Auth::user()->region_point->type_id;
@@ -114,6 +114,7 @@ class CdController extends Controller
                 'region_point.region_center.region_county:id,name'
             ])
                 ->where('point_id','=',$user_point_id)
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
         elseif($user_point_type_id==2 or $user_point_type_id==3 or $user_point_type_id==4) {
@@ -125,7 +126,9 @@ class CdController extends Controller
                 ->whereHas('Region_point', function($q) use($user_center_id) {
                     // Query the name field in status table
                     $q->where('center_id', '=', $user_center_id); // '=' is optional
-                })->get();
+                })
+                ->whereBetween('created_at', [$date_from, $date_to])
+                ->get();
         }
         else{
             $items=   Cd_corona::with([
@@ -137,6 +140,7 @@ class CdController extends Controller
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
+                ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
         foreach($items as $item){
@@ -197,7 +201,7 @@ class CdController extends Controller
 
         return   $items;
     }
-    public function corona()
+    public function corona($date_from, $date_to)
     {       //
         $items=   Cd_corona::with(
             [
@@ -208,6 +212,7 @@ class CdController extends Controller
             // ->where('expose', '=', NULL)
             /*->where('status','!=',3)
             ->where('diagnosis','=',1)*/
+            ->whereBetween('created_at', [$date_from, $date_to])
             ->get();
         foreach($items as $item) {
             if ($item['expose']) {
@@ -225,7 +230,7 @@ class CdController extends Controller
                 $item->exp = $exp;
             }
         }
-        return   $items;
+        //return   $items;
 
     }
     public function coronaLite()

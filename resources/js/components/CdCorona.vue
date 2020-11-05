@@ -4,8 +4,8 @@
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-0">
-                    <div class="col-sm-3">
-                        <h5 class="m-0 text-dark">مانیتورینگ Covid-19</h5>
+                    <div class="col-sm-2">
+                        <h5 class="m-0 text-dark">Covid-19</h5>
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
                         <a class="btn bg-info " href="\cdcoronalite">
@@ -17,6 +17,22 @@
                             {{showDay()}}
                         </h5>
                     </div><!-- /.col -->
+                    <div class="col-sm-3"  v-if="!show_timeSeries">
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_from"
+                                      format="YYYY-MM-DD"
+                        />
+                    </div><!-- /.col -->
+                    <div class="col-sm-3"  v-if="!show_timeSeries" >
+                        <date-picker  :auto-submit="true"
+                                      v-model="date_to"
+                                      format="YYYY-MM-DD"
+                        />
+                    </div><!-- /.col -->
+                    <div class="col-sm-2 m-0 p-0"  v-if="!show_timeSeries">
+                        <a href="#" class="btn btn-primary" @click="loadTemps">فیلتر</a>
+                    </div><!-- /.col -->
+
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
@@ -458,20 +474,20 @@
                             {{marker.region_point.name}}
                             <br/>
                             تاریخ ثبت:
-                            {{marker.created_at|myDate}}
+                            {{marker.created_at|myDate2}}
                             <br/>
                             تاریخ تشخیص:
-                            {{marker.diagnosis_at|myDate}}
+                            {{marker.diagnosis_at|myDate2}}
                             <br/>
                             <span v-if="marker.created_at!=marker.updated_at">
                                 تاریخ آخرین بروزرسانی:
-                            {{marker.updated_at|myDate}}
+                            {{marker.updated_at|myDate2}}
                                 <br/>
                             </span>
 
                             <span v-if="((marker.status_at !=undefined) && (marker.status_at!=='0000-00-00'))">
                                 تاریخ مرگ یا بهبود:
-                            {{marker.status_at|myDate}}
+                            {{marker.status_at|myDate2}}
                             </span>
                             <span class="label-warning" v-if="marker.expose !=undefined">
                                 تعداد مواجهین
@@ -564,7 +580,9 @@
     import Loading from 'vue-loading-overlay';
     // Import stylesheet
     import 'vue-loading-overlay/dist/vue-loading.css';
-    Vue.component('ToggleButton', ToggleButton)
+    import VuePersianDatetimePicker from "vue-persian-datetime-picker";
+    var moment = require('moment-jalaali');
+    Vue.component('ToggleButton', ToggleButton);
 
     export default {
         name: "CdCorona",
@@ -577,8 +595,8 @@
             LIcon,
             LPolyline,
             LCircle,
-            Loading
-
+            Loading,
+            'datePicker': VuePersianDatetimePicker
         },
         data() {
             return {
@@ -612,6 +630,8 @@
 
                     },
                 ],
+                date_to: new Date().toISOString().slice(0,10),
+                date_from:moment(new Date()).subtract(30, 'days').format('YYYY-MM-DD') ,
                 counties: {},
                 county_id: "",
                 stats: {},
@@ -702,7 +722,7 @@
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("/api/cd/corona/ListByCounty/" + this.user_county_id).then(({data}) => (this.markers = data)).then(() => {
+                axios.get("/api/cd/corona/ListByCounty/" + this.user_county_id+ "/" + this.date_from + "/" + this.date_to).then(({data}) => (this.markers = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {
@@ -974,7 +994,7 @@
                     this.day = this.nDay
             },
             callback() {
-                console.log('shit');
+                //console.log('shit');
                 this.show_loading=false;
             },
             loadPoints() {
@@ -1003,7 +1023,8 @@
                 var moment = require('moment-jalaali');
                 var date = (moment(date));
 
-                var date2 = moment('2020-02-18 00:00:00');
+               // var date2 = moment('2020-02-18 00:00:00');
+                var date2 = this.date_from;
                 var diffInMinutes = date.diff(date2, 'days');
                 return diffInMinutes;
             },
