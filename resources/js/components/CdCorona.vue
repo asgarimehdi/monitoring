@@ -631,7 +631,7 @@
                     },
                 ],
                 date_to: new Date().toISOString().slice(0,10),
-                date_from:moment(new Date()).subtract(30, 'days').format('YYYY-MM-DD') ,
+                date_from:moment(new Date()).subtract(3, 'days').format('YYYY-MM-DD') ,
                 counties: {},
                 county_id: "",
                 stats: {},
@@ -718,11 +718,13 @@
                 this.$Progress.start();
                 if (this.$gate.isOstan()) {
                     this.user_county_id = this.county_id;
+                    if(this.user_county_id==='') this.user_county_id='all';
                 } else {
                     this.user_county_id = this.$gate.user.region_point.region_center.county_id;
                     this.zoom = 10;
                 }
-                axios.get("/api/cd/corona/ListByCounty/" + this.user_county_id+ "/" + this.date_from + "/" + this.date_to).then(({data}) => (this.markers = data)).then(() => {
+
+                axios.get("/api/cd/corona/ListByCounty/"  + this.date_from + "/" + this.date_to+ "/"+ this.user_county_id).then(({data}) => (this.markers = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {
