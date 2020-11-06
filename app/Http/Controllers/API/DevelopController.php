@@ -9,20 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 class DevelopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function __construct()
     {
         $this->middleware('auth:api');
     }
-    public function index()
-    {
-        //
 
-    }
 
 
     public function store(Request $request)
@@ -42,24 +34,7 @@ class DevelopController extends Controller
         );
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function updateDevelop(Request $request, $id)
     {
         $this->validate($request,[
@@ -74,20 +49,10 @@ class DevelopController extends Controller
         return ['message' => 'Updated the develop info'];
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
 
     public function develop($id)
     {
-
        return Develop::where('point_id',$id)->get();
     }
 }

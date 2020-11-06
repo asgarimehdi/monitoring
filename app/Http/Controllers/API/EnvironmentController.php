@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Environment_item;
 use App\Environment_value;
+use App\Environment_base;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
