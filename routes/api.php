@@ -65,6 +65,9 @@ Route::delete('environment/value/{id}', 'API\EnvironmentController@deleteValue')
 Route::get('environment/ListByCounty/{county_id}/{date_from}/{date_to}', 'API\EnvironmentController@environmentByCounty');
 Route::get('environment/ListByCounty//{date_from}/{date_to}', 'API\EnvironmentController@environment');
 Route::get('environment/report/{county_id}/{date_from}/{date_to}/{point_type}/{environment_item_id}', 'API\EnvironmentController@report');
+Route::get('/environment/base/{point_id}', 'API\EnvironmentController@environment_base');
+Route::put('/environment/base/{point_id}', 'API\EnvironmentController@updateEnvironmentBase');
+Route::post('/environment/base', 'API\EnvironmentController@storeEnvironment_base');
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');

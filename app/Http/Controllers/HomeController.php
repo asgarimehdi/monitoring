@@ -57,6 +57,10 @@ class HomeController extends Controller
     {
         return view('environment');
     }
+    public function environment_base()
+    {
+        return view('environment-base-manage');
+    }
     public function cdcoronamanage()
     {
         return view('cd-corona-manage');

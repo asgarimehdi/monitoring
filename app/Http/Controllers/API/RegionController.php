@@ -261,7 +261,7 @@ class RegionController extends Controller
     }
     public function pointById($point_id)
     {
-        return  $point = Region_point::with('develop:point_id,population,id')->find($point_id);
+        return  $point = Region_point::with('environment_base:point_id,covered,piping,id','develop:point_id,population,id')->find($point_id);
     }
 
 

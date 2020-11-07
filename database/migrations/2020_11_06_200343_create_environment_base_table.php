@@ -18,6 +18,7 @@ class CreateEnvironmentBaseTable extends Migration
             $table->integer('point_id');
             $table->tinyInteger('covered');
             $table->tinyInteger('piping');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -538,5 +537,44 @@ class EnvironmentController extends Controller
         //return $collection->where('point_id',2)->where('ok')->keys()->last();
         //  return $collection->groupBy('point_id');
         // return $collection->where('status',1);
+    }
+    ///////////// environment base
+    public function storeEnvironment_base(Request $request)
+    {
+        //
+        $this->validate($request,[
+
+            'piping' => 'required|numeric',
+            'covered' => 'required|numeric',
+            'point_id' => 'required|numeric|unique:environment_bases',
+
+        ]);
+        $request->merge(['user_id' => Auth::user()->id]);
+
+        return Environment_base::updateOrCreate(
+            ['point_id' => $request->point_id],
+            ['covered' => $request->covered,'piping' => $request->piping, 'user_id'=>$request->user_id]
+        );
+    }
+
+
+    public function updateEnvironmentBase(Request $request, $id)
+    {
+        $this->validate($request,[
+            'piping' => 'required|numeric',
+            'covered' => 'required|numeric',
+            //'point_id' => 'required|numeric|unique:develops',
+        ]);
+        $request->merge(['user_id' => Auth::user()->id]);
+        $Environment_base = Environment_base::findOrFail($id);
+        $Environment_base->update($request->all());
+        return ['message' => 'Updated the Environment info'];
+    }
+
+
+
+    public function environment_base($id)
+    {
+        return Environment_base::where('point_id',$id)->get();
     }
 }

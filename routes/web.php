@@ -30,6 +30,7 @@ Route::get('/report/cdcorona', 'HomeController@report_cdcorona');
 Route::get('/environmentmanage', 'HomeController@environmentmanage');
 Route::get('/environment', 'HomeController@environment');
 Route::get('/report/environment', 'HomeController@report_environment');
+Route::get('/environment/base', 'HomeController@environment_base');
 
 Route::get('/developmanage', 'HomeController@developmanage');
 

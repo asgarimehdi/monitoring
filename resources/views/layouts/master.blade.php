@@ -171,6 +171,18 @@
                                             </a>
                                         </li>
                                     @endcanany
+                                    @canany(['isEnvironment','isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\environment\base"
+                                               class="nav-link {{ (request()->is('environment\base')) ? 'active' : '' }}">
+                                                <i class="fa fa-eyedropper nav-icon"></i>
+                                                <p>
+                                                     اطلاعات بهداشت محیط
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
                                     @canany(['isAdmin'])
                                         <li class="nav-item">
                                             <a href="\regions"
