@@ -6,8 +6,17 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">
+                        <div class="card-title">
                             <div class="row">
+                                <div class="col-sm-3">
+                                    <h3 class="m-0 text-dark">گزارش بهداشت محیط</h3>
+                                </div><!-- /.col -->
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+
+                                </div><!-- /.col -->
                             <div class="col-sm-2" v-if="$gate.isOstan()" >
                                     <select  class="form-control"
                                             id="county_id" name="county_id" v-model="county_id">
@@ -21,32 +30,6 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                         </option>
                                     </select>
                             </div><!-- /.col -->
-                            <div class="col-sm-2">
-                                <select name="environment_item_id" v-model="environment_item_id" id="environment_item_id" class="form-control"
-                                        >
-                                    <option value="all" selected>انتخاب آیتم مورد نظر</option>
-                                    <option
-                                        v-for="r in environment_items"
-                                        :value="r.id"
-                                    >
-                                        {{r.name}}
-                                    </option>
-                                </select>
-                            </div><!-- /.col -->
-                            <div class="col-sm-2" >
-                                <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
-                                    <option value="all" selected>شهری روستایی</option>
-                                    <option value="6">
-                                        پایگاه
-                                    </option>
-                                    <option value="5">
-                                        خانه
-                                    </option>
-                                    <option value="12">
-                                        آبادی
-                                    </option>
-                                </select>
-                            </div><!-- /.col -->
                             <div class="col-sm-2" >
                                 <date-picker  :auto-submit="true"
                                               v-model="date_from"
@@ -59,11 +42,73 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                               format="YYYY-MM-DD"
                                 />
                             </div><!-- /.col -->
-                            <div class="col-sm-2 m-0 p-0">
-                                <a href="#" class="btn btn-primary" @click="loadValues">فیلتر</a>
-                            </div><!-- /.col -->
                             </div>
-                        </h3>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <select name="environment_item_id" v-model="environment_item_id" id="environment_item_id" class="form-control"
+                                    >
+                                        <option value="all" selected>انتخاب آیتم مورد نظر</option>
+                                        <option
+                                            v-for="r in environment_items"
+                                            :value="r.id"
+                                        >
+                                            {{r.name}}
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+                                <div class="col-sm-3" >
+                                    <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
+                                        <option value="all" selected>شهری روستایی</option>
+                                        <option value="6">
+                                            پایگاه
+                                        </option>
+                                        <option value="5">
+                                            خانه
+                                        </option>
+                                        <option value="12">
+                                            آبادی
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <select name="covered"  v-model="covered" id="covered" class="form-control">
+                                        <option value="all" selected>تحت پوشش</option>
+                                        <option value="1">
+                                            آبفا
+                                        </option>
+                                        <option value="2">
+                                            هیئت امنا
+                                        </option>
+                                        <option value="3">
+                                            دهیاری
+                                        </option>
+                                        <option value="4">
+                                            شورا
+                                        </option>
+                                        <option value="5">
+                                            غیره
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <select name="piping"  v-model="piping" id="piping" class="form-control">
+                                        <option value="all" selected>وضعیت لوله کشی</option>
+                                        <option value="1">
+                                            دارد
+                                        </option>
+                                        <option value="2">
+                                            ندارد
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+
+                                <div class="col-sm-1">
+                                    <a href="#" class="btn btn-primary" @click="loadValues">فیلتر</a>
+                                </div><!-- /.col -->
+                            </div>
+                        </div>
 
 
                     </div>
@@ -136,6 +181,8 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                 environment_item_id:'all',
                 user_county: '',
                 point_type: 'all',
+                covered: 'all',
+                piping: 'all',
                 date_to: new Date().toISOString().slice(0,10),
                 date_from:moment(new Date()).subtract(7, 'days').format('YYYY-MM-DD') ,
             }
@@ -153,7 +200,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
-                axios.get('/api/environment/report/'+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+'/?page=' + page)
+                axios.get('/api/environment/report/'+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+ "/" + this.covered+ "/" + this.piping+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -170,7 +217,7 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+ "/" + this.covered+ "/" + this.piping).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();

@@ -152,22 +152,43 @@
                         <form @submit.prevent="editmode ? updatePoint() : createPoint()">
                             <div class="modal-body">
                                 <div class="form-group input-group">
-                                    <input v-model="form.covered" type="text" name="covered"
-                                           placeholder="تحت پوشش"
-                                           class="form-control" :class="{ 'is-invalid': form.errors.has('covered') }">
+                                    <select :class="{ 'is-invalid': form.errors.has('covered') }" class="form-control"
+                                            name="covered" v-model="form.covered">
+                                        <option value="1">
+                                            آبفا
+                                        </option>
+                                        <option value="2">
+                                            هیئت امنا
+                                        </option>
+                                        <option value="3">
+                                            دهیاری
+                                        </option>
+                                        <option value="4">
+                                            شورا
+                                        </option>
+                                        <option value="5">
+                                            غیره
+                                        </option>
+                                    </select>
                                     <div class="input-group-prepend">
                                         <span class="input-group-text pl-5">تحت پوشش</span>
                                     </div>
-                                    <has-error :form.covered="form" field="covered"></has-error>
+                                    <has-error :form="form" field="covered"></has-error>
                                 </div>
                                 <div class="form-group input-group">
-                                    <input v-model="form.piping" type="text" name="piping"
-                                           placeholder="وضعیت لوله کشی"
-                                           class="form-control" :class="{ 'is-invalid': form.errors.has('piping') }">
+                                    <select :class="{ 'is-invalid': form.errors.has('piping') }" class="form-control"
+                                            name="piping" v-model="form.piping">
+                                        <option value="1">
+                                            دارد
+                                        </option>
+                                        <option value="2">
+                                            ندارد
+                                        </option>
+                                    </select>
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text pl-5">وضعیت لوله کشی</span>
+                                        <span class="input-group-text pl-5">لوله کشی</span>
                                     </div>
-                                    <has-error :form.piping="form" field="piping"></has-error>
+                                    <has-error :form="form" field="piping"></has-error>
                                 </div>
 
                             </div>
