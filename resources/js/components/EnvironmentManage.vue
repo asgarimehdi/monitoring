@@ -32,7 +32,11 @@
                                 <td  v-bind:class="{ 'bg-success': value.status===1,'bg-warning': value.status===0,'bg-danger': value.status===2 }">
                                     {{value.value}}
                                 </td>
-                                <td>{{value.region_point.name}}</td>
+                                <td>
+                                    {{value.region_point.region_center.region_county.name}} -
+                                    {{value.region_point.region_center.name}} -
+                                    {{value.region_point.name}}
+                                </td>
                                 <td>{{value.user.name}}</td>
                                 <td>{{value.created_at|myDate1}}</td>
                                 <td>
