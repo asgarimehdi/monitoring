@@ -245,6 +245,12 @@ class EnvironmentController extends Controller
                     $q->where('point_id', '=', $user_point_id)->orWhere('id', '=', $user_point_id);
                 });
             })
+            ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_center_id) {
+                    // Query the name field in status table
+                    $q->where('center_id', '=', $user_center_id);
+                });
+            })
             ->when(($county_id != 9), function ($query) use ($county_id) {
                 return $query->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
                     // Query the name field in status table

@@ -48,12 +48,9 @@ export default class Gate{
         return this.user.group.id === 6;
     }
     isMarkaz(){
-        if(this.user.region_point.region_center.type_id === 2 || this.user.region_point.region_center.type_id === 3 || this.user.region_point.region_center.type_id === 4){
-            return true;
-        }
-        else
-            return false;
+        return (this.user.region_point.region_center.type_id === 2 || this.user.region_point.region_center.type_id === 3 || this.user.region_point.region_center.type_id === 4)
     }
+
     isBimaGVagir(){
         return this.user.group.id === 7;
     }

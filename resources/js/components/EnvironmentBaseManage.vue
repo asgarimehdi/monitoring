@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-        <div id="isAdmin" v-if="$gate.isAdmin()||($gate.isGroup_admin() && $gate.isEnvironment())">
+        <div id="isAdmin" v-if="$gate.isAdmin()||($gate.isGroup_admin() && $gate.isEnvironment())||($gate.isMarkaz() && $gate.isEnvironment())">
             <div class="row">
 
                 <div class="col-md-3">
@@ -204,7 +204,7 @@
             </div><!-- /Modal county -->
 
         </div> <!-- end is admin -->
-        <div v-if="!($gate.isAdmin()||($gate.isGroup_admin() && $gate.isEnvironment()))">
+        <div v-if="!($gate.isAdmin()||($gate.isGroup_admin() && $gate.isEnvironment())||($gate.isMarkaz() && $gate.isEnvironment()))">
             <not-found></not-found>
         </div>
 
