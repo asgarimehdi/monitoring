@@ -21,12 +21,14 @@
                         <date-picker  :auto-submit="true"
                                       v-model="date_from"
                                       format="YYYY-MM-DD"
+                                      displayFormat="jYYYY/jMM/jDD"
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-3"  v-if="!show_timeSeries" >
                         <date-picker  :auto-submit="true"
                                       v-model="date_to"
                                       format="YYYY-MM-DD"
+                                      displayFormat="jYYYY/jMM/jDD"
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0"  v-if="!show_timeSeries">

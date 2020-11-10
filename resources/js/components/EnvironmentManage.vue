@@ -194,6 +194,7 @@
                                 <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('created_at') }"
                                               v-model="form.created_at"
                                               format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ نمونه</span>

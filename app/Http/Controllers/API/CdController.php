@@ -233,38 +233,7 @@ class CdController extends Controller
 
         return   $items;
     }
-    public function corona($date_from, $date_to)
-    {       //
-        $items=   Cd_corona::with(
-            [
-                'region_point:id,name,center_id',
-                'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
-            ])
-            // ->where('expose', '=', NULL)
-            /*->where('status','!=',3)
-            ->where('diagnosis','=',1)*/
-            ->whereBetween('created_at', [$date_from, $date_to])
-            ->get();
-        foreach($items as $item) {
-            if ($item['expose']) {
 
-                $national_code = $item['national_code'];
-                $exp = Cd_corona::select('lat', 'lng')->where('expose', 'like', "%$national_code%")->get();
-                if ($exp->count() > 0) {
-                    $x = new class
-                    {
-                    };
-                    $x->lat = $item['lat'];
-                    $x->lng = $item['lng'];
-                    $exp->push($x);
-                }
-                $item->exp = $exp;
-            }
-        }
-        //return   $items;
-
-    }
     public function coronaLite()
     {       //
         $items=   Cd_corona::with(

@@ -34,12 +34,14 @@ import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import
                                 <date-picker  :auto-submit="true"
                                               v-model="date_from"
                                               format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
                                 />
                             </div><!-- /.col -->
                             <div class="col-sm-2" >
                                 <date-picker  :auto-submit="true"
                                               v-model="date_to"
                                               format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
                                 />
                             </div><!-- /.col -->
                             </div>

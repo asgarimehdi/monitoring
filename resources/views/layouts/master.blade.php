@@ -237,8 +237,8 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="\cdcoronalite"
-                                           class="nav-link {{ (request()->is('cdcoronalite')) ? 'active' : '' }}">
+                                        <a href="\cdcorona"
+                                           class="nav-link {{ (request()->is('cdcorona')) ? 'active' : '' }}">
                                             <i class="fa fa-ambulance nav-icon"></i>
                                             <p>کرونا
                                             </p>

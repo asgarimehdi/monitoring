@@ -31,7 +31,7 @@ class CreateCdCoronasTable extends Migration
             $table->double('lat');
             $table->double('lng');
             $table->date('diagnosis_at');
-            $table->date('status_at');
+            $table->date('status_at')->nullable();
             $table->timestamps();
         });
     }

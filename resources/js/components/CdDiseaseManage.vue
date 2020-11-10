@@ -261,6 +261,7 @@
                                 <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('diagnosis_at') }"
                                               v-model="form.diagnosis_at"
                                               format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ تشخیص</span>
@@ -271,6 +272,7 @@
                                 <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('birth_at') }"
                                               v-model="form.birth_at"
                                               format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ تولد</span>

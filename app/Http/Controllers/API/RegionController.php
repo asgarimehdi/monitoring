@@ -324,7 +324,7 @@ class RegionController extends Controller
     public function pointByCounty($county_id)
     {       //
 
-       $items= Region_point::with(['Region_center','develop:point_id,population'])
+       $items= Region_point::with(['Region_center:name,id,type_id,county_id','develop:point_id,population'])
            //->Where("type_id","<","7") // in chi bood?
            ->whereHas('Region_center', function($q) use($county_id) {
                 $q->where('county_id', '=', $county_id);
@@ -361,7 +361,7 @@ class RegionController extends Controller
     public function pointList()
     {       //
 
-        $items=   Region_point::with(['Region_center','develop:point_id,population'])
+        $items=   Region_point::with(['Region_center:name,id,type_id,county_id','develop:point_id,population'])
             //->Where("type_id","<","7")
             ->get();
         foreach($items as $item) {
