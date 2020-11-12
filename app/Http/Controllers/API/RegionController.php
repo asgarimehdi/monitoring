@@ -241,7 +241,7 @@ class RegionController extends Controller
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'device_id'=> 'nullable|numeric|max:50000',
-            'point_id'=> 'required|numeric|max:50000',
+            'point_id'=> 'required_if:type_id,12|nullable|numeric|max:50000',
 
         ]);
         $point->update($request->all());
