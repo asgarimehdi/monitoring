@@ -225,22 +225,23 @@
                             </a>
                             <ul class="nav nav-treeview">
 
-                                @canany(['isBimaVagir','isAdmin','isRiasat'])
-
-                                    <li class="nav-item">
-                                        <a href="\coldchain"
-                                           class="nav-link {{ (request()->is('coldchain')) ? 'active' : '' }}">
-                                            <i class="fa fa-snowflake-o nav-icon"></i>
-                                            <p>زنجیره سرما
-                                            </p>
-                                        </a>
-                                    </li>
+                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz'])
 
                                     <li class="nav-item">
                                         <a href="\cdcorona"
                                            class="nav-link {{ (request()->is('cdcorona')) ? 'active' : '' }}">
                                             <i class="fa fa-ambulance nav-icon"></i>
                                             <p>کرونا
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcanany
+                                @canany(['isBimaVagir','isAdmin','isRiasat'])
+                                    <li class="nav-item">
+                                        <a href="\coldchain"
+                                           class="nav-link {{ (request()->is('coldchain')) ? 'active' : '' }}">
+                                            <i class="fa fa-snowflake-o nav-icon"></i>
+                                            <p>زنجیره سرما
                                             </p>
                                         </a>
                                     </li>

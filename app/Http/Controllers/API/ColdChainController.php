@@ -19,7 +19,7 @@ class ColdChainController extends Controller
     }
     public function temp()
     {       //
-        return    Region_point::with('Device')->get();
+        return    Region_point::with('Device')->where('device_id', '!=', 'NULL')->get();
     }
     public function tempByCounty($county_id)
     {       //
