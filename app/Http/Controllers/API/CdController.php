@@ -22,7 +22,7 @@ class CdController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        return $this->middleware('auth:api');
     }
     public function index()
     {
@@ -101,8 +101,9 @@ class CdController extends Controller
         return ['message' => 'Value Deleted'];
     }
 
-    public function coronaByCounty($date_from, $date_to,$county_id)
+    public function coronaByCounty($date_from, $date_to,$county_id,$related)
     {
+
         // return    Cd_corona::get();
         $user_point_type_id=Auth::user()->region_point->type_id;
         $user_point_id=Auth::user()->point_id;
@@ -115,12 +116,13 @@ class CdController extends Controller
                     'region_point.region_center:id,name,type_id,county_id',
                     'region_point.region_center.region_county:id,name'
                 ])
-                // ->where('expose', '=', NULL)
+                 //->where('expose', '!=', NULL)
                 /*->where('status','!=',3)
                 ->where('diagnosis','=',1)*/
                 ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
-            foreach($items as $item) {
+            if ($related=='true') {
+                foreach($items as $item) {
                 if ($item['expose']) {
 
                     $national_code = $item['national_code'];
@@ -134,6 +136,7 @@ class CdController extends Controller
                         $exp->push($x);
                     }
                     $item->exp = $exp;
+                }
                 }
             }
             return   $items;
@@ -175,6 +178,7 @@ class CdController extends Controller
                 ->whereBetween('created_at', [$date_from, $date_to])
                 ->get();
         }
+        if ($related=='true') {
         foreach($items as $item){
             if ($item['expose']) {
                 $national_code = $item['national_code'];
@@ -189,7 +193,8 @@ class CdController extends Controller
                 }
                 $item->exp = $exp;
             }
-        }
+        }}
+
         return   $items;
     }
     public function coronaByCountyLite($county_id)

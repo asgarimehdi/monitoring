@@ -71,7 +71,7 @@ Route::post('/environment/base', 'API\EnvironmentController@storeEnvironment_bas
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');
-Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}/{county_id}', 'API\CdController@coronaByCounty');
+Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}/{county_id}/{related}', 'API\CdController@coronaByCounty');
 Route::get('/cd/corona/ListByCountyLite/{county_id}', 'API\CdController@coronaByCountyLite');
 //Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}', 'API\CdController@corona');
 Route::get('/cd/corona/ListByCountyLite/', 'API\CdController@coronaLite');

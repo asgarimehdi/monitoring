@@ -256,6 +256,15 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-8">
+                                        ارتباطات
+                                    </div>
+                                    <div class="col-4 p-0">
+                                        <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                       :height="16" v-model="show_related" @change="loadTemps()" />
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-8 p-1">
                                         تغییرات اخیر
                                     </div>
@@ -491,10 +500,7 @@
                                 تاریخ مرگ یا بهبود:
                             {{marker.status_at|myDate2}}
                             </span>
-                            <span class="label-warning" v-if="marker.expose !=undefined">
-                                تعداد مواجهین
-                            {{Math.round((marker.expose.length+1)/11)}}
-                            </span>
+
 
 
 
@@ -655,6 +661,7 @@
                 show_status_icu: true,
                 show_latest: false,
                 show_timeSeries: false,
+                show_related: false,
                 // show_corona_sarpaei: true,
                 // show_corona_mashkok_sarpaei: true,
                 //  show_corona_mashkok_bastari: true,
@@ -726,7 +733,7 @@
                     this.zoom = 10;
                 }
 
-                axios.get("/api/cd/corona/ListByCounty/"  + this.date_from + "/" + this.date_to+ "/"+ this.user_county_id).then(({data}) => (this.markers = data)).then(() => {
+                axios.get("/api/cd/corona/ListByCounty/"  + this.date_from + "/" + this.date_to+ "/"+ this.user_county_id+ "/"+ this.show_related).then(({data}) => (this.markers = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {
