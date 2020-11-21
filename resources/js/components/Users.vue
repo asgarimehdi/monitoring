@@ -42,10 +42,10 @@
                                     <a href="#" @click="editModal(user)">
                                         <i class="fa fa-edit blue"></i>
                                     </a>
-                                    /
-                                    <a href="#" @click="deleteUser(user.id)">
+
+                                    <!--<a href="#" @click="deleteUser(user.id)">
                                         <i class="fa fa-trash red"></i>
-                                    </a>
+                                    </a>-->
                                 </td>
                             </tr>
 
