@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 
+use App\Environment_value;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -658,5 +659,74 @@ class CdController extends Controller
                     ->groupBy('diagnosis_at')
                     ->get();*/
         // return $results =\ DB::select( \DB::raw("SELECT status_at,count(id) as count FROM `cd_coronas` where status=2 GROUP BY `status_at`") );
+    }
+    public function report($county_id)
+    {
+
+
+        $collection = Cd_corona::with(
+            [
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])->select("point_id", "status", \DB::raw('count(status) as count'))
+
+            ->when(($county_id != 9), function ($query) use ($county_id) {
+                return $query->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                });
+            })
+            ->groupBy("point_id", "status")->get();
+        foreach ($collection as $item) {
+
+            /*if ($item['status'] == 0) {
+                $item->s_0 = $item['count'];
+            } elseif ($item['status'] == 1) {
+                $item->s_1 = $item['count'];
+            } elseif ($item['status'] == 2) {
+                $item->s_2 = $item['count'];
+            } elseif ($item['status'] == 3) {
+                $item->s_3 = $item['count'];
+            } elseif ($item['status'] == 4) {
+                $item->s_4 = $item['count'];
+            } else {
+                $item->s_5 = $item['count'];
+            }*/
+            if ($item['status'] < 3) {
+                $item->s_0 = $item['count'];
+            } else {
+                $item->s_1 = $item['count'];
+            }
+            unset($item->count);
+            unset($item->status);
+
+        }
+
+        $collection1 = $collection;
+        foreach ($collection as $key => $item) {
+
+            if ($item['s_0']) {
+                $s_1_Key = $collection->where('point_id', $item['point_id'])->where('s_1')->keys()->last();
+                if ($s_1_Key) {
+                    $s1 = $collection[$s_1_Key]['s_1'];
+                    $item->s_1 = $s1;
+                    unset($collection1[$s_1_Key]);
+                }
+            } elseif ($item['s_1']) {
+
+                $s_0_Key = $collection->where('point_id', $item['point_id'])->where('s_0')->keys()->last();
+                if ($s_0_Key) {
+                    $s0 = $collection[$s_0_Key]['s_0'];
+                    $item->s_0 = $s0;
+                    //unset($collection1[$s_0_Key]);
+                }
+
+            }
+
+        }
+
+
+        return $collection1;
     }
 }

@@ -1,4 +1,3 @@
-
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
@@ -163,7 +162,7 @@
     import Vue2LeafletMarkercluster from "vue2-leaflet-markercluster";
     var moment = require('moment-jalaali');
     export default {
-        name: "Environment-Report",
+        name: "ReportCdCorona",
 
         components: {
             'datePicker': VuePersianDatetimePicker,

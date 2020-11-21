@@ -82,6 +82,7 @@ Route::get('/cd/corona/StatByPoint/{point_id}/{type_id}/{center_id}/{county_id}'
 Route::get('/cd/corona/StatByCounty', 'API\CdController@stat');
 Route::get('/cd/corona/expose/{national_code}', 'API\CdController@expose');
 Route::get('/cd/corona/findValue', 'API\CdController@search');
+Route::get('/cd/corona/report/{county_id}', 'API\CdController@report');
 
 Route::get('/cd/corona/chart', 'API\CdController@chart');
 Route::get('/cd/corona/newCasePerDay', 'API\CdController@chart_NewCasePerDay');

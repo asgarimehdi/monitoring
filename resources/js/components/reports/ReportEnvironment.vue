@@ -1,4 +1,3 @@
-import {LMap} from "vue2-leaflet";import {LTileLayer} from "vue2-leaflet";import {LMarker} from "vue2-leaflet";import {LPopup} from "vue2-leaflet";import {LIcon} from "vue2-leaflet";
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
