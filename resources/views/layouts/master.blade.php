@@ -321,13 +321,26 @@
                                             <a href="\report\cdcorona"
                                                class="nav-link {{ (request()->is('\report\cdcorona')) ? 'active' : '' }}">
                                                 <i class="fa fa-ambulance nav-icon"></i>
-                                                <p>کرونا
+                                                <p>نمودار کرونا
                                                     <span class="right badge badge-success">توسعه</span>
                                                 </p>
                                             </a>
                                         </li>
                                     @endcanany
                                 @endcanany
+
+                                    @canany(['isBimaGVagir','isAdmin','isRiasat'])
+
+                                        <li class="nav-item">
+                                            <a href="\report\cdcorona1"
+                                               class="nav-link {{ (request()->is('\report\cdcorona1')) ? 'active' : '' }}">
+                                                <i class="fa fa-ambulance nav-icon"></i>
+                                                <p>گزارش کرونا
+                                                    <span class="right badge badge-success">توسعه</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
                                 @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
                                     <li class="nav-item">
                                         <a href="\report\environment"
@@ -382,7 +395,7 @@
     </script>
 @endauth
 <!-- REQUIRED SCRIPTS -->
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/app.js?v=2') }}" defer></script>
 
 <!-- jQuery -->
 

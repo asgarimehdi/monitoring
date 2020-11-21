@@ -77,6 +77,10 @@ class HomeController extends Controller
     {
         return view('reports/report-cd-corona');
     }
+    public function report_cdcorona1()
+    {
+        return view('reports/report-cd-corona1');
+    }
     public function report_environment()
     {
         return view('reports/report-environment');
