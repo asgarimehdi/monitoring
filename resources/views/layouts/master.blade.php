@@ -329,7 +329,7 @@
                                     @endcanany
                                 @endcanany
 
-                                    @canany(['isBimaGVagir','isAdmin','isRiasat'])
+                                    @canany(['isBimaGVagir','isAdmin','isRiasat','isBehvarz'])
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona1"
@@ -395,7 +395,7 @@
     </script>
 @endauth
 <!-- REQUIRED SCRIPTS -->
-<script src="{{ asset('js/app.js?v=2') }}" defer></script>
+<script src="{{ asset('js/app.js?v=3') }}" defer></script>
 
 <!-- jQuery -->
 

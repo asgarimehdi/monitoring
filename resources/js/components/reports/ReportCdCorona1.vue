@@ -12,42 +12,89 @@
                                 </div><!-- /.col -->
                             </div>
                             <div class="row">
+                                <div class="col-sm-2">
+                                    تاریخ ثبت:
+                                </div>
+                                <div class="col-sm-2" >
 
-                                <div class="col-sm-3">
-
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_from"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
                                 </div><!-- /.col -->
-                            <div class="col-sm-2" v-if="$gate.isOstan()" >
-                                    <select  class="form-control"
-                                            id="county_id" name="county_id" v-model="county_id">
-                                        <option value="">همه شهرستانها</option>
-                                        <option :key="index"
-                                                :value="r.id"
-                                                v-for="(r,index) in counties"
-                                                v-if="r.id!=9"
-                                        >
-                                            {{r.name}}
-                                        </option>
-                                    </select>
-                            </div><!-- /.col -->
-                            <div class="col-sm-2" >
-                                <date-picker  :auto-submit="true"
-                                              v-model="date_from"
-                                              format="YYYY-MM-DD"
-                                              displayFormat="jYYYY/jMM/jDD"
-                                />
-                            </div><!-- /.col -->
-                            <div class="col-sm-2" >
-                                <date-picker  :auto-submit="true"
-                                              v-model="date_to"
-                                              format="YYYY-MM-DD"
-                                              displayFormat="jYYYY/jMM/jDD"
-                                />
-                            </div><!-- /.col -->
-                            </div>
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_to"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
+                                </div><!-- /.col -->
 
+                                <div class="col-sm-2" v-if="$gate.isOstan()" >
+                                        <select  class="form-control"
+                                                id="county_id" name="county_id" v-model="county_id">
+                                            <option value="">همه شهرستانها</option>
+                                            <option :key="index"
+                                                    :value="r.id"
+                                                    v-for="(r,index) in counties"
+                                                    v-if="r.id!=9"
+                                            >
+                                                {{r.name}}
+                                            </option>
+                                        </select>
+                                </div><!-- /.col -->
+
+                            </div>
                             <div class="row">
 
-
+                                <div class="col-sm-2">
+                                    تاریخ تولد:
+                                </div>
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true" type="year"
+                                                  v-model="date_from_birth"
+                                                  format="jYYYY"
+                                                  displayFormat="jYYYY"
+                                    />
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true" type="year"
+                                                  v-model="date_to_birth"
+                                                  format="jYYYY"
+                                                  displayFormat="jYYYY"
+                                    />
+                                </div><!-- /.col -->
+                                <div class="col-sm-3" >
+                                    <select name="sex"  v-model="sex" id="sex" class="form-control">
+                                        <option value="all" selected>جنسیت</option>
+                                        <option value="مرد">
+                                            مرد
+                                        </option>
+                                        <option value="زن">
+                                            زن
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    تاریخ تشخیص:
+                                </div>
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_from_diagnosis"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_to_diagnosis"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
+                                </div><!-- /.col -->
                                 <div class="col-sm-3" >
                                     <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
                                         <option value="all" selected>شهری روستایی</option>
@@ -57,39 +104,63 @@
                                         <option value="5">
                                             خانه
                                         </option>
-                                        <option value="12">
-                                            آبادی
+                                    </select>
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <select name="diagnosis"  v-model="diagnosis" id="diagnosis" class="form-control">
+                                        <option value="all" selected>تشخیص</option>
+                                        <option value="1">
+                                            corona +
+                                        </option>
+                                        <option value="2">
+                                            corona -
+                                        </option>
+                                        <option value="0">
+                                            مشکوک
+                                        </option>
+                                    </select>
+                                </div><!-- /.col -->
+                            </div><!-- /.row3 -->
+
+                            <div class="row">
+
+                                <div class="col-sm-2">
+                                    تاریخ وضعیت:
+                                </div>
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_from_status"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
+                                </div><!-- /.col -->
+                                <div class="col-sm-2" >
+                                    <date-picker  :auto-submit="true"
+                                                  v-model="date_to_status"
+                                                  format="YYYY-MM-DD"
+                                                  displayFormat="jYYYY/jMM/jDD"
+                                    />
+                                </div><!-- /.col -->
+
+                                <div class="col-sm-2" >
+                                    <select name="situation"  v-model="situation" id="situation" class="form-control">
+                                        <option value="all" selected>وضعیت بیمار</option>
+                                        <option value="0">
+                                            ILI
+                                        </option>
+                                        <option value="1">
+                                            SARI
                                         </option>
                                     </select>
                                 </div><!-- /.col -->
                                 <div class="col-sm-2" >
-                                    <select name="covered"  v-model="covered" id="covered" class="form-control">
-                                        <option value="all" selected>تحت پوشش</option>
+                                    <select name="hospitalization"  v-model="hospitalization" id="hospitalization" class="form-control">
+                                        <option value="all" selected>وضعیت بستری</option>
+                                        <option value="0">
+                                            سرپایی
+                                        </option>
                                         <option value="1">
-                                            آبفا
-                                        </option>
-                                        <option value="2">
-                                            هیئت امنا
-                                        </option>
-                                        <option value="3">
-                                            دهیاری
-                                        </option>
-                                        <option value="4">
-                                            شورا
-                                        </option>
-                                        <option value="5">
-                                            غیره
-                                        </option>
-                                    </select>
-                                </div><!-- /.col -->
-                                <div class="col-sm-2" >
-                                    <select name="piping"  v-model="piping" id="piping" class="form-control">
-                                        <option value="all" selected>وضعیت لوله کشی</option>
-                                        <option value="1">
-                                            دارد
-                                        </option>
-                                        <option value="2">
-                                            ندارد
+                                            بستری
                                         </option>
                                     </select>
                                 </div><!-- /.col -->
@@ -176,13 +247,21 @@
                 centers: {},
                 points: {},
                 county_id: '',
-
                 user_county: '',
+
                 point_type: 'all',
-                covered: 'all',
-                piping: 'all',
+                diagnosis: 'all',
+                situation: 'all',
+                hospitalization: 'all',
+                sex: 'all',
                 date_to: new Date().toISOString().slice(0,10),
-                date_from:moment(new Date()).subtract(7, 'days').format('YYYY-MM-DD') ,
+                date_from:moment(new Date()).subtract(11, 'months').format('YYYY-MM-DD') ,
+                date_to_diagnosis: new Date().toISOString().slice(0,10),
+                date_from_diagnosis:moment(new Date()).subtract(11, 'months').format('YYYY-MM-DD') ,
+                date_to_status: new Date().toISOString().slice(0,10),
+                date_from_status:moment(new Date()).subtract(11, 'months').format('YYYY-MM-DD') ,
+                date_to_birth: moment(new Date()).subtract(0, 'years').format('jYYYY'),
+                date_from_birth:moment(new Date()).subtract(110, 'years').format('jYYYY') ,
             }
         },
         methods: {
@@ -198,7 +277,7 @@
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
-                axios.get("/api/cd/corona/report/"+ this.user_county+'/?page=' + page)
+                axios.get("/api/cd/corona/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.date_from_diagnosis + "/" + this.date_to_diagnosis+ "/"+  this.date_from_status + "/" + this.date_to_status+ "/"+  this.date_from_birth + "/" + this.date_to_birth+ "/" + this.point_type+ "/" + this.diagnosis+ "/" + this.situation+ "/" + this.hospitalization+ "/" + this.sex+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -215,7 +294,7 @@
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/cd/corona/report/"+ this.user_county).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/cd/corona/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.date_from_diagnosis + "/" + this.date_to_diagnosis+ "/"+  this.date_from_status + "/" + this.date_to_status+ "/"+  this.date_from_birth + "/" + this.date_to_birth+ "/" + this.point_type+ "/" + this.diagnosis+ "/" + this.situation+ "/" + this.hospitalization+ "/" + this.sex).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();

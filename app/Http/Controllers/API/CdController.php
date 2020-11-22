@@ -660,9 +660,12 @@ class CdController extends Controller
                     ->get();*/
         // return $results =\ DB::select( \DB::raw("SELECT status_at,count(id) as count FROM `cd_coronas` where status=2 GROUP BY `status_at`") );
     }
-    public function report($county_id)
+    public function report($county_id,$date_from,$date_to,$date_from_diagnosis,$date_to_diagnosis,$date_from_status,$date_to_status,$date_from_birth,$date_to_birth,$point_type,$diagnosis,$situation,$hospitalization,$sex)
     {
-
+        $user_point_type_id = Auth::user()->region_point->type_id;
+        $user_point_id = Auth::user()->point_id;
+        $user_center_id = Auth::user()->region_point->center_id;
+        $user_county_id = Auth::user()->region_point->region_center->county_id;
 
         $collection = Cd_corona::with(
             [
@@ -677,6 +680,40 @@ class CdController extends Controller
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 });
             })
+            ->when(($point_type != 'all'), function ($query) use ($point_type) {
+                return $query->whereHas('Region_point', function ($q) use ($point_type) {
+                    $q->where('type_id', '=', $point_type);
+                });
+            })
+            ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_point_id) {
+                    // Query the name field in status table
+                    $q->where('point_id', '=', $user_point_id)->orWhere('id', '=', $user_point_id);
+                });
+            })
+            ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_center_id) {
+                    // Query the name field in status table
+                    $q->where('center_id', '=', $user_center_id);
+                });
+            })
+            ->when(($diagnosis != 'all'), function ($query) use ($diagnosis) {
+                return $query->where('diagnosis', '=', $diagnosis);
+            })
+            ->when(($situation != 'all'), function ($query) use ($situation) {
+                return $query->where('situation', '=', $situation);
+            })
+            ->when(($hospitalization != 'all'), function ($query) use ($hospitalization) {
+                return $query->where('hospitalization', '=', $hospitalization);
+            })
+            ->when(($sex != 'all'), function ($query) use ($sex) {
+                return $query->where('sex', '=', $sex);
+            })
+            ->whereBetween('created_at', [$date_from, $date_to])
+            ->whereBetween('diagnosis_at', [$date_from_diagnosis, $date_to_diagnosis])
+            ->whereBetween('status_at', [$date_from_status, $date_to_status])
+            ->whereBetween('birth', [$date_from_birth, $date_to_birth])
+
             ->groupBy("point_id", "status")->paginate(100);
         foreach ($collection as $item) {
            if ($item['status'] == 0) {
@@ -705,224 +742,221 @@ class CdController extends Controller
             $s_4_Key = $collection->where('point_id', $item['point_id'])->where('s_4')->keys()->last();
             $s_5_Key = $collection->where('point_id', $item['point_id'])->where('s_5')->keys()->last();
             if ($item['s_0']) {
-                if ($s_1_Key) {
+                if (($s_1_Key)and(!$collection[$s_1_Key]['main'])) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-                    if(!$collection[$s_1_Key]['main'])
+
                     unset($collection[$s_1_Key]);
                 }
-                if ($s_2_Key) {
+                if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
                     $s2 = $collection[$s_2_Key]['s_2'];
                     $item->s_2 = $s2;
                     $item->main=true;
-                    if(!$collection[$s_2_Key]['main'])
+
                     unset($collection[$s_2_Key]);
                 }
-                if ($s_3_Key) {
+                if (($s_3_Key)and(!$collection[$s_3_Key]['main'])) {
                     $s3 = $collection[$s_3_Key]['s_3'];
                     $item->s_3 = $s3;
                     $item->main=true;
-                    if(!$collection[$s_3_Key]['main'])
+
                     unset($collection[$s_3_Key]);
                 }
-                if ($s_4_Key) {
+                if (($s_4_Key)and(!$collection[$s_4_Key]['main'])) {
                     $s4 = $collection[$s_4_Key]['s_4'];
                     $item->s_4 = $s4;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
+
                     unset($collection[$s_4_Key]);
                 }
-                if ($s_5_Key) {
+                if (($s_5_Key)and(!$collection[$s_5_Key]['main'])) {
                     $s5 = $collection[$s_5_Key]['s_5'];
                     $item->s_5 = $s5;
                     $item->main=true;
-                    if(!$collection[$s_5_Key]['main'])
+
                     unset($collection[$s_5_Key]);
                 }
             }
             elseif ($item['s_1']) {
                 if ($s_0_Key) {
+                    if(!$collection[$s_0_Key]['main']){
                     $s0 = $collection[$s_1_Key]['s_0'];
                     $item->s_0 = $s0;
                     $item->main=true;
-                    if(!$collection[$s_0_Key]['main'])
                     unset($collection[$s_0_Key]);
                 }
-                if ($s_2_Key) {
+                }
+                if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
                     $s2 = $collection[$s_2_Key]['s_2'];
                     $item->s_2 = $s2;
                     $item->main=true;
-                    if(!$collection[$s_2_Key]['main'])
                     unset($collection[$s_2_Key]);
                 }
-                if ($s_3_Key) {
+                if (($s_3_Key)and(!$collection[$s_3_Key]['main'])) {
                     $s3 = $collection[$s_3_Key]['s_3'];
                     $item->s_3 = $s3;
                     $item->main=true;
-                    if(!$collection[$s_3_Key]['main'])
                     unset($collection[$s_3_Key]);
                 }
-                if ($s_4_Key) {
+                if (($s_4_Key)and(!$collection[$s_4_Key]['main'])) {
                     $s4 = $collection[$s_4_Key]['s_4'];
                     $item->s_4 = $s4;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
                     unset($collection[$s_4_Key]);
                 }
-                if ($s_5_Key) {
+                if (($s_5_Key)and(!$collection[$s_5_Key]['main'])) {
                     $s5 = $collection[$s_5_Key]['s_5'];
                     $item->s_5 = $s5;
                     $item->main=true;
-                    if(!$collection[$s_5_Key]['main'])
                     unset($collection[$s_5_Key]);
                 }
             }
             elseif ($item['s_2']) {
-                if ($s_0_Key) {
+                if (($s_0_Key)and(!$collection[$s_0_Key]['main'])) {
                     $s0 = $collection[$s_0_Key]['s_0'];
                     $item->s_0 = $s0;
                     $item->main=true;
-                    if(!$collection[$s_0_Key]['main'])
+
                     unset($collection[$s_0_Key]);
                 }
-                if ($s_1_Key) {
+                if (($s_1_Key)and(!$collection[$s_1_Key]['main'])) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-                    if(!$collection[$s_1_Key]['main'])
+
                     unset($collection[$s_1_Key]);
                 }
-                if ($s_3_Key) {
+                if (($s_3_Key)and(!$collection[$s_3_Key]['main'])) {
                     $s3 = $collection[$s_3_Key]['s_3'];
                     $item->s_3 = $s3;
                     $item->main=true;
-                    if(!$collection[$s_3_Key]['main'])
+
                     unset($collection[$s_3_Key]);
                 }
-                if ($s_4_Key) {
+                if (($s_4_Key)and(!$collection[$s_4_Key]['main'])) {
                     $s4 = $collection[$s_4_Key]['s_4'];
                     $item->s_4 = $s4;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
+
                     unset($collection[$s_4_Key]);
                 }
-                if ($s_5_Key) {
+                if (($s_5_Key)and(!$collection[$s_5_Key]['main'])) {
                     $s5 = $collection[$s_5_Key]['s_5'];
                     $item->s_5 = $s5;
                     $item->main=true;
-                    if(!$collection[$s_5_Key]['main'])
+
                     unset($collection[$s_5_Key]);
                 }
             }
             elseif ($item['s_3']) {
-                if ($s_0_Key) {
+                if (($s_0_Key)and(!$collection[$s_0_Key]['main'])) {
                     $s0 = $collection[$s_1_Key]['s_0'];
                     $item->s_0 = $s0;
                     $item->main=true;
-                    if(!$collection[$s_0_Key]['main'])
+
                     unset($collection[$s_0_Key]);
                 }
-                if ($s_1_Key) {
+                if (($s_1_Key)and(!$collection[$s_1_Key]['main'])) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-                    if(!$collection[$s_1_Key]['main'])
+
                     unset($collection[$s_1_Key]);
                 }
-                if ($s_2_Key) {
+                if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
                     $s2 = $collection[$s_2_Key]['s_2'];
                     $item->s_2 = $s2;
                     $item->main=true;
-                    if(!$collection[$s_2_Key]['main'])
+
                     unset($collection[$s_2_Key]);
                 }
-                if ($s_4_Key) {
+                if (($s_4_Key)and(!$collection[$s_4_Key]['main'])) {
                     $s4 = $collection[$s_4_Key]['s_4'];
                     $item->s_4 = $s4;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
+
                     unset($collection[$s_4_Key]);
                 }
-                if ($s_5_Key) {
+                if (($s_5_Key)and(!$collection[$s_5_Key]['main'])) {
                     $s5 = $collection[$s_5_Key]['s_5'];
                     $item->s_5 = $s5;
                     $item->main=true;
-                    if(!$collection[$s_5_Key]['main'])
+
                     unset($collection[$s_5_Key]);
                 }
             }
             elseif ($item['s_4']) {
-                if ($s_2_Key) {
+                if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
                     $s2 = $collection[$s_2_Key]['s_2'];
                     $item->s_2 = $s2;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
+
                     unset($collection[$s_2_Key]);
                 }
-                if ($s_1_Key) {
+                if (($s_1_Key)and(!$collection[$s_1_Key]['main'])) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-                    if(!$collection[$s_1_Key]['main'])
+
                     unset($collection[$s_1_Key]);
                 }
-                if ($s_0_Key) {
+                if (($s_0_Key)and(!$collection[$s_0_Key]['main'])) {
                     $s0 = $collection[$s_0_Key]['s_0'];
                     $item->s_0 = $s0;
                     $item->main=true;
-                    if(!$collection[$s_0_Key]['main'])
+
                     unset($collection[$s_0_Key]);
                 }
-                if ($s_3_Key) {
+                if (($s_3_Key)and(!$collection[$s_3_Key]['main'])) {
                     $s3 = $collection[$s_3_Key]['s_3'];
                     $item->s_3 = $s3;
                     $item->main=true;
-                    if(!$collection[$s_3_Key]['main'])
+
                     unset($collection[$s_3_Key]);
                 }
-                if ($s_5_Key) {
+                if (($s_5_Key)and(!$collection[$s_5_Key]['main'])) {
                     $s5 = $collection[$s_5_Key]['s_5'];
                     $item->s_5 = $s5;
                     $item->main=true;
-                    if(!$collection[$s_5_Key]['main'])
+
                     unset($collection[$s_5_Key]);
                 }
             }
             elseif ($item['s_5']) {
-                if ($s_0_Key) {
+                if (($s_0_Key)and(!$collection[$s_0_Key]['main'])) {
                     $s0 = $collection[$s_0_Key]['s_0'];
                     $item->s_0 = $s0;
                     $item->main=true;
-                    if(!$collection[$s_0_Key]['main'])
+
                     unset($collection[$s_0_Key]);
                 }
-                if ($s_2_Key) {
+                if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
                     $s2 = $collection[$s_2_Key]['s_2'];
                     $item->s_2 = $s2;
                     $item->main=true;
-                    if(!$collection[$s_2_Key]['main'])
+
                     unset($collection[$s_2_Key]);
                 }
-                if ($s_3_Key) {
+                if (($s_3_Key)and(!$collection[$s_3_Key]['main'])) {
                     $s3 = $collection[$s_3_Key]['s_3'];
                     $item->s_3 = $s3;
                     $item->main=true;
-                    if(!$collection[$s_3_Key]['main'])
+
                     unset($collection[$s_3_Key]);
                 }
-                if ($s_4_Key) {
+                if (($s_4_Key)and(!$collection[$s_4_Key]['main'])) {
                     $s4 = $collection[$s_4_Key]['s_4'];
                     $item->s_4 = $s4;
                     $item->main=true;
-                    if(!$collection[$s_4_Key]['main'])
+
                     unset($collection[$s_4_Key]);
                 }
-                if ($s_1_Key) {
+                if (($s_1_Key)and(!$collection[$s_1_Key]['main'])) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-                    if(!$collection[$s_1_Key]['main'])
+
                     unset($collection[$s_1_Key]);
                 }
             }
