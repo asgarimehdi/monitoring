@@ -677,10 +677,9 @@ class CdController extends Controller
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 });
             })
-            ->groupBy("point_id", "status")->get();
+            ->groupBy("point_id", "status")->paginate(100);
         foreach ($collection as $item) {
-
-            /*if ($item['status'] == 0) {
+           if ($item['status'] == 0) {
                 $item->s_0 = $item['count'];
             } elseif ($item['status'] == 1) {
                 $item->s_1 = $item['count'];
@@ -692,41 +691,244 @@ class CdController extends Controller
                 $item->s_4 = $item['count'];
             } else {
                 $item->s_5 = $item['count'];
-            }*/
-            if ($item['status'] < 3) {
-                $item->s_0 = $item['count'];
-            } else {
-                $item->s_1 = $item['count'];
             }
             unset($item->count);
             unset($item->status);
-
         }
 
-        $collection1 = $collection;
+        //$collection1 = collect($collection);
         foreach ($collection as $key => $item) {
-
+            $s_0_Key = $collection->where('point_id', $item['point_id'])->where('s_0')->keys()->last();
+            $s_1_Key = $collection->where('point_id', $item['point_id'])->where('s_1')->keys()->last();
+            $s_2_Key = $collection->where('point_id', $item['point_id'])->where('s_2')->keys()->last();
+            $s_3_Key = $collection->where('point_id', $item['point_id'])->where('s_3')->keys()->last();
+            $s_4_Key = $collection->where('point_id', $item['point_id'])->where('s_4')->keys()->last();
+            $s_5_Key = $collection->where('point_id', $item['point_id'])->where('s_5')->keys()->last();
             if ($item['s_0']) {
-                $s_1_Key = $collection->where('point_id', $item['point_id'])->where('s_1')->keys()->last();
                 if ($s_1_Key) {
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
-                    unset($collection1[$s_1_Key]);
+                    $item->main=true;
+                    if(!$collection[$s_1_Key]['main'])
+                    unset($collection[$s_1_Key]);
                 }
-            } elseif ($item['s_1']) {
-
-                $s_0_Key = $collection->where('point_id', $item['point_id'])->where('s_0')->keys()->last();
+                if ($s_2_Key) {
+                    $s2 = $collection[$s_2_Key]['s_2'];
+                    $item->s_2 = $s2;
+                    $item->main=true;
+                    if(!$collection[$s_2_Key]['main'])
+                    unset($collection[$s_2_Key]);
+                }
+                if ($s_3_Key) {
+                    $s3 = $collection[$s_3_Key]['s_3'];
+                    $item->s_3 = $s3;
+                    $item->main=true;
+                    if(!$collection[$s_3_Key]['main'])
+                    unset($collection[$s_3_Key]);
+                }
+                if ($s_4_Key) {
+                    $s4 = $collection[$s_4_Key]['s_4'];
+                    $item->s_4 = $s4;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_4_Key]);
+                }
+                if ($s_5_Key) {
+                    $s5 = $collection[$s_5_Key]['s_5'];
+                    $item->s_5 = $s5;
+                    $item->main=true;
+                    if(!$collection[$s_5_Key]['main'])
+                    unset($collection[$s_5_Key]);
+                }
+            }
+            elseif ($item['s_1']) {
+                if ($s_0_Key) {
+                    $s0 = $collection[$s_1_Key]['s_0'];
+                    $item->s_0 = $s0;
+                    $item->main=true;
+                    if(!$collection[$s_0_Key]['main'])
+                    unset($collection[$s_0_Key]);
+                }
+                if ($s_2_Key) {
+                    $s2 = $collection[$s_2_Key]['s_2'];
+                    $item->s_2 = $s2;
+                    $item->main=true;
+                    if(!$collection[$s_2_Key]['main'])
+                    unset($collection[$s_2_Key]);
+                }
+                if ($s_3_Key) {
+                    $s3 = $collection[$s_3_Key]['s_3'];
+                    $item->s_3 = $s3;
+                    $item->main=true;
+                    if(!$collection[$s_3_Key]['main'])
+                    unset($collection[$s_3_Key]);
+                }
+                if ($s_4_Key) {
+                    $s4 = $collection[$s_4_Key]['s_4'];
+                    $item->s_4 = $s4;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_4_Key]);
+                }
+                if ($s_5_Key) {
+                    $s5 = $collection[$s_5_Key]['s_5'];
+                    $item->s_5 = $s5;
+                    $item->main=true;
+                    if(!$collection[$s_5_Key]['main'])
+                    unset($collection[$s_5_Key]);
+                }
+            }
+            elseif ($item['s_2']) {
                 if ($s_0_Key) {
                     $s0 = $collection[$s_0_Key]['s_0'];
                     $item->s_0 = $s0;
-                    //unset($collection1[$s_0_Key]);
+                    $item->main=true;
+                    if(!$collection[$s_0_Key]['main'])
+                    unset($collection[$s_0_Key]);
                 }
-
+                if ($s_1_Key) {
+                    $s1 = $collection[$s_1_Key]['s_1'];
+                    $item->s_1 = $s1;
+                    $item->main=true;
+                    if(!$collection[$s_1_Key]['main'])
+                    unset($collection[$s_1_Key]);
+                }
+                if ($s_3_Key) {
+                    $s3 = $collection[$s_3_Key]['s_3'];
+                    $item->s_3 = $s3;
+                    $item->main=true;
+                    if(!$collection[$s_3_Key]['main'])
+                    unset($collection[$s_3_Key]);
+                }
+                if ($s_4_Key) {
+                    $s4 = $collection[$s_4_Key]['s_4'];
+                    $item->s_4 = $s4;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_4_Key]);
+                }
+                if ($s_5_Key) {
+                    $s5 = $collection[$s_5_Key]['s_5'];
+                    $item->s_5 = $s5;
+                    $item->main=true;
+                    if(!$collection[$s_5_Key]['main'])
+                    unset($collection[$s_5_Key]);
+                }
             }
-
+            elseif ($item['s_3']) {
+                if ($s_0_Key) {
+                    $s0 = $collection[$s_1_Key]['s_0'];
+                    $item->s_0 = $s0;
+                    $item->main=true;
+                    if(!$collection[$s_0_Key]['main'])
+                    unset($collection[$s_0_Key]);
+                }
+                if ($s_1_Key) {
+                    $s1 = $collection[$s_1_Key]['s_1'];
+                    $item->s_1 = $s1;
+                    $item->main=true;
+                    if(!$collection[$s_1_Key]['main'])
+                    unset($collection[$s_1_Key]);
+                }
+                if ($s_2_Key) {
+                    $s2 = $collection[$s_2_Key]['s_2'];
+                    $item->s_2 = $s2;
+                    $item->main=true;
+                    if(!$collection[$s_2_Key]['main'])
+                    unset($collection[$s_2_Key]);
+                }
+                if ($s_4_Key) {
+                    $s4 = $collection[$s_4_Key]['s_4'];
+                    $item->s_4 = $s4;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_4_Key]);
+                }
+                if ($s_5_Key) {
+                    $s5 = $collection[$s_5_Key]['s_5'];
+                    $item->s_5 = $s5;
+                    $item->main=true;
+                    if(!$collection[$s_5_Key]['main'])
+                    unset($collection[$s_5_Key]);
+                }
+            }
+            elseif ($item['s_4']) {
+                if ($s_2_Key) {
+                    $s2 = $collection[$s_2_Key]['s_2'];
+                    $item->s_2 = $s2;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_2_Key]);
+                }
+                if ($s_1_Key) {
+                    $s1 = $collection[$s_1_Key]['s_1'];
+                    $item->s_1 = $s1;
+                    $item->main=true;
+                    if(!$collection[$s_1_Key]['main'])
+                    unset($collection[$s_1_Key]);
+                }
+                if ($s_0_Key) {
+                    $s0 = $collection[$s_0_Key]['s_0'];
+                    $item->s_0 = $s0;
+                    $item->main=true;
+                    if(!$collection[$s_0_Key]['main'])
+                    unset($collection[$s_0_Key]);
+                }
+                if ($s_3_Key) {
+                    $s3 = $collection[$s_3_Key]['s_3'];
+                    $item->s_3 = $s3;
+                    $item->main=true;
+                    if(!$collection[$s_3_Key]['main'])
+                    unset($collection[$s_3_Key]);
+                }
+                if ($s_5_Key) {
+                    $s5 = $collection[$s_5_Key]['s_5'];
+                    $item->s_5 = $s5;
+                    $item->main=true;
+                    if(!$collection[$s_5_Key]['main'])
+                    unset($collection[$s_5_Key]);
+                }
+            }
+            elseif ($item['s_5']) {
+                if ($s_0_Key) {
+                    $s0 = $collection[$s_0_Key]['s_0'];
+                    $item->s_0 = $s0;
+                    $item->main=true;
+                    if(!$collection[$s_0_Key]['main'])
+                    unset($collection[$s_0_Key]);
+                }
+                if ($s_2_Key) {
+                    $s2 = $collection[$s_2_Key]['s_2'];
+                    $item->s_2 = $s2;
+                    $item->main=true;
+                    if(!$collection[$s_2_Key]['main'])
+                    unset($collection[$s_2_Key]);
+                }
+                if ($s_3_Key) {
+                    $s3 = $collection[$s_3_Key]['s_3'];
+                    $item->s_3 = $s3;
+                    $item->main=true;
+                    if(!$collection[$s_3_Key]['main'])
+                    unset($collection[$s_3_Key]);
+                }
+                if ($s_4_Key) {
+                    $s4 = $collection[$s_4_Key]['s_4'];
+                    $item->s_4 = $s4;
+                    $item->main=true;
+                    if(!$collection[$s_4_Key]['main'])
+                    unset($collection[$s_4_Key]);
+                }
+                if ($s_1_Key) {
+                    $s1 = $collection[$s_1_Key]['s_1'];
+                    $item->s_1 = $s1;
+                    $item->main=true;
+                    if(!$collection[$s_1_Key]['main'])
+                    unset($collection[$s_1_Key]);
+                }
+            }
         }
-
-
-        return $collection1;
+       // $collection1 = collect($collection);
+       // $collection1 = $collection1->unique($collection1);
+        return $collection;
     }
 }

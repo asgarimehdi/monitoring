@@ -47,18 +47,7 @@
 
                             <div class="row">
 
-                                <div class="col-sm-4">
-                                    <select name="environment_item_id" v-model="environment_item_id" id="environment_item_id" class="form-control"
-                                    >
-                                        <option value="all" selected>انتخاب آیتم مورد نظر</option>
-                                        <option
-                                            v-for="r in environment_items"
-                                            :value="r.id"
-                                        >
-                                            {{r.name}}
-                                        </option>
-                                    </select>
-                                </div><!-- /.col -->
+
                                 <div class="col-sm-3" >
                                     <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
                                         <option value="all" selected>شهری روستایی</option>
@@ -120,8 +109,12 @@
                             <tr>
                                 <th>مرکز</th>
                                 <th>نام نقطه</th>
-                                <th>تعداد مطلوب</th>
-                                <th>تعداد نامطلوب</th>
+                                <th>درحال درمان</th>
+                                <th>بستری ویژه</th>
+                                <th>مرگ</th>
+                                <th>بهبود</th>
+                                <th>بستری در منزل</th>
+                                <th>نقاهتگاه</th>
 
                             </tr>
                             <tr v-for="value in values.data" :key="value.id" class="small">
@@ -131,8 +124,12 @@
                                     {{value.region_point.region_center.name}}
                                 </td>
                                 <td>{{value.region_point.name}}</td>
-                                <td>{{value.ok}}</td>
-                                <td>{{value.Nok}}</td>
+                                <td>{{value.s_0}}</td>
+                                <td>{{value.s_1}}</td>
+                                <td>{{value.s_2}}</td>
+                                <td>{{value.s_3}}</td>
+                                <td>{{value.s_4}}</td>
+                                <td>{{value.s_5}}</td>
 
                             </tr>
 
@@ -173,13 +170,13 @@
             return {
                 num:1,
                 values: {},
-                environment_items: {},
+
                 counties: {},
                 types: {},
                 centers: {},
                 points: {},
                 county_id: '',
-                environment_item_id:'all',
+
                 user_county: '',
                 point_type: 'all',
                 covered: 'all',
@@ -201,7 +198,7 @@
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
-                axios.get('/api/environment/report/'+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+ "/" + this.covered+ "/" + this.piping+'/?page=' + page)
+                axios.get("/api/cd/corona/report/"+ this.user_county+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -218,7 +215,7 @@
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/environment/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type+ "/" + this.environment_item_id+ "/" + this.covered+ "/" + this.piping).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/cd/corona/report/"+ this.user_county).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();
@@ -229,16 +226,7 @@
                 });
 
             },
-            loadItems() {
-                axios.get("/api/environment/itemList").then(({data}) => (this.environment_items = data)).then(() => {
-                }).catch(() => {
-                    toast.fire({
-                        type: 'error',
-                        title: 'خطایی در لود اطلاعات رخ داد'
-                    });
-                });
 
-            },
 
             loadCounties() {
                 this.user_county = this.$gate.user.region_point.region_center.county_id;
@@ -280,7 +268,7 @@
             });
 
             this.loadValues();
-            this.loadItems();
+
             this.$on('ValueTableChanged', () => {
                 this.loadValues();
             });
