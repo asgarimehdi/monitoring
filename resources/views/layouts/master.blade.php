@@ -315,7 +315,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 @canany(['isAbhar'])
-                                    @canany(['isBimaGVagir','isAdmin','isRiasat'])
+                                    @canany(['isBimaVagir','isAdmin','isRiasat'])
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona"
@@ -329,7 +329,7 @@
                                     @endcanany
                                 @endcanany
 
-                                    @canany(['isBimaGVagir','isAdmin','isRiasat','isBehvarz'])
+                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz'])
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona1"
@@ -340,7 +340,7 @@
                                                 </p>
                                             </a>
                                         </li>
-                                    @endcanany
+                                @endcanany
                                 @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
                                     <li class="nav-item">
                                         <a href="\report\environment"

@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-        <div class="row" v-if="$gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz()">
+        <div class="row" v-if="$gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz()|| $gate.isRiasat()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -150,7 +150,7 @@
             </div>
         </div>
 
-        <div v-if="!($gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz())">
+        <div v-if="!($gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz()|| $gate.isRiasat())">
             <not-found></not-found>
         </div>
     </div>
