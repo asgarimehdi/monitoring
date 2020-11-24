@@ -724,7 +724,7 @@ class CdController extends Controller
             })
             ->whereBetween('created_at', [$date_from, $date_to])
             ->whereBetween('diagnosis_at', [$date_from_diagnosis, $date_to_diagnosis])
-            ->whereBetween('status_at', [$date_from_status, $date_to_status])
+            //->whereBetween('status_at', [$date_from_status, $date_to_status])
             ->whereBetween('birth', [$date_from_birth, $date_to_birth])
 
             ->groupBy("point_id", "status")->paginate(100);

@@ -13,25 +13,24 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-2">
-                                    تاریخ ثبت:
+                                    <!--تاریخ وضعیت:-->
                                 </div>
                                 <div class="col-sm-2" >
-
-                                    <date-picker  :auto-submit="true"
-                                                  v-model="date_from"
+                                    <!--<date-picker  :auto-submit="true"
+                                                  v-model="date_from_status"
                                                   format="YYYY-MM-DD"
                                                   displayFormat="jYYYY/jMM/jDD"
-                                    />
+                                    />-->
                                 </div><!-- /.col -->
                                 <div class="col-sm-2" >
-                                    <date-picker  :auto-submit="true"
-                                                  v-model="date_to"
+                                    <!--<date-picker  :auto-submit="true"
+                                                  v-model="date_to_status"
                                                   format="YYYY-MM-DD"
                                                   displayFormat="jYYYY/jMM/jDD"
-                                    />
+                                    />-->
                                 </div><!-- /.col -->
 
-                                <div class="col-sm-2" v-if="$gate.isOstan()" >
+                                <div class="col-sm-3" v-if="$gate.isOstan()" >
                                         <select  class="form-control"
                                                 id="county_id" name="county_id" v-model="county_id">
                                             <option value="">همه شهرستانها</option>
@@ -124,19 +123,21 @@
 
                             <div class="row">
 
+
                                 <div class="col-sm-2">
-                                    تاریخ وضعیت:
+                                    تاریخ ثبت:
                                 </div>
                                 <div class="col-sm-2" >
+
                                     <date-picker  :auto-submit="true"
-                                                  v-model="date_from_status"
+                                                  v-model="date_from"
                                                   format="YYYY-MM-DD"
                                                   displayFormat="jYYYY/jMM/jDD"
                                     />
                                 </div><!-- /.col -->
                                 <div class="col-sm-2" >
                                     <date-picker  :auto-submit="true"
-                                                  v-model="date_to_status"
+                                                  v-model="date_to"
                                                   format="YYYY-MM-DD"
                                                   displayFormat="jYYYY/jMM/jDD"
                                     />
