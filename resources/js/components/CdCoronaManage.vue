@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-        <div class="row" v-if="$gate.isAdmin()||($gate.isGroup_admin() && $gate.isBimaVagir())">
+        <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -71,7 +71,7 @@
                 <!-- /.card -->
             </div>
         </div>
-        <div class="row" v-if="$gate.isAdmin()||($gate.isGroup_admin() && $gate.isBimaVagir())">
+        <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-6">
                 <div class="card">
                     <form @submit.prevent="editmode ? updateValue() : createValue()">
@@ -367,7 +367,7 @@
                 </div>
             </div>
         </div>
-        <div v-if="!($gate.isAdmin()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
+        <div v-if="!($gate.isAdmin()||$gate.isBehvarz()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
             <not-found></not-found>
         </div>
     </div>
@@ -534,7 +534,7 @@
                 })
             },
             loadValues() {
-                if (this.$gate.isAdminOrGroup_admin()) {
+
                     this.$Progress.start();
                     axios.get("api/cd/corona/PaginateByCounty").then(({data}) => (this.coronas = data)).then(() => {
                         this.$Progress.finish();
@@ -545,7 +545,7 @@
                             title: 'خطایی در لود لیست کرونا رخ داد'
                         });
                     });
-                }
+
             },
             createValue() {
                 this.$Progress.start();

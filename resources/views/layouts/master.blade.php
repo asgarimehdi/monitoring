@@ -105,7 +105,7 @@
                                             </a>
                                         </li>
                                     @endcanany
-                                    @canany(['isBimaVagir','isAdmin'])
+                                    @canany(['isBimaVagir','isAdmin','isBehvarz'])
                                         <li class="nav-item">
                                             <a href="\cdcoronamanage"
                                                class="nav-link {{ (request()->is('cdcoronamanage')) ? 'active' : '' }}">

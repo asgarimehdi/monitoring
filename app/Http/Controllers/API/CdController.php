@@ -258,21 +258,34 @@ class CdController extends Controller
 
     public function paginateByCounty()
     {
-        $county_id=Auth::user()->region_point->region_center->county_id;
-        if (Gate::allows('isOstan')){
+        $user_point_type_id = Auth::user()->region_point->type_id;
+        $user_point_id = Auth::user()->point_id;
+        $user_center_id = Auth::user()->region_point->center_id;
+        $county_id = Auth::user()->region_point->region_center->county_id;
+
             return   $us = Cd_corona::with('region_point.region_center.region_county')
                 ->orderBy('id', 'DESC')
-                ->paginate(10);
-        }
-        else{
-            return    Cd_corona::with(['region_point.region_center.region_county'])
-                ->whereHas('Region_point.Region_center', function($q) use($county_id) {
-                    // Query the name field in status table
-                    $q->where('county_id', '=', $county_id); // '=' is optional
+                ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
+                    return $query->whereHas('Region_point', function ($q) use ($user_point_id) {
+                        // Query the name field in status table
+                        $q->where('id', '=', $user_point_id);
+                    });
                 })
-                ->orderBy('id', 'DESC')
+                ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                    return $query->whereHas('Region_point', function ($q) use ($user_center_id) {
+                        // Query the name field in status table
+                        $q->where('center_id', '=', $user_center_id);
+                    });
+                })
+                ->when(($county_id != 9), function ($query) use ($county_id) {
+                    return $query->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    });
+                })
                 ->paginate(10);
-        }
+
+
     }
     public function stat()
     {
