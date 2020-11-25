@@ -51,9 +51,9 @@
                                     <a href="#" @click="edit(corona)" >
                                         <i class="fa fa-edit blue"></i>
                                     </a>
-                                    /
-                                    <a href="#" @click="deleteValue(corona.id)">
-                                        <i class="fa fa-trash red"></i>
+
+                                    <a href="#" @click="deleteValue(corona.id)" v-if="!($gate.isBehvarz())">
+                                        /    <i class="fa fa-trash red"></i>
                                     </a>
                                 </td>
                             </tr>
