@@ -166,7 +166,8 @@
                                     </select>
                                 </div><!-- /.col -->
 
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
+                                    <a href="#" class="btn btn-default" @click="reset">ریست</a>
                                     <a href="#" class="btn btn-primary" @click="loadValues">فیلتر</a>
                                 </div><!-- /.col -->
                             </div>
@@ -267,7 +268,10 @@
         },
         methods: {
 
-
+            reset () {
+                Object.assign(this.$data, this.$options.data());
+                this.loadValues();
+            },
             getResults(page = 1) {
                 if (this.$gate.isOstan()) {
                     if( this.county_id) // agar az list entekhab kard
