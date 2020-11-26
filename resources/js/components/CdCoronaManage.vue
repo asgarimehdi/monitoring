@@ -22,6 +22,7 @@
                                 <th>تشخیص</th>
                                 <th>وضعیت</th>
                                 <th>مرکز تحت پوشش</th>
+                                <th>ثبت کننده</th>
                                 <th>تغییر</th>
 
                             </tr>
@@ -45,7 +46,9 @@
                                     {{corona.region_point.region_center.name}} -
                                     {{corona.region_point.name}}
                                 </td>
-
+                                <td v-bind:title=" corona.user.role.name +' '+ corona.user.group.name+' '+ corona.user.region_point.name">
+                                    {{corona.user.name}}
+                                </td>
 
                                 <td>
                                     <a href="#" @click="edit(corona)" >

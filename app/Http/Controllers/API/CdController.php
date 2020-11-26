@@ -263,7 +263,7 @@ class CdController extends Controller
         $user_center_id = Auth::user()->region_point->center_id;
         $county_id = Auth::user()->region_point->region_center->county_id;
 
-            return   $us = Cd_corona::with('region_point.region_center.region_county')
+            return   $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
                 ->orderBy('id', 'DESC')
                 ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
                     return $query->whereHas('Region_point', function ($q) use ($user_point_id) {

@@ -17,4 +17,9 @@ class Cd_corona extends Model
     {
         return $this->belongsTo('App\Region_point','point_id','id');
     }
+
+    public function User()
+    {
+        return $this->hasOne('App\User','id','user_id');
+    }
 }
