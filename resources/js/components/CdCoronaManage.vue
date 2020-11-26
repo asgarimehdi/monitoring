@@ -358,7 +358,13 @@
                         @update:center="centerUpdate"
                         @update:zoom="zoomUpdate"
                     >
-                        <l-tile-layer :url="url" :attribution="attribution" />
+                        <l-tile-layer :key="tileProvider.name"
+                                      :name="tileProvider.name"
+                                      :url="tileProvider.url"
+                                      :visible="tileProvider.visible"
+                                      v-for="tileProvider in tileProviders"
+
+                        />
                         <l-marker  :lat-lng="markerLatLng" :draggable="true"  @update:latLng="latlngUpdate">
                         </l-marker>
                         <l-circle
@@ -367,6 +373,54 @@
                             :color="circle.color"
                         />
                     </l-map>
+                <div class="row">
+                    <div class="col-sm-12">
+                    <button @click="
+                            tileProviders[1].visible=true,
+                            tileProviders[0].visible=false,
+                            tileProviders[2].visible=false,
+                            tileProviders[3].visible=false,
+                            tileProviders[4].visible=false,
+                            loadTemps" class="btn bg-info btn-sm" type="button">
+                        <i class="fa fa-map small"></i>
+                    </button>
+                    <button @click="
+                            tileProviders[2].visible=true,
+                            tileProviders[1].visible=false,
+                            tileProviders[0].visible=false,
+                            tileProviders[3].visible=false,
+                            tileProviders[4].visible=false,
+                            loadTemps" class="btn bg-info btn-sm" type="button">
+                        <i class="fa fa-map-o small"></i>
+                    </button>
+                    <button @click="
+                            tileProviders[0].visible=true,
+                            tileProviders[1].visible=false,
+                            tileProviders[2].visible=false,
+                            tileProviders[3].visible=false,
+                            tileProviders[4].visible=false,
+                            loadTemps" class="btn bg-info btn-sm" type="button">
+                        <i class="fa fa-map-signs small"></i>
+                    </button>
+                    <button @click="
+                            tileProviders[3].visible=true,
+                            tileProviders[1].visible=false,
+                            tileProviders[2].visible=false,
+                            tileProviders[0].visible=false,
+                            tileProviders[4].visible=false,
+                            loadTemps" class="btn bg-info btn-sm" type="button">
+                        <i class="fa fa-map-marker small"></i>
+                    </button>
+                    <button @click="
+                            tileProviders[4].visible=true,
+                            tileProviders[1].visible=false,
+                            tileProviders[2].visible=false,
+                            tileProviders[0].visible=false,
+                            tileProviders[3].visible=false,
+                            loadTemps" class="btn bg-info btn-sm" type="button">
+                        <i class="fa fa-map-pin small"></i>
+                    </button>
+                </div></div>
                 </div>
             </div>
         </div>
@@ -396,7 +450,36 @@
         },
         data() {
             return {
+                tileProviders: [
+                    {
+                        name: 'Parsijoo',
+                        visible: true,
+                        url: 'http://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=897f18a7e1c0407286ce168d9fdf1b09',
+                    },
+                    {
+                        name: 'OpenStreetMap',
+                        visible: false,
+                        url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
+                    },
+                    {
+                        name: 'OpenTopoMap',
+                        visible: false,
+                        url: 'http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
 
+                    },
+                    {
+                        name: 'toop',
+                        visible: false,
+                        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+
+                    },
+                    {
+                        name: 'toop2',
+                        visible: false,
+                        url: 'https://tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png',
+
+                    },
+                ],
                 zoom: 14,
                 center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
                 //url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
