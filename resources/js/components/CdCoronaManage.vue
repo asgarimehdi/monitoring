@@ -399,8 +399,8 @@
 
                 zoom: 14,
                 center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
-                url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-                //url: "http://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=897f18a7e1c0407286ce168d9fdf1b09",
+                //url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+                url: "http://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=897f18a7e1c0407286ce168d9fdf1b09",
                 attribution:'',
                 currentZoom: 9,
                 currentCenter: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
@@ -444,7 +444,7 @@
                     center_id: '',
                     point_id: '',
                     diagnosis_at:'',
-                    status_at:'',
+                    status_at:null,
 
                 })
             }
@@ -483,6 +483,10 @@
                 this.form.reset();
                // $('#addNew').modal('show');
                 this.form.fill(value);
+                if(this.form.status_at=="0000-00-00")
+                {
+                    this.form.status_at='';
+                }
                 this.markerLatLng.lat=this.form.lat;
                 this.markerLatLng.lng=this.form.lng;
 
