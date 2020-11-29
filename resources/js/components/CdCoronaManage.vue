@@ -380,8 +380,7 @@
                             tileProviders[0].visible=false,
                             tileProviders[2].visible=false,
                             tileProviders[3].visible=false,
-                            tileProviders[4].visible=false,
-                            loadTemps" class="btn bg-info btn-sm" type="button">
+                            tileProviders[4].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map small"></i>
                     </button>
                     <button @click="
@@ -389,8 +388,7 @@
                             tileProviders[1].visible=false,
                             tileProviders[0].visible=false,
                             tileProviders[3].visible=false,
-                            tileProviders[4].visible=false,
-                            loadTemps" class="btn bg-info btn-sm" type="button">
+                            tileProviders[4].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map-o small"></i>
                     </button>
                     <button @click="
@@ -398,8 +396,7 @@
                             tileProviders[1].visible=false,
                             tileProviders[2].visible=false,
                             tileProviders[3].visible=false,
-                            tileProviders[4].visible=false,
-                            loadTemps" class="btn bg-info btn-sm" type="button">
+                            tileProviders[4].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map-signs small"></i>
                     </button>
                     <button @click="
@@ -407,8 +404,7 @@
                             tileProviders[1].visible=false,
                             tileProviders[2].visible=false,
                             tileProviders[0].visible=false,
-                            tileProviders[4].visible=false,
-                            loadTemps" class="btn bg-info btn-sm" type="button">
+                            tileProviders[4].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map-marker small"></i>
                     </button>
                     <button @click="
@@ -416,8 +412,7 @@
                             tileProviders[1].visible=false,
                             tileProviders[2].visible=false,
                             tileProviders[0].visible=false,
-                            tileProviders[3].visible=false,
-                            loadTemps" class="btn bg-info btn-sm" type="button">
+                            tileProviders[3].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map-pin small"></i>
                     </button>
                 </div></div>

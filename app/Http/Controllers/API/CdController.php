@@ -541,7 +541,7 @@ class CdController extends Controller
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
             if ($search = \Request::get('q')) {
-                $us = Cd_corona::with('region_point.region_center.region_county')
+                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
                     ->where(function($query) use ($search){
                         $query->where('first_name','LIKE',"%$search%")
                             ->orWhere('last_name','LIKE',"%$search%")
@@ -552,7 +552,7 @@ class CdController extends Controller
                     ->paginate(40);
 
             }else{
-                $us = Cd_corona::with('region_point.region_center.region_county')->latest()
+                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')->latest()
                     ->orderBy('id', 'DESC')
                     ->paginate(20);
 
@@ -561,7 +561,7 @@ class CdController extends Controller
         }
         else{
             if ($search = \Request::get('q')) {
-                $us = Cd_corona::with('region_point.region_center.region_county')
+                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
                     ->whereHas('Region_point.Region_center', function ($qe) use ($county_id) {
                         // Query the name field in status table
                         $qe->where('county_id', '=', $county_id); // '=' is optional
@@ -576,7 +576,7 @@ class CdController extends Controller
 
 
             }else{
-                return Cd_corona::with('region_point.region_center.region_county')
+                return Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
                     ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                         // Query the name field in status table
                         $q->where('county_id', '=', $county_id); // '=' is optional
