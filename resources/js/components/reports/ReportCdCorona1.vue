@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-        <div class="row" v-if="$gate.isAdmin()|| $gate.isBimaVagir()|| $gate.isBehvarz()|| $gate.isRiasat()">
+        <div class="row" v-if="$gate.isAdmin()|| $gate.isBimaVagir()|| $gate.isBehvarz()|| $gate.isKarshenasNazer()|| $gate.isRiasat()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -220,7 +220,7 @@
             </div>
         </div>
 
-        <div v-if="!($gate.isAdmin()|| $gate.isBimaVagir()|| $gate.isBehvarz()|| $gate.isRiasat())">
+        <div v-if="!($gate.isAdmin()|| $gate.isBimaVagir()|| $gate.isBehvarz()|| $gate.isKarshenasNazer()|| $gate.isRiasat())">
             <not-found></not-found>
         </div>
     </div>

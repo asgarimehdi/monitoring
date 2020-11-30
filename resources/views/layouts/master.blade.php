@@ -105,7 +105,7 @@
                                             </a>
                                         </li>
                                     @endcanany
-                                    @canany(['isBimaVagir','isAdmin'])
+                                    @canany(['isBimaVagir','isAdmin','isBehvarz','isKarshenasNazer'])
                                         <li class="nav-item">
                                             <a href="\cdcoronamanage"
                                                class="nav-link {{ (request()->is('cdcoronamanage')) ? 'active' : '' }}">
@@ -127,20 +127,8 @@
                                             </a>
                                         </li>
                                         @endcanany
-                                        @can('isAbhar')
-                                            @can('isBehvarz')
-                                                <li class="nav-item">
-                                                    <a href="\cdcoronamanage"
-                                                       class="nav-link {{ (request()->is('cdcoronamanage')) ? 'active' : '' }}">
-                                                        <i class="fa fa-ambulance nav-icon"></i>
-                                                        <p>
-                                                            مدیریت کرونا
 
-                                                        </p>
-                                                    </a>
-                                                </li>
-                                            @endcan
-                                        @endcan
+
                                         @canany(['isBimaGVagir','isAdmin'])
                                         <li class="nav-item">
                                             <a href="\cdthyroidmanage"
@@ -239,7 +227,7 @@
                             </a>
                             <ul class="nav nav-treeview">
 
-                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz'])
+                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz','isKarshenasNazer'])
 
                                     <li class="nav-item">
                                         <a href="\cdcorona"
@@ -343,7 +331,7 @@
                                     @endcanany
                                 @endcanany
 
-                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz'])
+                                @canany(['isBimaVagir','isAdmin','isRiasat','isBehvarz','isKarshenasNazer'])
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona1"
