@@ -30,8 +30,8 @@
 
 
 
-                                <td>{{finil.birth_at}}</td>
-                                <td>{{finil.diagnosis_at}}</td>
+                                <td>{{finil.birth_at|myDate1}}</td>
+                                <td>{{finil.diagnosis_at|myDate1}}</td>
                                 <td>
                                     {{finil.region_point.region_center.region_county.name}} -
                                     {{finil.region_point.region_center.name}} -
@@ -100,20 +100,45 @@
                                 <has-error :form="form" field="sex"></has-error>
                             </div>
                             <div class="input-group mb-3">
+                                <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('diagnosis_at') }"
+                                              v-model="form.diagnosis_at"
+                                              format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
+                                />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">تاریخ تشخیص</span>
+                                </div>
+                                <has-error :form="form" field="diagnosis_at"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
+                                <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('birth_at') }"
+                                              v-model="form.birth_at"
+                                              format="YYYY-MM-DD"
+                                              displayFormat="jYYYY/jMM/jDD"
+                                />
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">تاریخ تولد</span>
+                                </div>
+                                <has-error :form="form" field="birth_at"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
                                 <select :class="{ 'is-invalid': form.errors.has('type') }" class="form-control"
                                         name="type" v-model="form.type">
                                     <option value="1">
-                                        hpa
+                                        Hpa
                                     </option>
                                     <option value="2">
-                                        mild
+                                        Mild
                                     </option>
                                     <option value="3">
-                                        classic
+                                        Classic
+                                    </option>
+                                    <option value="4">
+                                        Moderate
                                     </option>
                                 </select>
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">pku</span>
+                                    <span class="input-group-text pl-5">نوع pku</span>
                                 </div>
                                 <has-error :form="form" field="type"></has-error>
                             </div>
@@ -204,28 +229,7 @@
                                 </div>
                                 <has-error :form="form" field="lng"></has-error>
                             </div>
-                            <div class="input-group mb-3">
-                                <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('diagnosis_at') }"
-                                              v-model="form.diagnosis_at"
-                                              format="YYYY-MM-DD"
-                                              displayFormat="jYYYY/jMM/jDD"
-                                />
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">تاریخ تشخیص</span>
-                                </div>
-                                <has-error :form="form" field="diagnosis_at"></has-error>
-                            </div>
-                            <div class="input-group mb-3">
-                                <date-picker  :auto-submit="true" :class="{ 'is-invalid': form.errors.has('birth_at') }"
-                                              v-model="form.birth_at"
-                                              format="YYYY-MM-DD"
-                                              displayFormat="jYYYY/jMM/jDD"
-                                />
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text pl-5">تاریخ تولد</span>
-                                </div>
-                                <has-error :form="form" field="birth_at"></has-error>
-                            </div>
+
 
                         </div>
                         <div class="card-footer">

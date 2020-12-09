@@ -41,7 +41,7 @@
                                 <div class="card bg-info-gradient">
                                     <div class="row">
                                         <div class="col-8">
-                                            <img alt="" src="/images/vendor/leaflet/dist/corona6.png">
+
                                             HPA
                                         </div>
                                         <div class="col-4 p-0">
@@ -53,7 +53,7 @@
                                     <div class="row">
                                         <div class="col-8">
 
-                                            <img alt="" src="/images/vendor/leaflet/dist/corona1.png">
+
                                             MILD
                                         </div>
                                         <div class="col-4 p-0">
@@ -64,13 +64,24 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-8">
-                                            <img alt="" src="/images/vendor/leaflet/dist/corona2.png">
+
                                             CLASSIC
                                         </div>
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
                                                            v-model="show_classic"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+
+                                            Moderate
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_moderate"/>
                                         </div>
                                     </div>
                                 </div>
@@ -368,6 +379,8 @@
                 show_hpa: true,
                 show_mild: true,
                 show_classic: true,
+                show_moderate: true,
+
                 show_latest: false,
 
 
@@ -468,6 +481,10 @@
                 {
                     x[3] = marker.type === 3;
                 }
+                if (this.show_moderate)
+                {
+                    x[4] = marker.type === 4;
+                }
 
 
                 if (this.show_latest)
@@ -477,7 +494,7 @@
                     x[14] = true;
                 }
 
-                return (((x[1] || x[2] || x[3])  ) && (x[14]));
+                return (((x[1] || x[2] || x[3]|| x[4])  ) && (x[14]));
                 //  return x.find(element => element === true);
             },
             mapWatch2(point) {
