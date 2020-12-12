@@ -30,8 +30,8 @@
 
 
 
-                                <td>{{thyroid.birth_at}}</td>
-                                <td>{{thyroid.diagnosis_at}}</td>
+                                <td>{{thyroid.birth_at|myDate1}}</td>
+                                <td>{{thyroid.diagnosis_at|myDate1}}</td>
                                 <td>
                                     {{thyroid.region_point.region_center.region_county.name}} -
                                     {{thyroid.region_point.region_center.name}} -
@@ -82,6 +82,38 @@
                                     <span class="input-group-text pl-5">نام </span>
                                 </div>
                                 <has-error :form="form" field="full_name"></has-error>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <select :class="{ 'is-invalid': form.errors.has('diagnosis') }" class="form-control"
+                                        name="diagnosis" v-model="form.diagnosis">
+                                    <option value="1">
+                                        نوع گذرا
+                                    </option>
+                                    <option value="2">
+                                        نوع دائمی
+                                    </option>
+                                </select>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">نوع تشخیص</span>
+                                </div>
+                                <has-error :form="form" field="diagnosis"></has-error>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <select :class="{ 'is-invalid': form.errors.has('status') }" class="form-control"
+                                        name="status" v-model="form.status">
+                                    <option value="1">
+                                        قطع درمان
+                                    </option>
+                                    <option value="2">
+                                        تحت درمان
+                                    </option>
+                                </select>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">روند درمان</span>
+                                </div>
+                                <has-error :form="form" field="status"></has-error>
                             </div>
 
                             <div class="input-group mb-3">
@@ -301,7 +333,8 @@
 
                     birth_at: '',
                     sex: '',
-
+                    diagnosis:'',
+                    status:'',
                     lat: '',
                     lng: '',
                     county_id: '',

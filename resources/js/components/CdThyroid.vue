@@ -37,7 +37,56 @@
                         </div>
                         <div class="card-body small">
                             <div class="small ">
+                                <div class="card bg-info-gradient">
 
+                                    <div class="row">
+                                        <div class="col-8">
+
+                                            نوع گذرا
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_diagnosis_1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+
+
+                                            نوع دائمی
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_diagnosis_2"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card bg-info-gradient">
+                                    <div class="row">
+                                        <div class="col-8">
+
+                                            قطع درمان
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+
+                                            تحت درمان
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_status_2"/>
+                                        </div>
+                                    </div>
+                                </div>
 
 
                                 <div class="card bg-info-gradient">
@@ -82,6 +131,7 @@
                                                            :height="16" v-model="show_point_paygah"/>
                                         </div>
                                     </div>
+
                                 </div>
 
 
@@ -172,7 +222,7 @@
                         />
                         <v-marker-cluster>
                         <span :key="index" v-for="(marker,index) in markers">
-                    <l-marker :lat-lng="marker" >
+                    <l-marker :lat-lng="marker"   v-if="mapWatch(marker)">
 
                         <l-popup class="vazir">
              <span class="label-info">
@@ -181,16 +231,22 @@
 
                             <br/>
                             مشخصات:
-<br/>متولد:
-                            {{marker.birth_at|myDate}}
-<br/>
+                            <br/>متولد:
+                            {{marker.birth_at|myDate1}}
+                            <br/>
                             تحت پوشش:
                             {{marker.region_point.region_center.region_county.name}} -
                             {{marker.region_point.region_center.name}} -
                             {{marker.region_point.name}}
- <br/>
+                            <br/>
+                            تشخیص:
+                            {{diagnosisCheck(marker.diagnosis)}}
+                            <br/>
+                            وضعیت درمان:
+                            {{statusCheck(marker.status)}}
+                            <br/>
                             تاریخ تشخیص:
-                            {{marker.diagnosis_at}}
+                            {{marker.diagnosis_at|myDate1}}
                         </l-popup>
                         <l-icon
 
@@ -323,6 +379,11 @@
                 show_point_shabake: false,
                 show_point_marakez: false,
 
+                show_diagnosis_1:true,
+                show_diagnosis_2:true,
+                show_status_1:true,
+                show_status_2:true,
+
 
 
 
@@ -385,6 +446,21 @@
                 this.currentCenter = center;
             },
 
+            diagnosisCheck(val) {
+                if (val == 1)
+                    val = 'نوع گذرا';
+
+                else val = 'نوع دائم';
+                return val;
+            },
+            statusCheck(val) {
+                if (val == 1)
+                    val = 'قطع درمان';
+
+                else  val = 'تحت درمان';
+
+                return val;
+            },
 
 
             iconCheck2(val) {
@@ -405,7 +481,38 @@
             },
 
 
+            mapWatch(marker) {
+                let x = [];
+                if (this.show_diagnosis_1)
+                {
+                    x[1] = marker.diagnosis === 1;
+                }
 
+                if (this.show_diagnosis_2)
+                {
+                    x[2] = marker.diagnosis === 2;
+                }
+
+                if (this.show_status_1)
+                {
+                    x[3] = marker.status === 1;
+                }
+                if (this.show_status_2)
+                {
+                    x[4] = marker.status === 2;
+                }
+
+
+                if (this.show_latest)
+                {
+                    x[14] = !this.connectionChack(marker.updated_at);
+                } else {
+                    x[14] = true;
+                }
+
+                return (((x[1] || x[2])&&(x[3]|| x[4])) && (x[14]));
+                //  return x.find(element => element === true);
+            },
             mapWatch2(point) {
                 let x = [];
                 if (this.show_point_shabake) // agar corona mosbat bod

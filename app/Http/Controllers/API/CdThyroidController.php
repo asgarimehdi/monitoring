@@ -44,6 +44,8 @@ class CdThyroidController extends Controller
             'birth_at'=> 'required|date',
 
             'point_id'=> 'required|numeric',
+            'diagnosis'=> 'required|numeric',
+            'status'=> 'required|numeric',
 
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
@@ -67,6 +69,8 @@ class CdThyroidController extends Controller
             'birth_at'=> 'required|date',
 
             'point_id'=> 'required|numeric',
+            'diagnosis'=> 'required|numeric',
+            'status'=> 'required|numeric',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
             'diagnosis_at' => 'required|date',
@@ -97,6 +101,7 @@ class CdThyroidController extends Controller
                 'region_point.region_center.region_county:id,name'
             ])
             // ->where('expose', '=', NULL)
+            ->orderBy('id', 'DESC')
             ->get();
     }
 
@@ -145,7 +150,7 @@ class CdThyroidController extends Controller
     {
         $county_id=Auth::user()->region_point->region_center->county_id;
         if (Gate::allows('isOstan')){
-            return   $us = Cd_thyroid::with('region_point.region_center.region_county')->paginate(10);
+            return   $us = Cd_thyroid::with('region_point.region_center.region_county')->orderBy('id', 'DESC')->paginate(10);
         }
         else{
             return    Cd_thyroid::with(['region_point.region_center.region_county'])
@@ -153,6 +158,7 @@ class CdThyroidController extends Controller
                     // Query the name field in status table
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 })
+                ->orderBy('id', 'DESC')
                 ->paginate(10);
         }
     }

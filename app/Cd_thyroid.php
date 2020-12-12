@@ -8,7 +8,7 @@ class Cd_thyroid extends Model
 {
     //
     protected $fillable = [
-        'id','full_name','sex','birth_at','point_id','user_id','lat','lng','diagnosis_at'
+        'id','full_name','sex','birth_at','point_id','user_id','lat','lng','diagnosis_at','diagnosis','status'
     ];
     public function Region_point()
     {
