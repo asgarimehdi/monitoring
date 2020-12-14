@@ -40,7 +40,7 @@ class CdCancerController extends Controller
             'full_name'=> 'required|string',
 
             'sex'=> 'required|numeric',
-            'job'=> 'required|string',
+
 
             'birth_at'=> 'required|date',
 
@@ -67,7 +67,7 @@ class CdCancerController extends Controller
             'full_name'=> 'required|string',
 
             'sex'=> 'required|numeric',
-            'job'=> 'required|string',
+
 
             'birth_at'=> 'required|date',
 

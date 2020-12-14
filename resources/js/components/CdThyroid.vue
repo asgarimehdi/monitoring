@@ -42,12 +42,23 @@
                                     <div class="row">
                                         <div class="col-8">
 
-                                            نوع گذرا
+                                            نوع نامشخص
                                         </div>
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
                                                            v-model="show_diagnosis_1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-8">
+
+                                            نوع گذرا
+                                        </div>
+                                        <div class="col-4 p-0">
+                                            <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
+                                                           :height="16"
+                                                           v-model="show_diagnosis_2"/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -59,7 +70,7 @@
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
-                                                           v-model="show_diagnosis_2"/>
+                                                           v-model="show_diagnosis_3"/>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +83,7 @@
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
-                                                           v-model="show_status_1"/>
+                                                           v-model="show_status_2"/>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -83,7 +94,7 @@
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                            :height="16"
-                                                           v-model="show_status_2"/>
+                                                           v-model="show_status_1"/>
                                         </div>
                                     </div>
                                 </div>
@@ -381,6 +392,7 @@
 
                 show_diagnosis_1:true,
                 show_diagnosis_2:true,
+                show_diagnosis_3:true,
                 show_status_1:true,
                 show_status_2:true,
 
@@ -448,13 +460,16 @@
 
             diagnosisCheck(val) {
                 if (val == 1)
+                    val = 'وارد نشده';
+
+                else if (val == 2)
                     val = 'نوع گذرا';
 
                 else val = 'نوع دائم';
                 return val;
             },
             statusCheck(val) {
-                if (val == 1)
+                if (val == 2)
                     val = 'قطع درمان';
 
                 else  val = 'تحت درمان';
@@ -492,14 +507,18 @@
                 {
                     x[2] = marker.diagnosis === 2;
                 }
+                if (this.show_diagnosis_3)
+                {
+                    x[3] = marker.diagnosis === 3;
+                }
 
                 if (this.show_status_1)
                 {
-                    x[3] = marker.status === 1;
+                    x[4] = marker.status === 1;
                 }
                 if (this.show_status_2)
                 {
-                    x[4] = marker.status === 2;
+                    x[5] = marker.status === 2;
                 }
 
 
@@ -510,7 +529,7 @@
                     x[14] = true;
                 }
 
-                return (((x[1] || x[2])&&(x[3]|| x[4])) && (x[14]));
+                return (((x[1] || x[2] ||x[3])&&(x[4]|| x[5])) && (x[14]));
                 //  return x.find(element => element === true);
             },
             mapWatch2(point) {

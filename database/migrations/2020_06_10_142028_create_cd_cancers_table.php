@@ -18,7 +18,7 @@ class CreateCdCancersTable extends Migration
             $table->integer('point_id');
             $table->unsignedInteger('user_id');
             $table->string('full_name');
-            $table->string('job');
+            $table->string('job')->nullable();
             $table->tinyInteger('sex');
             $table->date('birth_at');
             $table->date('diagnosis_at');
