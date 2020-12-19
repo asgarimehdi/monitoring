@@ -45,6 +45,7 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:5000,1', //These values did not change the throttle limit.
             'bindings',
+            \App\Http\Middleware\LastUserActivity::class,
         ],
     ];
 
