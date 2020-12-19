@@ -29,30 +29,10 @@
         </div>
     </form>
 @endsection
-@section('left-panel')
+{{--@section('left-panel')
       <aside class="control-sidebar control-sidebar-dark">
-          <user-online-component></user-online-component>
-<!--          <div class="container">
-              <h4>
-                  کاربران آنلاین
-              </h4>
-            @php $users = DB::table('users')->get(); @endphp
-            @foreach($users as $user)
 
-                        @if(Cache::has('user-is-online-' . $user->id))
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <small>
-                                    @php echo $user->username.' - '.$user->name; @endphp
-                                    </small>
-                                </div>
-                            </div>
 
-                        @endif
-
-            @endforeach
-
-          </div>-->
 
       </aside>
-@endsection
+@endsection--}}
