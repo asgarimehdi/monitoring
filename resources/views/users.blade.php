@@ -31,7 +31,8 @@
 @endsection
 @section('left-panel')
       <aside class="control-sidebar control-sidebar-dark">
-          <div class="container">
+          <user-online-component></user-online-component>
+<!--          <div class="container">
               <h4>
                   کاربران آنلاین
               </h4>
@@ -41,7 +42,9 @@
                         @if(Cache::has('user-is-online-' . $user->id))
                             <div class="row">
                                 <div class="col-sm-12">
+                                    <small>
                                     @php echo $user->username.' - '.$user->name; @endphp
+                                    </small>
                                 </div>
                             </div>
 
@@ -49,7 +52,7 @@
 
             @endforeach
 
-          </div>
+          </div>-->
 
       </aside>
 @endsection

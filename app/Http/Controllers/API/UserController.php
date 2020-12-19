@@ -200,12 +200,17 @@ class UserController extends Controller
         $user->update($request->all());
         return ['message' => 'Updated the user info'];
     }
-    public function userOnlineStatus($id)    {
+    public function userOnlineStatus()
+    {
 
-            if (Cache::has('user-is-online-' . $id))
-                return "User  is online.";
-            else
-                return "User  is offline.";
+        $county_id=Auth::user()->region_point->region_center->county_id;
 
+        $us = User::with('group','role','region_point','region_point.region_center.region_county')->paginate(10000);
+
+        foreach ($us as $key => $user) {
+            if (!Cache::has('user-is-online-' . $user->id))
+                unset($us[$key]);
+        }
+        return $us;
     }
 }

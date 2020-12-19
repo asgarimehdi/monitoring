@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResources(['user'=>'API\UserController']);
 Route::get('findUser', 'API\UserController@search');
+Route::get('users/online', 'API\UserController@userOnlineStatus');
 Route::get('groupList', 'API\UserController@groupList');
 Route::get('roleList', 'API\UserController@roleList');
 Route::get('countyList', 'API\RegionController@county');

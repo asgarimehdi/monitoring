@@ -397,7 +397,7 @@
     </script>
 @endauth
 <!-- REQUIRED SCRIPTS -->
-<script src="{{ asset('js/app.js?v=3') }}" defer></script>
+<script src="{{ asset('js/app.js?v=30') }}" defer></script>
 
 <!-- jQuery -->
 
