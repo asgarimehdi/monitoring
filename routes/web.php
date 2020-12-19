@@ -46,3 +46,4 @@ Route::get('/cdcancermanage', 'HomeController@cdcancermanage');
 Route::get('/cddisease', 'HomeController@cd_disease');
 Route::get('/cddiseasemanage', 'HomeController@cddiseasemanage');
 
+

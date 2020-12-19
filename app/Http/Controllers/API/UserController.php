@@ -10,6 +10,7 @@ use App\Role;
 use App\Region_point;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
+use Cache;
 
 class UserController extends Controller
 {
@@ -198,5 +199,13 @@ class UserController extends Controller
         }
         $user->update($request->all());
         return ['message' => 'Updated the user info'];
+    }
+    public function userOnlineStatus($id)    {
+
+            if (Cache::has('user-is-online-' . $id))
+                return "User  is online.";
+            else
+                return "User  is offline.";
+
     }
 }
