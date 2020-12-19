@@ -22,7 +22,7 @@
                             <tr>
                                 <th>ردیف</th>
                                 <th>نام</th>
-                                <th>وضعیت</th>
+
                                 <th>نام کاربری</th>
                                 <th>نقش</th>
                                 <th>گروه</th>
@@ -33,7 +33,7 @@
                             <tr v-for="user in users.data" :key="user.id">
                                 <td>{{user.id}}</td>
                                 <td>{{user.name}}</td>
-                                <td>{{userOnlineStatus(user.id)}}</td>
+
                                 <td>{{user.username}}</td>
                                 <td>{{user.role.name}}</td>
                                 <td>{{user.group.name}}</td>
@@ -433,9 +433,6 @@
                         title: 'خطایی در لود اطلاعات رخ داد'
                     });
                 });
-
-            },
-            userOnlineStatus(id){
 
             },
             createUser() {

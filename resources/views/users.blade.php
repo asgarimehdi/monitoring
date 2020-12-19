@@ -29,3 +29,27 @@
         </div>
     </form>
 @endsection
+@section('left-panel')
+      <aside class="control-sidebar control-sidebar-dark">
+          <div class="container">
+              <h4>
+                  کاربران آنلاین
+              </h4>
+            @php $users = DB::table('users')->get(); @endphp
+            @foreach($users as $user)
+
+                        @if(Cache::has('user-is-online-' . $user->id))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @php echo $user->username.' - '.$user->name; @endphp
+                                </div>
+                            </div>
+
+                        @endif
+
+            @endforeach
+
+          </div>
+
+      </aside>
+@endsection
