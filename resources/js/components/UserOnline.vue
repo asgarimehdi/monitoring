@@ -11,13 +11,14 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-hover">
+                        <table class="table table-hover small">
                             <tbody>
                             <tr v-for="user in users.data" :key="user.id">
 
 
 
-                                <td v-bind:title=" user.role.name +' '+ user.group.name+' '+ user.region_point.name+' '+ user.region_point.region_center.region_county.name">{{user.name}}</td>
+                                <td v-bind:title=" user.role.name +' '+ user.group.name+' '+ user.region_point.name">{{user.name}}</td>
+                                <td>{{user.region_point.region_center.region_county.name}}</td>
 
 
 
