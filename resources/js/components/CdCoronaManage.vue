@@ -543,7 +543,7 @@
                 if(this.$parent.search)
                     {
                         let query = this.$parent.search;
-                        axios.get('api/cd/corona/findValue?q=' + query+'&page=' + page)
+                        axios.get('api/cd/corona/PaginateByCounty?q=' + query+'&page=' + page)
                             .then((data) => {
                                 this.coronas = data.data
                             });
@@ -710,7 +710,7 @@
 
             Fire.$on('searching', () => {
                 let query = this.$parent.search;
-                axios.get('api/cd/corona/findValue?q=' + query)
+                axios.get('api/cd/corona/PaginateByCounty?q=' + query)
                     .then((data) => {
                         this.coronas = data.data
                     })

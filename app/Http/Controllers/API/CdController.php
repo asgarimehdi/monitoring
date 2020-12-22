@@ -283,6 +283,14 @@ class CdController extends Controller
                         $q->where('county_id', '=', $county_id); // '=' is optional
                     });
                 })
+                ->when(($search = \Request::get('q')), function ($query) use ($search) {
+                    return $query->where(function($q) use ($search){
+                        $q->where('first_name','LIKE',"%$search%")
+                            ->orWhere('last_name','LIKE',"%$search%")
+                            ->orWhere('occupation','LIKE',"%$search%")
+                            ->orWhere('national_code','LIKE',"%$search%");
+                    });
+                })
                 ->paginate(10);
 
 
@@ -537,56 +545,7 @@ class CdController extends Controller
         $stat['count_mashkok']=$count_mashkok;
         return $stat;
     }
-    public function search(){
-        $county_id=Auth::user()->region_point->region_center->county_id;
-        if (Gate::allows('isOstan')){
-            if ($search = \Request::get('q')) {
-                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
-                    ->where(function($query) use ($search){
-                        $query->where('first_name','LIKE',"%$search%")
-                            ->orWhere('last_name','LIKE',"%$search%")
-                            ->orWhere('occupation','LIKE',"%$search%")
-                            ->orWhere('national_code','LIKE',"%$search%");
-                    })
-                    ->orderBy('id', 'DESC')
-                    ->paginate(40);
 
-            }else{
-                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')->latest()
-                    ->orderBy('id', 'DESC')
-                    ->paginate(20);
-
-                return $us;
-            }
-        }
-        else{
-            if ($search = \Request::get('q')) {
-                $us = Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
-                    ->whereHas('Region_point.Region_center', function ($qe) use ($county_id) {
-                        // Query the name field in status table
-                        $qe->where('county_id', '=', $county_id); // '=' is optional
-                    })->where(function($query) use ($search){
-                        $query->where('first_name','LIKE',"%$search%")
-                            ->orWhere('last_name','LIKE',"%$search%")
-                            ->orWhere('occupation','LIKE',"%$search%")
-                            ->orWhere('national_code','LIKE',"%$search%");
-                    })
-                    ->orderBy('id', 'DESC')
-                    ->paginate(40);
-
-
-            }else{
-                return Cd_corona::with('region_point.region_center.region_county', 'user.group', 'user.role', 'user.region_point')
-                    ->whereHas('Region_point.Region_center', function($q) use($county_id) {
-                        // Query the name field in status table
-                        $q->where('county_id', '=', $county_id); // '=' is optional
-                    })
-                    ->orderBy('id', 'DESC')
-                    ->paginate(20);
-            }
-        }
-        return $us;
-    }
 
     /*  public function chart(){
           return Cd_corona::with(['region_point.region_center.region_county'])->get();
