@@ -9,6 +9,7 @@
     <title>{{ config('app.name', 'سامانه جامع مانیتورینگ') }}</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
 
+    <link rel="manifest" href="{{asset('/manifest.json')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href={{ asset("/css/adminlte.min.css") }}>
     <!-- leaflet -->
