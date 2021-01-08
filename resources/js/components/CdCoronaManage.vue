@@ -31,7 +31,7 @@
                                 <td>{{corona.first_name}} {{corona.last_name}}</td>
                                 <td>{{corona.occupation}}</td>
 
-                                <td v-if="corona.diagnosis==0">مشکوک</td>
+                                <td v-if="corona.diagnosis==0">منتظر آزمایش</td>
                                 <td v-else-if="corona.diagnosis==1">کرونا مثبت</td>
                                 <td v-else-if="corona.diagnosis==2">کرونا منفی</td>
 
@@ -186,7 +186,7 @@
                                         corona -
                                     </option>
                                     <option value="0">
-                                        مشکوک
+                                        منتظر آزمایش
                                     </option>
                                 </select>
                                 <div class="input-group-prepend">

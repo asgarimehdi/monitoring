@@ -93,7 +93,7 @@
                                     <div class="row">
                                         <div class="col-8">
                                             <img alt="" src="/images/vendor/leaflet/dist/corona2.png">
-                                            مشکوک
+                                            منتظر آزمایش
                                         </div>
                                         <div class="col-4 p-0">
                                             <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
@@ -376,7 +376,7 @@
                             تعداد کل موارد ثبتی:
                             {{stats['count_all']}}
                             <br>
-                            تعداد کل موارد مشکوک:
+                            تعداد کل موارد منتظر آزمایش:
                             {{stats['count_mashkok']}}
                             <br>
                             <span v-if="stats['count']>0">
@@ -811,7 +811,7 @@
             },
             diagnosisCheck(val) {
                 if (val == 0)
-                    val = 'مشکوک';
+                    val = 'منتظر آزمایش';
                 else if (val == 1) val = 'کرونا مثبت';
                 else val = 'کرونا منفی';
                 return val;
