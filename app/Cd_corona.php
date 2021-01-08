@@ -22,4 +22,8 @@ class Cd_corona extends Model
     {
         return $this->hasOne('App\User','id','user_id');
     }
+    public function Cd_corona_contact()
+    {
+        return $this->hasMany('App\Cd_corona_contact');
+    }
 }
