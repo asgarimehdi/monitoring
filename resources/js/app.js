@@ -73,6 +73,7 @@ Vue.component('bar-chart-component', require('./components/LineChart.vue').defau
 Vue.component('develop-manage-component', require('./components/DevelopManage.vue').default);
 Vue.component('environment-base-manage-component', require('./components/EnvironmentBaseManage.vue').default);
 Vue.component('user-online-component', require('./components/UserOnline.vue').default);
+Vue.component('cd-corona-contact-manage-component', require('./components/CdCoronaContactManage.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 const app = new Vue({

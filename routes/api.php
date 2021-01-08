@@ -72,17 +72,16 @@ Route::post('/environment/base', 'API\EnvironmentController@storeEnvironment_bas
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');
+Route::delete('/cd/corona/{id}', 'API\CdController@deleteValue');
 Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}/{county_id}/{related}', 'API\CdController@coronaByCounty');
 Route::get('/cd/corona/ListByCountyLite/{county_id}', 'API\CdController@coronaByCountyLite');
 //Route::get('/cd/corona/ListByCounty/{date_from}/{date_to}', 'API\CdController@corona');
 Route::get('/cd/corona/ListByCountyLite/', 'API\CdController@coronaLite');
 Route::get('/cd/corona/PaginateByCounty/', 'API\CdController@paginateByCounty');
-Route::delete('/cd/corona/{id}', 'API\CdController@deleteValue');
 Route::get('/cd/corona/StatByCounty/{county_id}', 'API\CdController@statByCounty');
 Route::get('/cd/corona/StatByPoint/{point_id}/{type_id}/{center_id}/{county_id}', 'API\CdController@statByPoint');
 Route::get('/cd/corona/StatByCounty', 'API\CdController@stat');
 Route::get('/cd/corona/expose/{national_code}', 'API\CdController@expose');
-
 Route::get('/cd/corona/report/{county_id}/{date_from}/{date_to}/{date_from_diagnosis}/{date_to_diagnosis}/{date_from_status}/{date_to_status}/{date_from_birth}/{date_to_birth}/{point_type}/{diagnosis}/{situation}/{hospitalization}/{sex}', 'API\CdController@report');
 
 Route::get('/cd/corona/chart', 'API\CdController@chart');
@@ -139,3 +138,7 @@ Route::get('/cd/disease/PaginateByCounty/', 'API\CdDiseaseController@paginateByC
 Route::delete('/cd/disease/{id}', 'API\CdDiseaseController@deleteValue');
 Route::get('/cd/disease/findValue', 'API\CdDiseaseController@search');
 Route::get('/cd/disease/typeList', 'API\CdDiseaseController@diseaseType');
+
+Route::post('/cd/corona/contact', 'API\CdCoronaContactController@add');
+Route::put('/cd/corona/corona/{id}', 'API\CdCoronaContactController@updateCorona');
+Route::delete('/cd/corona/corona/{id}', 'API\CdCoronaContactController@deleteValue');
