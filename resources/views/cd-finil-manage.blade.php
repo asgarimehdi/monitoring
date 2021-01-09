@@ -13,7 +13,7 @@
     </div>
 
 
-    <cd-corona-contact-manage-component></cd-corona-contact-manage-component>
+    <cd-corona-contact-manage-component :corona_id="80"></cd-corona-contact-manage-component>
 
 
 

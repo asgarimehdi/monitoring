@@ -63,7 +63,9 @@ class CdController extends Controller
 
         $request->merge(['user_id' => Auth::user()->id]);
 
-        return Cd_corona::create($request->all());
+        $response=Cd_corona::create($request->all());
+
+            return response()->json($response->id,  200);
     }
     public function updateCorona(Request $request, $id)
     {

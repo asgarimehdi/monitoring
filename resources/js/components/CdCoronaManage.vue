@@ -77,6 +77,7 @@
         <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-6">
                 <div class="card">
+
                     <form @submit.prevent="editmode ? updateValue() : createValue()">
                         <div class="card-header">
                             <h5 class="card-title" v-show="editmode">ویرایش اطلاعات </h5>
@@ -418,6 +419,9 @@
                 </div></div>
                 </div>
             </div>
+
+            <cd-corona-contact-manage-component :corona_id="corona_id" v-if="editmode"></cd-corona-contact-manage-component>
+
         </div>
         <div v-if="!($gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
             <not-found></not-found>
@@ -502,6 +506,7 @@
                 center_selected: false,
                 point_selected: false,
                 user_county: '',
+                corona_id:'',
                 form: new Form({
                     id: '',
                     national_code: '',
@@ -635,6 +640,7 @@
             createValue() {
                 this.$Progress.start();
                 this.form.post('api/cd/corona')
+                    .then(({data}) => (this.corona_id = data))
                     .then(() => {
                         this.$emit('ValueTableChanged');
 
@@ -642,7 +648,8 @@
                             type: 'success',
                             title: 'اطلاعات با موقفیت ثبت شد'
                         });
-                        this.form.reset();
+                       // this.form.reset();
+                        this.editmode=true;
                         this.$Progress.finish();
 
                     })

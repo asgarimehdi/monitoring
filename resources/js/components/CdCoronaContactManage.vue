@@ -66,6 +66,7 @@
         <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-6">
                 <div class="card">
+
                     <form @submit.prevent="editmode ? updateValue() : createValue()">
                         <div class="card-header">
                             <h5 class="card-title" v-show="editmode">ویرایش اطلاعات </h5>
@@ -132,6 +133,7 @@
                     </l-map>
                 </div>
             </div>
+
         </div>
         <div v-if="!($gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
             <not-found></not-found>
@@ -146,7 +148,7 @@
 
     import { latLng } from "leaflet";
     export default {
-
+        props:['corona_id'],
 
         components: {
             LMap,
@@ -191,7 +193,7 @@
                     id: '',
 
                     national_code: '',
-                    corona_id:'122',
+                    corona_id:this.corona_id,
                     lat: '',
                     lng: '',
 
@@ -218,6 +220,7 @@
                         this.finils = response.data;
                     });
             },
+
             edit(value) {
                 this.editmode = true;
                 this.form.reset();
