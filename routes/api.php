@@ -140,5 +140,6 @@ Route::get('/cd/disease/findValue', 'API\CdDiseaseController@search');
 Route::get('/cd/disease/typeList', 'API\CdDiseaseController@diseaseType');
 
 Route::post('/cd/corona/contact', 'API\CdCoronaContactController@add');
-Route::put('/cd/corona/corona/{id}', 'API\CdCoronaContactController@updateCorona');
-Route::delete('/cd/corona/corona/{id}', 'API\CdCoronaContactController@deleteValue');
+Route::put('/cd/corona/contact/{id}', 'API\CdCoronaContactController@update');
+Route::delete('/cd/corona/contact/{id}', 'API\CdCoronaContactController@delete');
+Route::get('/cd/corona/contact/PaginateByCounty/{corona_id}', 'API\CdCoronaContactController@paginateByCounty');

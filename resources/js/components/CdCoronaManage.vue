@@ -51,7 +51,7 @@
                                 </td>
 
                                 <td>
-                                    <a href="#" @click="edit(corona)" >
+                                    <a href="#corona" @click="edit(corona)" >
                                         <i class="fa fa-edit blue"></i>
                                     </a>
 
@@ -74,7 +74,7 @@
                 <!-- /.card -->
             </div>
         </div>
-        <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
+        <div id="corona" class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-6">
                 <div class="card">
 
@@ -344,8 +344,10 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-danger" @click="closeForm()" type="button">بستن</button>
-                            <button class="btn btn-primary" type="submit" v-show="!editmode">ثبت</button>
-                            <button class="btn btn-success" type="submit" v-show="editmode">ویرایش</button>
+                            <button class="btn btn-primary" type="submit" v-show="!editmode">ثبت بیمار</button>
+                            <button class="btn btn-success" type="submit" v-show="editmode">ویرایش بیمار</button>
+                            <a href="#contact" class="btn btn-info"  v-show="editmode" @click="$emit('contact'),contact=true">ثبت مواجهین</a>
+
                         </div>
                     </form>
                 </div>
@@ -421,7 +423,7 @@
                 </div>
             </div>
 
-            <cd-corona-contact-manage-component :corona_id="corona_id" v-if="editmode"></cd-corona-contact-manage-component>
+            <cd-corona-contact-manage-component ref="contact" :corona_id.sync="corona_id" v-if="corona_id" v-show="contact"></cd-corona-contact-manage-component>
 
         </div>
         <div v-if="!($gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
@@ -497,6 +499,7 @@
                 },
                 num:1,
                 editmode: false,
+                contact:false,
                 coronas:{},
                 counties: {},
                 types: {},
@@ -564,19 +567,22 @@
             },
             edit(value) {
                 this.editmode = true;
+                this.contact = false;
                 this.form.reset();
                // $('#addNew').modal('show');
                 this.form.fill(value);
+                this.corona_id=this.form.id;
                 if(this.form.status_at=="0000-00-00")
                 {
                     this.form.status_at='';
                 }
                 this.markerLatLng.lat=this.form.lat;
                 this.markerLatLng.lng=this.form.lng;
-
+                Fire.$emit('contact');
             },
             closeForm(){
                 this.form.reset();
+                this.corona_id='';
                 this.editmode = false;
             },
             /**/
@@ -586,7 +592,7 @@
                 this.form.put('api/cd/corona/' + this.form.id)
                     .then(() => {
                         this.$emit('ValueTableChanged');
-                       this.closeForm();
+                       //this.closeForm();
                         toast.fire({
                             type: 'success',
                             title: 'اطلاعات با موفقیت ویرایش شد'
@@ -649,8 +655,8 @@
                             type: 'success',
                             title: 'اطلاعات با موقفیت ثبت شد'
                         });
-                       // this.form.reset();
-                        this.editmode=true;
+                        this.form.reset();
+                        this.editmode=false;
                         this.$Progress.finish();
 
                     })
@@ -756,6 +762,10 @@
             this.$on('pointSelected', () => {
 
                 this.point_selected = true;
+            });
+            this.$on('contact', () => {
+
+                Fire.$emit('contact');
             });
 
         }

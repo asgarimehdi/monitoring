@@ -1,13 +1,21 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-
-        <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-12">
+                        <h1 class="m-0 text-dark">مدیریت مواجهین</h1>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <div id="contact" class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
-اطلاعات مواجهین
+                            اطلاعات مواجهین
                         </h3>
 
 
@@ -25,19 +33,13 @@
                             </tr>
                             <tr v-for="(finil , index) in finils.data" :key="index" class="small">
 
-                                <td>{{finil.full_name}}</td>
-
-
-
-
-
-
+                                <td>{{finil.national_code}}</td>
                                 <td>
-                                    <a href="#" @click="edit(finil)" >
+                                    <a href="#contact" @click="edit(finil)" >
                                         <i class="fa fa-edit blue"></i>
                                     </a>
                                     /
-                                    <a href="#" @click="deleteValue(finil.id)">
+                                    <a href="#contact" @click="deleteValue(finil.id)">
                                         <i class="fa fa-trash red"></i>
                                     </a>
                                 </td>
@@ -97,9 +99,9 @@
 
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-danger" @click="closeForm()" type="button">بستن</button>
-                            <button class="btn btn-primary" type="submit" v-show="!editmode">ثبت</button>
-                            <button class="btn btn-success" type="submit" v-show="editmode">ویرایش</button>
+
+                            <button class="btn btn-primary" type="submit" v-show="!editmode">ثبت مواجه</button>
+                            <button class="btn btn-warning" type="submit" v-show="editmode">ویرایش مواجه</button>
                         </div>
                     </form>
                 </div>
@@ -109,7 +111,7 @@
                     <l-map
                         :zoom="zoom"
                         :center="center"
-                        style="height:450px;width:100%"
+                        style="height:350px;width:100%"
                         @update:center="centerUpdate"
                         @update:zoom="zoomUpdate"
                     >
@@ -206,7 +208,7 @@
                 this.form.lng=this.markerLatLng.lng.toFixed(6);
             },
             getResults(page = 1) {
-                axios.get('api/cd/finil/PaginateByCounty?page=' + page)
+                axios.get('api/cd/corona/contact/PaginateByCounty/'+this.corona_id+'/?page=' + page)
                     .then(response => {
                         this.finils = response.data;
                     });
@@ -229,7 +231,7 @@
             updateValue() {
                 this.$Progress.start();
 
-                this.form.put('api/cd/finil/' + this.form.id)
+                this.form.put('api/cd/corona/contact/' + this.form.id)
                     .then(() => {
                         this.$emit('ValueTableChanged');
                        this.closeForm();
@@ -256,7 +258,7 @@
                     cancelButtonText: 'بیخیال'
                 }).then((result) => {
                     if (result.value) {
-                        this.form.delete('/api/cd/finil/' + id).then(() => {
+                        this.form.delete('/api/cd/corona/contact/' + id).then(() => {
                             swal.fire(
                                 'پاک شد',
                                 'با موفقیت حذف شد',
@@ -273,7 +275,7 @@
             loadValues() {
                 if (this.$gate.isAdminOrGroup_admin()) {
                     this.$Progress.start();
-                    axios.get("api/cd/finil/PaginateByCounty").then(({data}) => (this.finils = data)).then(() => {
+                    axios.get("api/cd/corona/contact/PaginateByCounty/"+this.corona_id).then(({data}) => (this.finils = data)).then(() => {
                         this.$Progress.finish();
                     }).catch(() => {
                         this.$Progress.fail();
@@ -305,26 +307,20 @@
             },
         },
         created() {
-
-            Fire.$on('searching', () => {
-                let query = this.$parent.search;
-                axios.get('api/cd/finil/findValue?q=' + query)
-                    .then((data) => {
-                        this.finils = data.data
-                    })
-                    .catch(() => {
-
-                    })
-            });
             this.loadValues();
-            //this.loadItems();
-
-            this.$on('ValueTableChanged', () => {
+            Fire.$on('contact', () => {
                 this.loadValues();
+                this.form.corona_id=this.corona_id;
             });
-
-
-        }
+            //setInterval(this.loadValues, 3000);
+        },
+        /*watch: {
+            immediate: true,
+            deep: true,
+            corona_id: function () {
+                return this.corona_idd
+            }
+        }*/
 
     }
 </script>

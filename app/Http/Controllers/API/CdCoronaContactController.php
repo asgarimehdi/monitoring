@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Cd_corona;
+use App\Cd_finil;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cd_corona_contact;
@@ -23,7 +24,13 @@ class CdCoronaContactController extends Controller
     {
         //
     }
+    public function paginateByCounty($corona_id)
+    {
 
+            return    Cd_corona_contact::where('corona_id','=',$corona_id)
+                ->paginate(10);
+
+    }
     public function add(Request $request)
     {
         //
@@ -57,13 +64,8 @@ class CdCoronaContactController extends Controller
     }
     public function delete($id)
     {
-        //$this->authorize('isAdmin');
-
         $county = Cd_corona_contact::findOrFail($id);
-        // delete the County
-
         $county->delete();
-
         return ['message' => 'Value Deleted'];
     }
 }
