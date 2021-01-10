@@ -1,12 +1,13 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
+
         <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
-            <div class="col-md-12">
+            <div class="col-md-2">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
-
+اطلاعات مواجهین
                         </h3>
 
 
@@ -18,9 +19,7 @@
                             <tr>
 
                                 <th>نام</th>
-                                <th>تاریخ تولد</th>
-                                <th>تاریخ تشخیص</th>
-                                <th>مرکز تحت پوشش</th>
+
                                 <th>تغییر</th>
 
                             </tr>
@@ -30,13 +29,7 @@
 
 
 
-                                <td>{{finil.birth_at|myDate1}}</td>
-                                <td>{{finil.diagnosis_at|myDate1}}</td>
-                                <td>
-                                    {{finil.region_point.region_center.region_county.name}} -
-                                    {{finil.region_point.region_center.name}} -
-                                    {{finil.region_point.name}}
-                                </td>
+
 
 
                                 <td>
@@ -62,15 +55,13 @@
                 </div>
                 <!-- /.card -->
             </div>
-        </div>
-        <div class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
 
                     <form @submit.prevent="editmode ? updateValue() : createValue()">
                         <div class="card-header">
-                            <h5 class="card-title" v-show="editmode">ویرایش اطلاعات </h5>
-                            <h5 class="card-title" v-show="!editmode">ثبت اطلاعات جدید</h5>
+                            <h5 class="card-title" v-show="editmode">ویرایش اطلاعات مواجه</h5>
+                            <h5 class="card-title" v-show="!editmode">ثبت اطلاعات مواجه جدید</h5>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

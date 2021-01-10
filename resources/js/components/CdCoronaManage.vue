@@ -416,7 +416,8 @@
                             tileProviders[3].visible=false" class="btn bg-info btn-sm" type="button">
                         <i class="fa fa-map-pin small"></i>
                     </button>
-                </div></div>
+                </div>
+                </div>
                 </div>
             </div>
 
