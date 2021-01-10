@@ -308,9 +308,12 @@
         },
         created() {
             this.loadValues();
-            Fire.$on('contact', () => {
+            this.$on('contact', () => {
                 this.loadValues();
                 this.form.corona_id=this.corona_id;
+            });
+            this.$on('ValueTableChanged', () => {
+                this.loadValues();
             });
             //setInterval(this.loadValues, 3000);
         },

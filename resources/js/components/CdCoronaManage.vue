@@ -423,7 +423,7 @@
                 </div>
             </div>
 
-            <cd-corona-contact-manage-component ref="contact" :corona_id.sync="corona_id" v-if="corona_id" v-show="contact"></cd-corona-contact-manage-component>
+            <cd-corona-contact-manage-component ref="contact" :corona_id.sync="corona_id" v-if="corona_id && contact"></cd-corona-contact-manage-component>
 
         </div>
         <div v-if="!($gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir()))">
