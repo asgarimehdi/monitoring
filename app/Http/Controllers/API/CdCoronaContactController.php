@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Cd_corona;
-use App\Cd_finil;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cd_corona_contact;

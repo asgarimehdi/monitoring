@@ -657,6 +657,7 @@
                         });
                         this.form.reset();
                         this.editmode=false;
+                        this.contact=true;
                         this.$Progress.finish();
 
                     })
