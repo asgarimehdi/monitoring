@@ -376,7 +376,7 @@
                             تعداد کل موارد ثبتی:
                             {{stats['count_all']}}
                             <br>
-                            تعداد کل موارد منتظر آزمایش:
+                             موارد منتظر آزمایش:
                             {{stats['count_mashkok']}}
                             <br>
                             <span v-if="stats['count']>0">
@@ -500,6 +500,11 @@
                                 تاریخ مرگ یا بهبود:
                             {{marker.status_at|myDate2}}
                             </span>
+                            <hr/>
+                            <span v-if="(marker.cd_corona_contact !=undefined)">
+
+                            {{marker.cd_corona_contact}}
+                            </span>
 
 
 
@@ -511,10 +516,12 @@
                         />
 
                     </l-marker>
-                      <l-polyline :color="polyline.color" :lat-lngs="marker.exp" :opacity="0.7"
-                                  v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"></l-polyline>
+<!--                      <l-polyline :color="polyline.color"
+                                  :lat-lngs="polyline.latlngs"
+                                  :opacity="0.7"
+                                  ></l-polyline>-->
 
-                    <l-circle :lat-lng="marker"
+<!--                    <l-circle :lat-lng="marker"
                               :opacity="0.6"
                               :radius="marker.expose.length"
                               color="blue"
@@ -525,10 +532,10 @@
                                   :radius="marker.expose.length"
                                   color="green"
                                   v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length == 0)&&(mapWatch(marker)))"
-                        />
+                        />-->
 
     </span>
-                        <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
+<!--                        <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
                     <l-marker :lat-lng="marker2" @click="
                     loadStatByPoint(marker2.id,marker2.type_id,marker2.center_id,marker2.region_center.county_id),
                     selectedPoint=marker2.name,
@@ -565,9 +572,35 @@
                     </l-marker>
 
 
-    </span>
+    </span>-->
                         <!-- <l-polygon :lat-lngs="polygon.latlngs" :color="polygon.color"></l-polygon>
                          <l-polygon :lat-lngs="polygon2.latlngs" :color="polygon2.color"></l-polygon>-->
+                        <span :key="index" v-for="(con,index) in contacts">
+                    <l-marker :lat-lng="con">
+
+                        <l-popup class="vazir">
+             <span class="label-info">
+               {{con.national_code}}
+             </span>
+
+
+                            تاریخ ثبت:
+                            {{con.created_at|myDate2}}
+
+
+
+
+
+                        </l-popup>
+                        <l-icon
+                            icon-url='/images/vendor/leaflet/dist/marker-icon.png'
+                            shadow-url='/images/vendor/leaflet/dist/marker-shadow.png'
+                        />
+
+                    </l-marker>
+
+
+    </span>
                     </l-map>
                 </div>
             </div>
@@ -681,6 +714,7 @@
                 user_county_id: '',
                 markers: {},
                 markers2: {},
+                contacts: {},
                 zoom: 9,
                 center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
 
@@ -741,6 +775,31 @@
 
                         type: 'error',
                         title: 'خطایی در لود نقاط رخ داد'
+
+                    });
+                    this.$Progress.fail();
+                });
+
+
+            },
+            loadContacts() {
+                this.$Progress.start();
+                if (this.$gate.isOstan()) {
+                    this.user_county_id = this.county_id;
+                    if(this.user_county_id==='') this.user_county_id='all';
+                } else {
+                    this.user_county_id = this.$gate.user.region_point.region_center.county_id;
+                    this.zoom = 10;
+                }
+
+                axios.get("/api/cd/corona/contact/show").then(({data}) => (this.contacts = data)).then(() => {
+                    //  console.log(this.markers);
+                    this.$Progress.finish();
+                }).catch(() => {
+                    toast.fire({
+
+                        type: 'error',
+                        title: 'خطایی در لود مواجهین رخ داد'
 
                     });
                     this.$Progress.fail();
@@ -1058,6 +1117,7 @@
             this.day = this.nDay;
             this.loadCounties();
             this.loadTemps();
+            this.loadContacts();
             this.loadStat();
             this.loadPoints();
 

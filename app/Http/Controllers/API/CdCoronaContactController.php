@@ -68,4 +68,14 @@ class CdCoronaContactController extends Controller
         $county->delete();
         return ['message' => 'Value Deleted'];
     }
+    public function show()
+    {
+
+              //
+            $items=   Cd_corona_contact::get();
+
+            return   $items;
+
+
+    }
 }

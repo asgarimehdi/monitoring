@@ -177,7 +177,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'cd_corona_contact:corona_id,lat,lng'
             ])
                 ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                     // Query the name field in status table

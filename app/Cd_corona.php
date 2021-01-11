@@ -24,6 +24,6 @@ class Cd_corona extends Model
     }
     public function Cd_corona_contact()
     {
-        return $this->hasMany('App\Cd_corona_contact');
+        return $this->hasMany('App\Cd_corona_contact','corona_id');
     }
 }
