@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 
 
+use App\Cd_corona_contact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -51,7 +52,7 @@ class CdController extends Controller
             'diagnosis'=> 'required|numeric',
             'status'=> 'required|numeric',
 
-            'expose'=> 'regex:/^((\d{10})[,;])*(\d{10})$/|nullable',
+            //'expose'=> 'regex:/^((\d{10})[,;])*(\d{10})$/|nullable',
             'point_id'=> 'required|numeric',
 
             'lat' => 'required|numeric|max:60|min:5',
@@ -81,7 +82,7 @@ class CdController extends Controller
             'situation'=> 'required|numeric',
             'diagnosis'=> 'required|numeric',
             'status'=> 'required|numeric',
-            'expose'=> 'regex:/^((\d{10})[,;])*(\d{10})$/|nullable',
+            //'expose'=> 'regex:/^((\d{10})[,;])*(\d{10})$/|nullable',
             'point_id'=> 'required|numeric',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
@@ -96,10 +97,14 @@ class CdController extends Controller
     {
         //$this->authorize('isAdmin');
 
-        $county = Cd_corona::findOrFail($id);
-        // delete the County
 
-        $county->delete();
+        $corona = Cd_corona::findOrFail($id);
+        //$corona->national_code;
+        $corona->delete();
+
+        $contact = Cd_corona_contact::where('corona_id', $id); // delete movajehin
+        $contact->delete();
+
 
         return ['message' => 'Value Deleted'];
     }

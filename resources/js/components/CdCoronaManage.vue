@@ -223,7 +223,7 @@
                                 </div>
                                 <has-error :form="form" field="status"></has-error>
                             </div>
-                            <div class="input-group mb-3">
+<!--                            <div class="input-group mb-3">
                                 <input :class="{ 'is-invalid': form.errors.has('expose') }" class="form-control" name="expose"
                                        placeholder="با کاما انگلیسی جدا شود"
                                        type="text" v-model="form.expose">
@@ -231,7 +231,7 @@
                                     <span class="input-group-text pl-5">کد ملی مواجهین</span>
                                 </div>
                                 <has-error :form="form" field="expose"></has-error>
-                            </div>
+                            </div>-->
                             <div class="input-group mb-3" v-if="(point_selected) || (!editmode)">
 
                                 <select name="county_id" v-model="form.county_id" id="county_id" class="form-control"
@@ -523,7 +523,7 @@
                     hospitalization: '',
                     situation: '',
                     status: '',
-                    expose: '',
+                    //expose: '',
                     lat: '',
                     lng: '',
                     county_id: '',
