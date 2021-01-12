@@ -72,7 +72,10 @@ class CdCoronaContactController extends Controller
     {
 
               //
-            $items=   Cd_corona_contact::get();
+            $items=   Cd_corona_contact::with([
+                'Cd_corona:id,lat,lng',
+
+            ])->get();
 
             return   $items;
 

@@ -506,9 +506,6 @@
                             {{marker.cd_corona_contact}}
                             </span>
 
-
-
-
                         </l-popup>
                         <l-icon
                             :icon-url=iconCheck(marker)
@@ -516,81 +513,20 @@
                         />
 
                     </l-marker>
-<!--                      <l-polyline :color="polyline.color"
-                                  :lat-lngs="polyline.latlngs"
-                                  :opacity="0.7"
-                                  ></l-polyline>-->
 
-<!--                    <l-circle :lat-lng="marker"
-                              :opacity="0.6"
-                              :radius="marker.expose.length"
-                              color="blue"
-                              v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length > 0)&&(mapWatch(marker)))"
-                    />
-                        <l-circle :lat-lng="marker"
-                                  :opacity="0.6"
-                                  :radius="marker.expose.length"
-                                  color="green"
-                                  v-if="((marker.expose !=undefined) &&(marker.exp!=undefined) &&(marker.exp.length == 0)&&(mapWatch(marker)))"
-                        />-->
 
     </span>
-<!--                        <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
-                    <l-marker :lat-lng="marker2" @click="
-                    loadStatByPoint(marker2.id,marker2.type_id,marker2.center_id,marker2.region_center.county_id),
-                    selectedPoint=marker2.name,
-                    population=marker2.population,
-                    population=marker2.develop.population">
 
-
-                        <l-icon
-                            :icon-url=iconCheck2(marker2)
-                            :iconSize="[40, 40]"
-                        />
-<l-popup class="vazir">
-             <span class="label-info">
-               {{marker2.name}}
-             </span>
-    <br>
-
-    {{marker2.region_center.name}}
-    <br>
-
-
-            <span v-if="marker2.develop!=undefined">
-                   جمعیت تحت پوشش:
-               {{marker2.develop.population}}
-                    <br/>
-            </span>
-            <span v-if="marker2.population!=undefined">
-                   جمعیت تحت پوشش:
-               {{marker2.population}}
-                    <br/>
-            </span>
-</l-popup>
-
-                    </l-marker>
-
-
-    </span>-->
-                        <!-- <l-polygon :lat-lngs="polygon.latlngs" :color="polygon.color"></l-polygon>
-                         <l-polygon :lat-lngs="polygon2.latlngs" :color="polygon2.color"></l-polygon>-->
-                        <span :key="index" v-for="(con,index) in contacts">
+                        <span  v-for="con in contacts">
                     <l-marker :lat-lng="con">
 
                         <l-popup class="vazir">
              <span class="label-info">
                {{con.national_code}}
              </span>
-
-
+                            <br/>
                             تاریخ ثبت:
                             {{con.created_at|myDate2}}
-
-
-
-
-
                         </l-popup>
                         <l-icon
                             icon-url='/images/vendor/leaflet/dist/marker-icon.png'
@@ -598,7 +534,10 @@
                         />
 
                     </l-marker>
-
+                    <l-polyline :color="polyline.color"
+                                :lat-lngs="[[con.cd_corona.lat,con.cd_corona.lng],[con.lat,con.lng]]"
+                                :opacity="0.7"
+                    ></l-polyline>
 
     </span>
                     </l-map>
