@@ -68,14 +68,41 @@ class CdCoronaContactController extends Controller
         $county->delete();
         return ['message' => 'Value Deleted'];
     }
-    public function show()
+    public function show($date_from, $date_to,$county_id)
     {
+        $user_point_type_id=Auth::user()->region_point->type_id;
+        $user_point_id=Auth::user()->point_id;
+        $user_center_id=Auth::user()->region_point->center_id;
 
               //
             $items=   Cd_corona_contact::with([
                 'Cd_corona:id,lat,lng',
 
-            ])->get();
+            ])
+                ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
+                    return $query->whereHas('Cd_corona.Region_point', function ($q) use ($user_point_id) {
+                        // Query the name field in status table
+                        $q->where('point_id', '=', $user_point_id)->orWhere('id', '=', $user_point_id);
+                    });
+                })
+                ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                    return $query->whereHas('Cd_corona.Region_point', function ($q) use ($user_center_id) {
+                        // Query the name field in status table
+                        $q->where('center_id', '=', $user_center_id);
+                    });
+                })
+                ->when(($county_id != 'all'), function ($query) use ($county_id) {
+                    return $query->whereHas('Cd_corona.Region_point.Region_center', function ($q) use ($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    });
+                })
+
+                ->whereHas('Cd_corona', function($q) use($date_from, $date_to) {
+                    // Query the name field in status table
+                    $q->whereBetween('created_at', [$date_from, $date_to]); // '=' is optional
+                })
+                ->get();
 
             return   $items;
 

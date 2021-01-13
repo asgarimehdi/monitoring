@@ -143,4 +143,4 @@ Route::post('/cd/corona/contact', 'API\CdCoronaContactController@add');
 Route::put('/cd/corona/contact/{id}', 'API\CdCoronaContactController@update');
 Route::delete('/cd/corona/contact/{id}', 'API\CdCoronaContactController@delete');
 Route::get('/cd/corona/contact/PaginateByCounty/{corona_id}', 'API\CdCoronaContactController@paginateByCounty');
-Route::get('/cd/corona/contact/show', 'API\CdCoronaContactController@show');
+Route::get('/cd/corona/contact/show/{date_from}/{date_to}/{county_id}', 'API\CdCoronaContactController@show');

@@ -255,7 +255,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+<!--                                <div class="row">
                                     <div class="col-8">
                                         ارتباطات
                                     </div>
@@ -263,7 +263,7 @@
                                         <toggle-button :labels="{checked: 'بله', unchecked: 'خیر'}" :value="true"
                                                        :height="16" v-model="show_related" @change="loadTemps()" />
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="row">
                                     <div class="col-8 p-1">
                                         تغییرات اخیر
@@ -500,11 +500,6 @@
                                 تاریخ مرگ یا بهبود:
                             {{marker.status_at|myDate2}}
                             </span>
-                            <hr/>
-                            <span v-if="(marker.cd_corona_contact !=undefined)">
-
-                            {{marker.cd_corona_contact}}
-                            </span>
 
                         </l-popup>
                         <l-icon
@@ -513,7 +508,12 @@
                         />
 
                     </l-marker>
-
+<l-circle :lat-lng="marker"
+          :opacity="0.6"
+          :radius="marker.exp *10"
+          color="blue"
+          v-if="((marker.exp !=undefined)&&(marker.exp >0))"
+/>
 
     </span>
 
@@ -633,7 +633,7 @@
                 show_status_icu: true,
                 show_latest: false,
                 show_timeSeries: false,
-                show_related: false,
+                show_related: true,
                 // show_corona_sarpaei: true,
                 // show_corona_mashkok_sarpaei: true,
                 //  show_corona_mashkok_bastari: true,
@@ -731,7 +731,7 @@
                     this.zoom = 10;
                 }
 
-                axios.get("/api/cd/corona/contact/show").then(({data}) => (this.contacts = data)).then(() => {
+                axios.get("/api/cd/corona/contact/show/"+ this.date_from + "/" + this.date_to+ "/"+ this.user_county_id).then(({data}) => (this.contacts = data)).then(() => {
                     //  console.log(this.markers);
                     this.$Progress.finish();
                 }).catch(() => {

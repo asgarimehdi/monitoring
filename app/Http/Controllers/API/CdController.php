@@ -131,20 +131,9 @@ class CdController extends Controller
                 ->get();
             if ($related=='true') {
                 foreach($items as $item) {
-                if ($item['expose']) {
-
-                    $national_code = $item['national_code'];
-                    $exp = Cd_corona::select('lat', 'lng')->where('expose', 'like', "%$national_code%")->get();
-                    if ($exp->count() > 0) {
-                        $x = new class
-                        {
-                        };
-                        $x->lat = $item['lat'];
-                        $x->lng = $item['lng'];
-                        $exp->push($x);
-                    }
+                    $corona_id = $item['id'];
+                    $exp = Cd_corona_contact::select('id')->where('corona_id', "$corona_id")->count();
                     $item->exp = $exp;
-                }
                 }
             }
             return   $items;
@@ -188,21 +177,12 @@ class CdController extends Controller
                 ->get();
         }
         if ($related=='true') {
-        foreach($items as $item){
-            if ($item['expose']) {
-                $national_code = $item['national_code'];
-                $exp = Cd_corona::select('lat', 'lng')->where('expose', 'like', "%$national_code%")->get();
-                if ($exp->count() > 0) {
-                    $x = new class
-                    {
-                    };
-                    $x->lat = $item['lat'];
-                    $x->lng = $item['lng'];
-                    $exp->push($x);
-                }
+            foreach($items as $item) {
+                $corona_id = $item['id'];
+                $exp = Cd_corona_contact::select('id')->where('corona_id', "$corona_id")->count();
                 $item->exp = $exp;
             }
-        }}
+        }
 
         return   $items;
     }
