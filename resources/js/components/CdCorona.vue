@@ -529,7 +529,7 @@
                             {{con.created_at|myDate2}}
                         </l-popup>
                         <l-icon
-                            icon-url='/images/vendor/leaflet/dist/marker-icon.png'
+                            icon-url='/images/vendor/leaflet/dist/marker-contact.png'
                             shadow-url='/images/vendor/leaflet/dist/marker-shadow.png'
                         />
 
