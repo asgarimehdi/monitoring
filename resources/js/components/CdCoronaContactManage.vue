@@ -307,7 +307,7 @@
             },
         },
         created() {
-            this.loadValues();
+            //this.loadValues();
             this.$on('contact', () => {
                 this.loadValues();
                 this.form.corona_id=this.corona_id;
