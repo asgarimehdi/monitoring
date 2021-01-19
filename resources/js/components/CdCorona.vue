@@ -722,6 +722,7 @@
 
             },
             loadContacts() {
+
                 this.$Progress.start();
                 if (this.$gate.isOstan()) {
                     this.user_county_id = this.county_id;
@@ -732,7 +733,7 @@
                 }
 
                 axios.get("/api/cd/corona/contact/show/"+ this.date_from + "/" + this.date_to+ "/"+ this.user_county_id).then(({data}) => (this.contacts = data)).then(() => {
-                    //  console.log(this.markers);
+                      console.log(this.contacts);
                     this.$Progress.finish();
                 }).catch(() => {
                     toast.fire({

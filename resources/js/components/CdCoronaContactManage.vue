@@ -273,7 +273,7 @@
                 })
             },
             loadValues() {
-                if (this.$gate.isAdminOrGroup_admin()) {
+
                     this.$Progress.start();
                     axios.get("api/cd/corona/contact/PaginateByCounty/"+this.corona_id).then(({data}) => (this.finils = data)).then(() => {
                         this.$Progress.finish();
@@ -284,7 +284,7 @@
                             title: 'خطایی در لود لیست فینیل رخ داد'
                         });
                     });
-                }
+
             },
             createValue() {
                 this.$Progress.start();
