@@ -466,6 +466,8 @@
                             {{1399-marker.birth}}
                             <br/>شغل:
                             {{marker.occupation}}
+                            <br/>تلفن تماس:
+                            {{marker.tel}}
                             <br/>
                             وضعیت بستری:
                             {{hospitalizationCheck(marker.hospitalization)}}

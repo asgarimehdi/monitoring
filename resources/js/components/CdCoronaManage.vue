@@ -145,6 +145,15 @@
                                 <has-error :form="form" field="occupation"></has-error>
                             </div>
                             <div class="input-group mb-3">
+                                <input :class="{ 'is-invalid': form.errors.has('tel') }" class="form-control" name="tel"
+
+                                       type="text" v-model="form.tel">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">شماره تماس</span>
+                                </div>
+                                <has-error :form="form" field="tel"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
                                 <select :class="{ 'is-invalid': form.errors.has('hospitalization') }" class="form-control"
                                         name="hospitalization" v-model="form.hospitalization">
 
@@ -519,6 +528,7 @@
                     birth: '',
                     sex: '',
                     occupation: '',
+                    tel: '',
                     diagnosis: '',
                     hospitalization: '',
                     situation: '',

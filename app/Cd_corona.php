@@ -8,7 +8,7 @@ class Cd_corona extends Model
 {
     //
     protected $fillable = [
-        'id','national_code','first_name','last_name','sex','birth','occupation','hospitalization','situation','diagnosis','status','expose','point_id','user_id','lat','lng','diagnosis_at','status_at'
+        'id','national_code','first_name','last_name','sex','birth','occupation','tel','hospitalization','situation','diagnosis','status','expose','point_id','user_id','lat','lng','diagnosis_at','status_at'
     ];
     protected $casts = [
         'expose' => 'array'
