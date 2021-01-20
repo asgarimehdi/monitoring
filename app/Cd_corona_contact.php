@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cd_corona_contact extends Model
 {
     protected $fillable = [
-        'id','national_code','corona_id','user_id','lat','lng'
+        'id','national_code','first_name','last_name','tel','corona_id','user_id','lat','lng'
     ];
     public function User()
     {

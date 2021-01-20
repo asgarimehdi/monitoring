@@ -11,7 +11,7 @@
             </div><!-- /.container-fluid -->
         </div>
         <div id="contact" class="row" v-if="$gate.isAdmin()||$gate.isBehvarz()||$gate.isKarshenasNazer()||($gate.isGroup_admin() && $gate.isBimaVagir())">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">
@@ -31,15 +31,15 @@
                                 <th>تغییر</th>
 
                             </tr>
-                            <tr v-for="(finil , index) in finils.data" :key="index" class="small">
+                            <tr v-for="(contact , index) in contacts.data" :key="index" class="small">
 
-                                <td>{{finil.national_code}}</td>
+                                <td>{{contact.first_name}} {{contact.last_name}}</td>
                                 <td>
-                                    <a href="#contact" @click="edit(finil)" >
+                                    <a href="#contact" @click="edit(contact)" >
                                         <i class="fa fa-edit blue"></i>
                                     </a>
                                     /
-                                    <a href="#contact" @click="deleteValue(finil.id)">
+                                    <a href="#contact" @click="deleteValue(contact.id)">
                                         <i class="fa fa-trash red"></i>
                                     </a>
                                 </td>
@@ -51,7 +51,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
 
-                        <pagination :data="finils" size="small" :limit="8" @pagination-change-page="getResults"></pagination>
+                        <pagination :data="contacts" size="small" :limit="8" @pagination-change-page="getResults"></pagination>
 
                     </div>
                 </div>
@@ -75,6 +75,33 @@
                                     <span class="input-group-text pl-5">کدملی</span>
                                 </div>
                                 <has-error :form="form" field="national_code"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input :class="{ 'is-invalid': form.errors.has('first_name') }" class="form-control" name="first_name"
+
+                                       type="text" v-model="form.first_name">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">نام</span>
+                                </div>
+                                <has-error :form="form" field="first_name"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input :class="{ 'is-invalid': form.errors.has('last_name') }" class="form-control" name="last_name"
+
+                                       type="text" v-model="form.last_name">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">نام خانوادگی</span>
+                                </div>
+                                <has-error :form="form" field="last_name"></has-error>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input :class="{ 'is-invalid': form.errors.has('tel') }" class="form-control" name="tel"
+
+                                       type="text" v-model="form.tel">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pl-5">شماره تماس</span>
+                                </div>
+                                <has-error :form="form" field="tel"></has-error>
                             </div>
 
                             <div class="input-group mb-3">
@@ -106,7 +133,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     <l-map
                         :zoom="zoom"
@@ -172,7 +199,7 @@
                 num:1,
                 editmode: false,
 
-                finils:{},
+                contacts:{},
                 counties: {},
                 types: {},
                 centers: {},
@@ -186,6 +213,9 @@
                     id: '',
 
                     national_code: '',
+                    first_name: '',
+                    last_name: '',
+                    tel: '',
                     corona_id:this.corona_id,
                     lat: '',
                     lng: '',
@@ -210,7 +240,7 @@
             getResults(page = 1) {
                 axios.get('api/cd/corona/contact/PaginateByCounty/'+this.corona_id+'/?page=' + page)
                     .then(response => {
-                        this.finils = response.data;
+                        this.contacts = response.data;
                     });
             },
 
@@ -275,7 +305,7 @@
             loadValues() {
 
                     this.$Progress.start();
-                    axios.get("api/cd/corona/contact/PaginateByCounty/"+this.corona_id).then(({data}) => (this.finils = data)).then(() => {
+                    axios.get("api/cd/corona/contact/PaginateByCounty/"+this.corona_id).then(({data}) => (this.contacts = data)).then(() => {
                         this.$Progress.finish();
                     }).catch(() => {
                         this.$Progress.fail();

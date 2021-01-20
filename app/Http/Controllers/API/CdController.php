@@ -59,7 +59,7 @@ class CdController extends Controller
             'lng' => 'required|numeric|max:60|min:5',
             'diagnosis_at' => 'required|date',
             'status_at' => 'required_if:status,2,3|date|nullable',
-            'tel' => 'required|numeric|nullable|regex:/(0)[0-9]{10}/',
+            'tel' => 'required|numeric|nullable|max:9999999999|regex:/(0)[0-9]{10}/',
 
         ]);
 
@@ -89,7 +89,7 @@ class CdController extends Controller
             'lng' => 'required|numeric|max:60|min:5',
             'diagnosis_at' => 'required|date',
             'status_at' => 'required_if:status,2,3|date|nullable',
-            'tel' => 'required|numeric|nullable|regex:/(0)[0-9]{10}/',
+            'tel' => 'required|numeric|max:9999999999|nullable|regex:/(0)[0-9]{10}/',
         ]);
         $request->merge(['user_id' => Auth::user()->id]);
         $corona->update($request->all());

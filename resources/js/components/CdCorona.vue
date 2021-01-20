@@ -524,8 +524,14 @@
 
                         <l-popup class="vazir">
              <span class="label-info">
-               {{con.national_code}}
+               {{con.first_name}} {{con.last_name}}
              </span>
+                            <br/>
+                            کد ملی:
+                            {{con.national_code}}
+                            <br/>
+                            شماره تماس:
+                            {{con.tel}}
                             <br/>
                             تاریخ ثبت:
                             {{con.created_at|myDate2}}
@@ -735,7 +741,7 @@
                 }
 
                 axios.get("/api/cd/corona/contact/show/"+ this.date_from + "/" + this.date_to+ "/"+ this.user_county_id).then(({data}) => (this.contacts = data)).then(() => {
-                      console.log(this.contacts);
+                      //console.log(this.contacts);
                     this.$Progress.finish();
                 }).catch(() => {
                     toast.fire({

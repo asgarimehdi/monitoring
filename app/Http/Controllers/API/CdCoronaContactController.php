@@ -35,9 +35,11 @@ class CdCoronaContactController extends Controller
     {
         //
         $this->validate($request,[
+            'corona_id' => 'required|numeric',
             'national_code' => ['required','string','max:10','min:10', 'unique:cd_corona_contacts,national_code,NULL,id,corona_id,'.$request->input('corona_id')],
-
-
+            'first_name'=> 'required|string',
+            'last_name'=> 'required|string',
+            'tel' => 'required|numeric|nullable|max:9999999999|regex:/(0)[0-9]{10}/',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
 
@@ -52,8 +54,11 @@ class CdCoronaContactController extends Controller
     {
         $corona = Cd_corona_contact::findOrFail($id);
         $this->validate($request,[
+            'corona_id' => 'required|numeric',
             'national_code' => ['required','string','max:10','min:10', 'unique:cd_corona_contacts,national_code,NULL,id,corona_id,'.$corona->id],
-
+            'first_name'=> 'required|string',
+            'last_name'=> 'required|string',
+            'tel' => 'required|numeric|nullable|max:9999999999|regex:/(0)[0-9]{10}/',
             'lat' => 'required|numeric|max:60|min:5',
             'lng' => 'required|numeric|max:60|min:5',
 
