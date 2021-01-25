@@ -548,6 +548,40 @@
                     ></l-polyline>
 
     </span>
+                        <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
+                    <l-marker :lat-lng="marker2" >
+
+
+                        <l-icon
+                            :icon-url=iconCheck2(marker2)
+                            :iconSize="[40, 40]"
+                        />
+<l-popup class="vazir">
+             <span class="label-info">
+               {{marker2.name}}
+             </span>
+    <br>
+
+    {{marker2.region_center.name}}
+    <br>
+
+
+            <span v-if="marker2.develop!=undefined">
+                   جمعیت تحت پوشش:
+               {{marker2.develop.population}}
+                    <br/>
+            </span>
+            <span v-if="marker2.population!=undefined">
+                   جمعیت تحت پوشش:
+               {{marker2.population}}
+                    <br/>
+            </span>
+</l-popup>
+
+                    </l-marker>
+
+
+    </span>
                     </l-map>
                 </div>
             </div>
