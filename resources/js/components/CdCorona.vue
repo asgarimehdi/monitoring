@@ -549,7 +549,11 @@
 
     </span>
                         <span v-for="marker2 in markers2" v-if="mapWatch2(marker2)">
-                    <l-marker :lat-lng="marker2" >
+                    <l-marker :lat-lng="marker2" @click="
+                    loadStatByPoint(marker2.id,marker2.type_id,marker2.center_id,marker2.region_center.county_id),
+                    selectedPoint=marker2.name,
+                    population=marker2.population,
+                    population=marker2.develop.population">
 
 
                         <l-icon
