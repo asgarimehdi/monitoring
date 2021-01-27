@@ -82,6 +82,7 @@ class CdCoronaContactController extends Controller
               //
             $items=   Cd_corona_contact::with([
                 'Cd_corona:id,lat,lng',
+                'user:id,name'
 
             ])
                 ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {

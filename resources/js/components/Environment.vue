@@ -14,12 +14,14 @@
                         <date-picker  :auto-submit="true"
                                       v-model="date_from"
                                       format="YYYY-MM-DD"
+                                      displayFormat="jYYYY/jMM/jDD"
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-3" >
                         <date-picker  :auto-submit="true"
                                       v-model="date_to"
                                       format="YYYY-MM-DD"
+                                      displayFormat="jYYYY/jMM/jDD"
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0">
@@ -387,7 +389,7 @@
 
 
 
-                date_to: new Date().toISOString().slice(0,10),
+                date_to: moment(new Date()).subtract(-1, 'days').format('YYYY-MM-DD'),
                 date_from:moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD') ,
 
 

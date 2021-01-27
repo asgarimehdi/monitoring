@@ -502,6 +502,9 @@
                                 تاریخ مرگ یا بهبود:
                             {{marker.status_at|myDate2}}
                             </span>
+                            <br/>
+                            ثبت کننده:
+                            {{marker.user.name}}
 
                         </l-popup>
                         <l-icon
@@ -535,6 +538,10 @@
                             <br/>
                             تاریخ ثبت:
                             {{con.created_at|myDate2}}
+
+                            <br/>
+                            ثبت کننده:
+                            {{con.user.name}}
                         </l-popup>
                         <l-icon
                             icon-url='/images/vendor/leaflet/dist/marker-contact.png'
@@ -656,7 +663,8 @@
 
                     },
                 ],
-                date_to: new Date().toISOString().slice(0,10),
+                date_to: moment(new Date()).subtract(-1, 'days').format('YYYY-MM-DD'),
+                //date_to: new Date().toISOString().slice(0,10),
                 date_from:moment(new Date()).subtract(4, 'days').format('YYYY-MM-DD') ,
                 counties: {},
                 county_id: "",

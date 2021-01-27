@@ -88,20 +88,22 @@
                             <br/>
                             دما:
                             {{marker.device.temp}}
-                            <br/>
+<!--                            <br/>
                             برق:
 
                             {{powerCheck(marker.device.power)}}
+
                             <br/>
 
                             سنسور:
 
                             {{sensorCheck(marker.device.sensor)}}
+                            -->
                             <br/>
 
                             آخرین اتصال:
 
-                            {{marker.device.updated_at|myDate}}
+                            {{marker.device.updated_at|myDate4}}
                             <br/>
 
 
