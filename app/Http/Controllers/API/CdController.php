@@ -146,7 +146,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
                 ->where('point_id','=',$user_point_id)
                 ->whereBetween('created_at', [$date_from, $date_to])
@@ -156,7 +157,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
                 ->whereHas('Region_point', function($q) use($user_center_id) {
                     // Query the name field in status table
@@ -170,7 +172,8 @@ class CdController extends Controller
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
                 'region_point.region_center.region_county:id,name',
-                'cd_corona_contact:corona_id,lat,lng'
+                'cd_corona_contact:corona_id,lat,lng',
+                'user:id,name'
             ])
                 ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                     // Query the name field in status table
@@ -199,7 +202,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
                 ->where('point_id','=',$user_point_id)
                 ->get();
@@ -208,7 +212,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
                 ->whereHas('Region_point', function($q) use($user_center_id) {
                     // Query the name field in status table
@@ -219,7 +224,8 @@ class CdController extends Controller
             $items=   Cd_corona::with([
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
                 ->whereHas('Region_point.Region_center', function($q) use($county_id) {
                     // Query the name field in status table
@@ -237,7 +243,8 @@ class CdController extends Controller
             [
                 'region_point:id,name,center_id',
                 'region_point.region_center:id,name,type_id,county_id',
-                'region_point.region_center.region_county:id,name'
+                'region_point.region_center.region_county:id,name',
+                'user:id,name'
             ])
             ->where('status','!=',3)
             ->where('diagnosis','=',1)
