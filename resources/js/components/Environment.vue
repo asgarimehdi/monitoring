@@ -443,6 +443,10 @@
                     10: true,
                     11: true,
                     12: true,
+                    13: true,
+                    14: true,
+                    15: true,
+                    16: true,
                 }),
             },
         },
@@ -553,15 +557,15 @@
             },
             mapWatch2(point) {
                 let x = [];
-                if (this.show_point_shabake) // agar corona mosbat bod
+                if (this.show_point_shabake) //
                 {
                     x[1] = point.type_id === 1;
                 }
-                if (this.show_point_marakez) // agar corona mosbat bod
+                if (this.show_point_marakez) //
                 {
                     x[2] = ((point.type_id === 2) || (point.type_id === 3) || (point.type_id === 4));
                 }
-                if (this.show_point_home) // agar corona mosbat bod
+                if (this.show_point_home) //
                 {
                     x[3] = point.type_id === 5;
                 }
