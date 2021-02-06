@@ -104,6 +104,7 @@
                                               v-model="form.diagnosis_at"
                                               format="YYYY-MM-DD"
                                               displayFormat="jYYYY/jMM/jDD"
+                                              :max="maxPicker"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ تشخیص</span>
@@ -115,6 +116,7 @@
                                               v-model="form.birth_at"
                                               format="YYYY-MM-DD"
                                               displayFormat="jYYYY/jMM/jDD"
+                                              :max="maxPicker"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ تولد</span>
@@ -273,6 +275,7 @@
     import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 
     import { latLng } from "leaflet";
+    var moment = require('moment-jalaali');
     export default {
 
 
@@ -287,7 +290,7 @@
         },
         data() {
             return {
-
+                maxPicker:moment(new Date()).format('YYYY-MM-DD'),
                 zoom: 14,
                 center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
                 url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",

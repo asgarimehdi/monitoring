@@ -332,6 +332,8 @@
                                               v-model="form.diagnosis_at"
                                               format="YYYY-MM-DD"
                                               displayFormat="jYYYY/jMM/jDD"
+                                              :max="maxPicker"
+                                              :min="minPicker"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ تشخیص</span>
@@ -343,6 +345,8 @@
                                               v-model="form.status_at"
                                               format="YYYY-MM-DD"
                                               displayFormat="jYYYY/jMM/jDD"
+                                              :max="maxPicker"
+                                              :min="minPicker"
                                 />
                                 <div class="input-group-prepend">
                                     <span class="input-group-text pl-5">تاریخ وضعیت درمان</span>
@@ -447,6 +451,7 @@
     import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
 
     import { latLng } from "leaflet";
+    var moment = require('moment-jalaali');
     export default {
 
 
@@ -461,6 +466,8 @@
         },
         data() {
             return {
+                maxPicker:moment(new Date()).format('YYYY-MM-DD'),
+                minPicker:moment(new Date()).subtract(30, 'days').format('YYYY-MM-DD'),
                 tileProviders: [
                     {
                         name: 'Parsijoo',
