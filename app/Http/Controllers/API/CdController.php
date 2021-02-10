@@ -935,4 +935,31 @@ class CdController extends Controller
        // $collection1 = $collection1->unique($collection1);
         return $collection;
     }
+    public function count_montazer_azmayesh(){
+        $user_point_type_id = Auth::user()->region_point->type_id;
+        $user_point_id = Auth::user()->point_id;
+        $user_center_id = Auth::user()->region_point->center_id;
+        $county_id = Auth::user()->region_point->region_center->county_id;
+        $count_mashkok=   Cd_corona::where('diagnosis','0')
+            ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_point_id) {
+                    // Query the name field in status table
+                    $q->where('id', '=', $user_point_id);
+                });
+            })
+            ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_center_id) {
+                    // Query the name field in status table
+                    $q->where('center_id', '=', $user_center_id);
+                });
+            })
+            ->when(($county_id != 9), function ($query) use ($county_id) {
+                return $query->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                });
+            })
+            ->count();
+        return $count_mashkok;
+    }
 }

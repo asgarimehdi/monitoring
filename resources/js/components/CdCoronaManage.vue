@@ -9,7 +9,14 @@
 
                         </h3>
 
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close pull-left" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-ban"></i>توجه</h4>
+                            شما
+                            {{count_montazer_azmayesh}}
+                            مورد بیمار منتظر نتیجه آزمایش دارید.
 
+                        </div>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -527,6 +534,7 @@
                 point_selected: false,
                 user_county: '',
                 corona_id:'',
+                count_montazer_azmayesh:'',
                 form: new Form({
                     id: '',
                     national_code: '',
@@ -661,6 +669,20 @@
                     });
 
             },
+            load_count_montazer_azmayesh() {
+
+                    this.$Progress.start();
+                    axios.get("api/cd/corona/montazer").then(({data}) => (this.count_montazer_azmayesh = data)).then(() => {
+                        this.$Progress.finish();
+                    }).catch(() => {
+                        this.$Progress.fail();
+                        toast.fire({
+                            type: 'error',
+                            title: 'خطایی در لود منتظرین آزمایش رخ داد'
+                        });
+                    });
+
+            },
             createValue() {
                 this.$Progress.start();
                 this.form.post('api/cd/corona')
@@ -751,10 +773,12 @@
                     })
             });
             this.loadValues();
+            this.load_count_montazer_azmayesh();
             //this.loadItems();
             this.loadCounties();
             this.$on('ValueTableChanged', () => {
                 this.loadValues();
+                this.load_count_montazer_azmayesh();
             });
             this.$on('countySelected', () => {
 //if(this.$refs.c.value){}
