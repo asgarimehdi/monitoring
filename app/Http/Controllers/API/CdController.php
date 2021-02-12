@@ -289,6 +289,11 @@ class CdController extends Controller
                             ->orWhere('national_code','LIKE',"%$search%");
                     });
                 })
+                ->when(($diag = \Request::get('diag')), function ($query) use ($diag) {
+                    return $query->where(function($q) use ($diag){
+                        $q->where('diagnosis', '=', 0);
+                    });
+                })
                 ->paginate(10);
 
 
@@ -959,6 +964,7 @@ class CdController extends Controller
                     $q->where('county_id', '=', $county_id); // '=' is optional
                 });
             })
+
             ->count();
         return $count_mashkok;
     }

@@ -15,7 +15,16 @@
                             شما
                             {{count_montazer_azmayesh}}
                             مورد بیمار منتظر نتیجه آزمایش دارید.
-
+                            <span v-if="diag!=1">
+                            <button @click="diag=1,loadValues()" class="btn btn-success">
+                                 نمایش منتظرین آزمایش
+                            </button>
+                            </span>
+                            <span v-if="diag==1">
+                                <button @click="diag='',loadValues()" class="btn btn-success">
+                                 نمایش همه موارد
+                            </button>
+                            </span>
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -535,6 +544,7 @@
                 user_county: '',
                 corona_id:'',
                 count_montazer_azmayesh:'',
+                diag:'',
                 form: new Form({
                     id: '',
                     national_code: '',
@@ -584,7 +594,7 @@
                     }
                     else
                     {
-                    axios.get('api/cd/corona/PaginateByCounty?page=' + page)
+                    axios.get('api/cd/corona/PaginateByCounty?diag=' +this.diag +'&page='+page)
                         .then(response => {
                             this.coronas = response.data;
                         });
@@ -658,7 +668,7 @@
             loadValues() {
 
                     this.$Progress.start();
-                    axios.get("api/cd/corona/PaginateByCounty").then(({data}) => (this.coronas = data)).then(() => {
+                    axios.get("api/cd/corona/PaginateByCounty?diag="+this.diag).then(({data}) => (this.coronas = data)).then(() => {
                         this.$Progress.finish();
                     }).catch(() => {
                         this.$Progress.fail();
