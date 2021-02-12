@@ -32,7 +32,7 @@
                         />
                     </div><!-- /.col -->
                     <div class="col-sm-2 m-0 p-0"  v-if="!show_timeSeries">
-                        <a href="#" class="btn btn-primary" @click="loadTemps">فیلتر</a>
+                        <a href="#" class="btn btn-primary" @click="loadTemps(),loadContacts()">فیلتر</a>
                     </div><!-- /.col -->
 
                 </div><!-- /.row -->
