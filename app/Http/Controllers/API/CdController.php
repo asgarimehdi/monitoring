@@ -660,6 +660,11 @@ class CdController extends Controller
                     $q->where('type_id', '=', $point_type);
                 });
             })
+            ->when(($point_type == 'all'), function ($query) use ($point_type) {
+                return $query->whereHas('Region_point', function ($q) use ($point_type) {
+                    $q->where('type_id', '=', 5)->orWhere('type_id', '=', 6); //faghat khane va paygah
+                });
+            })
             ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
                 return $query->whereHas('Region_point', function ($q) use ($user_point_id) {
                     // Query the name field in status table
@@ -721,7 +726,7 @@ class CdController extends Controller
                     $s1 = $collection[$s_1_Key]['s_1'];
                     $item->s_1 = $s1;
                     $item->main=true;
-
+                    $item->s_6+=$s1;
                     unset($collection[$s_1_Key]);
                 }
                 if (($s_2_Key)and(!$collection[$s_2_Key]['main'])) {
@@ -935,10 +940,76 @@ class CdController extends Controller
                     unset($collection[$s_1_Key]);
                 }
             }
+
         }
        // $collection1 = collect($collection);
        // $collection1 = $collection1->unique($collection1);
         return $collection;
+    }
+    public function reportSum($county_id,$date_from,$date_to,$date_from_diagnosis,$date_to_diagnosis,$date_from_status,$date_to_status,$date_from_birth,$date_to_birth,$point_type,$diagnosis,$situation,$hospitalization,$sex)
+    {
+        $user_point_type_id = Auth::user()->region_point->type_id;
+        $user_point_id = Auth::user()->point_id;
+        $user_center_id = Auth::user()->region_point->center_id;
+        $user_county_id = Auth::user()->region_point->region_center->county_id;
+
+        $collection = Cd_corona::with(
+            [
+                'region_point:id,name,center_id',
+                'region_point.region_center:id,name,type_id,county_id',
+                'region_point.region_center.region_county:id,name'
+            ])->select( "status", \DB::raw('count(status) as count'))
+
+            ->when(($county_id != 9), function ($query) use ($county_id) {
+                return $query->whereHas('Region_point.Region_center', function ($q) use ($county_id) {
+                    // Query the name field in status table
+                    $q->where('county_id', '=', $county_id); // '=' is optional
+                });
+            })
+            ->when(($point_type != 'all'), function ($query) use ($point_type) {
+                return $query->whereHas('Region_point', function ($q) use ($point_type) {
+                    $q->where('type_id', '=', $point_type);
+                });
+            })
+            ->when(($point_type == 'all'), function ($query) use ($point_type) {
+                return $query->whereHas('Region_point', function ($q) use ($point_type) {
+                    $q->where('type_id', '=', 5)->orWhere('type_id', '=', 6); //faghat khane va paygah
+                });
+            })
+            ->when(Gate::allows('isBehvarz'), function ($query) use ($user_point_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_point_id) {
+                    // Query the name field in status table
+                    $q->where('point_id', '=', $user_point_id)->orWhere('id', '=', $user_point_id);
+                });
+            })
+            ->when(Gate::allows('isMarkaz'), function ($query) use ($user_center_id) {
+                return $query->whereHas('Region_point', function ($q) use ($user_center_id) {
+                    // Query the name field in status table
+                    $q->where('center_id', '=', $user_center_id);
+                });
+            })
+            ->when(($diagnosis != 'all'), function ($query) use ($diagnosis) {
+                return $query->where('diagnosis', '=', $diagnosis);
+            })
+            ->when(($situation != 'all'), function ($query) use ($situation) {
+                return $query->where('situation', '=', $situation);
+            })
+            ->when(($hospitalization != 'all'), function ($query) use ($hospitalization) {
+                return $query->where('hospitalization', '=', $hospitalization);
+            })
+            ->when(($sex != 'all'), function ($query) use ($sex) {
+                return $query->where('sex', '=', $sex);
+            })
+            ->whereBetween('created_at', [$date_from, $date_to])
+            ->whereBetween('diagnosis_at', [$date_from_diagnosis, $date_to_diagnosis])
+            //->whereBetween('status_at', [$date_from_status, $date_to_status])
+            ->whereBetween('birth', [$date_from_birth, $date_to_birth])
+
+            ->groupBy( "status");
+
+        // $collection1 = collect($collection);
+        // $collection1 = $collection1->unique($collection1);
+        return $collection->get();
     }
     public function count_montazer_azmayesh(){
         $user_point_type_id = Auth::user()->region_point->type_id;

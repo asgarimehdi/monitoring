@@ -83,6 +83,7 @@ Route::get('/cd/corona/StatByPoint/{point_id}/{type_id}/{center_id}/{county_id}'
 Route::get('/cd/corona/StatByCounty', 'API\CdController@stat');
 Route::get('/cd/corona/expose/{national_code}', 'API\CdController@expose');
 Route::get('/cd/corona/report/{county_id}/{date_from}/{date_to}/{date_from_diagnosis}/{date_to_diagnosis}/{date_from_status}/{date_to_status}/{date_from_birth}/{date_to_birth}/{point_type}/{diagnosis}/{situation}/{hospitalization}/{sex}', 'API\CdController@report');
+Route::get('/cd/corona/reportSum/{county_id}/{date_from}/{date_to}/{date_from_diagnosis}/{date_to_diagnosis}/{date_from_status}/{date_to_status}/{date_from_birth}/{date_to_birth}/{point_type}/{diagnosis}/{situation}/{hospitalization}/{sex}', 'API\CdController@reportSum');
 Route::get('/cd/corona/montazer', 'API\CdController@count_montazer_azmayesh');
 
 Route::get('/cd/corona/chart', 'API\CdController@chart');

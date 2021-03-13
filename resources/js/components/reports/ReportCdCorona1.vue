@@ -168,7 +168,7 @@
 
                                 <div class="col-sm-2">
                                     <a href="#" class="btn btn-default" @click="reset">ریست</a>
-                                    <a href="#" class="btn btn-primary" @click="loadValues">فیلتر</a>
+                                    <a href="#" class="btn btn-primary" @click="loadValues(),loadReportSum()">فیلتر</a>
                                 </div><!-- /.col -->
                             </div>
                         </div>
@@ -188,6 +188,13 @@
                                 <th>بهبود</th>
                                 <th>بستری در منزل</th>
                                 <th>نقاهتگاه</th>
+
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th v-for="report in reportSums" :key="report.id">{{report.count}}</th>
+
 
                             </tr>
                             <tr v-for="value in values.data" :key="value.id" class="small">
@@ -229,10 +236,10 @@
 
 <script>
     import VuePersianDatetimePicker from 'vue-persian-datetime-picker';
-    import Vue2LeafletMarkercluster from "vue2-leaflet-markercluster";
-    var moment = require('moment-jalaali');
+
+    let moment = require('moment-jalaali');
     export default {
-        name: "ReportCdCorona",
+        name: "ReportCdCorona1",
 
         components: {
             'datePicker': VuePersianDatetimePicker,
@@ -243,6 +250,7 @@
             return {
                 num:1,
                 values: {},
+                reportSums: {},
 
                 counties: {},
                 types: {},
@@ -271,6 +279,7 @@
             reset () {
                 Object.assign(this.$data, this.$options.data());
                 this.loadValues();
+                this.loadReportSum();
             },
             getResults(page = 1) {
                 if (this.$gate.isOstan()) {
@@ -282,10 +291,12 @@
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
+
                 axios.get("/api/cd/corona/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.date_from_diagnosis + "/" + this.date_to_diagnosis+ "/"+  this.date_from_status + "/" + this.date_to_status+ "/"+  this.date_from_birth + "/" + this.date_to_birth+ "/" + this.point_type+ "/" + this.diagnosis+ "/" + this.situation+ "/" + this.hospitalization+ "/" + this.sex+'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
+
             },
 
             loadValues() {
@@ -300,6 +311,28 @@
                 }
                 this.$Progress.start();
                 axios.get("/api/cd/corona/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.date_from_diagnosis + "/" + this.date_to_diagnosis+ "/"+  this.date_from_status + "/" + this.date_to_status+ "/"+  this.date_from_birth + "/" + this.date_to_birth+ "/" + this.point_type+ "/" + this.diagnosis+ "/" + this.situation+ "/" + this.hospitalization+ "/" + this.sex).then(({data}) => (this.values = data)).then(() => {
+                    this.$Progress.finish();
+                }).catch(() => {
+                    this.$Progress.fail();
+                    toast.fire({
+                        type: 'error',
+                        title: 'خطایی در لود مقادیر بهداشت محیط رخ داد'
+                    });
+                });
+
+            },
+            loadReportSum() {
+                if (this.$gate.isOstan()) {
+                    if( this.county_id) // agar az list entekhab kard
+                        this.user_county = this.county_id;
+                    else
+                        this.user_county = this.$gate.user.region_point.region_center.county_id;
+
+                } else {
+                    this.user_county = this.$gate.user.region_point.region_center.county_id;
+                }
+                this.$Progress.start();
+                axios.get("/api/cd/corona/reportSum/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.date_from_diagnosis + "/" + this.date_to_diagnosis+ "/"+  this.date_from_status + "/" + this.date_to_status+ "/"+  this.date_from_birth + "/" + this.date_to_birth+ "/" + this.point_type+ "/" + this.diagnosis+ "/" + this.situation+ "/" + this.hospitalization+ "/" + this.sex).then(({data}) => (this.reportSums = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();
@@ -352,6 +385,7 @@
             });
 
             this.loadValues();
+            this.loadReportSum();
 
             this.$on('ValueTableChanged', () => {
                 this.loadValues();
