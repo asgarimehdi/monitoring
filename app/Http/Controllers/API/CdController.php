@@ -1009,7 +1009,13 @@ class CdController extends Controller
 
         // $collection1 = collect($collection);
         // $collection1 = $collection1->unique($collection1);
-        return $collection->get();
+        $data=$collection->get();
+        foreach ($data as $row){
+            $arr[$row['status']]=$row['count'];
+        }
+        if(!@$arr) $arr=0;
+        return $arr;
+
     }
     public function count_montazer_azmayesh(){
         $user_point_type_id = Auth::user()->region_point->type_id;

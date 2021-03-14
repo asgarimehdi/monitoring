@@ -55,6 +55,8 @@
                                                   v-model="date_from_birth"
                                                   format="jYYYY"
                                                   displayFormat="jYYYY"
+                                                  min="1280"
+                                                  max="1400"
                                     />
                                 </div><!-- /.col -->
                                 <div class="col-sm-2" >
@@ -62,6 +64,8 @@
                                                   v-model="date_to_birth"
                                                   format="jYYYY"
                                                   displayFormat="jYYYY"
+                                                  min="1280"
+                                                  max="1400"
                                     />
                                 </div><!-- /.col -->
                                 <div class="col-sm-3" >
@@ -193,7 +197,12 @@
                             <tr>
                                 <th></th>
                                 <th></th>
-                                <th v-for="report in reportSums" :key="report.id">{{report.count}}</th>
+                                <th>{{reportSums[0]}}</th>
+                                <th>{{reportSums[1]}}</th>
+                                <th>{{reportSums[2]}}</th>
+                                <th>{{reportSums[3]}}</th>
+                                <th>{{reportSums[4]}}</th>
+                                <th>{{reportSums[5]}}</th>
 
 
                             </tr>
