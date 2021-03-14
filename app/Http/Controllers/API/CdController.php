@@ -1010,9 +1010,12 @@ class CdController extends Controller
         // $collection1 = collect($collection);
         // $collection1 = $collection1->unique($collection1);
         $data=$collection->get();
-        foreach ($data as $row){
+        foreach ($data as $key=>$row){
             $arr[$row['status']]=$row['count'];
         }
+        /*for($i=0;$i<6;$i++){
+            $arr[$i];
+        }*/
         if(!@$arr) $arr=0;
         return $arr;
 
