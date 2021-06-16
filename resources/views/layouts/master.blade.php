@@ -399,8 +399,10 @@
     </script>
 @endauth
 <!-- REQUIRED SCRIPTS -->
-<script src="{{ asset('js/app.js?v=30') }}" defer></script>
 
+<script src="{{ asset('js/promise.js') }}" defer></script>
+<script src="{{ asset('js/fetch.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <!-- jQuery -->
 
 </body>

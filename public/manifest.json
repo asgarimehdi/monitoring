@@ -1,12 +1,13 @@
 {
-  "name": "Monitoring",
+  "name": "سامانه جامع مانیتورینگ",
   "short_name": "Monitoring",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "./images/zums.png",
-      "sizes": "512x512",
+      "sizes": "590x590",
       "type": "image/png"
     }
   ],
