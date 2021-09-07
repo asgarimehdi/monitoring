@@ -127,6 +127,16 @@
                                                 </p>
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="\vaccineimg"
+                                               class="nav-link {{ (request()->is('vaccineimg')) ? 'active' : '' }}">
+                                                <i class="fa fa-flask nav-icon"></i>
+                                                <p>
+                                                    پوشش واکسیناسیون
+
+                                                </p>
+                                            </a>
+                                        </li>
                                         @endcanany
 
 
