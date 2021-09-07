@@ -125,4 +125,8 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
+    public function vaccine_img()
+    {
+        return view('vaccine-img');
+    }
 }

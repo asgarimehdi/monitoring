@@ -1,4 +1,4 @@
-@extends('layouts.master')
+welcome.blade.php@extends('layouts.master')
 
 @section('content')
 
