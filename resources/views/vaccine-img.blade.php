@@ -6,9 +6,10 @@
         <div class="row justify-content-center">
 
             <div class="col-md-12 mt-2">
-<h1> پوشش واکسیناسیون تا 17 شهریور</h1>
+<h1> پوشش واکسیناسیون تا 23 شهریور</h1>
                 <ul class="nav nav-pills">
-                    <li  class="btn btn-default"><a data-toggle="pill" href="#home">زنجان</a></li>
+                    <li  class="btn btn-default"><a data-toggle="pill" href="#home">استان</a></li>
+                    <li  class="btn btn-default"><a data-toggle="pill" href="#menu0">زنجان</a></li>
                     <li class="btn btn-default"><a data-toggle="pill" href="#menu1">ابهر</a></li>
                     <li class="btn btn-default"><a data-toggle="pill" href="#menu2">خدابنده</a></li>
                     <li class="btn btn-default"><a data-toggle="pill" href="#menu3">خرم دره</a></li>
@@ -20,6 +21,22 @@
 
                 <div class="tab-content">
                     <div id="home" class="tab-pane fade in active">
+                        <h3>استان</h3>
+                        <hr/>
+                        <h4>رنگبندی پوشش واکسیناسیون بالای 40 سال</h4>
+                        <img src="/images/vaccine/ostan40-1.jpg" width="100%"/>
+                        <hr/>
+                        <h4>رنگبندی پوشش واکسیناسیون بالای 50 سال</h4>
+                        <img src="/images/vaccine/ostan50-1.jpg" width="100%"/>
+                        <hr/>
+                        <h4>رنگبندی پوشش واکسیناسیون بالای 60 سال</h4>
+                        <img src="/images/vaccine/ostan60-1.jpg" width="100%"/>
+                        <hr/>
+                        <h4>رنگبندی پوشش واکسیناسیون بالای 70 سال</h4>
+                        <img src="/images/vaccine/ostan70-1.jpg" width="100%"/>
+
+                    </div>
+                    <div id="menu0" class="tab-pane fade in active">
                         <h3>زنجان</h3>
                         <hr/>
                         <h4>رنگبندی پوشش واکسیناسیون بالای 40 سال</h4>
