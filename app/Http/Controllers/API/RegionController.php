@@ -329,16 +329,20 @@ class RegionController extends Controller
            ->whereHas('Region_center', function($q) use($county_id) {
                 $q->where('county_id', '=', $county_id);
             })
+           //->Where("area","!=",NULL)
             ->get();
-        foreach($items as $item) {
+        foreach($items as $key=>$item) {
+
             if(($item['type_id']==2)or($item['type_id']==3)or($item['type_id']==4))
             {
+
                 $b=Region_point::with('develop:point_id,population')
                     ->Where("center_id","=",$item['center_id'])
                     ->Where("type_id","!=",12)// hazfe abadi az jamiat markaz
                     ->get()
                     ->sum('develop.population');
                 $item->population=$b;
+
             }
             elseif($item['type_id']==1)
             {
@@ -392,6 +396,55 @@ class RegionController extends Controller
         }
 
 
+        return  $items;
+    }
+    public function areaByCounty($county_id)
+    {       //
+
+        $items= Region_point::with(['Region_center:name,id,type_id,county_id','develop:point_id,population'])
+            //->Where("type_id","<","7") // in chi bood?
+            ->whereHas('Region_center', function($q) use($county_id) {
+                $q->where('county_id', '=', $county_id);
+            })
+            ->Where("area","!=",NULL)
+            ->get();
+        foreach($items as $key=>$item) {
+
+                $areas = explode(';', $item['area']);
+                foreach ($areas as $area) {
+                    $area = explode(',', $area);
+                    $x[$key][] = $area;
+                }
+
+                $item->area = $x;
+
+            if(($item['type_id']==2)or($item['type_id']==3)or($item['type_id']==4))
+            {
+
+                $b=Region_point::with('develop:point_id,population')
+                    ->Where("center_id","=",$item['center_id'])
+                    ->Where("type_id","!=",12)// hazfe abadi az jamiat markaz
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$b;
+
+            }
+            elseif($item['type_id']==1)
+            {
+                $county_id=$item['region_center'];
+                $county_id=$county_id->county_id;
+                $c=Region_point::with(['develop:point_id,population','Region_center'])
+                    ->whereHas('Region_center', function($q) use($county_id) {
+                        // Query the name field in status table
+                        $q->where('county_id', '=', $county_id); // '=' is optional
+                    })
+                    ->Where("type_id","!=",12) // hazfe abadi az jamiat markaz
+                    ->get()
+                    ->sum('develop.population');
+                $item->population=$c;
+            }
+
+        }
         return  $items;
     }
 }

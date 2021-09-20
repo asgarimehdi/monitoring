@@ -2,15 +2,15 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="8d3d8815-b03b-4e5f-b29b-6e42bf0f2a57" name="monitoring.ir" url="http:/monitoring.ir">
-        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\monitoring" accessType="MOUNT" />
+      <webServer id="8d3d8815-b03b-4e5f-b29b-6e42bf0f2a57" name="monitoring.ir (project level)" url="http:/monitoring.ir">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\monitoring" accessType="MOUNT" port="0" />
       </webServer>
     </option>
     <groups>
       <group>
         <name>monitor</name>
         <servers>
-          <name value="monitoring.ir" />
+          <name value="monitoring.ir (project level)" />
         </servers>
       </group>
     </groups>

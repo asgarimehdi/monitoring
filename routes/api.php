@@ -93,6 +93,7 @@ Route::get('/cd/corona/newCasePerDiagnosis', 'API\CdController@chart_newCasePerD
 
 Route::get('/region/pointByCounty/{county_id}', 'API\RegionController@pointByCounty');
 Route::get('/region/pointByCounty', 'API\RegionController@pointList');
+Route::get('/region/areaByCounty/{county_id}', 'API\RegionController@areaByCounty');
 
 Route::get('/develop/{point_id}', 'API\DevelopController@develop');
 Route::put('/develop/{point_id}', 'API\DevelopController@updateDevelop');
