@@ -74,6 +74,7 @@ Vue.component('develop-manage-component', require('./components/DevelopManage.vu
 Vue.component('environment-base-manage-component', require('./components/EnvironmentBaseManage.vue').default);
 Vue.component('user-online-component', require('./components/UserOnline.vue').default);
 Vue.component('cd-corona-contact-manage-component', require('./components/CdCoronaContactManage.vue').default);
+Vue.component('behbooder-component', require('./components/behbooder.vue').default);
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 /////////////
 const app = new Vue({

@@ -47,3 +47,5 @@ Route::get('/cddisease', 'HomeController@cd_disease');
 Route::get('/cddiseasemanage', 'HomeController@cddiseasemanage');
 
 Route::get('/vaccineimg', 'HomeController@vaccine_img');
+
+Route::get('/tools', 'HomeController@tools');

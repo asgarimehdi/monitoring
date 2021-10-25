@@ -50,7 +50,7 @@
 
 
                         </form>
-                        <button type="button" class="btn btn-warning mr-2">بهبودر</button>
+                        <a href="/tools"  type="button" class="btn btn-warning mr-2">بهبودر</a>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
