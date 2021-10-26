@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container">
-        <div class="row">
+        <div class="row" v-if="$gate.isAdmin()">
             <div class="col-md-8 container-fluid">
                 <div class="card bg-info-gradient">
                     <div class="card-header">
@@ -51,7 +51,10 @@
         methods: {
             behbooder() {
                 axios.get("api/tools/behbooder/"+ this.minDate + "/" + this.maxDate ).then(({data}) => (this.return1 = data)).then(() => {
-                    //  console.log(this.markers);
+                    toast.fire({
+                        type: 'success',
+                        title: this.return1
+                    });
                 }).catch(() => {
                     toast.fire({
 

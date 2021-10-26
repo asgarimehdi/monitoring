@@ -94,6 +94,18 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
+                                    @canany(['isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\tools"
+                                               class="nav-link {{ (request()->is('tools')) ? 'active' : '' }}">
+                                                <i class="fa fa-globe nav-icon"></i>
+                                                <p>
+                                                    ابزارها
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
                                     @canany(['isGostaresh','isAdmin'])
                                         <li class="nav-item">
                                             <a href="\developmanage"

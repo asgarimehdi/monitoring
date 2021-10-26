@@ -45,12 +45,10 @@
                                 <has-error :form="form" field="confirm_password"></has-error>
                             </div>
 
-
                             <button type="submit" class="btn btn-success mr-2">ویرایش</button>
 
-
                         </form>
-                        <a href="/tools"  type="button" class="btn btn-warning mr-2">بهبودر</a>
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">

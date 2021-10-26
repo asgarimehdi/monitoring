@@ -31,7 +31,7 @@ class ToolsController extends Controller
         $response=Cd_corona::where('diagnosis_at','<', $minDate)
             ->where('status','!=', '3')
             ->where('status','!=', '2')
-            ->update(['status' => '3'],['status_at' => $maxDate]);
+            ->update(['status' => '3','status_at' => $maxDate]);
         return $response;
     }
 }
