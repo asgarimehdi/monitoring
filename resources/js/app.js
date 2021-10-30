@@ -54,6 +54,7 @@ Vue.component('regions-component', require('./components/Regions.vue').default);
 Vue.component('change-password-component', require('./components/Change-password.vue').default);
 //Vue.component('draggable-map-component', require('./components/draggableMap.vue').default);
 Vue.component('environment-manage-component', require('./components/EnvironmentManage.vue').default);
+Vue.component('environment-sameh-manage-component', require('./components/EnvironmentSamehManage.vue').default);
 Vue.component('environment-component', require('./components/Environment.vue').default);
 Vue.component('cd-corona-manage-component', require('./components/CdCoronaManage.vue').default);
 Vue.component('cd-thyroid-manage-component', require('./components/CdThyroidManage.vue').default);

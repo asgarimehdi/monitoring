@@ -133,4 +133,8 @@ class HomeController extends Controller
     {
         return view('tools');
     }
+    public function environment_sameh_manage()
+    {
+        return view('environment-sameh-manage');
+    }
 }

@@ -32,6 +32,7 @@ Route::get('/environmentmanage', 'HomeController@environmentmanage');
 Route::get('/environment', 'HomeController@environment');
 Route::get('/report/environment', 'HomeController@report_environment');
 Route::get('/environment/base', 'HomeController@environment_base');
+Route::get('/environmentsamehmanage', 'HomeController@environment_sameh_manage');
 
 Route::get('/developmanage', 'HomeController@developmanage');
 
