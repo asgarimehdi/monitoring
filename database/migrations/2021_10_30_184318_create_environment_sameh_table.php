@@ -17,6 +17,7 @@ class CreateEnvironmentSamehTable extends Migration
             $table->id();
             $table->integer('point_id');
             $table->integer('value');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

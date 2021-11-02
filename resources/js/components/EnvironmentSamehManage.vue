@@ -358,7 +358,7 @@
             },
             createValue() {
                 this.$Progress.start();
-                this.form.post('api/environment/value')
+                this.form.post('api/environment/sameh/value')
                     .then(() => {
                         this.$emit('ValueTableChanged');
 

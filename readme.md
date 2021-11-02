@@ -34,6 +34,9 @@ and then
 git pull
 git stash
 git merge
+
+php artisan make:controller Api\EnvironmentSamehController --api
+php artisan make:model Environment_sameh 
 ## Laravel Sponsors
 
 suggestion: remove v-if in v-for
