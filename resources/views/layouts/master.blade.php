@@ -94,17 +94,19 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    @canany(['isAdmin'])
-                                        <li class="nav-item">
-                                            <a href="\tools"
-                                               class="nav-link {{ (request()->is('tools')) ? 'active' : '' }}">
-                                                <i class="fa fa-globe nav-icon"></i>
-                                                <p>
-                                                    ابزارها
+                                    @canany(['isAbhar'])
+                                        @canany(['isAdmin'])
+                                            <li class="nav-item">
+                                                <a href="\tools"
+                                                   class="nav-link {{ (request()->is('tools')) ? 'active' : '' }}">
+                                                    <i class="fa fa-gear nav-icon"></i>
+                                                    <p>
+                                                        ابزارها
 
-                                                </p>
-                                            </a>
-                                        </li>
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcanany
                                     @endcanany
                                     @canany(['isGostaresh','isAdmin'])
                                         <li class="nav-item">
@@ -203,6 +205,18 @@
                                                 <i class="fa fa-eyedropper nav-icon"></i>
                                                 <p>
                                                      اطلاعات بهداشت محیط
+
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endcanany
+                                    @canany(['isEnvironment','isAdmin'])
+                                        <li class="nav-item">
+                                            <a href="\environmentsamehmanage"
+                                               class="nav-link {{ (request()->is('environmentsamehmanage')) ? 'active' : '' }}">
+                                                <i class="fa fa-eyedropper nav-icon"></i>
+                                                <p>
+                                                     مدیریت سامح
 
                                                 </p>
                                             </a>

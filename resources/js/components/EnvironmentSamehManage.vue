@@ -17,7 +17,7 @@
                             <tbody>
                             <tr>
                                 <th>ردیف</th>
-                                <th>آیتم</th>
+
                                 <th>مقدار</th>
 
                                 <th>نام نقطه</th>
@@ -28,7 +28,7 @@
                             </tr>
                             <tr v-for="value in values.data" :key="value.id" class="small">
                                 <td>{{value.id}}</td>
-                                <td>{{value.environment_item.name}}</td>
+
                                 <td  v-bind:class="{ 'bg-success': value.status===1,'bg-warning': value.status===0,'bg-danger': value.status===2 }">
                                     {{value.value}}
                                 </td>
@@ -291,7 +291,7 @@
             updateValue() {
                 this.$Progress.start();
 
-                this.form.put('api/environment/value/' + this.form.id)
+                this.form.put('api/environment/sameh/value/' + this.form.id)
                     .then(() => {
                         this.$emit('ValueTableChanged');
                         this.closeForm();
@@ -318,7 +318,7 @@
                     cancelButtonText: 'بیخیال'
                 }).then((result) => {
                     if (result.value) {
-                        this.form.delete('/api/environment/value/' + id).then(() => {
+                        this.form.delete('/api/environment/sameh/value/' + id).then(() => {
                             swal.fire(
                                 'پاک شد',
                                 'با موفقیت حذف شد',
@@ -335,7 +335,7 @@
             loadValues() {
 
                     this.$Progress.start();
-                    axios.get("api/environment/valueList").then(({data}) => (this.values = data)).then(() => {
+                    axios.get("api/environment/sameh/valueList").then(({data}) => (this.values = data)).then(() => {
                         this.$Progress.finish();
                     }).catch(() => {
                         this.$Progress.fail();
@@ -344,16 +344,6 @@
                             title: 'خطایی در لود مقادیر بهداشت محیط رخ داد'
                         });
                     });
-
-            },
-            loadItems() {
-                axios.get("api/environment/itemList").then(({data}) => (this.environment_items = data)).then(() => {
-                }).catch(() => {
-                    toast.fire({
-                        type: 'error',
-                        title: 'خطایی در لود اطلاعات رخ داد'
-                    });
-                });
 
             },
             createValue() {
@@ -433,18 +423,9 @@
         },
         created() {
 
-            Fire.$on('searching', () => {
-                let query = this.$parent.search;
-                axios.get('api/environment/findValue?q=' + query)
-                    .then((data) => {
-                        this.users = data.data
-                    })
-                    .catch(() => {
 
-                    })
-            });
             this.loadValues();
-            this.loadItems();
+
             this.$on('ValueTableChanged', () => {
                 this.loadValues();
             });
