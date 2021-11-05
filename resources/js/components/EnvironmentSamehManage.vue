@@ -34,7 +34,7 @@
                                 </td>
                                 <td>
                                     {{value.region_point.region_center.region_county.name}} -
-                                    {{value.region_point.region_center.name}} -
+
                                     {{value.region_point.name}}
                                 </td>
                                 <td>{{value.user.name}}</td>
@@ -111,7 +111,7 @@
                                     <option
                                         v-for="g in types"
                                         :value="g.id"
-                                        v-if="g.id==5 || g.id==6 || g.id==12"
+                                        v-if="g.id==2 || g.id==3 || g.id==4"
                                     >
                                         {{g.name}}
                                     </option>
@@ -198,12 +198,6 @@
 
 
         components: {
-            LMap,
-            LTileLayer,
-            LMarker,
-            LPopup,
-            LIcon,
-            LCircle,
             datePicker: VuePersianDatetimePicker
 
         },
@@ -211,25 +205,11 @@
             return {
                 maxPicker:moment(new Date()).format('YYYY-MM-DD'),
                 minPicker:moment(new Date()).subtract(14, 'days').format('YYYY-MM-DD'),
-                zoom: 14,
-                center: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
-                //url: "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
-                url: "http://developers.parsijoo.ir/web-service/v1/map/?type=tile&x={x}&y={y}&z={z}&apikey=897f18a7e1c0407286ce168d9fdf1b09",
-                attribution:'',
-                currentZoom: 9,
-                currentCenter: latLng(this.$gate.user.region_point.lat, this.$gate.user.region_point.lng),
-                markerLatLng: [this.$gate.user.region_point.lat, this.$gate.user.region_point.lng],
-                lat:'',
-                lng:'',
-                circle: {
-                    center: [this.$gate.user.region_point.lat, this.$gate.user.region_point.lng],
-                    radius: 100,
-                    color: 'yellow',
-                },
+
                 num:1,
                 editmode: false,
                 values: {},
-                environment_items: {},
+
                 counties: {},
                 types: {},
                 centers: {},
@@ -241,11 +221,10 @@
                 user_county: '',
                 form: new Form({
                     id: '',
-                    environment_item_id: '',
+
 
                     value: '',
-                    lat: '',
-                    lng: '',
+
                     county_id: '',
                     type_id: '',
                     center_id: '',
@@ -257,19 +236,8 @@
             }
         },
         methods: {
-            zoomUpdate(zoom) {
-                this.currentZoom = zoom;
-            },
-            centerUpdate(center) {
-                this.currentCenter = center;
-            },
-            latlngUpdate(latlng) {
-                this.markerLatLng = latlng;
-                this.form.lat=this.markerLatLng.lat.toFixed(6);
-                this.form.lng=this.markerLatLng.lng.toFixed(6);
-            },
             getResults(page = 1) {
-                axios.get('api/environment/valueList?page=' + page)
+                axios.get('api/environment/sameh/valueList?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -279,8 +247,6 @@
                 this.form.reset();
                 // $('#addNew').modal('show');
                 this.form.fill(value);
-                this.markerLatLng.lat=this.form.lat;
-                this.markerLatLng.lng=this.form.lng;
 
             },
             closeForm(){
