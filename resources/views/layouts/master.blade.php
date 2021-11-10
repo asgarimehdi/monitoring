@@ -358,7 +358,7 @@
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona"
-                                               class="nav-link {{ (request()->is('\report\cdcorona')) ? 'active' : '' }}">
+                                               class="nav-link {{ (request()->is('report/cdcorona')) ? 'active' : '' }}">
                                                 <i class="fa fa-ambulance nav-icon"></i>
                                                 <p>نمودار کرونا
                                                     <span class="right badge badge-success">توسعه</span>
@@ -372,7 +372,7 @@
 
                                         <li class="nav-item">
                                             <a href="\report\cdcorona1"
-                                               class="nav-link {{ (request()->is('\report\cdcorona1')) ? 'active' : '' }}">
+                                               class="nav-link {{ (request()->is('report/cdcorona1')) ? 'active' : '' }}">
                                                 <i class="fa fa-ambulance nav-icon"></i>
                                                 <p>گزارش کرونا
                                                     <span class="right badge badge-success">توسعه</span>
@@ -383,9 +383,20 @@
                                 @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
                                     <li class="nav-item">
                                         <a href="\report\environment"
-                                           class="nav-link {{ (request()->is('\report\environment')) ? 'active' : '' }}">
+                                           class="nav-link {{ (request()->is('report/environment')) ? 'active' : '' }}">
                                             <i class="fa fa-eyedropper nav-icon"></i>
                                             <p>کلرسنجی
+
+                                            </p>
+                                        </a>
+                                    </li>
+                                @endcanany
+                                @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
+                                    <li class="nav-item">
+                                        <a href="\report\environment\sameh"
+                                           class="nav-link {{ (request()->is('report/environment/sameh')) ? 'active' : '' }}">
+                                            <i class="fa fa-eyedropper nav-icon"></i>
+                                            <p>سامح
 
                                             </p>
                                         </a>

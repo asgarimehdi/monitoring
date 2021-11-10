@@ -137,4 +137,9 @@ class HomeController extends Controller
     {
         return view('environment-sameh-manage');
     }
+
+    public function report_environment_sameh()
+    {
+        return view('reports/report-environment-sameh');
+    }
 }
