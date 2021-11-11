@@ -74,6 +74,7 @@ Route::get('environment/sameh/valueList', 'API\EnvironmentSamehController@pagina
 Route::post('environment/sameh/value', 'API\EnvironmentSamehController@addValue');
 Route::put('environment/sameh/value/{id}', 'API\EnvironmentSamehController@updateValue');
 Route::delete('environment/sameh/value/{id}', 'API\EnvironmentSamehController@deleteValue');
+Route::get('environment/sameh/report/{county_id}/{date_from}/{date_to}/{point_type}', 'API\EnvironmentSamehController@report');
 
 Route::post('/cd/corona/', 'API\CdController@addCorona');
 Route::put('/cd/corona/{id}', 'API\CdController@updateCorona');

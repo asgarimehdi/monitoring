@@ -43,22 +43,20 @@
                                               displayFormat="jYYYY/jMM/jDD"
                                 />
                             </div><!-- /.col -->
-                            </div>
-
-                            <div class="row">
 
 
-                                <div class="col-sm-3" >
+
+                                <div class="col-sm-2" >
                                     <select name="point_type"  v-model="point_type" id="point_type" class="form-control">
-                                        <option value="all" selected>شهری روستایی</option>
-                                        <option value="6">
-                                            پایگاه
+                                        <option value="all" selected>نوع مرکز</option>
+                                        <option value="2">
+                                            شهری
                                         </option>
-                                        <option value="5">
-                                            خانه
+                                        <option value="3">
+                                            روستایی
                                         </option>
-                                        <option value="12">
-                                            آبادی
+                                        <option value="4">
+                                            شهری روستایی
                                         </option>
                                     </select>
                                 </div><!-- /.col -->
@@ -74,7 +72,7 @@
 
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0">
+                    <div class="card-body table-responsive p-0" >
                         <table class="table table-hover">
                             <tbody>
                             <tr>
@@ -157,7 +155,7 @@
                 } else {
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
-                axios.get("/api/environment/report/sameh/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type/ +'/?page=' + page)
+                axios.get("/api/environment/sameh/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type/ +'/?page=' + page)
                     .then(response => {
                         this.values = response.data;
                     });
@@ -174,7 +172,7 @@
                     this.user_county = this.$gate.user.region_point.region_center.county_id;
                 }
                 this.$Progress.start();
-                axios.get("/api/environment/report/sameh/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type).then(({data}) => (this.values = data)).then(() => {
+                axios.get("/api/environment/sameh/report/"+ this.user_county+ "/" + this.date_from + "/" + this.date_to+ "/" + this.point_type).then(({data}) => (this.values = data)).then(() => {
                     this.$Progress.finish();
                 }).catch(() => {
                     this.$Progress.fail();
