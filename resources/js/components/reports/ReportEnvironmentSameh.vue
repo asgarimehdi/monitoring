@@ -1,7 +1,7 @@
 <template>
     <!-- /.content-header -->
     <div class="container-fluid">
-        <div class="row" v-if="$gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz()|| $gate.isRiasat()">
+        <div class="row" v-if="$gate.isAdmin()|| $gate.isEnvironment()|| $gate.isRiasat()">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -72,7 +72,7 @@
 
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body table-responsive p-0" >
+                    <div class="card-body table-responsive p-0 col-md-4" >
                         <table class="table table-hover">
                             <tbody>
                             <tr>
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div v-if="!($gate.isAdmin()|| $gate.isEnvironment()|| $gate.isBehvarz()|| $gate.isRiasat())">
+        <div v-if="!($gate.isAdmin()|| $gate.isEnvironment()|| $gate.isRiasat())">
             <not-found></not-found>
         </div>
     </div>

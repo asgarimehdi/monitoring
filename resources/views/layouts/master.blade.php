@@ -391,7 +391,7 @@
                                         </a>
                                     </li>
                                 @endcanany
-                                @canany(['isEnvironment','isAdmin','isRiasat','isBehvarz'])
+                                @canany(['isEnvironment','isAdmin','isRiasat'])
                                     <li class="nav-item">
                                         <a href="\report\environment\sameh"
                                            class="nav-link {{ (request()->is('report/environment/sameh')) ? 'active' : '' }}">
